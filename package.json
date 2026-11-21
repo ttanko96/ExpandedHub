@@ -14,8 +14,9 @@
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "test": "vitest run",
     "icon": "electron scripts/make-icon.cjs",
-    "dist": "npm run build && electron-builder --win",
-    "dist:dir": "npm run build && electron-builder --win --dir"
+    "dist": "npm run build && electron-builder --win && node scripts/zip-setup.cjs",
+    "dist:dir": "npm run build && electron-builder --win --dir",
+    "zip-setup": "node scripts/zip-setup.cjs"
   },
   "dependencies": {
     "semver": "^7.6.3",
@@ -65,7 +66,8 @@
         "from": "registry",
         "to": "registry",
         "filter": [
-          "**/*"
+          "**/*",
+          "!projects/_*"
         ]
       }
     ],
@@ -74,12 +76,6 @@
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "zip",
           "arch": [
             "x64"
           ]
