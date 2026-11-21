@@ -5,7 +5,8 @@ installs, updates and launches the projects for you, and keeps the hub itself up
 
 ## Installation
 
-**Requirements:** Windows 10 or 11 (64-bit) and an internet connection.
+**Requirements:** Windows 10 or 11 (64-bit) and an internet connection. ExpandedHub runs only
+on Windows for now; macOS and Linux are not supported yet.
 The hub does not ship any game data: projects that need Tekken 3 use your own disc image or ROM set.
 
 1. Open the [latest release](https://github.com/ttanko96/ExpandedHub/releases/latest) and
