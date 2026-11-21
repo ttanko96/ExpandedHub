@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "openkumite",
+  "name": "OpenKumite",
+  "tagline": "Open-source 3D fighting game engine that plays your converted Tekken 3",
+  "description": "An open-source fighting game engine written in Rust that plays game data converted from your own Tekken 3 PS1 disc, 1:1 as the original, with local versus and online rollback netplay. It converts the disc itself: start it and choose your disc image on its Game data screen (Tekken 2 and Counter-Strike levels optional). It contains no game data.",
+  "developer": { "name": "openkumite", "url": "https://github.com/openkumite" },
+  "repository": { "provider": "github", "owner": "openkumite", "name": "openkumite" },
+  "homepage": "https://openkumite.github.io/openkumite/",
+  "labels": [
+    { "text": "TEKKEN 3", "kind": "game", "hint": "Your own PS1 disc image, chosen in OpenKumite's Game data screen" },
+    { "text": "TEKKEN 2", "kind": "optional", "hint": "PS1 disc image" },
+    { "text": "NETPLAY", "kind": "info" },
+    { "text": "OPENKUMITE", "kind": "info" }
+  ],
+  "artwork": { "accent": "#7c3aed", "monogram": "OK" },
+  "order": 45,
+  "howToPlay": [
+    {"title": "Click Install", "detail": "OpenKumite is downloaded; nothing is built."},
+    {"title": "Click Play", "detail": "OpenKumite starts."},
+    {"title": "Choose your Tekken 3 disc in OpenKumite", "detail": "On its Game data screen, select your Tekken 3 PS1 disc image the first time. It converts the disc itself; Tekken 2 is optional."}
+  ],
+  "install": {
+    "strategy": "release-asset",
+    "supportedPlatforms": ["win32"],
+    "steps": [
+      {
+        "type": "download",
+        "from": "asset",
+        "assetPattern": { "win32": "-windows-amd64\\.zip$" },
+        "checksumAsset": "^SHA256SUMS$"
+      },
+      { "type": "extract" },
+      { "type": "locateOutput", "patterns": ["openkumite.exe"], "required": true },
+      { "type": "finalize" }
+    ],
+    "output": { "executable": { "win32": "openkumite.exe" } }
+  }
+}

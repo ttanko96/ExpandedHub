@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "id": "tekken3-expanded",
+  "name": "Tekken 3 Expanded",
+  "tagline": "Tekken Tag Tournament and Tekken 5 DR content inside Tekken 3",
+  "description": "Brings the 18 Tekken Tag Tournament characters, TTT movesets and models for Tekken 3's cast, TTT and Tekken 3 arcade stages with their music, TTT endings in-engine and Jin's Tekken 5 DR moveset into Tekken 3. Built on your machine from your own discs and ROMs.",
+  "developer": {
+    "name": "omarma",
+    "url": "https://github.com/omarma"
+  },
+  "repository": {
+    "provider": "github",
+    "owner": "omarma",
+    "name": "tekken3-expanded"
+  },
+  "labels": [
+    {
+      "text": "TEKKEN 3",
+      "kind": "game",
+      "hint": "PS1 disc image (required)"
+    },
+    {
+      "text": "TEKKEN TAG TOURNAMENT",
+      "kind": "game",
+      "hint": "Arcade ROM tektagt.zip (required)"
+    },
+    {
+      "text": "TEKKEN 3 ARCADE",
+      "kind": "optional",
+      "hint": "tekken3.zip — arcade stages and HD portraits"
+    },
+    {
+      "text": "TEKKEN TAG TOURNAMENT PS2",
+      "kind": "optional",
+      "hint": "PS2 music, effects and cinematics music"
+    },
+    {
+      "text": "TEKKEN 5 DARK RESURRECTION",
+      "kind": "optional",
+      "hint": "PSP disc — experimental Tekken 5 DR content"
+    },
+    {
+      "text": "MAME ROMS",
+      "kind": "platform"
+    },
+    {
+      "text": "PPSSPP",
+      "kind": "platform",
+      "hint": "Only needed for the Tekken 5 DR add-on — choose its folder in the install dialog"
+    },
+    {
+      "text": "PYTHON 3.10–3.15",
+      "kind": "platform"
+    }
+  ],
+  "artwork": {
+    "accent": "#3b82f6",
+    "monogram": "T3E"
+  },
+  "order": 10,
+  "howToPlay": [
+    {"title": "Choose your games", "detail": "Under Your game files, select your Tekken 3 PS1 disc and the Tekken Tag Tournament arcade ROM (tektagt.zip). Tekken 3 arcade, TTT PS2 and Tekken 5 DR are optional extras."},
+    {"title": "Click Install", "detail": "Allow the build when asked. If Python is not on your PC, the hub downloads it first. The game is then built from your files, which takes a while."},
+    {"title": "Click Play", "detail": "Tekken 3 Expanded starts. Add-ons such as TMST are played from here too."},
+    {"title": "Changed your game files later?", "detail": "Click Build again so the game picks them up."}
+  ],
+  "install": {
+    "strategy": "script",
+    "supportedPlatforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "tools": [
+      {
+        "id": "python",
+        "name": "Python 3.10–3.15",
+        "detect": "py -3 --version",
+        "minVersion": "3.10",
+        "url": "https://www.python.org/downloads/",
+        "pick": {
+          "kind": "file",
+          "markers": [
+            "python.exe"
+          ],
+          "hint": "python.exe of a Python 3.10 or newer"
+        },
+        "provision": {
+          "version": "3.13.17",
+          "win32": {
+            "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.17/python.3.13.17.nupkg",
+            "sha512": "0e667928bb4f19573c6cd88f65133b2e07b243a5c716f335b56aa66bb9ec6f82328256d22c3a29e23a0276ac5c6a6d786211feab524890ad1e56629196c6b29c",
+            "size": 14826465,
+            "executable": "tools/python.exe"
+          }
+        }
+      },
+      {
+        "id": "ppsspp",
+        "name": "PPSSPP",
+        "optional": true,
+        "url": "https://www.ppsspp.org/download/",
+        "pick": {
+          "kind": "folder",
+          "markers": [
+            "PPSSPPWindows64.exe",
+            "PPSSPPWindows.exe"
+          ],
+          "hint": "the folder of PPSSPPWindows64.exe (installed or portable)"
+        },
+        "platforms": [
+          "win32"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "gameId": "tekken3-ps1",
+        "required": true,
+        "purpose": "Base game"
+      },
+      {
+        "gameId": "ttt-arcade",
+        "required": true,
+        "purpose": "TTT characters, stages and music"
+      },
+      {
+        "gameId": "tekken3-arcade",
+        "required": false,
+        "purpose": "Arcade stages, HD portraits, arcade difficulty"
+      },
+      {
+        "gameId": "ttt-ps2",
+        "required": false,
+        "purpose": "PS2 music, PS2 effects, TTT Cinematics music"
+      },
+      {
+        "gameId": "t5dr-psp",
+        "required": false,
+        "purpose": "Tekken 5 DR content (experimental)"
+      }
+    ],
+    "steps": [
+      {
+        "type": "download",
+        "from": "asset",
+        "assetPattern": {
+          "win32": "-windows\\.zip$",
+          "darwin": "-macos\\.zip$",
+          "linux": "-linux\\.zip$"
+        }
+      },
+      {
+        "type": "extract"
+      },
+      {
+        "type": "checkTools"
+      },
+      {
+        "type": "checkSources"
+      },
+      {
+        "type": "pythonVenv",
+        "path": ".setup/venv",
+        "versions": [
+          "3.13",
+          "3.12",
+          "3.14",
+          "3.11",
+          "3.10",
+          "3.15"
+        ],
+        "minVersion": "3.10",
+        "maxVersion": "3.15",
+        "check": "import PIL, numpy",
+        "requirements": [
+          "tools/requirements-pip.txt",
+          "tools/requirements-import.txt"
+        ],
+        "pipArgs": [
+          "--require-hashes",
+          "--only-binary=:all:"
+        ]
+      },
+      {
+        "type": "run",
+        "label": "Building Tekken 3 Expanded from your games",
+        "command": {
+          "win32": ".setup/venv/Scripts/python.exe",
+          "darwin": ".setup/venv/bin/python",
+          "linux": ".setup/venv/bin/python"
+        },
+        "args": [
+          "-I",
+          "launcher/setup_backend.py",
+          "--disc",
+          "${source:tekken3-ps1}",
+          {
+            "when": [
+              "ttt-arcade"
+            ],
+            "args": [
+              "--ttt1",
+              "${source:ttt-arcade}",
+              "--ttt-cinematics"
+            ]
+          },
+          {
+            "unless": [
+              "ttt-arcade"
+            ],
+            "args": [
+              "--no-ttt1"
+            ]
+          },
+          {
+            "when": [
+              "tekken3-arcade"
+            ],
+            "args": [
+              "--tekken3",
+              "${source:tekken3-arcade}"
+            ]
+          },
+          {
+            "when": [
+              "ttt-ps2"
+            ],
+            "args": [
+              "--ttt-disc",
+              "${source:ttt-ps2}"
+            ]
+          },
+          {
+            "when": [
+              "t5dr-psp"
+            ],
+            "args": [
+              "--dr-iso",
+              "${source:t5dr-psp}"
+            ]
+          },
+          {
+            "when": [
+              "t5dr-psp",
+              "tool:ppsspp"
+            ],
+            "args": [
+              "--ppsspp",
+              "${tool:ppsspp}"
+            ]
+          }
+        ],
+        "progress": "json-events",
+        "requiresConsent": true
+      },
+      {
+        "type": "locateOutput",
+        "patterns": [
+          "build-release/Tekken_3_Expanded.exe"
+        ],
+        "required": true
+      },
+      {
+        "type": "finalize"
+      }
+    ],
+    "output": {
+      "executable": {
+        "win32": "Tekken 3 Expanded.exe"
+      }
+    }
+  }
+}

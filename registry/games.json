@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "games": [
+    {
+      "id": "tekken3-ps1",
+      "name": "Tekken 3",
+      "platform": "PlayStation",
+      "region": "USA (SLUS-00402)",
+      "extensions": ["cue", "bin", "iso", "chd"],
+      "knownHashes": [
+        { "algorithm": "sha1", "value": "68f32a8657376cb4d4504c160fd5e8ae4a4f18d6", "label": "Redump Tekken 3 (USA), Track 1" }
+      ]
+    },
+    {
+      "id": "tekken3-arcade",
+      "name": "Tekken 3 Arcade",
+      "platform": "Arcade (MAME set tekken3)",
+      "region": "World (TET2/VER.E1)",
+      "extensions": ["zip"],
+      "knownHashes": [
+        { "algorithm": "sha1", "value": "3a5638c6ad40bfde6e12fdfd6d469f6ea5e9f4fb", "label": "tet2vere1.2e", "revision": "World TET2/VER.E1" },
+        { "algorithm": "sha1", "value": "554d1e42886d6a6c9c5857e9cbd5d7c37d7a6e67", "label": "tet2vere1.2j", "revision": "World TET2/VER.E1" }
+      ]
+    },
+    {
+      "id": "tekken3-arcade-tet1",
+      "name": "Tekken 3 Arcade (TET1)",
+      "platform": "Arcade (Namco System 12)",
+      "region": "Japan (TET1/VER.E)",
+      "extensions": ["zip"],
+      "knownHashes": [
+        { "algorithm": "sha1", "value": "45fdfd58293641ed16bc59c633a85a9cf64ccbaf", "label": "tet1vere.2e", "revision": "Japan TET1/VER.E" },
+        { "algorithm": "sha1", "value": "2e223045bf5b80ccf615106e869760c5b7aa8d44", "label": "tet1vere.2j", "revision": "Japan TET1/VER.E" }
+      ]
+    },
+    {
+      "id": "ttt-arcade",
+      "name": "Tekken Tag Tournament Arcade",
+      "platform": "Arcade (MAME set tektagt)",
+      "region": "World / US / Japan (VER.C1, US VER.B)",
+      "extensions": ["zip"],
+      "knownHashes": [
+        { "algorithm": "sha1", "value": "9e01ae64710d85eb9899d6fa6fd0a2152aee8c11", "label": "World VER.C1 (teg2verc1.2e)" },
+        { "algorithm": "sha1", "value": "529a11a1bbb8655534d7ec371f1c09e9e387ed11", "label": "World VER.C1 (teg2verc1.2j)" },
+        { "algorithm": "sha1", "value": "0623bb6571caf046ff7b4f83f11ee84a92c4b462", "label": "US VER.C1 (teg3verc1.2l)" },
+        { "algorithm": "sha1", "value": "5c56d69ba2f723d0a4fbe4902196efc6ba9d5094", "label": "US VER.C1 (teg3verc1.2p)" },
+        { "algorithm": "sha1", "value": "c1b61df8e79348424f4bd2660ab5179ef21bdb07", "label": "US VER.B (teg3verb.2l)" },
+        { "algorithm": "sha1", "value": "af464caa03fdd12024ad482e9c853a36510bfba7", "label": "US VER.B (teg3verb.2p)" },
+        { "algorithm": "sha1", "value": "e18458efb0f9b341970132b512d2e5104a942c6e", "label": "Japan VER.C1 (teg1verc1.2e)" },
+        { "algorithm": "sha1", "value": "e15f4c8cc4309ebb90d8d015b1f17f75ce5c8879", "label": "Japan VER.C1 (teg1verc1.2j)" }
+      ]
+    },
+    {
+      "id": "ttt-ps2",
+      "name": "Tekken Tag Tournament",
+      "platform": "PlayStation 2",
+      "region": "USA (SLUS-20001)",
+      "extensions": ["cue", "bin", "iso"]
+    },
+    {
+      "id": "t5dr-psp",
+      "name": "Tekken: Dark Resurrection",
+      "platform": "PSP",
+      "region": "USA (ULUS-10139)",
+      "extensions": ["iso"]
+    },
+    {
+      "id": "tekken2-ps1",
+      "name": "Tekken 2",
+      "platform": "PlayStation",
+      "extensions": ["cue", "bin", "chd"]
+    },
+    {
+      "id": "tekken1-ps1",
+      "name": "Tekken 1",
+      "platform": "PlayStation",
+      "region": "USA (SLUS-00006), Europe (SCES-00005) or Japan (SLPS-00040)",
+      "extensions": ["cue", "bin", "chd"]
+    }
+  ]
+}

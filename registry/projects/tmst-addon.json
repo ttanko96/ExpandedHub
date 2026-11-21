@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "tmst-addon",
+  "name": "TMST Add-on",
+  "tagline": "Jukebox, Photo Mode, Tournament Mode and more for Tekken 3 Expanded",
+  "description": "An add-on for Tekken 3 Expanded: Jukebox, Photo Mode, Tournament Mode, VS Mode+, Tekken 2 and Tekken 1 content — music and stages from your own Tekken 2 and Tekken 1 discs. The hub installs it into Tekken 3 Expanded and builds the game again with it; play it from Tekken 3 Expanded.",
+  "developer": {
+    "name": "TMST",
+    "url": "https://github.com/ttanko96"
+  },
+  "repository": {
+    "provider": "github",
+    "owner": "ttanko96",
+    "name": "t3-expanded-addons"
+  },
+  "labels": [
+    {
+      "text": "TEKKEN 3 EXPANDED",
+      "kind": "platform",
+      "hint": "Installed into Tekken 3 Expanded's addons folder"
+    },
+    {
+      "text": "TEKKEN 2",
+      "kind": "optional",
+      "hint": "PS1 disc for Tekken 2 music and stages"
+    },
+    {
+      "text": "TEKKEN 1",
+      "kind": "optional",
+      "hint": "PS1 disc for Tekken 1 music and stages"
+    },
+    {
+      "text": "ADD-ON",
+      "kind": "info"
+    }
+  ],
+  "artwork": {
+    "accent": "#c8102e",
+    "monogram": "TMST"
+  },
+  "order": 20,
+  "howToPlay": [
+    {"title": "Install Tekken 3 Expanded first", "detail": "TMST is an add-on: it goes inside Tekken 3 Expanded.", "project": "tekken3-expanded"},
+    {"title": "Choose your Tekken 2 and Tekken 1 discs (optional)", "detail": "Under Your game files: Tekken 2 for its music and stages, Tekken 1 (USA, Europe or Japan) for its music and stages."},
+    {"title": "Click Install", "detail": "Allow the scripts when asked. TMST is added and Tekken 3 Expanded is built again with it, so this takes a while."},
+    {"title": "Play from Tekken 3 Expanded", "detail": "Open Tekken 3 Expanded and click Play. Jukebox, Photo Mode, Tournament Mode and VS Mode+ are in its menus.", "project": "tekken3-expanded"},
+    {"title": "Uninstalled TMST?", "detail": "Click Build again on Tekken 3 Expanded to take it out of the game.", "project": "tekken3-expanded"}
+  ],
+  "install": {
+    "strategy": "script",
+    "supportedPlatforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "dependsOn": [
+      "tekken3-expanded"
+    ],
+    "installInto": {
+      "project": "tekken3-expanded",
+      "subdir": "addons/tmst"
+    },
+    "screenshots": { "folder": "screenshots", "title": "Photo Gallery" },
+    "detect": {
+      "markers": ["addon.cmake", "setup/tmst_setup.py"],
+      "version": [{ "file": "addon.cmake", "pattern": "set\\(TMST_VERSION \"([^\"]+)\"\\)" }]
+    },
+    "sources": [
+      {
+        "gameId": "tekken2-ps1",
+        "required": false,
+        "purpose": "Tekken 2 music and stages"
+      },
+      {
+        "gameId": "tekken1-ps1",
+        "required": false,
+        "purpose": "Tekken 1 music and stages"
+      }
+    ],
+    "steps": [
+      {
+        "type": "download",
+        "from": "asset",
+        "assetPattern": {
+          "win32": "-windows\\.zip$",
+          "darwin": "-macos\\.zip$",
+          "linux": "-linux\\.zip$"
+        }
+      },
+      {
+        "type": "extract"
+      },
+      {
+        "type": "checkSources"
+      },
+      {
+        "type": "run",
+        "label": "Preparing TMST (music, stages, portraits)",
+        "base": "host",
+        "command": {
+          "win32": ".setup/venv/Scripts/python.exe",
+          "darwin": ".setup/venv/bin/python",
+          "linux": ".setup/venv/bin/python"
+        },
+        "args": [
+          "-u",
+          "setup/tmst_setup.py",
+          "--no-build",
+          {
+            "when": [
+              "tekken2-ps1"
+            ],
+            "args": [
+              "--t2-disc",
+              "${source:tekken2-ps1}"
+            ]
+          },
+          {
+            "unless": [
+              "tekken2-ps1"
+            ],
+            "args": [
+              "--no-t2-disc"
+            ]
+          },
+          {
+            "when": [
+              "tekken1-ps1"
+            ],
+            "args": [
+              "--t1-disc",
+              "${source:tekken1-ps1}"
+            ]
+          },
+          {
+            "unless": [
+              "tekken1-ps1"
+            ],
+            "args": [
+              "--no-t1-disc"
+            ]
+          }
+        ],
+        "progress": {
+          "patterns": [
+            {
+              "match": "^TMST step (\\d+)/(\\d+): (\\w+)",
+              "message": "Preparing the add-on (step $1 of $2)",
+              "detail": "$3"
+            },
+            {
+              "match": "^TMST setup: (.+)",
+              "detail": "$1"
+            }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "buildHost"
+      },
+      {
+        "type": "finalize"
+      }
+    ]
+  }
+}

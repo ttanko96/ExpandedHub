@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "tekken3-recompiled",
+  "name": "Tekken3Recompiled",
+  "tagline": "Native PC recompilation of Tekken 3",
+  "description": "A static recompilation of the PlayStation version of Tekken 3 into a native application for Windows, macOS, Linux and Android. The hub builds it from your own Tekken 3 USA disc (first build takes several minutes and needs 4 GB free); Jun Kazama is added when both arcade sets are configured. Its launcher manages mods, controllers and memory cards.",
+  "developer": { "name": "FishB0nes98", "url": "https://github.com/FishB0nes98" },
+  "repository": { "provider": "github", "owner": "FishB0nes98", "name": "Tekken3Recompiled", "includePrereleases": true },
+  "labels": [
+    { "text": "TEKKEN 3", "kind": "game", "hint": "Your own Tekken 3 USA (SLUS-00402) disc image" },
+    { "text": "WINDOWS", "kind": "info" }
+  ],
+  "artwork": { "accent": "#f59e0b", "monogram": "T3R" },
+  "order": 30,
+  "howToPlay": [
+    {"title": "Choose your Tekken 3 disc", "detail": "Under Your game files, select your Tekken 3 USA disc image (SLUS-00402). Add both arcade sets too if you want Jun Kazama."},
+    {"title": "Click Install", "detail": "The game is built from your disc. The first build takes several minutes and needs about 4 GB free."},
+    {"title": "Click Play", "detail": "The game's launcher opens. Set up controllers, memory cards and mods there, then start the game."}
+  ],
+  "install": {
+    "strategy": "release-asset",
+    "supportedPlatforms": ["win32"],
+    "sources": [
+      { "gameId": "tekken3-ps1", "required": true, "purpose": "The game is recompiled from this disc" },
+      { "gameId": "ttt-arcade", "required": false, "purpose": "Jun Kazama (needs both arcade sets)" },
+      { "gameId": "tekken3-arcade", "required": false, "purpose": "Jun Kazama (needs both arcade sets)" }
+    ],
+    "steps": [
+      {
+        "type": "download",
+        "from": "asset",
+        "assetPattern": { "win32": "-easy-setup\\.zip$" },
+        "checksumAsset": "^SHA256SUMS\\.txt$"
+      },
+      { "type": "extract" },
+      { "type": "checkSources" },
+      {
+        "type": "run",
+        "label": "Building Tekken 3 from your disc",
+        "command": { "win32": ".runtime/python/python.exe" },
+        "args": [
+          "-I",
+          "launcher/setup_backend.py",
+          "--disc",
+          "${source:tekken3-ps1}",
+          { "when": ["ttt-arcade", "tekken3-arcade"], "args": ["--ttt1", "${source:ttt-arcade}", "--t3-arcade", "${source:tekken3-arcade}"] },
+          { "unless": ["ttt-arcade", "tekken3-arcade"], "args": ["--no-jun"] }
+        ],
+        "progress": "json-events",
+        "requiresConsent": true
+      },
+      { "type": "locateOutput", "patterns": ["build-release/Tekken_3_Recompiled.exe"], "required": true },
+      { "type": "finalize" }
+    ],
+    "output": { "executable": { "win32": "Play Tekken 3.exe" } }
+  }
+}

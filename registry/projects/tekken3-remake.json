@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "id": "tekken3-remake",
+  "name": "Tekken 3 Remake",
+  "tagline": "A full remake of Tekken 3 in the Godot engine",
+  "description": "A remake of the PlayStation Tekken 3 in Godot 4.7, with every mode, character and unlock, checked frame by frame against the original, plus modern graphics, texture packs and controller support. The hub converts your own disc image with the remake's converter (a few minutes), lets Godot import the result once, and Play runs it with your Godot 4.7. Your Tekken 3 arcade set optionally adds the arcade's stages, fighter models and fight music.",
+  "developer": { "name": "n0madic", "url": "https://github.com/n0madic" },
+  "repository": { "provider": "github", "owner": "n0madic", "name": "Tekken3Remake" },
+  "labels": [
+    { "text": "TEKKEN 3", "kind": "game", "hint": "Japan (Rev 1 or original) or USA disc image: .cue with its tracks, a data track or .iso (no music and movies)" },
+    { "text": "TEKKEN 3 ARCADE", "kind": "optional", "hint": "MAME tekken3 set (World ver. E1): arcade stages, fighter models and fight music" },
+    { "text": "GODOT 4.7", "kind": "platform", "hint": "The standard build, not .NET" },
+    { "text": "PYTHON 3.10–3.14", "kind": "platform" }
+  ],
+  "artwork": { "accent": "#ec4899", "monogram": "T3RM" },
+  "order": 70,
+  "howToPlay": [
+    {"title": "Choose your Tekken 3 disc", "detail": "Under Your game files, select your Tekken 3 disc image (Japan Rev 1, original Japan or USA). Your Tekken 3 arcade set adds the arcade stages and music."},
+    {"title": "Click Install", "detail": "Allow the scripts when asked. Python, Godot 4.7 and FFmpeg are downloaded first if they are not on your PC. Your disc is then converted and the game is prepared once, which takes a few minutes."},
+    {"title": "Click Play", "detail": "The remake starts in Godot."}
+  ],
+  "install": {
+    "strategy": "source-build",
+    "supportedPlatforms": ["win32"],
+    "tools": [
+      {
+        "id": "python",
+        "name": "Python 3.10–3.14",
+        "detect": "py -3 --version",
+        "minVersion": "3.10",
+        "url": "https://www.python.org/downloads/",
+        "pick": {
+          "kind": "file",
+          "markers": [
+            "python.exe"
+          ],
+          "hint": "python.exe of a Python 3.10 or newer"
+        },
+        "provision": {
+          "version": "3.13.17",
+          "win32": {
+            "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.17/python.3.13.17.nupkg",
+            "sha512": "0e667928bb4f19573c6cd88f65133b2e07b243a5c716f335b56aa66bb9ec6f82328256d22c3a29e23a0276ac5c6a6d786211feab524890ad1e56629196c6b29c",
+            "size": 14826465,
+            "executable": "tools/python.exe"
+          }
+        }
+      },
+      {
+        "id": "godot",
+        "name": "Godot 4.7 (standard, not .NET)",
+        "detect": "godot --version",
+        "minVersion": "4.7",
+        "url": "https://godotengine.org/download/windows/",
+        "pick": {
+          "kind": "file",
+          "markers": [],
+          "hint": "Godot_v4.7-stable_win64.exe (unzipped, anywhere)"
+        },
+        "provision": {
+          "version": "4.7-stable",
+          "win32": {
+            "url": "https://github.com/godotengine/godot-builds/releases/download/4.7-stable/Godot_v4.7-stable_win64.exe.zip",
+            "sha512": "41645a908eb3181d6f2d1201ed7b6d6f095f6a23aaed8903d5d255277cc8d142814f3e6817f865b3cac142c39b8aff99280091d3bbdaa301517730b3ba0522b9",
+            "size": 83764371,
+            "executable": "Godot_v4.7-stable_win64.exe"
+          }
+        }
+      },
+      {
+        "id": "ffmpeg",
+        "name": "FFmpeg (the disc's music and movies)",
+        "detect": "ffmpeg -version",
+        "url": "https://www.gyan.dev/ffmpeg/builds/",
+        "pick": {
+          "kind": "file",
+          "markers": ["ffmpeg.exe"],
+          "hint": "ffmpeg.exe (with the Vorbis and Theora encoders, e.g. a gyan.dev build)"
+        },
+        "provision": {
+          "version": "9.0.2",
+          "win32": {
+            "url": "https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-essentials_build.zip",
+            "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
+            "size": 114768076,
+            "executable": "bin/ffmpeg.exe"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "gameId": "tekken3-ps1",
+        "required": true,
+        "purpose": "Everything the remake plays is converted from this disc (Japan Rev 1, original Japan or USA; a .chd needs MAME's chdman)"
+      },
+      {
+        "gameId": "tekken3-arcade",
+        "required": false,
+        "purpose": "The arcade's stage scenes, fighter models, effects and fight music"
+      }
+    ],
+    "steps": [
+      { "type": "download", "from": "source" },
+      { "type": "extract" },
+      { "type": "checkTools" },
+      { "type": "checkSources" },
+      {
+        "type": "pythonVenv",
+        "path": ".setup/venv",
+        "versions": ["3.13", "3.12", "3.14", "3.11", "3.10"],
+        "minVersion": "3.10",
+        "maxVersion": "3.14",
+        "check": "import numpy, PIL",
+        "packages": ["numpy", "pillow"],
+        "pipArgs": ["--only-binary=:all:"]
+      },
+      {
+        "type": "run",
+        "label": "Converting your Tekken 3 disc (a few minutes)",
+        "command": { "win32": ".setup/venv/Scripts/python.exe" },
+        "args": [
+          "-u",
+          "tools/remake_import/convert.py",
+          "--image",
+          "${source:tekken3-ps1}",
+          { "when": ["tekken3-arcade"], "args": ["--arcade", "${source:tekken3-arcade}"] },
+          { "when": ["tool:ffmpeg"], "args": ["--ffmpeg", "${tool:ffmpeg}"] }
+        ],
+        "progress": {
+          "patterns": [
+            { "match": "^(.+)$", "detail": "$1" }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "run",
+        "label": "Importing the converted assets into Godot (once, a few minutes)",
+        "base": "tool",
+        "command": { "win32": "godot" },
+        "args": ["--headless", "--path", "remake", "--import"],
+        "progress": {
+          "patterns": [
+            { "match": "^\\[\\s*(\\d+)%\\s*\\]\\s*(.+)$", "detail": "$1% — $2", "percent": "$1", "log": false },
+            { "match": "^(.+)$", "detail": "$1" }
+          ]
+        },
+        "requiresConsent": true
+      },
+      { "type": "locateOutput", "patterns": ["remake/imported/manifest.json"], "required": true },
+      { "type": "finalize" }
+    ],
+    "output": {
+      "launch": { "tool": "godot", "args": ["--path", "remake"] }
+    }
+  }
+}

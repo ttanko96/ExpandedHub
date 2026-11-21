@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "id": "driftengine-tekken3",
+  "name": "Tekken 3 on DriftEngine",
+  "tagline": "Tekken 3 rebuilt as a modern browser game",
+  "description": "An unofficial Tekken 3 remake on DriftEngine. Fighters, moves, stages, music, voices and movies are read from your own Tekken 3 disc image and played in the browser at your display's resolution. The hub installs it with Node.js and converts your disc (a few minutes); Play starts the game's server in the background and opens the game in your browser; Stop (or closing the hub) ends it. A Tekken 3 arcade board dump optionally adds the arcade stages and models.",
+  "developer": {
+    "name": "Emulator000",
+    "url": "https://github.com/Emulator000"
+  },
+  "repository": {
+    "provider": "github",
+    "owner": "Emulator000",
+    "name": "driftengine-tekken3"
+  },
+  "labels": [
+    {
+      "text": "TEKKEN 3",
+      "kind": "game",
+      "hint": "USA disc image (SLUS-00402), as a .cue with its .bin files"
+    },
+    {
+      "text": "TEKKEN 3 ARCADE (TET1)",
+      "kind": "optional",
+      "hint": "Arcade stages and fighter models from your own board dump: the Japan TET1/VER.E revision (program ROMs tet1vere.2e and .2j), not the World TET2 set"
+    },
+    {
+      "text": "NODE.JS 22.12+",
+      "kind": "platform"
+    },
+    {
+      "text": "WEBGPU BROWSER",
+      "kind": "platform",
+      "hint": "Chrome or Edge; WebGL2 fallback"
+    }
+  ],
+  "artwork": {
+    "accent": "#14b8a6",
+    "monogram": "DE3"
+  },
+  "order": 35,
+  "howToPlay": [
+    {"title": "Choose your Tekken 3 disc", "detail": "Under Your game files, select your Tekken 3 USA disc as a .cue with its .bin files. A Tekken 3 arcade dump of the Japan TET1/VER.E revision, under Tekken 3 Arcade (TET1), adds the arcade stages and models."},
+    {"title": "Click Install", "detail": "Allow the scripts when asked. Node.js and FFmpeg (for the movies) are downloaded first if they are not on your PC. Your disc is then converted, which takes a few minutes."},
+    {"title": "Click Play", "detail": "The game opens in your browser (Chrome or Edge). Keep the hub open while you play; Stop or closing the hub ends the game."}
+  ],
+  "install": {
+    "strategy": "source-build",
+    "supportedPlatforms": [
+      "win32"
+    ],
+    "tools": [
+      {
+        "id": "node",
+        "name": "Node.js 22.12 or newer",
+        "detect": "node --version",
+        "minVersion": "22.12",
+        "url": "https://nodejs.org/",
+        "pick": {
+          "kind": "file",
+          "markers": [
+            "node.exe"
+          ],
+          "hint": "node.exe of Node.js 22.12 or newer"
+        },
+        "provision": {
+          "version": "22.23.5",
+          "win32": {
+            "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-win-x64.zip",
+            "sha256": "4a191082e9706866830379d577d2cc8a50c776fcd9436a8d061b063ed0d9a0e3",
+            "size": 35630346,
+            "executable": "node.exe"
+          }
+        }
+      },
+      {
+        "id": "ffmpeg",
+        "name": "FFmpeg (the disc's movies)",
+        "detect": "ffmpeg -version",
+        "optional": true,
+        "url": "https://www.gyan.dev/ffmpeg/builds/",
+        "pick": {
+          "kind": "file",
+          "markers": [
+            "ffmpeg.exe"
+          ],
+          "hint": "ffmpeg.exe (with the Vorbis and Theora encoders, e.g. a gyan.dev build)"
+        },
+        "provision": {
+          "version": "9.0.2",
+          "win32": {
+            "url": "https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-essentials_build.zip",
+            "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
+            "size": 114768076,
+            "executable": "bin/ffmpeg.exe"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "gameId": "tekken3-ps1",
+        "required": true,
+        "purpose": "Everything the game plays is read from this disc (a .cue with its .bin files; .chd is not read)"
+      },
+      {
+        "gameId": "tekken3-arcade-tet1",
+        "required": false,
+        "purpose": "Arcade stages and fighter models, from a dump of your own board (the Japan TET1/VER.E revision, the only one DriftEngine reads)"
+      }
+    ],
+    "steps": [
+      {
+        "type": "download",
+        "from": "source"
+      },
+      {
+        "type": "extract"
+      },
+      {
+        "type": "checkTools"
+      },
+      {
+        "type": "checkSources"
+      },
+      {
+        "type": "run",
+        "label": "Installing DriftEngine and the game's packages",
+        "base": "path",
+        "command": {
+          "win32": "npm"
+        },
+        "args": [
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "progress": {
+          "patterns": [
+            {
+              "match": "^(added .+)$",
+              "detail": "$1"
+            }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "run",
+        "label": "Reading your Tekken 3 disc",
+        "base": "path",
+        "command": {
+          "win32": "node"
+        },
+        "args": [
+          "scripts/disc.mjs",
+          "${source:tekken3-ps1}"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "progress": {
+          "patterns": [
+            {
+              "match": "^(.+)$",
+              "detail": "$1"
+            }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "run",
+        "label": "Reading your Tekken 3 arcade dump",
+        "base": "path",
+        "command": {
+          "win32": "node"
+        },
+        "when": [
+          "tekken3-arcade-tet1"
+        ],
+        "args": [
+          "scripts/arcade.mjs",
+          "${sourceFolder:tekken3-arcade-tet1}"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "progress": {
+          "patterns": [
+            {
+              "match": "^(.+)$",
+              "detail": "$1"
+            }
+          ]
+        },
+        "optional": true,
+        "optionalNote": "Arcade stages and fighters were left out: DriftEngine reads only a Japan TET1/VER.E arcade dump, and the game uses the disc's.",
+        "requiresConsent": true
+      },
+      {
+        "type": "run",
+        "label": "Converting the disc's fighters, stages, music and movies",
+        "base": "path",
+        "command": {
+          "win32": "node"
+        },
+        "args": [
+          "scripts/extract.mjs"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "progress": {
+          "patterns": [
+            {
+              "match": "^(.+)$",
+              "detail": "$1"
+            }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "run",
+        "label": "Importing the remake's assets (a few minutes)",
+        "base": "path",
+        "command": {
+          "win32": "node"
+        },
+        "args": [
+          "scripts/import.mjs"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "progress": {
+          "patterns": [
+            {
+              "match": "^(.+)$",
+              "detail": "$1"
+            }
+          ]
+        },
+        "requiresConsent": true
+      },
+      {
+        "type": "locateOutput",
+        "patterns": [
+          "public/assets/manifest.json"
+        ],
+        "required": true
+      },
+      {
+        "type": "finalize"
+      }
+    ],
+    "extras": [
+      {
+        "id": "remaster",
+        "name": "Remaster",
+        "description": "Makes the assets REMASTER in the game's REMAKE OPTION draws with: enlarged textures with normal, roughness and height maps, new floors and each stage's sky, made on this PC by open models from your own converted disc. This is what the game means by \"RUN NPM RUN REMASTER FIRST\": once it is made, turn REMASTER on in the game.",
+        "needs": [
+          "About 25 GB of free disk space in the install folder",
+          "An NVIDIA graphics card makes it far faster (found by itself); without one it runs on the CPU for many hours",
+          "The Microsoft Visual C++ Redistributable (x64), which most PCs already have",
+          "Its tools and model weights (several GB) are downloaded by DriftEngine's script on the first run",
+          "It runs in the background at low priority; if it stops, making it again continues where it was"
+        ],
+        "tools": [
+          {
+            "id": "uv",
+            "name": "uv (the remaster's Python)",
+            "detect": "uv --version",
+            "url": "https://docs.astral.sh/uv/",
+            "pick": {
+              "kind": "file",
+              "markers": [
+                "uv.exe"
+              ],
+              "hint": "uv.exe"
+            },
+            "provision": {
+              "version": "0.13.8",
+              "win32": {
+                "url": "https://github.com/astral-sh/uv/releases/download/0.13.8/uv-x86_64-pc-windows-msvc.zip",
+                "sha256": "529e78a9cec6cd7e3e014f7ecd8bda0c113969d4ed0f2efeedb85c30943325b8",
+                "size": 15529884,
+                "executable": "uv.exe"
+              }
+            }
+          }
+        ],
+        "steps": [
+          {
+            "type": "run",
+            "label": "Making the remaster's assets (hours on many PCs)",
+            "base": "path",
+            "command": {
+              "win32": "node"
+            },
+            "args": [
+              "scripts/remaster.mjs"
+            ],
+            "env": {
+              "NODE_OPTIONS": "--experimental-strip-types",
+              "NODE_NO_WARNINGS": "1"
+            },
+            "progress": {
+              "patterns": [
+                {
+                  "match": "^\\[[\\d:]+\\] start (.+)$",
+                  "detail": "Making $1"
+                },
+                {
+                  "match": "^fetching (.+)$",
+                  "detail": "Downloading $1"
+                },
+                {
+                  "match": "^remaster: (.+)$",
+                  "detail": "$1"
+                },
+                {
+                  "match": "^(.+)$",
+                  "detail": "$1"
+                }
+              ]
+            },
+            "requiresConsent": true
+          }
+        ],
+        "done": [
+          "public/assets/remaster/manifest.json"
+        ],
+        "doneNote": "In the game: Options → REMAKE OPTION → REMASTER → ON. LOOK, BRIGHTNESS and FLOOR FADE are listed there once it is on."
+      }
+    ],
+    "output": {
+      "serve": {
+        "command": "npm",
+        "args": [
+          "run",
+          "dev"
+        ],
+        "env": {
+          "NODE_OPTIONS": "--experimental-strip-types",
+          "NODE_NO_WARNINGS": "1"
+        },
+        "url": "http://localhost:5190/",
+        "timeoutSeconds": 180
+      }
+    }
+  }
+}
