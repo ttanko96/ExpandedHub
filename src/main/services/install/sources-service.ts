@@ -6,6 +6,7 @@ import type { SourceConfig, SourceValidation } from '@shared/install'
 import type { GameDefinition } from '@shared/registry-schema'
 import { JsonStore } from '../json-store'
 import { paths } from '../paths'
+import { readDiscSerial } from './disc-id'
 import type { RegistryService } from '../registry-service'
 
 /**
@@ -127,17 +128,43 @@ export class SourcesService {
       }
       target = bin
     }
-    if (known.size === 0 || ext === 'chd' || ext === 'iso') {
-      return { verdict: 'unverified', message: 'Accepted (no reference hash for this format)', checkedAt: now() }
-    }
-    const sha = await sha1File(target)
-    return known.has(sha)
-      ? { verdict: 'verified', message: `Matches ${known.get(sha)}`, matched: known.get(sha), checkedAt: now() }
-      : {
+
+    // Which disc it is, by its serial number: any version or dump format (not a compressed .chd).
+    const serial = await readDiscSerial(target)
+    const own = serial ? game.serials.find((s) => s.value === serial) : undefined
+    if (serial && !own) {
+      const other = (await this.registry.get()).games.find((g) => g.id !== game.id && g.serials.some((s) => s.value === serial))
+      if (other) {
+        const region = other.serials.find((s) => s.value === serial)!.region
+        return {
           verdict: 'mismatch',
-          message: 'Not the expected dump. A single .bin holding every track, or another region, may still work — the project will tell.',
+          message: `This is the ${other.name} disc (${region}, ${serial}): select it under ${other.name} instead`,
+          belongsTo: other.id,
           checkedAt: now()
         }
+      }
+    }
+    const disc = own ? `${game.name} ${own.region} disc (${serial})` : null
+    // A serial the hub does not know for this game: another region or another game the projects do not name.
+    const unknownSerial =
+      serial && !own && game.serials.length
+        ? `Serial ${serial} is not a ${game.name} disc the hub knows (${game.serials.map((s) => `${s.region} ${s.value}`).join(', ')}): the project will tell whether it reads it.`
+        : null
+
+    if (known.size === 0 || ext === 'chd' || ext === 'iso') {
+      if (disc) return { verdict: 'identified', message: `${disc}, by its serial`, matched: disc, checkedAt: now() }
+      if (unknownSerial) return { verdict: 'mismatch', message: unknownSerial, checkedAt: now() }
+      return { verdict: 'unverified', message: serial ? `Disc ${serial} (no reference checksum to compare with)` : 'Accepted (no reference hash for this format)', checkedAt: now() }
+    }
+    const sha = await sha1File(target)
+    if (known.has(sha)) return { verdict: 'verified', message: `Matches ${known.get(sha)}`, matched: known.get(sha), checkedAt: now() }
+    return {
+      verdict: 'mismatch',
+      message:
+        unknownSerial ??
+        `${disc ? `${disc}, but not the dump the hub knows` : 'Not the expected dump'}. A single .bin holding every track, or another version, may still work — the project will tell.`,
+      checkedAt: now()
+    }
   }
 
   private async game(gameId: string): Promise<GameDefinition> {

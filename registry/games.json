@@ -7,6 +7,7 @@
       "platform": "PlayStation",
       "region": "USA (SLUS-00402)",
       "extensions": ["cue", "bin", "iso", "chd"],
+      "serials": [{ "value": "SLUS-00402", "region": "USA" }],
       "knownHashes": [
         { "algorithm": "sha1", "value": "68f32a8657376cb4d4504c160fd5e8ae4a4f18d6", "label": "Redump Tekken 3 (USA), Track 1" }
       ]
@@ -55,27 +56,31 @@
       "name": "Tekken Tag Tournament",
       "platform": "PlayStation 2",
       "region": "USA (SLUS-20001)",
-      "extensions": ["cue", "bin", "iso"]
+      "extensions": ["cue", "bin", "iso"],
+      "serials": [{ "value": "SLUS-20001", "region": "USA" }]
     },
     {
       "id": "t5dr-psp",
       "name": "Tekken: Dark Resurrection",
       "platform": "PSP",
       "region": "USA (ULUS-10139)",
-      "extensions": ["iso"]
+      "extensions": ["iso"],
+      "serials": [{ "value": "ULUS-10139", "region": "USA" }]
     },
     {
       "id": "tekken2-ps1",
       "name": "Tekken 2",
       "platform": "PlayStation",
-      "extensions": ["cue", "bin", "chd"]
+      "extensions": ["cue", "bin", "chd"],
+      "serials": [{ "value": "SLUS-00213", "region": "USA" }, { "value": "SCES-00255", "region": "Europe" }]
     },
     {
       "id": "tekken1-ps1",
       "name": "Tekken 1",
       "platform": "PlayStation",
       "region": "USA (SLUS-00006), Europe (SCES-00005) or Japan (SLPS-00040)",
-      "extensions": ["cue", "bin", "chd"]
+      "extensions": ["cue", "bin", "chd"],
+      "serials": [{ "value": "SLUS-00006", "region": "USA" }, { "value": "SCES-00005", "region": "Europe" }, { "value": "SLPS-00040", "region": "Japan" }]
     }
   ]
 }

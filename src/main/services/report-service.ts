@@ -66,7 +66,7 @@ export class ReportService {
       const g = games.find((x) => x.id === s.gameId)
       const c = configured.get(s.gameId)
       const v = c?.validation
-      const what = !c ? 'not chosen' : !v ? 'not checked yet' : v.verdict === 'verified' ? `verified (${v.matched ?? 'known dump'})` : `${v.verdict}: ${v.message}`
+      const what = !c ? 'not chosen' : !v ? 'not checked yet' : v.verdict === 'verified' || v.verdict === 'identified' ? `${v.verdict} (${v.matched ?? 'known dump'})` : `${v.verdict}: ${v.message}`
       return `- ${g?.name ?? s.gameId}${s.required ? '' : ' (optional)'}: ${what}`
     })
 

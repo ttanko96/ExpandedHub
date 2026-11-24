@@ -2,6 +2,7 @@
 
 export type SourceVerdict =
   | 'verified' // content matches a known good hash
+  | 'identified' // the right game and region by its serial number, but no known hash to compare with
   | 'unverified' // accepted, but no known hash to compare with
   | 'mismatch' // readable, but not the version the projects expect
   | 'missing' // file no longer exists
@@ -10,7 +11,9 @@ export type SourceVerdict =
 export interface SourceValidation {
   verdict: SourceVerdict
   message: string
-  /** Label of the matched known hash, when verified. */
+  /** Another game this file is (its disc's serial is that game's): it is chosen under the wrong game. */
+  belongsTo?: string
+  /** Label of the matched known hash, when verified; the disc and region, when identified. */
   matched?: string
   checkedAt: string
 }

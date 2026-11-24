@@ -500,6 +500,20 @@ export const GameDefinition = z.object({
         revision: z.string().optional()
       })
     )
+    .default([]),
+  /**
+   * Serial numbers of the game's discs (the program SYSTEM.CNF boots, or a PSP
+   * disc's UMD_DATA.BIN): which game and region a chosen disc image is, for any
+   * version or dump format. Only serials the projects themselves document.
+   */
+  serials: z
+    .array(
+      z.object({
+        /** As printed on the disc, e.g. `SLUS-00402`. */
+        value: z.string().regex(/^[A-Z]{4}-\d{5}$/),
+        region: z.string().min(1)
+      })
+    )
     .default([])
 })
 export type GameDefinition = z.infer<typeof GameDefinition>

@@ -267,6 +267,9 @@ export class InstallPlanner {
         else warnings.push(`Optional: ${s.name} not selected — ${s.purpose ?? 'its content is left out'}.`)
       } else if (v === 'missing' || v === 'invalid') {
         ;(s.required ? blockers : warnings).push(`${s.name}: ${s.config.validation!.message}`)
+      } else if (v === 'mismatch' && s.config.validation!.belongsTo) {
+        // Another game's disc: the project cannot build from it.
+        ;(s.required ? blockers : warnings).push(`${s.name}: ${s.config.validation!.message}.`)
       } else if (v === 'mismatch') {
         warnings.push(`${s.name}: ${s.config.validation!.message}`)
       }

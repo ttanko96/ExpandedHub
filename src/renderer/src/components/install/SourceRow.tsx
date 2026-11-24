@@ -19,6 +19,8 @@ export function sourceStatus(config: SourceConfig | null | undefined, required: 
   switch (v?.verdict) {
     case 'verified':
       return { icon: <CheckCircle2 size={16} className="text-emerald-400" />, text: v.message, tone: 'text-emerald-300' }
+    case 'identified':
+      return { icon: <CheckCircle2 size={16} className="text-sky-300" />, text: v.message, tone: 'text-sky-200' }
     case 'unverified':
       return { icon: <FileQuestion size={16} className="text-zinc-300" />, text: v.message, tone: 'text-zinc-400' }
     case 'mismatch':
