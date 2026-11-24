@@ -4,7 +4,7 @@ vi.mock('electron', () => ({ app: { getVersion: () => '0.0.0-test' }, net: {} })
 
 import { resolveDownload } from '@shared/assets'
 import { ProjectDefinition, type RepositoryRef } from '@shared/registry-schema'
-import { computeStatus, isNewer, normalizeVersion } from '@shared/status'
+import { computeStatus, formatVersion, isNewer, normalizeVersion, versionLabel } from '@shared/status'
 import type { ReleaseInfo } from '@shared/types'
 import { pickRelease, pickReleases } from '../src/main/services/releases/github-release-provider'
 
@@ -121,6 +121,17 @@ describe('download resolution', () => {
   })
   it('explains when there is no release', () => {
     expect(resolveDownload(project, null, 'win32').problem).toMatch(/No release/)
+  })
+})
+
+describe('version labels', () => {
+  it('shows releases with a v and commits by hash, or by date when only the version is known', () => {
+    expect(formatVersion('1.5.1')).toBe('v1.5.1')
+    expect(formatVersion('v0.1.2-easy-setup')).toBe('v0.1.2-easy-setup')
+    expect(formatVersion('0.0.0-20261114141715', 'commit-1403737')).toBe('commit 1403737')
+    expect(formatVersion('0.0.0-20261114141715')).toBe('commit of 2026-11-14')
+    expect(versionLabel({ version: '0.0.0-20261114141715', versionSource: 'hub', tag: 'commit-1403737' })).toBe('commit 1403737')
+    expect(versionLabel({ version: '1.0.0', versionSource: 'unknown' })).toBe('unknown version')
   })
 })
 

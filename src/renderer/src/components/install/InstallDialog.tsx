@@ -2,6 +2,7 @@ import { AlertTriangle, CheckCircle2, Link2, Lock, X } from 'lucide-react'
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { Preflight } from '@shared/install'
+import { formatVersion, versionLabel } from '@shared/status'
 import { cx, formatBytes } from '../../lib/format'
 import { useHub } from '../../store/hub-store'
 import { ipcMessage, projectActions } from '../mods/actions'
@@ -92,7 +93,7 @@ export function InstallDialog() {
             </div>
             <div className="truncate font-display text-[26px] font-bold uppercase leading-tight tracking-wide text-fg">
               {pre?.extra ? `${project.name}: ${pre.extra.name}` : project.name}{' '}
-              {pre?.version && !pre.extra ? <span className="text-zinc-400">v{pre.version}</span> : null}
+              {pre?.version && !pre.extra ? <span className="text-zinc-400">{formatVersion(pre.version, pre.tag)}</span> : null}
             </div>
           </div>
           <button onClick={close} className="text-zinc-500 hover:text-fg" aria-label="Close">
@@ -132,7 +133,7 @@ export function InstallDialog() {
                   <li>
                     Install into <code className="selectable rounded bg-ink-800 px-1.5 py-0.5 text-[12.5px] text-zinc-200">{pre.installPath ?? 'after its dependency is installed'}</code>
                     {isUpdate && <span className="text-zinc-500"> — new files replace old ones, your saves and settings stay</span>}
-                    {version && state?.installed && <span className="text-zinc-500"> — over the installed {state.installed.version.startsWith('v') ? '' : 'v'}{state.installed.version}: its files are replaced, your saves and settings stay</span>}
+                    {version && state?.installed && <span className="text-zinc-500"> — over the installed {versionLabel(state.installed)}: its files are replaced, your saves and settings stay</span>}
                   </li>
                   {version && (
                     <li className="text-amber-200/90">

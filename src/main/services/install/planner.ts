@@ -299,6 +299,7 @@ export class InstallPlanner {
     return {
       projectId,
       version: opts.buildOnly ? (installedAll[projectId]?.version ?? null) : (release?.version ?? null),
+      tag: opts.buildOnly ? null : (release?.tag ?? null),
       buildOnly: Boolean(opts.buildOnly),
       extra: extra ? { id: extra.id, name: extra.name, description: extra.description, needs: extra.needs } : null,
       installPath: opts.buildOnly ? (installedAll[projectId]?.installPath ?? installPath) : installPath,

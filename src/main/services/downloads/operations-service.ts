@@ -881,6 +881,8 @@ export class OperationsService {
     await this.installed.set({
       projectId: op.projectId,
       version: op.version,
+      // A build keeps the tag it was installed from.
+      tag: op.kind === 'build' ? previous?.tag : op.tag,
       installedAt: op.kind === 'build' && previous ? previous.installedAt : new Date().toISOString(),
       installPath: target,
       downloadPath: op.outputDir ? dirname(op.outputDir) : previous?.downloadPath,

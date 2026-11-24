@@ -37,10 +37,22 @@ export function commitRelease(commit: CommitInfo, repo: { owner: string; name: s
   }
 }
 
-/** `v1.5.1`, or `unknown version` for a linked installation whose version could not be told. */
-export function versionLabel(rec: Pick<InstalledRecord, 'version' | 'versionSource'>): string {
+/**
+ * A version as people read it: `v1.5.1`; for a project without releases (its
+ * version is `0.0.0-<commit time>`, see `commitRelease`) `commit 1403737` when
+ * the tag is known, else `commit of 2026-11-14`.
+ */
+export function formatVersion(version: string, tag?: string | null): string {
+  if (tag?.startsWith('commit-')) return `commit ${tag.slice('commit-'.length)}`
+  const m = /^0\.0\.0-(\d{4})(\d{2})(\d{2})\d{6}$/.exec(version)
+  if (m) return `commit of ${m[1]}-${m[2]}-${m[3]}`
+  return version.startsWith('v') ? version : `v${version}`
+}
+
+/** `v1.5.1` (see `formatVersion`), or `unknown version` for a linked installation whose version could not be told. */
+export function versionLabel(rec: Pick<InstalledRecord, 'version' | 'versionSource' | 'tag'>): string {
   if (rec.versionSource === 'unknown') return 'unknown version'
-  return rec.version.startsWith('v') ? rec.version : `v${rec.version}`
+  return formatVersion(rec.version, rec.tag)
 }
 
 export function computeStatus(opts: {

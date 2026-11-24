@@ -38,6 +38,8 @@ export interface RateLimitInfo {
 export interface InstalledRecord {
   projectId: string
   version: string
+  /** The release tag it was installed from (`commit-1403737` for a commit), when the hub installed it. */
+  tag?: string
   installedAt: string
   installPath: string
   /** Launchable file, relative to installPath, when known. */

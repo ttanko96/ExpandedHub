@@ -1,8 +1,7 @@
 import { ArrowRight } from 'lucide-react'
-import { versionLabel } from '@shared/status'
+import { formatVersion, versionLabel } from '@shared/status'
 import type { ProjectState } from '@shared/types'
 
-const v = (s: string) => (s.startsWith('v') ? s : `v${s}`)
 
 /** `v0.1.1 INSTALLED → v0.1.2 AVAILABLE`, or the single relevant version. */
 export function VersionLine({ state }: { state: ProjectState | undefined }) {
@@ -14,12 +13,12 @@ export function VersionLine({ state }: { state: ProjectState | undefined }) {
       <div className="flex items-center gap-2">
         <Chip tone="muted">{versionLabel(installed).toUpperCase()} INSTALLED</Chip>
         <ArrowRight size={14} className="text-emerald-400" />
-        <Chip tone="green">{v(latest.version)} AVAILABLE</Chip>
+        <Chip tone="green">{formatVersion(latest.version, latest.tag).toUpperCase()} AVAILABLE</Chip>
       </div>
     )
   }
   if (installed) return <Chip tone="muted">{versionLabel(installed).toUpperCase()} INSTALLED</Chip>
-  if (latest) return <Chip tone="muted">LATEST {v(latest.version)}{latest.prerelease ? ' · PRE-RELEASE' : ''}</Chip>
+  if (latest) return <Chip tone="muted">LATEST {formatVersion(latest.version, latest.tag).toUpperCase()}{latest.prerelease ? ' · PRE-RELEASE' : ''}</Chip>
   if (state.latestCommit) return <Chip tone="muted">NO RELEASES YET</Chip>
   return <Chip tone="muted">NO RELEASE INFO</Chip>
 }

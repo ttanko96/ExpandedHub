@@ -22,7 +22,7 @@ import { SimpleMarkdown } from '../components/ui/SimpleMarkdown'
 import { ListingBadge, StatusBadge } from '../components/ui/StatusBadge'
 import { cx, formatBytes, relativeTime, shortDate } from '../lib/format'
 import { STATUS_META } from '../lib/status-meta'
-import { versionLabel } from '@shared/status'
+import { formatVersion, versionLabel } from '@shared/status'
 import { useHub } from '../store/hub-store'
 
 const STRATEGY_TEXT: Record<InstallStrategy, string> = {
@@ -115,6 +115,13 @@ export function ModDetailPage() {
   // Add-ons or game files changed since the last build: Build again brings them in.
   const hostName = install?.installInto ? (projects.find((p) => p.id === install.installInto!.project)?.name ?? install.installInto.project) : ''
   const needsBuild = !!state?.installed && (state.rebuild?.length ?? 0) > 0
+  // Other versions: always in the header's small-button row, installed or not (not while its folder is missing).
+  const versionsButton = installable && state?.latest && !state.missing && (
+    <Button size="sm" variant="ghost" icon={<History size={14} />} onClick={() => setVersionsOpen(true)}
+      title={state.installed ? 'Install an earlier version, if a new one broke something' : 'Install an earlier version instead of the latest'}>
+      Other versions
+    </Button>
+  )
   const deps = (install?.dependsOn ?? []).map((d) => ({ id: d, project: projects.find((p) => p.id === d), state: states[d] }))
 
   return (
@@ -193,12 +200,7 @@ export function ModDetailPage() {
               </div>
               {installable && !state?.installed && (
                 <div className="flex gap-2">
-                  {state?.latest && (
-                    <Button size="sm" variant="ghost" icon={<History size={14} />} onClick={() => setVersionsOpen(true)}
-                      title="Install an earlier version instead of the latest">
-                      Other versions
-                    </Button>
-                  )}
+                  {versionsButton}
                   <Button size="sm" variant="ghost" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}
                     title="Already have it on your PC? Choose its folder: the hub works from there and tells you when an update is out.">
                     {project.install?.installInto ? 'Already installed? Find it' : 'Already installed? Browse…'}
@@ -213,6 +215,7 @@ export function ModDetailPage() {
                       Build again
                     </Button>
                   )}
+                  {versionsButton}
                   <Button size="sm" variant="ghost" icon={<Trash2 size={14} />} onClick={() => setRemoving(true)} className="hover:text-tekken-400">
                     Uninstall
                   </Button>
@@ -499,12 +502,6 @@ export function ModDetailPage() {
                     Open folder
                   </Button>
                 )}
-                {installable && !state.missing && state.latest && (
-                  <Button size="sm" variant="secondary" icon={<History size={14} />} onClick={() => setVersionsOpen(true)}
-                    title="Install an earlier version, if a new one broke something">
-                    Other versions
-                  </Button>
-                )}
                 {state.installed.adopted && !state.missing && !project.install?.installInto && (
                   <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)} title="Point the hub at another folder, or read this one's version again">
                     Change folder
@@ -644,7 +641,7 @@ export function ModDetailPage() {
                 {project.repository ? `${project.repository.owner}/${project.repository.name}` : '—'}
               </Dd>
               <Dt>Latest</Dt>
-              <Dd>{state?.latest ? `v${state.latest.version}` : '—'}</Dd>
+              <Dd>{state?.latest ? formatVersion(state.latest.version, state.latest.tag) : '—'}</Dd>
               <Dt>Last update</Dt>
               <Dd>{shortDate(state?.latest?.publishedAt)}</Dd>
               <Dt>Installed</Dt>

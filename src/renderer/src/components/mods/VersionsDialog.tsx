@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { useEffect, useState } from 'react'
 import type { ReleaseChoice } from '@shared/install'
 import type { ProjectDefinition } from '@shared/registry-schema'
+import { formatVersion } from '@shared/status'
 import { formatBytes, shortDate } from '../../lib/format'
 import { useHub } from '../../store/hub-store'
 import { Button } from '../ui/Button'
@@ -77,7 +78,7 @@ export function VersionsDialog({ project, onClose }: { project: ProjectDefinitio
                 <li key={r.tag} className="flex items-center gap-3 px-4 py-3">
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-display text-[17px] font-bold text-fg">{r.tag}</span>
+                      <span className="font-display text-[17px] font-bold text-fg">{r.tag.startsWith('commit-') ? formatVersion(r.version, r.tag) : r.tag}</span>
                       {r.latest && <Badge tone="emerald">Latest</Badge>}
                       {r.installed && <Badge tone="sky">Installed</Badge>}
                       {r.prerelease && <Badge tone="amber">Pre-release</Badge>}

@@ -96,6 +96,8 @@ export interface PreflightScript {
 export interface Preflight {
   projectId: string
   version: string | null
+  /** The release tag being installed (`commit-1403737` for a commit); null for a build. */
+  tag: string | null
   installPath: string | null
   sources: PreflightSource[]
   tools: ToolStatus[]
