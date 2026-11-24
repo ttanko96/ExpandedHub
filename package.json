@@ -1,7 +1,7 @@
 {
   "name": "expandedhub",
   "productName": "ExpandedHub",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Desktop mod manager, updater and knowledge hub for Tekken 3 community projects",
   "private": true,
   "main": "out/main/index.js",
