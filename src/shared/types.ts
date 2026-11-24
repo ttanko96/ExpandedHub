@@ -67,6 +67,8 @@ export interface AdoptResult {
   detail: string
   /** Add-ons found inside it and linked too (names). */
   addons: string[]
+  /** Add-ons that were linked inside its previous folder and are not in this one (names): forgotten, never deleted. */
+  unlinked: string[]
 }
 
 /** Lifecycle status shown on every project. */

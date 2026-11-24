@@ -428,7 +428,9 @@ export function ModDetailPage() {
                   <Link to={`/mods/${project.install.installInto.project}`} className="text-zinc-300 hover:underline">
                     {projects.find((p) => p.id === project.install!.installInto!.project)?.name ?? project.install.installInto.project}
                   </Link>
-                  : play it from there.
+                  : play it from there. Its folder follows that installation's: to use another one, choose Change folder on{' '}
+                  {projects.find((p) => p.id === project.install!.installInto!.project)?.name ?? project.install.installInto.project}, and{' '}
+                  {project.name} is found in its {project.install.installInto.subdir} folder.
                 </div>
               ) : (
                 !state.installed.executable && !project.install?.output.serve && !project.install?.output.launch && (
@@ -442,6 +444,12 @@ export function ModDetailPage() {
                 {state.installed.adopted && !project.install?.installInto && (
                   <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)} title="Point the hub at another folder, or read this one's version again">
                     Change folder
+                  </Button>
+                )}
+                {state.installed.adopted && project.install?.installInto && (
+                  <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}
+                    title={`Look for it again in ${projects.find((p) => p.id === project.install!.installInto!.project)?.name ?? 'its host'}'s ${project.install.installInto.subdir} folder and read its version`}>
+                    Find it again
                   </Button>
                 )}
               </div>

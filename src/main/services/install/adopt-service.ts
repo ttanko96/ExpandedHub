@@ -72,21 +72,40 @@ export class AdoptService {
     await this.installed.set(record)
     log('info', `Linked existing installation of ${project.name} in ${dir}: ${detail}`)
 
-    // Add-ons already inside it are linked too.
-    const addons: string[] = []
-    for (const p of (await this.registry.get()).projects) {
-      if (!isInstallable(p) || p.install.installInto?.project !== projectId || (await this.installed.all())[p.id]) continue
-      const sub = join(dir, ...p.install.installInto.subdir.split('/'))
-      if (!(await fs.stat(sub).then((s) => s.isDirectory(), () => false))) continue
-      if (!(await checkFolder(p, sub, this.platform)).ok) continue
-      const r = await this.record(p, sub, undefined)
-      await this.installed.set(r.record)
-      addons.push(p.name)
-      log('info', `Linked add-on ${p.name} in ${sub}: ${r.detail}`)
-    }
+    // Add-ons follow their host: the ones inside it are linked, ones left in its previous folder forgotten.
+    const { linked: addons, unlinked } = await this.syncAddons(projectId, dir)
 
     await this.updates.emit()
-    return { record, detail, addons }
+    return { record, detail, addons, unlinked }
+  }
+
+  /**
+   * Point the add-ons of host `hostId` at `hostDir`: an add-on recorded somewhere
+   * else (its host's previous folder) is linked to its subfolder here when it is
+   * there, and forgotten otherwise (its files are left alone). Add-ons not
+   * recorded yet are linked when they are found inside.
+   */
+  private async syncAddons(hostId: string, hostDir: string): Promise<{ linked: string[]; unlinked: string[] }> {
+    const linked: string[] = []
+    const unlinked: string[] = []
+    for (const p of (await this.registry.get()).projects) {
+      if (!isInstallable(p) || p.install.installInto?.project !== hostId) continue
+      const sub = join(hostDir, ...p.install.installInto.subdir.split('/'))
+      const rec = (await this.installed.all())[p.id]
+      if (rec && samePath(rec.installPath, sub)) continue
+      const there = (await fs.stat(sub).then((s) => s.isDirectory(), () => false)) && (await checkFolder(p, sub, this.platform)).ok
+      if (there) {
+        const r = await this.record(p, sub, rec)
+        await this.installed.set(r.record)
+        linked.push(p.name)
+        log('info', `Linked add-on ${p.name} in ${sub}: ${r.detail}${rec ? ` (was ${rec.installPath})` : ''}`)
+      } else if (rec) {
+        await this.installed.remove(p.id)
+        unlinked.push(p.name)
+        log('info', `Forgot add-on ${p.name} in ${rec.installPath}: it is not in its host's folder ${hostDir}`)
+      }
+    }
+    return { linked, unlinked }
   }
 
   private async record(project: InstallableProject, dir: string, previous: InstalledRecord | undefined): Promise<{ record: InstalledRecord; detail: string }> {
@@ -129,6 +148,16 @@ export class AdoptService {
         }
       } catch (err) {
         log('warn', `Could not re-read the version of ${rec.projectId}`, err)
+      }
+    }
+    // Add-ons still recorded in a host's previous folder (it was changed with an older hub) follow it now.
+    for (const host of Object.values(all)) {
+      try {
+        if (!(await fs.stat(host.installPath).then((s) => s.isDirectory(), () => false))) continue
+        const r = await this.syncAddons(host.projectId, host.installPath)
+        if (r.linked.length || r.unlinked.length) changed = true
+      } catch (err) {
+        log('warn', `Could not check the add-ons of ${host.projectId}`, err)
       }
     }
     if (changed) await this.updates.emit()

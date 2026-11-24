@@ -175,6 +175,41 @@ describe('linking an existing installation', () => {
     expect(records.tmst).toMatchObject({ version: '1.0.0', versionSource: 'file', adopted: true })
   })
 
+  it('moves add-ons with their host when its folder is changed, and forgets ones not in the new folder', async () => {
+    const { adopt, records } = services()
+    const first = hostFolder()
+    mkdirSync(join(first, 'addons', 'tmst'), { recursive: true })
+    writeFileSync(join(first, 'addons', 'tmst', 'addon.cmake'), 'set(TMST_VERSION "1.0.0")')
+    await adopt.adopt('expanded', first)
+    expect(records.tmst?.installPath).toBe(join(first, 'addons', 'tmst'))
+
+    const second = hostFolder()
+    mkdirSync(join(second, 'addons', 'tmst'), { recursive: true })
+    writeFileSync(join(second, 'addons', 'tmst', 'addon.cmake'), 'set(TMST_VERSION "1.1.0")')
+    const r = await adopt.adopt('expanded', second)
+    expect(r.addons).toEqual(['TMST'])
+    expect(records.tmst).toMatchObject({ installPath: join(second, 'addons', 'tmst'), version: '1.1.0' })
+
+    const third = hostFolder()
+    const r3 = await adopt.adopt('expanded', third)
+    expect(r3.unlinked).toEqual(['TMST'])
+    expect(records.tmst).toBeUndefined()
+    expect(existsSync(join(second, 'addons', 'tmst', 'addon.cmake'))).toBe(true)
+  })
+
+  it('rescan moves an add-on still recorded in its host\'s previous folder', async () => {
+    const { adopt, records } = services()
+    const old = hostFolder()
+    const now = hostFolder()
+    mkdirSync(join(now, 'addons', 'tmst'), { recursive: true })
+    writeFileSync(join(now, 'addons', 'tmst', 'addon.cmake'), 'set(TMST_VERSION "1.1.0")')
+    await adopt.adopt('expanded', now)
+    // As an older hub left it: TMST still in the host's previous folder.
+    records.tmst = { ...records.tmst!, installPath: join(old, 'addons', 'tmst') }
+    await adopt.rescan()
+    expect(records.tmst?.installPath).toBe(join(now, 'addons', 'tmst'))
+  })
+
   it('refuses a folder that is not the project, and an add-on outside its host', async () => {
     const { adopt } = services()
     await expect(adopt.adopt('expanded', tempDir())).rejects.toThrow(/does not look like Expanded/)

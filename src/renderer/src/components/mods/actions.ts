@@ -79,7 +79,8 @@ export const projectActions = {
       const r = await window.hub.install.adopt(p.id)
       if (!r) return false
       const addons = r.addons.length ? ` Also linked: ${r.addons.join(', ')}.` : ''
-      toast({ tone: 'success', title: `${p.name} linked`, body: `${r.detail}.${addons}` })
+      const unlinked = r.unlinked.length ? ` Not in this folder, so no longer linked: ${r.unlinked.join(', ')}.` : ''
+      toast({ tone: 'success', title: `${p.name} linked`, body: `${r.detail}.${addons}${unlinked}` })
       return true
     } catch (err) {
       toast({ tone: 'error', title: `Could not link ${p.name}`, body: ipcMessage(err) })
