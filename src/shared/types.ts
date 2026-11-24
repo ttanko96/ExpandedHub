@@ -70,6 +70,16 @@ export interface BuiltWith {
 
 export type VersionSource = 'hub' | 'marker' | 'file' | 'git' | 'unknown'
 
+/** A drafted GitHub issue for a project, shown to the user before it is opened on GitHub. */
+export interface IssueReport {
+  /** Suggested title; empty when there is nothing to suggest. */
+  title: string
+  /** Markdown body: a place for the user's words, then what the hub knows about the setup. */
+  body: string
+  /** The repository's new-issue page. */
+  url: string
+}
+
 /** What linking an existing installation found. */
 export interface AdoptResult {
   record: InstalledRecord

@@ -6,6 +6,7 @@ import { isActive } from '@shared/operations'
 import { ToolRow } from '../components/install/ToolRow'
 import { Trailer } from '../components/ui/Trailer'
 import { UninstallDialog } from '../components/install/UninstallDialog'
+import { ReportDialog } from '../components/mods/ReportDialog'
 import { SourceRow } from '../components/install/SourceRow'
 import { resolveDownload } from '@shared/assets'
 import type { ReactNode } from 'react'
@@ -61,6 +62,7 @@ export function ModDetailPage() {
   const running = id ? runningIds.includes(id) : false
   const [storage, setStorage] = useState<ProjectStorage | null>(null)
   const [removing, setRemoving] = useState(false)
+  const [reporting, setReporting] = useState(false)
   const loadStorage = useCallback(() => {
     if (id) window.hub.install.storage(id).then(setStorage, () => setStorage(null))
   }, [id])
@@ -532,11 +534,17 @@ export function ModDetailPage() {
           {project.repository && (
             <Panel title="Encountered an issue?">
               <p className="text-[13.5px] leading-snug text-zinc-400">
-                Something not working with {project.name}? Check the known issues or open a ticket for its developer on GitHub.
+                Something not working with {project.name}? Check the known issues, or report it to its developer on GitHub: the hub fills in
+                your setup and the last log for you.
               </p>
-              <Button className="mt-4" size="sm" variant="secondary" icon={<Bug size={14} />} onClick={() => void projectActions.openIssues(project)}>
-                Raise a ticket on GitHub
-              </Button>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Button size="sm" variant="secondary" icon={<Bug size={14} />} onClick={() => setReporting(true)}>
+                  Report a problem
+                </Button>
+                <Button size="sm" variant="ghost" icon={<ExternalLink size={14} />} onClick={() => void projectActions.openIssues(project)}>
+                  Known issues
+                </Button>
+              </div>
             </Panel>
           )}
 
@@ -633,6 +641,7 @@ export function ModDetailPage() {
           </Panel>
         </aside>
       </div>
+      {reporting && <ReportDialog project={project} onClose={() => setReporting(false)} />}
       {removing && storage && (
         <UninstallDialog
           project={project}

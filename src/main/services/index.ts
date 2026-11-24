@@ -1,3 +1,5 @@
+import { app } from 'electron'
+import { join } from 'node:path'
 import { OperationsService } from './downloads/operations-service'
 import { LifecycleService } from './install/lifecycle'
 import { AdoptService } from './install/adopt-service'
@@ -8,6 +10,8 @@ import { ToolsService } from './install/tools-service'
 import { HubUpdater } from './hub-updater'
 import { InstalledService } from './installed-service'
 import { RegistryService } from './registry-service'
+import { ReportService } from './report-service'
+import { paths } from './paths'
 import { SettingsService } from './settings-service'
 import { TokenStore } from './token-store'
 import { UpdateService } from './update-service'
@@ -29,7 +33,15 @@ export function createServices() {
   const adopt = new AdoptService(registry, installed, updates)
   const gallery = new GalleryService(registry, installed)
   const hubUpdater = new HubUpdater(tokens)
-  return { hubUpdater, settings, registry, tokens, installed, updates, sources, tools, planner, operations, lifecycle, adopt, gallery }
+  const reports = new ReportService({
+    registry,
+    states: () => updates.states(),
+    sources: () => sources.list(),
+    operations: () => operations.list(),
+    hubVersion: app.getVersion(),
+    logsDir: join(paths.userData(), 'logs')
+  })
+  return { hubUpdater, reports, settings, registry, tokens, installed, updates, sources, tools, planner, operations, lifecycle, adopt, gallery }
 }
 
 export type Services = ReturnType<typeof createServices>

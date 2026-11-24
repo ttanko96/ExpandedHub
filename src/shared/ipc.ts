@@ -8,6 +8,7 @@ import type {
   AppSettings,
   DeepPartial,
   AdoptResult,
+  IssueReport,
   HubUpdateState,
   ProjectState,
   RegistrySnapshot,
@@ -46,6 +47,7 @@ export const IpcChannels = {
   projectUninstall: 'project:uninstall',
   projectStorage: 'project:storage',
   projectAdopt: 'project:adopt',
+  projectReport: 'project:report',
   opsBuild: 'ops:build',
   sourcesList: 'sources:list',
   sourcesPick: 'sources:pick',
@@ -116,6 +118,8 @@ export interface HubApi {
      * throws when the folder is not that project.
      */
     adopt(projectId: string, folder?: string): Promise<AdoptResult | null>
+    /** A drafted GitHub issue for the project (setup, game files, last operation and its log), for the user to check and send. */
+    report(projectId: string): Promise<IssueReport>
     /** Where the project's files and downloads are, and their size. */
     storage(projectId: string): Promise<ProjectStorage>
     /** Install checks for rebuilding an existing installation. */

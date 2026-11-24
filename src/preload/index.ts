@@ -43,6 +43,7 @@ const api: HubApi = {
     uninstall: (projectId, opts) => ipcRenderer.invoke(IpcChannels.projectUninstall, projectId, opts),
     storage: (projectId) => ipcRenderer.invoke(IpcChannels.projectStorage, projectId),
     adopt: (projectId, folder) => ipcRenderer.invoke(IpcChannels.projectAdopt, projectId, folder),
+    report: (projectId) => ipcRenderer.invoke(IpcChannels.projectReport, projectId),
     buildPreflight: (projectId) => ipcRenderer.invoke(IpcChannels.installPreflight, projectId, true),
     extraPreflight: (projectId, extraId) => ipcRenderer.invoke(IpcChannels.installPreflight, projectId, true, extraId),
     extras: (projectId) => ipcRenderer.invoke(IpcChannels.installExtras, projectId),
