@@ -108,6 +108,8 @@ export function ModDetailPage() {
   const installable = isInstallable(project)
   const install = project.install
   const hasBuild = install?.steps.some((st) => st.type === 'run' || st.type === 'pythonVenv' || st.type === 'buildHost') ?? false
+  // Add-ons or game files changed since the last build: Build again brings them in.
+  const needsBuild = !!state?.installed && (state.rebuild?.length ?? 0) > 0
   const deps = (install?.dependsOn ?? []).map((d) => ({ id: d, project: projects.find((p) => p.id === d), state: states[d] }))
 
   return (
@@ -193,7 +195,8 @@ export function ModDetailPage() {
               {state?.installed && (
                 <div className="flex gap-2">
                   {installable && hasBuild && (
-                    <Button size="sm" variant="secondary" icon={<Hammer size={14} />} onClick={() => projectActions.openBuild(project)}>
+                    <Button size="sm" variant={needsBuild ? 'update' : 'secondary'} icon={<Hammer size={14} />} onClick={() => projectActions.openBuild(project)}
+                      title={needsBuild ? `${state.rebuild.join('. ')}.` : undefined}>
                       Build again
                     </Button>
                   )}
@@ -406,6 +409,21 @@ export function ModDetailPage() {
         <aside className="flex flex-col gap-6">
           {state?.installed && (
             <Panel title="Installation">
+              {needsBuild && (
+                <div className="mb-3 rounded-lg border border-amber-400/30 bg-amber-400/10 p-3 text-[12.5px] leading-snug text-amber-200">
+                  <div className="font-semibold">Build again to bring in the changes</div>
+                  <ul className="mt-1 list-disc pl-4 text-amber-200/80">
+                    {state.rebuild.map((r) => (
+                      <li key={r}>{r}</li>
+                    ))}
+                  </ul>
+                  {installable && hasBuild && (
+                    <Button size="sm" variant="update" className="mt-2.5" icon={<Hammer size={14} />} onClick={() => projectActions.openBuild(project)}>
+                      Build again
+                    </Button>
+                  )}
+                </div>
+              )}
               <div className="text-[13.5px] text-zinc-300">
                 {versionLabel(state.installed)} · {state.installed.adopted ? 'linked' : 'installed'} {shortDate(state.installed.installedAt)}
               </div>

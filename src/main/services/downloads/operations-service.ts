@@ -887,6 +887,17 @@ export class OperationsService {
       versionSource: 'hub',
       ...(previous?.adopted && previous.installPath === target ? { adopted: true } : {})
     })
+    // Remember what this build used, so the hub can tell when it should be built again.
+    const used = await this.planner.builtWith(project)
+    if (used) await this.installed.set({ ...(await this.installed.all())[op.projectId]!, builtWith: used })
+    // An add-on that built its host (`buildHost`): the host is now built with it.
+    const into = project.install.installInto
+    if (into && project.install.steps.some((s) => s.type === 'buildHost')) {
+      const hostRec = (await this.installed.all())[into.project]
+      const host = hostRec ? await this.planner.project(into.project).catch(() => null) : null
+      const hostUsed = host ? await this.planner.builtWith(host) : null
+      if (hostRec && hostUsed) await this.installed.set({ ...hostRec, builtWith: hostUsed })
+    }
     await writeMarker(target, { projectId: op.projectId, version: op.version, tag: op.tag, installedAt: new Date().toISOString() })
     await this.log(op, op.kind === 'build' ? `Build of ${project.name} ${op.tag} finished` : `Recorded ${project.name} ${op.tag} as installed`)
     this.setStep(op, 'finalize', 'done')

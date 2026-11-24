@@ -56,6 +56,16 @@ export interface InstalledRecord {
    * be told; any release counts as an update).
    */
   versionSource?: VersionSource
+  /** What its last build used, recorded by the hub; absent when not known (linked, or an older hub). */
+  builtWith?: BuiltWith
+}
+
+/** The inputs of a build, to tell when it should be built again. */
+export interface BuiltWith {
+  /** Game files it took: gameId → `path|size`. */
+  sources: Record<string, string>
+  /** Add-ons inside it: projectId → version. */
+  addons: Record<string, string>
 }
 
 export type VersionSource = 'hub' | 'marker' | 'file' | 'git' | 'unknown'
@@ -92,6 +102,8 @@ export interface ProjectState {
   /** ISO timestamp of the last successful release fetch for this project. */
   checkedAt: string | null
   error: string | null
+  /** What changed since its last build (add-ons, game files): Build again brings it in. Empty when nothing did. */
+  rebuild: string[]
 }
 
 export interface RegistryIssue {

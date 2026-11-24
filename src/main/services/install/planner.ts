@@ -4,6 +4,8 @@ import { sourceFit } from '@shared/source-fit'
 import type { ExtraStatus, Preflight, PreflightScript, SourceConfig } from '@shared/install'
 import { isInstallable, type InstallableProject, type OsPlatform, type ProjectExtra, type RunArg, type ToolRequirement } from '@shared/registry-schema'
 import type { InstalledService } from '../installed-service'
+import type { BuiltWith } from '@shared/types'
+import { builtWith } from './built-with'
 import { findOutputs } from './run-script'
 import type { RegistryService } from '../registry-service'
 import type { SettingsService } from '../settings-service'
@@ -46,6 +48,11 @@ export class InstallPlanner {
       return host ? join(host.installPath, ...into.subdir.split('/')) : null
     }
     return join((await this.settings.get()).directories.installs, project.id)
+  }
+
+  /** What a build of the project uses right now (see `builtWith`); null for projects that are not built. */
+  async builtWith(project: InstallableProject): Promise<BuiltWith | null> {
+    return builtWith(project, (await this.registry.get()).projects, await this.installed.all(), await this.sources.list())
   }
 
   /** The program one of the project's tools (or the extra's) resolves to (see `ToolsService.program`), or null. */

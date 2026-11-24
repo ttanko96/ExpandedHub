@@ -10,6 +10,8 @@ import { GitHubReleaseProvider } from './releases/github-release-provider'
 import { MockReleaseProvider } from './releases/mock-release-provider'
 import { ProviderError, type ReleaseProvider, type RepoSnapshot } from './releases/release-provider'
 import type { SettingsService } from './settings-service'
+import { builtWith, rebuildReasons } from './install/built-with'
+import type { SourcesService } from './install/sources-service'
 import type { TokenStore } from './token-store'
 
 interface CacheEntry {
@@ -58,7 +60,8 @@ export class UpdateService {
     private readonly registry: RegistryService,
     private readonly installed: InstalledService,
     private readonly settings: SettingsService,
-    private readonly tokens: TokenStore
+    private readonly tokens: TokenStore,
+    private readonly sources?: Pick<SourcesService, 'list'>
   ) {}
 
   private async source(): Promise<UpdateCheckSummary['source']> {
@@ -174,9 +177,10 @@ export class UpdateService {
   }
 
   async states(): Promise<ProjectState[]> {
-    const { projects } = await this.registry.get()
+    const { projects, games } = await this.registry.get()
     const cache = await this.readCache()
     const installed = await this.installed.all()
+    const sources = (await this.sources?.list()) ?? []
     return projects.map((p) => {
       const e = cache.entries[p.id]
       const rec = installed[p.id] ?? null
@@ -192,7 +196,8 @@ export class UpdateService {
         latestCommit: e?.snapshot?.commit ?? null,
         stars: e?.snapshot?.stars ?? null,
         checkedAt: e?.fetchedAt ?? null,
-        error: e?.error ?? null
+        error: e?.error ?? null,
+        rebuild: rec ? rebuildReasons(rec.builtWith, builtWith(p, projects, installed, sources), projects, games) : []
       }
     })
   }

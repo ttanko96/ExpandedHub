@@ -1,4 +1,4 @@
-import { Bug, CheckCircle2, ExternalLink, FolderSearch, Github, Link2, Square, Star, Tag } from 'lucide-react'
+import { Bug, CheckCircle2, ExternalLink, FolderSearch, Github, Hammer, Link2, Square, Star, Tag } from 'lucide-react'
 import { isActive } from '@shared/operations'
 import { useHub } from '../../store/hub-store'
 import { percent, ProgressBar, transferLine } from '../downloads/progress'
@@ -145,6 +145,19 @@ function ReleasedCard({ project, state, index, addon }: { project: ProjectDefini
               <Link2 size={12} />
               Linked folder
             </div>
+          )}
+          {!activeOp && installable && state?.installed && (state.rebuild?.length ?? 0) > 0 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                projectActions.openBuild(project)
+              }}
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-amber-300 transition-colors hover:text-amber-200"
+              title={`${state.rebuild.join('. ')}. Build again to bring the changes into the game.`}
+            >
+              <Hammer size={12} />
+              Build again needed
+            </button>
           )}
           {state?.error && (
             <div className="max-w-full truncate text-[12px] text-tekken-400" title={state.error}>

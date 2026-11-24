@@ -18,8 +18,10 @@ export function createServices() {
   const registry = new RegistryService()
   const tokens = new TokenStore()
   const installed = new InstalledService(settings)
-  const updates = new UpdateService(registry, installed, settings, tokens)
   const sources = new SourcesService(registry)
+  const updates = new UpdateService(registry, installed, settings, tokens, sources)
+  // Changed game files can mean a build is out of date.
+  sources.onChange(() => void updates.emit())
   const tools = new ToolsService()
   const planner = new InstallPlanner(registry, settings, installed, updates, sources, tools)
   const operations = new OperationsService(registry, settings, updates, planner, installed, tools)
