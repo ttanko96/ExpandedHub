@@ -75,7 +75,7 @@ export class ReportService {
     const opLines: string[] = []
     let log = ''
     if (op) {
-      opLines.push(`- **Last ${op.kind}:** ${op.tag || op.version} — ${op.status}${op.finishedAt ? `, ${op.finishedAt.slice(0, 16).replace('T', ' ')} UTC` : ''}`)
+      opLines.push(`- **Last ${op.kind}${op.extraName ? ` (${op.extraName})` : ''}:** ${op.tag || op.version} — ${op.status}${op.finishedAt ? `, ${op.finishedAt.slice(0, 16).replace('T', ' ')} UTC` : ''}`)
       if (op.error) opLines.push(`- **Error:** ${op.error}`)
       for (const w of op.warnings ?? []) opLines.push(`- **Warning:** ${w}`)
       const text = await fs.readFile(join(this.deps.logsDir, `${op.id}.log`), 'utf8').catch(() => '')
@@ -100,7 +100,7 @@ export class ReportService {
       while (lines.length && body.length + wrap(lines.join('\n')).length > MAX_BODY) lines = lines.slice(1)
       if (lines.length) body += wrap(lines.join('\n'))
     }
-    const title = op?.status === 'failed' && op.error ? `${capitalize(op.kind)} failed: ${redact(op.error).slice(0, 80)}` : ''
+    const title = op?.status === 'failed' && op.error ? `${op.extraName ?? capitalize(op.kind)} failed: ${redact(op.error).slice(0, 80)}` : ''
     const url = `https://github.com/${project.repository.owner}/${project.repository.name}/issues/new`
     return { title, body: body.slice(0, MAX_BODY), url }
   }
