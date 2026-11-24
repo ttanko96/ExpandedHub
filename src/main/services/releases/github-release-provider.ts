@@ -66,7 +66,8 @@ export class GitHubReleaseProvider implements ReleaseProvider {
     } else {
       const all = pickReleases(rel.data ?? [], repo)
       release = all[0] ?? null
-      older = all.slice(1, 11).map((r) => ({ ...r, notes: '' }))
+      // With their notes: an update's What's new window lists every release it jumped over.
+      older = all.slice(1, 11)
     }
 
     const etags: RepoSnapshot['etags'] = { releases: rel.etag ?? previous?.etags.releases }

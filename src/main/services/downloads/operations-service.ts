@@ -4,6 +4,7 @@ import { promises as fs } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import { resolveDownload } from '@shared/assets'
 import type { Operation, OperationFile, OperationStep, OperationStepId } from '@shared/operations'
+import type { InstalledRecord } from '@shared/types'
 import { isActive } from '@shared/operations'
 import { JsonStore } from '../json-store'
 import { log } from '../logger'
@@ -67,6 +68,7 @@ export class OperationsService {
   private ops: Operation[] = []
   private controllers = new Map<string, { ctrl: AbortController; reason?: AbortReason }>()
   private listeners = new Set<(ops: Operation[]) => void>()
+  private installedListeners = new Set<(e: { projectId: string; previous: InstalledRecord | undefined; version: string; tag: string }) => void>()
   private emitTimer: NodeJS.Timeout | null = null
   private lastEmit = 0
 
@@ -99,6 +101,12 @@ export class OperationsService {
 
   list(): Operation[] {
     return this.ops
+  }
+
+  /** Told when an install or update finishes, with the installation it replaced (for What's new). */
+  onInstalled(l: (e: { projectId: string; previous: InstalledRecord | undefined; version: string; tag: string }) => void): () => void {
+    this.installedListeners.add(l)
+    return () => this.installedListeners.delete(l)
   }
 
   onChange(l: (ops: Operation[]) => void): () => void {
@@ -890,6 +898,10 @@ export class OperationsService {
       versionSource: 'hub',
       ...(previous?.adopted && previous.installPath === target ? { adopted: true } : {})
     })
+    // An install or update (not a build): What's new is told, with the version it replaced.
+    if (op.kind === 'install' || op.kind === 'update') {
+      for (const l of this.installedListeners) l({ projectId: op.projectId, previous, version: op.version, tag: op.tag })
+    }
     // Remember what this build used, so the hub can tell when it should be built again.
     const used = await this.planner.builtWith(project)
     if (used) await this.installed.set({ ...(await this.installed.all())[op.projectId]!, builtWith: used })

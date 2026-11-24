@@ -44,12 +44,12 @@ function stubGitHub(releases: unknown[], commits: unknown[]) {
 afterEach(() => vi.unstubAllGlobals())
 
 describe('earlier versions kept by the update check', () => {
-  it('keeps the releases before the latest, without their notes', async () => {
+  it('keeps the releases before the latest, with their notes', async () => {
     stubGitHub([rel('v1.0.0', 1), rel('v1.2.0', 3), rel('v1.1.0', 2)], [])
     const snap = await new GitHubReleaseProvider(null).fetch(repo, undefined)
     expect(snap.release?.tag).toBe('v1.2.0')
     expect(snap.older?.map((r) => r.tag)).toEqual(['v1.1.0', 'v1.0.0'])
-    expect(snap.older?.every((r) => r.notes === '')).toBe(true)
+    expect(snap.older?.map((r) => r.notes)).toEqual(['notes of v1.1.0', 'notes of v1.0.0'])
   })
 
   it('keeps the commits before the latest for a project without releases, in the same request', async () => {

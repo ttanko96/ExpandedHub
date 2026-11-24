@@ -50,6 +50,11 @@ const api: HubApi = {
     extras: (projectId) => ipcRenderer.invoke(IpcChannels.installExtras, projectId),
     screenshots: (projectId) => ipcRenderer.invoke(IpcChannels.installScreenshots, projectId)
   },
+  changelog: {
+    pending: () => ipcRenderer.invoke(IpcChannels.changelogPending),
+    dismiss: (id) => ipcRenderer.invoke(IpcChannels.changelogDismiss, id),
+    onChange: (cb) => subscribe(IpcChannels.evtChangelog, cb)
+  },
   tools: {
     pick: (toolId) => ipcRenderer.invoke(IpcChannels.toolsPick, toolId),
     clear: (toolId) => ipcRenderer.invoke(IpcChannels.toolsClear, toolId)

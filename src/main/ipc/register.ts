@@ -28,7 +28,7 @@ export function isAllowedExternalUrl(url: string): boolean {
 }
 
 export function registerIpc(services: Services): void {
-  const { hubUpdater, reports, registry, settings, updates, operations, planner, sources, lifecycle, tools, adopt, gallery } = services
+  const { hubUpdater, reports, changelog, registry, settings, updates, operations, planner, sources, lifecycle, tools, adopt, gallery } = services
 
   ipcMain.handle(IpcChannels.registryGet, () => registry.get())
   ipcMain.handle(IpcChannels.registryReload, async () => {
@@ -165,6 +165,8 @@ export function registerIpc(services: Services): void {
     }
     return adopt.adopt(projectId, dir)
   })
+  ipcMain.handle(IpcChannels.changelogPending, () => changelog.pending())
+  ipcMain.handle(IpcChannels.changelogDismiss, (_e, id: unknown) => changelog.dismiss(str(id)))
   ipcMain.handle(IpcChannels.projectReport, (_e, id: unknown) => reports.draft(str(id)))
   ipcMain.handle(IpcChannels.projectUninstall, async (_e, id: unknown, opts: unknown) => {
     const projectId = str(id)
@@ -233,5 +235,6 @@ export function registerIpc(services: Services): void {
   hubUpdater.onChange((s) => broadcast(IpcChannels.evtHubUpdate, s))
   operations.onChange((ops) => broadcast(IpcChannels.evtOperations, ops))
   sources.onChange((s) => broadcast(IpcChannels.evtSources, s))
+  changelog.onChange((p) => broadcast(IpcChannels.evtChangelog, p))
   lifecycle.onRunning((ids) => broadcast(IpcChannels.evtRunning, ids))
 }

@@ -4,7 +4,7 @@ import type { CommitInfo, RateLimitInfo, ReleaseInfo, UpdateCheckSummary } from 
 /** What a provider knows about a repository. Cached between checks. */
 export interface RepoSnapshot {
   release: ReleaseInfo | null
-  /** Earlier matching releases, newest first (without their notes), for installing an older version. */
+  /** Earlier matching releases, newest first: for installing an older version, and for What's new after an update. */
   older?: ReleaseInfo[]
   /** Only fetched when the repository has no matching release. */
   commit: CommitInfo | null

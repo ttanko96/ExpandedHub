@@ -134,6 +134,8 @@ if (!app.requestSingleInstanceLock()) {
     createWindow()
     await services.updates.start()
     services.hubUpdater.start()
+    // Restarted on a newer version (the top bar's update): What's new shows its release notes.
+    void services.changelog.hubStarted()
     void services.adopt.rescan()
 
     app.on('activate', () => {

@@ -3,7 +3,8 @@ import { spawn } from 'node:child_process'
 import { existsSync, promises as fs } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import { isNewer, normalizeVersion } from '@shared/status'
-import { HUB_REPOSITORY, type HubUpdateState } from '@shared/types'
+import { HUB_REPOSITORY, type HubUpdateState, type ReleaseInfo } from '@shared/types'
+import { pickReleases } from './releases/github-release-provider'
 import { downloadToFile } from './downloads/http-download'
 import { log } from './logger'
 import type { TokenStore } from './token-store'
@@ -144,6 +145,27 @@ export class HubUpdater {
       this.set({ status: 'error', error: `Could not check for ExpandedHub updates: ${message}` })
     }
     return this.state
+  }
+
+  /** ExpandedHub's published releases with their notes, newest first (for What's new after an update). Throws when offline. */
+  async releases(): Promise<ReleaseInfo[]> {
+    const { owner, name } = HUB_REPOSITORY
+    const headers: Record<string, string> = {
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'User-Agent': `ExpandedHub/${app.getVersion()}`
+    }
+    const token = await this.tokens.get()
+    if (token) headers.Authorization = `Bearer ${token}`
+    const ctrl = new AbortController()
+    const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
+    try {
+      const res = await net.fetch(`https://api.github.com/repos/${owner}/${name}/releases?per_page=20`, { headers, signal: ctrl.signal })
+      if (!res.ok) throw new Error(`GitHub answered ${res.status} ${res.statusText}`)
+      return pickReleases((await res.json()) as never, { provider: 'github', owner, name, includePrereleases: false })
+    } finally {
+      clearTimeout(t)
+    }
   }
 
   /** Download and run the new installer, then quit so it can replace the app. */

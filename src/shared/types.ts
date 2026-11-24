@@ -72,6 +72,38 @@ export interface BuiltWith {
 
 export type VersionSource = 'hub' | 'marker' | 'file' | 'git' | 'unknown'
 
+/** One release in a What's new window. */
+export interface ChangelogRelease {
+  version: string
+  tag: string
+  name: string
+  publishedAt: string
+  /** The release notes (Markdown); for a commit, its message. */
+  notes: string
+  htmlUrl: string
+}
+
+/**
+ * What changed in an update, shown once in the What's new window: a project the
+ * hub updated, or ExpandedHub itself after it restarted on a newer version.
+ */
+export interface ChangelogEntry {
+  id: string
+  /** The project, or `expandedhub` for the hub itself. */
+  projectId: string
+  name: string
+  /** The version it came from, as shown (`v1.5.0`, `commit 93e79b7`); null when not known. */
+  from: string | null
+  /** The raw version it came from, for joining a later update into this entry. */
+  fromVersion: string | null
+  to: string
+  /** The releases after `from` up to `to`, newest first. */
+  releases: ChangelogRelease[]
+  /** Not every release in between is listed (only the latest few are kept): the rest are on this page. */
+  moreUrl: string | null
+  createdAt: string
+}
+
 /** A drafted GitHub issue for a project, shown to the user before it is opened on GitHub. */
 export interface IssueReport {
   /** Suggested title; empty when there is nothing to suggest. */

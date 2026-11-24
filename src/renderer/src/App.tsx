@@ -6,6 +6,7 @@ import { Footer } from './components/layout/Footer'
 import { PageBackdrop } from './components/layout/PageBackdrop'
 import { Toaster } from './components/layout/Toaster'
 import { TopNav } from './components/layout/TopNav'
+import { WhatsNewDialog } from './components/layout/WhatsNewDialog'
 import { ModDetailPage } from './pages/ModDetailPage'
 import { ModsPage } from './pages/ModsPage'
 import { useHub } from './store/hub-store'
@@ -61,6 +62,7 @@ export function App() {
         <Footer />
       </main>
       <InstallDialog />
+      <WhatsNewDialog />
       <Toaster />
     </div>
   )

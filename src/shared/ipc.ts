@@ -8,6 +8,7 @@ import type {
   AppSettings,
   DeepPartial,
   AdoptResult,
+  ChangelogEntry,
   IssueReport,
   HubUpdateState,
   ProjectState,
@@ -49,6 +50,8 @@ export const IpcChannels = {
   projectStorage: 'project:storage',
   projectAdopt: 'project:adopt',
   projectReport: 'project:report',
+  changelogPending: 'changelog:pending',
+  changelogDismiss: 'changelog:dismiss',
   opsBuild: 'ops:build',
   sourcesList: 'sources:list',
   sourcesPick: 'sources:pick',
@@ -70,7 +73,8 @@ export const IpcChannels = {
   evtHubUpdate: 'evt:hub-update',
   evtOperations: 'evt:operations',
   evtRunning: 'evt:running',
-  evtSources: 'evt:sources'
+  evtSources: 'evt:sources',
+  evtChangelog: 'evt:changelog'
 } as const
 
 export interface HubApi {
@@ -134,6 +138,13 @@ export interface HubApi {
     extras(projectId: string): Promise<ExtraStatus[]>
     /** The screenshots an installed project ships (`install.screenshots`); empty when none. */
     screenshots(projectId: string): Promise<Screenshot[]>
+  }
+  changelog: {
+    /** What's new entries not seen yet: updated projects, and the hub itself after it updated. Oldest first. */
+    pending(): Promise<ChangelogEntry[]>
+    /** The user closed this entry's What's new window. */
+    dismiss(id: string): Promise<void>
+    onChange(cb: (pending: ChangelogEntry[]) => void): () => void
   }
   tools: {
     /** Browse to a tool (a folder or a file, as the registry asks). Null when cancelled; throws when the choice is not that tool. */
