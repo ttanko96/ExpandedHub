@@ -1,4 +1,4 @@
-import { ArrowLeft, Bug, CheckCircle2, FolderSearch, FolderX, MessageSquarePlus, Sparkles, Star, ExternalLink, FileArchive, FolderOpen, GitCommit, Github, Hammer, Link2, Lock, Play, Square, Trash2, Wrench } from 'lucide-react'
+import { ArrowLeft, Bug, CheckCircle2, FolderSearch, FolderX, History, MessageSquarePlus, Sparkles, Star, ExternalLink, FileArchive, FolderOpen, GitCommit, Github, Hammer, Link2, Lock, Play, Square, Trash2, Wrench } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import type { ExtraStatus, ProjectStorage, Screenshot, ToolStatus } from '@shared/install'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
@@ -7,6 +7,7 @@ import { ToolRow } from '../components/install/ToolRow'
 import { Trailer } from '../components/ui/Trailer'
 import { UninstallDialog } from '../components/install/UninstallDialog'
 import { ReportDialog } from '../components/mods/ReportDialog'
+import { VersionsDialog } from '../components/mods/VersionsDialog'
 import { SourceRow } from '../components/install/SourceRow'
 import { resolveDownload } from '@shared/assets'
 import type { ReactNode } from 'react'
@@ -63,6 +64,7 @@ export function ModDetailPage() {
   const [storage, setStorage] = useState<ProjectStorage | null>(null)
   const [removing, setRemoving] = useState(false)
   const [reporting, setReporting] = useState(false)
+  const [versionsOpen, setVersionsOpen] = useState(false)
   const loadStorage = useCallback(() => {
     if (id) window.hub.install.storage(id).then(setStorage, () => setStorage(null))
   }, [id])
@@ -190,10 +192,18 @@ export function ModDetailPage() {
                 )}
               </div>
               {installable && !state?.installed && (
-                <Button size="sm" variant="ghost" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}
-                  title="Already have it on your PC? Choose its folder: the hub works from there and tells you when an update is out.">
-                  {project.install?.installInto ? 'Already installed? Find it' : 'Already installed? Browse…'}
-                </Button>
+                <div className="flex gap-2">
+                  {state?.latest && (
+                    <Button size="sm" variant="ghost" icon={<History size={14} />} onClick={() => setVersionsOpen(true)}
+                      title="Install an earlier version instead of the latest">
+                      Other versions
+                    </Button>
+                  )}
+                  <Button size="sm" variant="ghost" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}
+                    title="Already have it on your PC? Choose its folder: the hub works from there and tells you when an update is out.">
+                    {project.install?.installInto ? 'Already installed? Find it' : 'Already installed? Browse…'}
+                  </Button>
+                </div>
               )}
               {state?.installed && (
                 <div className="flex gap-2">
@@ -489,6 +499,12 @@ export function ModDetailPage() {
                     Open folder
                   </Button>
                 )}
+                {installable && !state.missing && state.latest && (
+                  <Button size="sm" variant="secondary" icon={<History size={14} />} onClick={() => setVersionsOpen(true)}
+                    title="Install an earlier version, if a new one broke something">
+                    Other versions
+                  </Button>
+                )}
                 {state.installed.adopted && !state.missing && !project.install?.installInto && (
                   <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)} title="Point the hub at another folder, or read this one's version again">
                     Change folder
@@ -641,6 +657,7 @@ export function ModDetailPage() {
           </Panel>
         </aside>
       </div>
+      {versionsOpen && <VersionsDialog project={project} onClose={() => setVersionsOpen(false)} />}
       {reporting && <ReportDialog project={project} onClose={() => setReporting(false)} />}
       {removing && storage && (
         <UninstallDialog

@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import { isTracked } from '@shared/registry-schema'
 import { commitRelease, computeStatus } from '@shared/status'
-import type { ProjectState, RateLimitInfo, TokenValidation, UpdateCheckSummary } from '@shared/types'
+import type { ProjectState, RateLimitInfo, ReleaseInfo, TokenValidation, UpdateCheckSummary } from '@shared/types'
 import type { InstalledService } from './installed-service'
 import { JsonStore } from './json-store'
 import { log } from './logger'
@@ -206,6 +206,32 @@ export class UpdateService {
         rebuild: rec && !missing.has(p.id) ? rebuildReasons(rec.builtWith, builtWith(p, projects, installed, sources), projects, games) : []
       }
     })
+  }
+
+  /**
+   * A project's release by version: the latest, or one of the older ones kept
+   * from the last check (for installing an earlier version). Null when unknown.
+   */
+  async release(projectId: string, version?: string): Promise<ReleaseInfo | null> {
+    const all = await this.releases(projectId)
+    return version ? (all.find((r) => r.version === version) ?? null) : (all[0] ?? null)
+  }
+
+  /**
+   * The latest release and the older ones kept, newest first. A project that
+   * installs its latest commit (no releases) gets the commits before it instead.
+   */
+  async releases(projectId: string): Promise<ReleaseInfo[]> {
+    const latest = (await this.states()).find((s) => s.projectId === projectId)?.latest ?? null
+    if (!latest) return []
+    const snapshot = (await this.readCache()).entries[projectId]?.snapshot
+    const repo = (await this.registry.get()).projects.find((p) => p.id === projectId)?.repository
+    const older = snapshot?.release
+      ? (snapshot.older ?? [])
+      : repo
+        ? (snapshot?.olderCommits ?? []).map((c) => ({ ...commitRelease(c, repo), name: `Commit ${c.sha.slice(0, 7)}: ${c.message}` }))
+        : []
+    return [latest, ...older.filter((r) => r.version !== latest.version)]
   }
 
   /** Store or remove the GitHub token. A new token is validated first, then a fresh check runs. */

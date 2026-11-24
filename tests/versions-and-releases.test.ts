@@ -6,7 +6,7 @@ import { resolveDownload } from '@shared/assets'
 import { ProjectDefinition, type RepositoryRef } from '@shared/registry-schema'
 import { computeStatus, isNewer, normalizeVersion } from '@shared/status'
 import type { ReleaseInfo } from '@shared/types'
-import { pickRelease } from '../src/main/services/releases/github-release-provider'
+import { pickRelease, pickReleases } from '../src/main/services/releases/github-release-provider'
 
 describe('version handling', () => {
   it('normalizes common tag shapes', () => {
@@ -72,6 +72,10 @@ describe('release selection', () => {
   })
   it('returns null when nothing matches', () => {
     expect(pickRelease([rel('v1', '2026-01-01T00:00:00Z', { prerelease: true })], repo())).toBeNull()
+  })
+  it('lists every matching release newest first, for installing an earlier one', () => {
+    expect(pickReleases(list, repo({ includePrereleases: true, tagPattern: '^v' })).map((r) => r.tag)).toEqual(['v0.2.0-beta', 'v0.1.0'])
+    expect(pickReleases(list, repo()).map((r) => r.tag)).toEqual(['tools-7', 'v0.1.0'])
   })
 })
 

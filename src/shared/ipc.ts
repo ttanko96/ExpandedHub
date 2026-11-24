@@ -15,7 +15,7 @@ import type {
   TokenValidation,
   UpdateCheckSummary
 } from './types'
-import type { ExtraStatus, Preflight, Screenshot, ProjectStorage, SourceConfig, UninstallOptions, UninstallResult } from './install'
+import type { ExtraStatus, Preflight, ReleaseChoice, Screenshot, ProjectStorage, SourceConfig, UninstallOptions, UninstallResult } from './install'
 import type { Operation } from './operations'
 
 export const IpcChannels = {
@@ -39,6 +39,7 @@ export const IpcChannels = {
   appLog: 'app:log',
   appOpenLogs: 'app:open-logs',
   installPreflight: 'install:preflight',
+  installVersions: 'install:versions',
   installExtras: 'install:extras',
   installScreenshots: 'install:screenshots',
   projectLaunch: 'project:launch',
@@ -104,7 +105,10 @@ export interface HubApi {
     update(patch: DeepPartial<AppSettings>): Promise<AppSettings>
   }
   install: {
-    preflight(projectId: string): Promise<Preflight>
+    /** Install checks; with `version`, for installing that earlier release instead of the latest. */
+    preflight(projectId: string, version?: string): Promise<Preflight>
+    /** The project's releases for Other versions (newest first, what is installed and downloaded). */
+    versions(projectId: string): Promise<ReleaseChoice[]>
     launch(projectId: string): Promise<void>
     /** Stop the game server Play started (browser games). */
     stop(projectId: string): Promise<void>
@@ -150,7 +154,7 @@ export interface HubApi {
      * Install or update a project from its latest release. `allowScripts` is the
      * user's consent to run the project's own scripts (asked in the install dialog).
      */
-    start(projectId: string, allowScripts?: boolean): Promise<Operation>
+    start(projectId: string, allowScripts?: boolean, version?: string): Promise<Operation>
     /** Run the project's build again in its existing installation (no download), or make one of its extras. */
     build(projectId: string, allowScripts?: boolean, extraId?: string): Promise<Operation>
     pause(id: string): Promise<void>

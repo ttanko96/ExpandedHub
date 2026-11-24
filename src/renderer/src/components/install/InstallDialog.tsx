@@ -16,7 +16,9 @@ import { ToolRow } from './ToolRow'
  * user presses Install here.
  */
 export function InstallDialog() {
-  const { installFor, installMode, installExtra, openInstall, projects, states, sources } = useHub()
+  const { installFor, installMode, installExtra, installVersion, openInstall, projects, states, sources } = useHub()
+  // An earlier release chosen under Other versions, instead of the latest (the store keeps it only for installs).
+  const version = installVersion
   const extraId = installMode === 'extra' ? installExtra : null
   const building = installMode === 'build' || Boolean(extraId)
   const project = projects.find((p) => p.id === installFor)
@@ -33,13 +35,13 @@ export function InstallDialog() {
       ? window.hub.install.extraPreflight(installFor, extraId)
       : building
         ? window.hub.install.buildPreflight(installFor)
-        : window.hub.install.preflight(installFor))
+        : window.hub.install.preflight(installFor, version ?? undefined))
       .then((p) => {
         setPre(p)
         setError(null)
       })
       .catch((e) => setError(ipcMessage(e)))
-  }, [installFor, building, extraId])
+  }, [installFor, building, extraId, version])
 
   // Reload whenever the user changes a game file or an install finishes.
   useEffect(() => {
@@ -59,8 +61,8 @@ export function InstallDialog() {
 
   if (!project) return null
   const close = () => openInstall(null)
-  const isUpdate = !building && state?.status === 'update-available'
-  const verb = extraId ? 'Make' : building ? 'Build' : isUpdate ? 'Update' : 'Install'
+  const isUpdate = !building && !version && state?.status === 'update-available'
+  const verb = extraId ? 'Make' : building ? 'Build' : isUpdate ? 'Update' : version ? 'Install an earlier version' : 'Install'
   const needsConsent = (pre?.scripts.length ?? 0) > 0
   const validating = pre?.sources.some((s) => sources[s.gameId]?.validating) ?? false
   const canStart = pre && pre.blockers.length === 0 && (!needsConsent || consent) && !starting
@@ -69,7 +71,7 @@ export function InstallDialog() {
     setStarting(true)
     const ok = building
       ? await projectActions.build(project, consent, () => navigate('/downloads'), extraId ?? undefined)
-      : await projectActions.start(project, state, consent, () => navigate('/downloads'))
+      : await projectActions.start(project, state, consent, () => navigate('/downloads'), version ?? undefined)
     setStarting(false)
     if (ok) close()
   }
@@ -130,7 +132,13 @@ export function InstallDialog() {
                   <li>
                     Install into <code className="selectable rounded bg-ink-800 px-1.5 py-0.5 text-[12.5px] text-zinc-200">{pre.installPath ?? 'after its dependency is installed'}</code>
                     {isUpdate && <span className="text-zinc-500"> — new files replace old ones, your saves and settings stay</span>}
+                    {version && state?.installed && <span className="text-zinc-500"> — over the installed {state.installed.version.startsWith('v') ? '' : 'v'}{state.installed.version}: its files are replaced, your saves and settings stay</span>}
                   </li>
+                  {version && (
+                    <li className="text-amber-200/90">
+                      Files that only the newer version has stay in the folder. If the game misbehaves, uninstall it and install this version fresh.
+                    </li>
+                  )}
                   </>
                   )}
                   {!building && pre.scripts.length > 0 && (

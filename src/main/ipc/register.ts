@@ -135,9 +135,14 @@ export function registerIpc(services: Services): void {
     if (typeof v !== 'string') throw new Error('Invalid argument')
     return v
   }
-  ipcMain.handle(IpcChannels.installPreflight, (_e, id: unknown, buildOnly: unknown, extra: unknown) =>
-    planner.preflight(str(id), { buildOnly: buildOnly === true, extra: typeof extra === 'string' ? extra : undefined })
+  ipcMain.handle(IpcChannels.installPreflight, (_e, id: unknown, buildOnly: unknown, extra: unknown, version: unknown) =>
+    planner.preflight(str(id), {
+      buildOnly: buildOnly === true,
+      extra: typeof extra === 'string' ? extra : undefined,
+      version: typeof version === 'string' ? version : undefined
+    })
   )
+  ipcMain.handle(IpcChannels.installVersions, (_e, id: unknown) => planner.versions(str(id)))
   ipcMain.handle(IpcChannels.installExtras, (_e, id: unknown) => planner.extras(str(id)))
   ipcMain.handle(IpcChannels.installScreenshots, (_e, id: unknown) => gallery.list(str(id)))
   ipcMain.handle(IpcChannels.projectLaunch, (_e, id: unknown) => lifecycle.launch(str(id)))
@@ -205,8 +210,8 @@ export function registerIpc(services: Services): void {
   })
 
   ipcMain.handle(IpcChannels.opsList, () => operations.list())
-  ipcMain.handle(IpcChannels.opsStart, (_e, projectId: unknown, allowScripts: unknown) =>
-    operations.start(str(projectId), allowScripts === true)
+  ipcMain.handle(IpcChannels.opsStart, (_e, projectId: unknown, allowScripts: unknown, version: unknown) =>
+    operations.start(str(projectId), allowScripts === true, typeof version === 'string' ? version : undefined)
   )
   ipcMain.handle(IpcChannels.opsBuild, (_e, projectId: unknown, allowScripts: unknown, extra: unknown) =>
     operations.build(str(projectId), allowScripts === true, typeof extra === 'string' ? extra : undefined)

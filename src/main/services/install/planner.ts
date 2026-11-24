@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { resolveDownload } from '@shared/assets'
 import { sourceFit } from '@shared/source-fit'
-import type { ExtraStatus, Preflight, PreflightScript, SourceConfig } from '@shared/install'
+import type { ExtraStatus, Preflight, PreflightScript, ReleaseChoice, SourceConfig } from '@shared/install'
 import { isInstallable, type InstallableProject, type OsPlatform, type ProjectExtra, type RunArg, type ToolRequirement } from '@shared/registry-schema'
 import type { InstalledService } from '../installed-service'
 import type { BuiltWith } from '@shared/types'
@@ -54,6 +54,35 @@ export class InstallPlanner {
   /** What a build of the project uses right now (see `builtWith`); null for projects that are not built. */
   async builtWith(project: InstallableProject): Promise<BuiltWith | null> {
     return builtWith(project, (await this.registry.get()).projects, await this.installed.all(), await this.sources.list())
+  }
+
+  /**
+   * The project's releases for Other versions: newest first, which one is
+   * installed, and which are already downloaded (installing them needs no download).
+   */
+  async versions(projectId: string): Promise<ReleaseChoice[]> {
+    const project = await this.project(projectId)
+    const installed = (await this.installed.all())[projectId]
+    const dir = join((await this.settings.get()).directories.downloads, projectId)
+    return Promise.all(
+      (await this.updates.releases(projectId)).map(async (r, i) => {
+        const plan = resolveDownload(project, r, platform)
+        const asset = plan.asset
+        const downloaded = asset ? await fs.stat(join(dir, asset.name)).then((s) => s.size === asset.size, () => false) : false
+        return {
+          version: r.version,
+          tag: r.tag,
+          name: r.name,
+          publishedAt: r.publishedAt,
+          prerelease: r.prerelease,
+          latest: i === 0,
+          installed: installed?.versionSource !== 'unknown' && installed?.version === r.version,
+          downloaded,
+          size: asset?.size ?? 0,
+          problem: plan.problem
+        }
+      })
+    )
   }
 
   /** The program one of the project's tools (or the extra's) resolves to (see `ToolsService.program`), or null. */
@@ -164,14 +193,15 @@ export class InstallPlanner {
     })
   }
 
-  async preflight(projectId: string, opts: { buildOnly?: boolean; extra?: string } = {}): Promise<Preflight> {
+  async preflight(projectId: string, opts: { buildOnly?: boolean; extra?: string; version?: string } = {}): Promise<Preflight> {
     const project = await this.project(projectId)
     // Making an extra is a build in the existing installation, with the extra's steps and tools.
     const extra = opts.extra ? this.extra(project, opts.extra) : null
     if (extra) opts = { ...opts, buildOnly: true }
     const settings = await this.settings.get()
     const state = (await this.updates.states()).find((s) => s.projectId === projectId)
-    const release = state?.latest ?? null
+    // A chosen earlier version (Other versions on the project page), else the latest.
+    const release = opts.version ? await this.updates.release(projectId, opts.version) : (state?.latest ?? null)
     const installedAll = await this.installed.all()
     const installPath = await this.installPath(project)
     const configured = new Map((await this.sources.list()).map((s) => [s.gameId, s]))
@@ -189,7 +219,7 @@ export class InstallPlanner {
         blockers.push(`${project.name} has no build step.`)
       }
     } else {
-      if (!release) blockers.push('No release is known yet. Refresh the Mods page.')
+      if (!release) blockers.push(opts.version ? `Version ${opts.version} is not known. Refresh the Mods page.` : 'No release is known yet. Refresh the Mods page.')
       if (release && plan.problem) blockers.push(plan.problem)
     }
 

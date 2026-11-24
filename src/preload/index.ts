@@ -35,7 +35,8 @@ const api: HubApi = {
     update: (patch) => ipcRenderer.invoke(IpcChannels.settingsUpdate, patch)
   },
   install: {
-    preflight: (projectId) => ipcRenderer.invoke(IpcChannels.installPreflight, projectId),
+    preflight: (projectId, version) => ipcRenderer.invoke(IpcChannels.installPreflight, projectId, false, undefined, version),
+    versions: (projectId) => ipcRenderer.invoke(IpcChannels.installVersions, projectId),
     launch: (projectId) => ipcRenderer.invoke(IpcChannels.projectLaunch, projectId),
     stop: (projectId) => ipcRenderer.invoke(IpcChannels.projectStop, projectId),
     running: () => ipcRenderer.invoke(IpcChannels.projectRunning),
@@ -62,7 +63,7 @@ const api: HubApi = {
   },
   operations: {
     list: () => ipcRenderer.invoke(IpcChannels.opsList),
-    start: (projectId, allowScripts) => ipcRenderer.invoke(IpcChannels.opsStart, projectId, allowScripts === true),
+    start: (projectId, allowScripts, version) => ipcRenderer.invoke(IpcChannels.opsStart, projectId, allowScripts === true, version),
     build: (projectId, allowScripts, extraId) => ipcRenderer.invoke(IpcChannels.opsBuild, projectId, allowScripts === true, extraId),
     pause: (id) => ipcRenderer.invoke(IpcChannels.opsPause, id),
     resume: (id) => ipcRenderer.invoke(IpcChannels.opsResume, id),

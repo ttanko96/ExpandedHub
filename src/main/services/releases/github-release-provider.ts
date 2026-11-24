@@ -55,20 +55,36 @@ export class GitHubReleaseProvider implements ReleaseProvider {
     const base = `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.name)}`
     // A snapshot made under another pin cannot be reused: ask for the full list again.
     if (previous && (previous.pinned ?? null) !== (repo.pinTag ?? null)) previous = undefined
-    const rel = await this.request<GhRelease[]>(`${base}/releases?per_page=30`, previous?.etags.releases)
+    // A snapshot from before older releases were kept is fetched in full once.
+    const rel = await this.request<GhRelease[]>(`${base}/releases?per_page=30`, previous?.older ? previous.etags.releases : undefined)
 
     let release: ReleaseInfo | null
-    if (rel.notModified && previous) release = previous.release
-    else release = pickRelease(rel.data ?? [], repo)
+    let older: ReleaseInfo[]
+    if (rel.notModified && previous) {
+      release = previous.release
+      older = previous.older ?? []
+    } else {
+      const all = pickReleases(rel.data ?? [], repo)
+      release = all[0] ?? null
+      older = all.slice(1, 11).map((r) => ({ ...r, notes: '' }))
+    }
 
     const etags: RepoSnapshot['etags'] = { releases: rel.etag ?? previous?.etags.releases }
     let commit: CommitInfo | null = null
+    let olderCommits: CommitInfo[] | undefined
     if (!release) {
-      // No usable release: show the latest commit so the user still sees activity.
-      const c = await this.request<GhCommit[]>(`${base}/commits?per_page=1`, previous?.etags.commits)
+      // No usable release: show the latest commit so the user still sees activity. The ten before it
+      // come in the same request, for installing an earlier one (a snapshot without them is fetched in full once).
+      const c = await this.request<GhCommit[]>(`${base}/commits?per_page=11`, previous?.olderCommits ? previous.etags.commits : undefined)
       etags.commits = c.etag ?? previous?.etags.commits
-      if (c.notModified && previous) commit = previous.commit
-      else if (c.data?.[0]) commit = toCommit(c.data[0])
+      if (c.notModified && previous) {
+        commit = previous.commit
+        olderCommits = previous.olderCommits ?? []
+      } else {
+        const list = (c.data ?? []).map(toCommit)
+        commit = list[0] ?? null
+        olderCommits = list.slice(1)
+      }
     }
     // Stars: how many people like the repository. Optional, so a failure here never hides the release.
     let stars = previous?.stars ?? null
@@ -79,7 +95,7 @@ export class GitHubReleaseProvider implements ReleaseProvider {
     } catch (err) {
       if (err instanceof ProviderError && err.kind === 'rate-limit') throw err
     }
-    return { release, commit, etags, pinned: repo.pinTag ?? null, stars }
+    return { release, older, commit, olderCommits, etags, pinned: repo.pinTag ?? null, stars }
   }
 
   /** Check a token against the API without storing it. */
@@ -168,6 +184,11 @@ function errorText(err: unknown): string {
 
 /** Newest published release matching the registry's prerelease and tag rules. */
 export function pickRelease(list: GhRelease[], repo: RepositoryRef): ReleaseInfo | null {
+  return pickReleases(list, repo)[0] ?? null
+}
+
+/** The matching releases (see `pickRelease`), newest first. */
+export function pickReleases(list: GhRelease[], repo: RepositoryRef): ReleaseInfo[] {
   let tagRe: RegExp | null = null
   if (repo.tagPattern) {
     try {
@@ -183,9 +204,7 @@ export function pickRelease(list: GhRelease[], repo: RepositoryRef): ReleaseInfo
         : !r.draft && (repo.includePrereleases || !r.prerelease) && (!tagRe || tagRe.test(r.tag_name))
     )
     .sort((a, b) => Date.parse(b.published_at ?? b.created_at) - Date.parse(a.published_at ?? a.created_at))
-  const r = candidates[0]
-  if (!r) return null
-  return {
+  return candidates.map((r) => ({
     version: normalizeVersion(r.tag_name),
     tag: r.tag_name,
     name: r.name?.trim() || r.tag_name,
@@ -200,7 +219,7 @@ export function pickRelease(list: GhRelease[], repo: RepositoryRef): ReleaseInfo
       downloadUrl: a.browser_download_url,
       contentType: a.content_type
     }))
-  }
+  }))
 }
 
 function toCommit(c: GhCommit): CommitInfo {

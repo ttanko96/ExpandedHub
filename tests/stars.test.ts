@@ -15,7 +15,7 @@ function stubGitHub(repoAnswer: () => Response) {
       const etag = (init.headers as Record<string, string>)['If-None-Match'] ?? null
       calls.push({ url, etag })
       if (url.endsWith('/releases?per_page=30')) return new Response('[]', { status: 200 })
-      if (url.endsWith('/commits?per_page=1')) return new Response('[]', { status: 200 })
+      if (url.endsWith('/commits?per_page=11')) return new Response('[]', { status: 200 })
       if (url.endsWith('/repos/o/r')) return repoAnswer()
       return new Response('', { status: 404 })
     })

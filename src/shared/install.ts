@@ -15,6 +15,25 @@ export interface SourceValidation {
   checkedAt: string
 }
 
+/** A release offered under Other versions on the project page. */
+export interface ReleaseChoice {
+  version: string
+  tag: string
+  name: string
+  publishedAt: string
+  prerelease: boolean
+  /** The newest release. */
+  latest: boolean
+  /** The version installed now. */
+  installed: boolean
+  /** Its package is in the downloads folder already, so installing it needs no download. */
+  downloaded: boolean
+  /** Download size in bytes; 0 when unknown (source archives). */
+  size: number
+  /** Why it cannot be installed here (no package for this system); null when it can. */
+  problem: string | null
+}
+
 /** A game file the user assigned to a game from `registry/games.json`. */
 export interface SourceConfig {
   gameId: string

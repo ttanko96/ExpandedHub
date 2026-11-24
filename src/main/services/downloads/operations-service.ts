@@ -110,11 +110,11 @@ export class OperationsService {
    * Start installing (or updating) a project. `allowScripts` is the user's
    * consent, given in the install dialog, to run the project's own scripts.
    */
-  async start(projectId: string, allowScripts = false): Promise<Operation> {
+  async start(projectId: string, allowScripts = false, version?: string): Promise<Operation> {
     const existing = this.ops.find((o) => o.projectId === projectId && isActive(o))
     if (existing) return existing
 
-    const preflight = await this.planner.preflight(projectId)
+    const preflight = await this.planner.preflight(projectId, { version })
     if (preflight.blockers.length) throw new Error(preflight.blockers.join(' '))
     const scriptCommands = preflight.scripts.map((s) => s.command)
     if (scriptCommands.length && !allowScripts) {
@@ -125,8 +125,9 @@ export class OperationsService {
     if (!project) throw new Error(`Unknown project "${projectId}"`)
     if (!isInstallable(project)) throw new Error(`${project.name} cannot be installed through the hub.`)
     const state = (await this.updates.states()).find((s) => s.projectId === projectId)
-    const release = state?.latest ?? null
-    if (!release) throw new Error('No release is known for this project yet. Refresh the Mods page first.')
+    // An earlier version the user chose (Other versions), else the latest.
+    const release = version ? await this.updates.release(projectId, version) : (state?.latest ?? null)
+    if (!release) throw new Error(version ? `Version ${version} is not known. Refresh the Mods page first.` : 'No release is known for this project yet. Refresh the Mods page first.')
 
     const plan = resolveDownload(project, release, process.platform)
     if (plan.problem) throw new Error(plan.problem)

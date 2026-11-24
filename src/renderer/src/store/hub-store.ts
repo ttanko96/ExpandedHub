@@ -25,6 +25,8 @@ interface HubState {
   installMode: 'install' | 'build' | 'extra'
   /** The extra the dialog makes, in `extra` mode. */
   installExtra: string | null
+  /** An earlier release the dialog installs instead of the latest (Other versions). */
+  installVersion: string | null
   loadError: string | null
 
   init(): () => void
@@ -32,7 +34,7 @@ interface HubState {
   reloadRegistry(): Promise<void>
   updateSettings(patch: DeepPartial<AppSettings>): Promise<void>
   setToken(token: string | null): Promise<TokenValidation>
-  openInstall(projectId: string | null, mode?: 'install' | 'build' | 'extra', extraId?: string): void
+  openInstall(projectId: string | null, mode?: 'install' | 'build' | 'extra', extraId?: string, version?: string): void
 }
 
 const byId = (states: ProjectState[]) => Object.fromEntries(states.map((s) => [s.projectId, s]))
@@ -55,6 +57,7 @@ export const useHub = create<HubState>((set) => ({
   installFor: null,
   installMode: 'install',
   installExtra: null,
+  installVersion: null,
   loadError: null,
 
   init() {
@@ -96,8 +99,13 @@ export const useHub = create<HubState>((set) => ({
     set({ ...reg })
   },
 
-  openInstall(projectId, mode = 'install', extraId) {
-    set({ installFor: projectId, installMode: mode, installExtra: mode === 'extra' ? (extraId ?? null) : null })
+  openInstall(projectId, mode = 'install', extraId, version) {
+    set({
+      installFor: projectId,
+      installMode: mode,
+      installExtra: mode === 'extra' ? (extraId ?? null) : null,
+      installVersion: mode === 'install' ? (version ?? null) : null
+    })
   },
 
   async setToken(token) {

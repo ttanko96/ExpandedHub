@@ -4,8 +4,12 @@ import type { CommitInfo, RateLimitInfo, ReleaseInfo, UpdateCheckSummary } from 
 /** What a provider knows about a repository. Cached between checks. */
 export interface RepoSnapshot {
   release: ReleaseInfo | null
+  /** Earlier matching releases, newest first (without their notes), for installing an older version. */
+  older?: ReleaseInfo[]
   /** Only fetched when the repository has no matching release. */
   commit: CommitInfo | null
+  /** The commits before `commit`, newest first: a project without releases installs one of these as an earlier version. */
+  olderCommits?: CommitInfo[]
   /** Conditional-request validators, so unchanged repositories cost no rate limit. */
   etags: { releases?: string; commits?: string; repo?: string }
   /** The repository's GitHub star count: how many people like it. Null when unknown. */

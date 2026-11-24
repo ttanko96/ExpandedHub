@@ -34,12 +34,12 @@ export const projectActions = {
   primary: (p: ProjectDefinition) => {
     useHub.getState().openInstall(p.id)
   },
-  start: async (p: ProjectDefinition, s: ProjectState | undefined, allowScripts: boolean, onStarted?: () => void) => {
+  start: async (p: ProjectDefinition, s: ProjectState | undefined, allowScripts: boolean, onStarted?: () => void, version?: string) => {
     try {
-      const op = await window.hub.operations.start(p.id, allowScripts)
+      const op = await window.hub.operations.start(p.id, allowScripts, version)
       toast({
         tone: 'success',
-        title: `${s?.status === 'update-available' ? 'Update' : 'Installation'} started`,
+        title: `${version ? `Installing ${op.tag}` : s?.status === 'update-available' ? 'Update' : 'Installation'} started`,
         body: `${p.name} ${op.tag} — follow it on the Downloads page.`
       })
       onStarted?.()
