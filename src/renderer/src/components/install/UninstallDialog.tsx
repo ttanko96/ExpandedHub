@@ -1,4 +1,5 @@
 import { FolderOpen, Trash2, X } from 'lucide-react'
+import { createPortal } from 'react-dom'
 import { useEffect, useState, type ReactNode } from 'react'
 import type { ProjectStorage } from '@shared/install'
 import type { ProjectDefinition } from '@shared/registry-schema'
@@ -72,7 +73,8 @@ export function UninstallDialog({
     toolsToRemove.reduce((n, t) => n + t.install.bytes + (downloads ? t.downloads.bytes : 0), 0)
   const hostRemoved = depsToRemove.some((d) => d.id === project.install?.installInto?.project)
 
-  return (
+  // In document.body: the page's entry animation leaves a transform that would anchor a fixed overlay to the page.
+  return createPortal(
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/65 p-6 backdrop-blur-sm" onClick={() => !busy && onClose()}>
       <div
         role="dialog"
@@ -179,7 +181,8 @@ export function UninstallDialog({
           </div>
         </footer>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 

@@ -1,4 +1,5 @@
 import { Bug, Copy, ExternalLink, X } from 'lucide-react'
+import { createPortal } from 'react-dom'
 import { useEffect, useState } from 'react'
 import type { ProjectDefinition } from '@shared/registry-schema'
 import type { IssueReport } from '@shared/types'
@@ -67,7 +68,8 @@ export function ReportDialog({ project, onClose }: { project: ProjectDefinition;
     }
   }
 
-  return (
+  // In document.body: the page's entry animation leaves a transform that would anchor a fixed overlay to the page.
+  return createPortal(
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/65 p-6 backdrop-blur-sm" onClick={onClose}>
       <div
         role="dialog"
@@ -136,6 +138,7 @@ export function ReportDialog({ project, onClose }: { project: ProjectDefinition;
           </div>
         </footer>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
