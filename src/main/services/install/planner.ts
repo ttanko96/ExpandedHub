@@ -1,3 +1,4 @@
+import { promises as fs } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { resolveDownload } from '@shared/assets'
 import { sourceFit } from '@shared/source-fit'
@@ -200,6 +201,19 @@ export class InstallPlanner {
     )
     for (const d of dependencies) if (!d.installed) blockers.push(`Install ${d.name} first.`)
 
+    // A folder that is gone (moved, deleted, a drive not connected): building there, or updating a folder
+    // the user linked, would only make a broken copy. A hub install is simply installed there again.
+    const current = installedAll[projectId]
+    if (current && !(await isDir(current.installPath)) && (opts.buildOnly || current.adopted)) {
+      blockers.push(`${project.name}'s folder was not found: ${current.installPath}. Moved it? Use Find it on its page. Deleted it? Uninstall, then install it again.`)
+    }
+    const into = project.install.installInto
+    const hostRec = into ? installedAll[into.project] : undefined
+    if (into && hostRec && !(await isDir(hostRec.installPath))) {
+      const hostName = (await this.registry.get()).projects.find((p) => p.id === into.project)?.name ?? into.project
+      blockers.push(`${hostName}'s folder was not found: ${hostRec.installPath}. Find it on its page first.`)
+    }
+
     // An extra reads what the installation made, not the game files again.
     const sources = (extra ? [] : project.install.sources).map((s) => {
       const g = games.find((x) => x.id === s.gameId)
@@ -337,3 +351,5 @@ export function resolveArgs(
   }
   return out
 }
+
+const isDir = (p: string) => fs.stat(p).then((s) => s.isDirectory(), () => false)

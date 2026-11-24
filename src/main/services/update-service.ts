@@ -1,3 +1,4 @@
+import { promises as fs } from 'node:fs'
 import { isTracked } from '@shared/registry-schema'
 import { commitRelease, computeStatus } from '@shared/status'
 import type { ProjectState, RateLimitInfo, TokenValidation, UpdateCheckSummary } from '@shared/types'
@@ -181,6 +182,10 @@ export class UpdateService {
     const cache = await this.readCache()
     const installed = await this.installed.all()
     const sources = (await this.sources?.list()) ?? []
+    const missing = new Set<string>()
+    for (const rec of Object.values(installed)) {
+      if (!(await fs.stat(rec.installPath).then((s) => s.isDirectory(), () => false))) missing.add(rec.projectId)
+    }
     return projects.map((p) => {
       const e = cache.entries[p.id]
       const rec = installed[p.id] ?? null
@@ -197,7 +202,8 @@ export class UpdateService {
         stars: e?.snapshot?.stars ?? null,
         checkedAt: e?.fetchedAt ?? null,
         error: e?.error ?? null,
-        rebuild: rec ? rebuildReasons(rec.builtWith, builtWith(p, projects, installed, sources), projects, games) : []
+        missing: missing.has(p.id),
+        rebuild: rec && !missing.has(p.id) ? rebuildReasons(rec.builtWith, builtWith(p, projects, installed, sources), projects, games) : []
       }
     })
   }

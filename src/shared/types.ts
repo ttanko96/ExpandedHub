@@ -104,6 +104,8 @@ export interface ProjectState {
   error: string | null
   /** What changed since its last build (add-ons, game files): Build again brings it in. Empty when nothing did. */
   rebuild: string[]
+  /** It is installed, but its folder is not there (moved, deleted, or on a drive that is not connected). */
+  missing: boolean
 }
 
 export interface RegistryIssue {

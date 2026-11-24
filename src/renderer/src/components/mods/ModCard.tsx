@@ -1,4 +1,4 @@
-import { Bug, CheckCircle2, ExternalLink, FolderSearch, Github, Hammer, Link2, Square, Star, Tag } from 'lucide-react'
+import { Bug, CheckCircle2, ExternalLink, FolderSearch, FolderX, Github, Hammer, Link2, Square, Star, Tag } from 'lucide-react'
 import { isActive } from '@shared/operations'
 import { useHub } from '../../store/hub-store'
 import { percent, ProgressBar, transferLine } from '../downloads/progress'
@@ -146,6 +146,24 @@ function ReleasedCard({ project, state, index, addon }: { project: ProjectDefini
               Linked folder
             </div>
           )}
+          {state?.installed && state.missing && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                if (hostId) navigate(`/mods/${hostId}`)
+                else void projectActions.adopt(project)
+              }}
+              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-tekken-400 transition-colors hover:text-tekken-500"
+              title={
+                hostId
+                  ? `${state.installed.installPath} is not there. It lives inside ${host?.name ?? 'its host'}: find that one, and this comes with it.`
+                  : `${state.installed.installPath} is not there. Moved it? Find it. Deleted it? Uninstall on its page, then install it again.`
+              }
+            >
+              <FolderX size={12} />
+              {hostId ? 'Folder not found' : 'Folder not found · find it'}
+            </button>
+          )}
           {!activeOp && installable && state?.installed && (state.rebuild?.length ?? 0) > 0 && (
             <button
               onClick={(e) => {
@@ -207,7 +225,7 @@ function ReleasedCard({ project, state, index, addon }: { project: ProjectDefini
               Manage
             </Button>
           )}
-          {installable && !hostId && !meta.action && (state?.installed?.executable || (state?.installed && (project.install?.output.serve || project.install?.output.launch))) &&
+          {installable && !hostId && !meta.action && !state?.missing && (state?.installed?.executable || (state?.installed && (project.install?.output.serve || project.install?.output.launch))) &&
             (running ? (
               <Button
                 variant="secondary"

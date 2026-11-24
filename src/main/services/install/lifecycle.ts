@@ -47,6 +47,9 @@ export class LifecycleService {
   async launch(projectId: string): Promise<void> {
     const rec = (await this.installed.all())[projectId]
     if (!rec) throw new Error('This project is not installed')
+    if (!(await fs.stat(rec.installPath).then((s) => s.isDirectory(), () => false))) {
+      throw new Error(`Its folder was not found: ${rec.installPath}. Moved it? Use Find it on its page.`)
+    }
     const project = (await this.registry.get()).projects.find((p) => p.id === projectId)
     const serve = project?.install?.output.serve
     if (serve) return this.serve(projectId, rec.installPath, serve, project.name)

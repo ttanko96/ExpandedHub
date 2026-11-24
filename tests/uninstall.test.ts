@@ -164,3 +164,13 @@ describe('uninstall with hub-installed tools', () => {
     expect((await lifecycle.storage('remake')).tools[0].neededBy).toEqual([])
   })
 })
+
+describe('an installation whose folder is gone', () => {
+  it('is not launched, and Uninstall still forgets it', async () => {
+    const { lifecycle, records } = setup()
+    records.other = { installPath: join(tempDir(), 'moved-away') }
+    await expect(lifecycle.launch('other')).rejects.toThrow(/folder was not found/)
+    await lifecycle.uninstall('other', { files: true })
+    expect(records.other).toBeUndefined()
+  })
+})

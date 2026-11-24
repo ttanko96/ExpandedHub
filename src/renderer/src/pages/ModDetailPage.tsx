@@ -1,4 +1,4 @@
-import { ArrowLeft, Bug, CheckCircle2, FolderSearch, MessageSquarePlus, Sparkles, Star, ExternalLink, FileArchive, FolderOpen, GitCommit, Github, Hammer, Link2, Lock, Play, Square, Trash2, Wrench } from 'lucide-react'
+import { ArrowLeft, Bug, CheckCircle2, FolderSearch, FolderX, MessageSquarePlus, Sparkles, Star, ExternalLink, FileArchive, FolderOpen, GitCommit, Github, Hammer, Link2, Lock, Play, Square, Trash2, Wrench } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import type { ExtraStatus, ProjectStorage, Screenshot, ToolStatus } from '@shared/install'
 import { ScreenshotCarousel } from '../components/ui/ScreenshotCarousel'
@@ -109,6 +109,7 @@ export function ModDetailPage() {
   const install = project.install
   const hasBuild = install?.steps.some((st) => st.type === 'run' || st.type === 'pythonVenv' || st.type === 'buildHost') ?? false
   // Add-ons or game files changed since the last build: Build again brings them in.
+  const hostName = install?.installInto ? (projects.find((p) => p.id === install.installInto!.project)?.name ?? install.installInto.project) : ''
   const needsBuild = !!state?.installed && (state.rebuild?.length ?? 0) > 0
   const deps = (install?.dependsOn ?? []).map((d) => ({ id: d, project: projects.find((p) => p.id === d), state: states[d] }))
 
@@ -156,7 +157,7 @@ export function ModDetailPage() {
                     Repository
                   </Button>
                 )}
-                {installable && !project.install?.installInto && (state?.installed?.executable || (state?.installed && (project.install?.output.serve || project.install?.output.launch))) &&
+                {installable && !project.install?.installInto && !state?.missing && (state?.installed?.executable || (state?.installed && (project.install?.output.serve || project.install?.output.launch))) &&
                   (running ? (
                     <>
                       <Button variant="secondary" icon={<ExternalLink size={16} />} title="Open the running game in the browser again" onClick={() => void projectActions.launch(project)}>
@@ -409,6 +410,31 @@ export function ModDetailPage() {
         <aside className="flex flex-col gap-6">
           {state?.installed && (
             <Panel title="Installation">
+              {state.missing && (
+                <div className="mb-3 rounded-lg border border-tekken-500/40 bg-tekken-500/10 p-3 text-[12.5px] leading-snug text-zinc-300">
+                  <div className="flex items-center gap-1.5 font-semibold text-tekken-400">
+                    <FolderX size={14} /> Its folder was not found
+                  </div>
+                  {project.install?.installInto ? (
+                    <p className="mt-1 text-zinc-400">
+                      It lives inside {hostName}. Moved that? Find {hostName} on its page and {project.name} comes with it.
+                    </p>
+                  ) : (
+                    <p className="mt-1 text-zinc-400">
+                      Moved it, or is its drive not connected? Find it. Deleted it? Uninstall forgets it, then you can install it again.
+                    </p>
+                  )}
+                  {project.install?.installInto ? (
+                    <Button size="sm" variant="secondary" className="mt-2.5" onClick={() => navigate(`/mods/${project.install!.installInto!.project}`)}>
+                      Go to {hostName}
+                    </Button>
+                  ) : (
+                    <Button size="sm" variant="secondary" className="mt-2.5" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}>
+                      Find it
+                    </Button>
+                  )}
+                </div>
+              )}
               {needsBuild && (
                 <div className="mb-3 rounded-lg border border-amber-400/30 bg-amber-400/10 p-3 text-[12.5px] leading-snug text-amber-200">
                   <div className="font-semibold">Build again to bring in the changes</div>
@@ -456,15 +482,17 @@ export function ModDetailPage() {
                 )
               )}
               <div className="mt-4 flex flex-wrap gap-2">
-                <Button size="sm" variant="secondary" icon={<FolderOpen size={14} />} onClick={() => void window.hub.app.openPath(state.installed!.installPath).catch(() => {})}>
-                  Open folder
-                </Button>
-                {state.installed.adopted && !project.install?.installInto && (
+                {!state.missing && (
+                  <Button size="sm" variant="secondary" icon={<FolderOpen size={14} />} onClick={() => void window.hub.app.openPath(state.installed!.installPath).catch(() => {})}>
+                    Open folder
+                  </Button>
+                )}
+                {state.installed.adopted && !state.missing && !project.install?.installInto && (
                   <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)} title="Point the hub at another folder, or read this one's version again">
                     Change folder
                   </Button>
                 )}
-                {state.installed.adopted && project.install?.installInto && (
+                {state.installed.adopted && !state.missing && project.install?.installInto && (
                   <Button size="sm" variant="secondary" icon={<FolderSearch size={14} />} onClick={() => void projectActions.adopt(project)}
                     title={`Look for it again in ${projects.find((p) => p.id === project.install!.installInto!.project)?.name ?? 'its host'}'s ${project.install.installInto.subdir} folder and read its version`}>
                     Find it again
