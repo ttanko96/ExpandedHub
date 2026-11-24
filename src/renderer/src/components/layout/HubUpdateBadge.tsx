@@ -57,6 +57,9 @@ export function HubUpdateBadge() {
           <Check size={15} className="text-emerald-500 group-hover:hidden" />
           <RotateCw size={14} className="hidden group-hover:block" />
           Up to date
+          <span className="ml-1 font-semibold normal-case tracking-normal text-zinc-600 group-hover:text-zinc-400">
+            v{u.currentVersion}
+          </span>
         </button>
       )
     case 'error':
