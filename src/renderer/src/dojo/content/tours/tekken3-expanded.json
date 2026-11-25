@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "projectId": "tekken3-expanded",
+  "title": "Tekken 3, expanded",
+  "intro": "Tekken 3 Expanded brings Tekken Tag Tournament's cast, stages and music into Tekken 3. It is built on your PC from your own discs and ROMs; the hub only runs the build.",
+  "chapters": [
+    {
+      "title": "Your games, your build",
+      "icon": "disc",
+      "body": "Point the hub at your Tekken 3 PlayStation disc and the Tekken Tag Tournament arcade ROM. Tekken 3 arcade, TTT on PS2 and Tekken 5 DR are optional extras that add more.",
+      "keys": ["Project page → Your game files"]
+    },
+    {
+      "title": "Eighteen new fighters",
+      "icon": "users",
+      "body": "The Tekken Tag Tournament characters join the select screen, and Tekken 3's own cast gets their TTT movesets and models."
+    },
+    {
+      "title": "Stages and music",
+      "icon": "map",
+      "body": "Tekken Tag Tournament's and Tekken 3 arcade's stages come with their music, alongside the originals."
+    },
+    {
+      "title": "Endings and Jin's DR moveset",
+      "icon": "film",
+      "body": "TTT's endings play in the game's own engine, and with Tekken 5 DR set up, Jin can fight with his Dark Resurrection moves."
+    },
+    {
+      "title": "Changed something? Build again",
+      "icon": "wrench",
+      "body": "When you add a game file or an add-on such as TMST, click Build again on the project page so the game picks it up."
+    }
+  ]
+}

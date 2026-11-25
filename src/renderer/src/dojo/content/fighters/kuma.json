@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "kuma",
+  "name": "Kuma",
+  "origin": "t3",
+  "style": "Bear-style fighting",
+  "country": "Japan",
+  "tagline": "The Mishima family bear: big swipes and a very long reach.",
+  "unlock": "Hidden: unlocked by finishing Arcade mode.",
+  "accent": "#92400e",
+  "order": 170,
+  "signature": "Bear roll",
+  "verified": false,
+  "moves": [
+    {
+      "name": "One-two",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "Body jab",
+      "input": "d/f+1",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Low kick",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rising kick",
+      "input": "WS+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Left throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Right throw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Bear roll",
+      "input": "d+1+2",
+      "kind": "special",
+      "note": "Rolls along the ground at the opponent."
+    },
+    {
+      "name": "Hip press",
+      "input": "u/f+1+2",
+      "kind": "power",
+      "hits": "m"
+    },
+    {
+      "name": "Bear claw",
+      "input": "d/f+2",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Low swipe",
+      "input": "d/b+1",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Lie down",
+      "input": "d/b+1+2",
+      "kind": "stance",
+      "note": "Lies on the floor, inviting a mistake."
+    }
+  ]
+}

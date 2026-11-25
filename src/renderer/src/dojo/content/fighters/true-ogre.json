@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "true-ogre",
+  "name": "True Ogre",
+  "origin": "t3",
+  "style": "The same, in its final form",
+  "country": "Unknown",
+  "tagline": "Ogre’s last form: bigger, winged, and breathing fire.",
+  "unlock": "Hidden: unlocked by finishing Arcade mode.",
+  "accent": "#7f1d1d",
+  "order": 150,
+  "movesFrom": "ogre",
+  "verified": false,
+  "moves": []
+}

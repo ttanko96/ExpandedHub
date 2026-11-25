@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "gon",
+  "name": "Gon",
+  "origin": "t3",
+  "style": "Dinosaur",
+  "country": "Unknown",
+  "tagline": "A tiny dinosaur guest who breathes fire and ducks under almost everything.",
+  "unlock": "Hidden: unlocked through Tekken Ball mode.",
+  "accent": "#65a30d",
+  "order": 210,
+  "signature": "Fire breath",
+  "verified": false,
+  "moves": [
+    {
+      "name": "Tail swipe",
+      "input": "1,2",
+      "kind": "string"
+    },
+    {
+      "name": "Fire breath",
+      "input": "d/f+1+2",
+      "kind": "special",
+      "hits": "m"
+    },
+    {
+      "name": "Head butt",
+      "input": "d/f+2",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Roll",
+      "input": "d+3+4",
+      "kind": "special",
+      "note": "Curls up and rolls at the opponent."
+    },
+    {
+      "name": "Flatulence",
+      "input": "b+1+2",
+      "kind": "special",
+      "note": "Exactly what it sounds like."
+    },
+    {
+      "name": "Low tail",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    }
+  ]
+}

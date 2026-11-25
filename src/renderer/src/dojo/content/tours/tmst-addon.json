@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "projectId": "tmst-addon",
+  "title": "Inside TMST",
+  "intro": "TMST adds a handful of new modes and screens to Tekken 3 Expanded. You play it from Tekken 3 Expanded, and its features are in that game's menus.",
+  "chapters": [
+    {
+      "title": "Jukebox",
+      "icon": "music",
+      "body": "A new JUKEBOX item in the main menu lets you pick the music for every fighter, from Tekken 1, 2, 3, Tag Tournament and Tekken 5 DR. In a fight, the opponent's choice plays whatever the stage.",
+      "keys": ["✕ open a fighter's list", "L2 / R2 switch panel or category", "△ preview a track", "□ reset to default", "○ back (asks to save)"]
+    },
+    {
+      "title": "Photo Mode",
+      "icon": "camera",
+      "body": "Pause a fight and choose PHOTO to move a free camera round the frozen scene. Add depth of field, one of 14 filters and 8 frames, then save the shot as a PNG in the add-on's screenshots folder.",
+      "keys": ["D-pad move", "L1 / R1 down / up", "□ + D-pad look round", "L2 / R2 zoom", "START panel", "✕ take the photo", "△ hide the HUD"]
+    },
+    {
+      "title": "Tournament Mode",
+      "icon": "trophy",
+      "body": "A 16-fighter knockout bracket on each fighter's home stage, with bosses at the end. Only the first tournament is open at the start; winning one opens the next.",
+      "keys": ["✕ next match", "○ leave the tournament"]
+    },
+    {
+      "title": "VS Mode+",
+      "icon": "users",
+      "body": "VS MODE becomes VS MODE PLUS: player against CPU or CPU against CPU with one controller. You pick both fighters, the CPU's handicap and the stage; its strength follows the game's difficulty option.",
+      "keys": ["← / → choose", "✕ take", "○ back", "START + SELECT main menu"]
+    },
+    {
+      "title": "Tekken 2 and Tekken 1 content",
+      "icon": "layers",
+      "body": "With your own Tekken 2 and Tekken 1 discs set up, their music joins the Jukebox and their stages come back, in classic, remade or lighter versions. Tekken 2's Wireframe and Big Head modes are switches in GAME OPTION.",
+      "keys": ["GAME OPTION → TEKKEN 2 STAGES", "GAME OPTION → TEKKEN 2 WIREFRAME MODE", "GAME OPTION → TEKKEN 2 BIG HEAD MODE"]
+    }
+  ]
+}

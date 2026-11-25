@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "projectId": "driftengine-tekken3",
+  "title": "Tekken 3 in your browser",
+  "intro": "DriftEngine rebuilds Tekken 3 as a modern browser game. Fighters, moves, stages, music, voices and movies are read from your own disc image and played at your display's resolution.",
+  "chapters": [
+    {
+      "title": "From your disc",
+      "icon": "disc",
+      "body": "The hub converts your Tekken 3 USA disc once, which takes a few minutes. A Tekken 3 arcade dump (TET1) optionally adds the arcade's stages and models.",
+      "keys": ["Project page → Your game files"]
+    },
+    {
+      "title": "Runs in the browser",
+      "icon": "monitor",
+      "body": "Play starts the game's server in the background and opens it in Chrome or Edge, at your screen's full resolution."
+    },
+    {
+      "title": "Keep the hub open",
+      "icon": "play",
+      "body": "The hub serves the game while you play. Stop, or closing the hub, ends it."
+    }
+  ]
+}

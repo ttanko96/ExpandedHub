@@ -13,6 +13,7 @@ import { useHub } from './store/hub-store'
 
 // The landing page loads eagerly; everything else on first visit, for a faster start.
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage').then((m) => ({ default: m.DownloadsPage })))
+const DojoPage = lazy(() => import('./pages/DojoPage').then((m) => ({ default: m.DojoPage })))
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then((m) => ({ default: m.SettingsPage })))
 
 export function App() {
@@ -52,6 +53,7 @@ export function App() {
           <Route path="/" element={<Navigate to="/mods" replace />} />
           <Route path="/mods" element={<ModsPage />} />
           <Route path="/mods/:id" element={<ModDetailPage />} />
+          <Route path="/dojo/*" element={<DojoPage />} />
           <Route path="/downloads" element={<DownloadsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/mods" replace />} />

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "panda",
+  "name": "Panda",
+  "origin": "t3",
+  "style": "Bear-style fighting",
+  "country": "China",
+  "tagline": "Xiaoyu’s panda, with the same moves as Kuma in a different coat.",
+  "unlock": "Kuma’s alternate, picked on Kuma’s place in the select screen.",
+  "accent": "#e5e7eb",
+  "order": 180,
+  "movesFrom": "kuma",
+  "verified": false,
+  "moves": []
+}

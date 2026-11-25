@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "ogre",
+  "name": "Ogre",
+  "origin": "t3",
+  "style": "A mix of the fighters it absorbed",
+  "country": "Unknown",
+  "tagline": "An ancient warrior god that copies the styles of those it beats.",
+  "unlock": "Hidden: unlocked by finishing Arcade mode.",
+  "accent": "#57534e",
+  "order": 140,
+  "signature": "Borrowed uppercut",
+  "verified": false,
+  "moves": [
+    {
+      "name": "One-two",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "Body jab",
+      "input": "d/f+1",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Low kick",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rising kick",
+      "input": "WS+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Left throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Right throw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Borrowed uppercut",
+      "input": "d/f+2",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Wave crest",
+      "input": "u/f+4",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Low sweep",
+      "input": "d/b+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rushing combo",
+      "input": "1,2,1",
+      "kind": "string"
+    },
+    {
+      "name": "Grab",
+      "input": "f+1+2",
+      "kind": "throw",
+      "hits": "t"
+    }
+  ]
+}

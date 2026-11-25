@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "projectId": "tekken3-recompiled",
+  "title": "Tekken 3, native",
+  "intro": "Tekken3Recompiled turns the PlayStation game into a native program for Windows, macOS, Linux and Android: no emulator in between.",
+  "chapters": [
+    {
+      "title": "Built from your disc",
+      "icon": "cpu",
+      "body": "The hub builds it from your own Tekken 3 USA disc (SLUS-00402). The first build takes several minutes and needs about 4 GB free.",
+      "keys": ["Project page → Your game files"]
+    },
+    {
+      "title": "Jun Kazama",
+      "icon": "users",
+      "body": "With both Tekken 3 arcade sets set up as well, Jun Kazama is added to the game."
+    },
+    {
+      "title": "Its own launcher",
+      "icon": "gamepad",
+      "body": "Play opens the game's launcher, where you set up controllers, memory cards and mods before starting."
+    }
+  ]
+}

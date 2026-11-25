@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "projectId": "tekken3-remake",
+  "title": "Tekken 3, remade",
+  "intro": "A remake of the PlayStation Tekken 3 in Godot 4.7, with every mode, character and unlock, checked frame by frame against the original.",
+  "chapters": [
+    {
+      "title": "Your disc, converted",
+      "icon": "disc",
+      "body": "The remake's converter reads your own disc image (Japan Rev 1, original Japan or USA), then Godot imports the result once. Python, Godot and FFmpeg are fetched first if your PC does not have them.",
+      "keys": ["Project page → Your game files"]
+    },
+    {
+      "title": "Modern look",
+      "icon": "sparkles",
+      "body": "Modern graphics, texture packs and controller support on top of the original's timing."
+    },
+    {
+      "title": "Arcade extras",
+      "icon": "map",
+      "body": "Your Tekken 3 arcade set optionally adds the arcade's stages, fighter models and fight music."
+    }
+  ]
+}

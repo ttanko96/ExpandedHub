@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "paul",
+  "name": "Paul Phoenix",
+  "origin": "t3",
+  "style": "Judo-based martial arts",
+  "country": "United States",
+  "tagline": "One punch, one plan: walk forward and hit very hard.",
+  "accent": "#fb923c",
+  "order": 60,
+  "signature": "Phoenix Smasher",
+  "verified": false,
+  "moves": [
+    {
+      "name": "One-two",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "Body jab",
+      "input": "d/f+1",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Low kick",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rising kick",
+      "input": "WS+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Left throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Right throw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Phoenix Smasher",
+      "input": "qcf+2",
+      "kind": "power",
+      "hits": "m",
+      "note": "His famous straight punch: huge damage, easy to spot coming."
+    },
+    {
+      "name": "Elbow to fist",
+      "input": "d/f+1,2",
+      "kind": "string",
+      "hits": "m,h"
+    },
+    {
+      "name": "Sway",
+      "input": "qcb",
+      "kind": "special",
+      "note": "Leans back; several follow-ups come from here."
+    },
+    {
+      "name": "Rising elbow",
+      "input": "u/f+4",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Low sweep",
+      "input": "d/b+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Shoulder rush",
+      "input": "f,f+2",
+      "kind": "power",
+      "hits": "m"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "tiger",
+  "name": "Tiger Jackson",
+  "origin": "t3",
+  "style": "Capoeira",
+  "country": "Unknown",
+  "tagline": "Eddy’s moves in disco clothes and a very big afro.",
+  "unlock": "Eddy’s alternate, once every hidden fighter is open.",
+  "accent": "#c026d3",
+  "order": 230,
+  "movesFrom": "eddy",
+  "verified": false,
+  "moves": []
+}

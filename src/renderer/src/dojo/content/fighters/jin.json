@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "jin",
+  "name": "Jin Kazama",
+  "origin": "t3",
+  "style": "Mishima-style karate with Kazama self-defence",
+  "country": "Japan",
+  "tagline": "Raised on two fighting styles and haunted by a third.",
+  "accent": "#d81e34",
+  "order": 10,
+  "signature": "Wind God Fist",
+  "verified": false,
+  "moves": [
+    {
+      "name": "One-two",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "Body jab",
+      "input": "d/f+1",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Low kick",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rising kick",
+      "input": "WS+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Left throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Right throw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Crouch dash",
+      "input": "cd",
+      "kind": "special",
+      "note": "The Mishima dash: it ducks under highs and leads into the God Fists."
+    },
+    {
+      "name": "Wind God Fist",
+      "input": "f,n,d,d/f+2",
+      "kind": "launcher",
+      "hits": "h",
+      "note": "Pressed on the exact frame of d/f it becomes the Electric version: faster and harder."
+    },
+    {
+      "name": "Thunder God Fist",
+      "input": "f,n,d,d/f+1",
+      "kind": "special",
+      "hits": "m",
+      "note": "Crumples the opponent on a clean hit."
+    },
+    {
+      "name": "Twin Pistons",
+      "input": "WS+1,2",
+      "kind": "launcher",
+      "hits": "m,m",
+      "note": "Two rising punches out of a crouch."
+    },
+    {
+      "name": "Hell Sweep",
+      "input": "f,n,d,d/f+4",
+      "kind": "low",
+      "hits": "l",
+      "note": "A crouch-dash sweep; mix it with the God Fists."
+    },
+    {
+      "name": "Rising uppercut",
+      "input": "d/f+2",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Toe kick",
+      "input": "u/f+4",
+      "kind": "launcher",
+      "hits": "m"
+    }
+  ]
+}

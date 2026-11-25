@@ -1,4 +1,4 @@
-import { Download, LayoutGrid, Settings } from 'lucide-react'
+import { Download, LayoutGrid, Settings, Swords } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { cx } from '../../lib/format'
 import { useHub } from '../../store/hub-store'
@@ -6,6 +6,7 @@ import { HubUpdateBadge } from './HubUpdateBadge'
 
 const NAV = [
   { to: '/mods', label: 'Mods', icon: LayoutGrid },
+  { to: '/dojo', label: 'Dojo', icon: Swords },
   { to: '/downloads', label: 'Downloads', icon: Download },
   { to: '/settings', label: 'Settings', icon: Settings }
 ]

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "law",
+  "name": "Forest Law",
+  "origin": "t3",
+  "style": "Martial arts in his father’s style",
+  "country": "United States",
+  "tagline": "Fast hands, a flip kick and a cook’s sense of timing.",
+  "accent": "#f59e0b",
+  "order": 50,
+  "signature": "Flip kick",
+  "verified": false,
+  "moves": [
+    {
+      "name": "One-two",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "Body jab",
+      "input": "d/f+1",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Low kick",
+      "input": "d+4",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Rising kick",
+      "input": "WS+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Left throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Right throw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Flurry",
+      "input": "1,2,1",
+      "kind": "string",
+      "hits": "h,h,h"
+    },
+    {
+      "name": "Flip kick",
+      "input": "u/f+4",
+      "kind": "launcher",
+      "hits": "m",
+      "note": "A somersault that launches."
+    },
+    {
+      "name": "Low sweep",
+      "input": "d/b+3",
+      "kind": "low",
+      "hits": "l"
+    },
+    {
+      "name": "Dragon hammer",
+      "input": "f,f+2",
+      "kind": "power",
+      "hits": "m"
+    },
+    {
+      "name": "Side kick",
+      "input": "d/f+4",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Backflip",
+      "input": "b+3+4",
+      "kind": "special",
+      "note": "Leaps back out of range."
+    }
+  ]
+}
