@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "jack-2",
+  "name": "Jack-2",
+  "origin": "ttt",
+  "style": "Combat robot programming",
+  "country": "Russia",
+  "tagline": "A heavy soldier robot whose hammer blows shake the floor.",
+  "accent": "#4d7c0f",
+  "order": 1080,
+  "signature": "Jack Elbow Smash",
+  "source": "Names and commands from the Tekken wiki’s Tekken Tag Tournament move lists (CC BY-SA 3.0)",
+  "verified": false,
+  "moves": [
+    {
+      "name": "Body Press",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Body Press Hammer",
+      "input": "1+3,1+2",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Body Slam",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Jack Hammer",
+      "input": "1,1,1",
+      "kind": "string",
+      "hits": "h,h,m"
+    },
+    {
+      "name": "Jack Elbow Smash",
+      "input": "2,1,2",
+      "kind": "launcher",
+      "hits": "h,m,m"
+    },
+    {
+      "name": "Double Hammer",
+      "input": "1+2,1+2",
+      "kind": "string",
+      "hits": "m,m"
+    },
+    {
+      "name": "Power Scissors",
+      "input": "f+1+2",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Power Scissors to Meltdown",
+      "input": "f+1+2,1+2",
+      "kind": "string",
+      "hits": "m,l"
+    },
+    {
+      "name": "Atomic Shoulder Tackle",
+      "input": "f+3+4",
+      "kind": "power",
+      "hits": "m"
+    },
+    {
+      "name": "Double Axe",
+      "input": "d+1+2",
+      "kind": "launcher",
+      "hits": "m"
+    },
+    {
+      "name": "Sit",
+      "input": "3+4",
+      "kind": "special"
+    },
+    {
+      "name": "Pancake Press",
+      "input": "u/f+3+4",
+      "kind": "power",
+      "hits": "m"
+    },
+    {
+      "name": "Rushing Uppercut Right",
+      "input": "d/f+2,1,2,1",
+      "kind": "launcher",
+      "hits": "m,m,m,m"
+    },
+    {
+      "name": "Melt Down",
+      "input": "FC+1+2",
+      "kind": "low",
+      "hits": "l"
+    }
+  ]
+}

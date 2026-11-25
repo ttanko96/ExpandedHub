@@ -20,10 +20,11 @@ describe('dojo fighters', () => {
   })
   const ids = new Set(fighters.map((f) => f.id))
 
-  it('has the whole Tekken 3 cast, once each', () => {
-    expect(fighters.length).toBe(23)
-    expect(ids.size).toBe(23)
-    expect(new Set(fighters.map((f) => f.order)).size).toBe(23)
+  it('has the whole Tekken 3 cast and the 18 Tag Tournament fighters, once each', () => {
+    expect(fighters.filter((f) => f.origin === 't3').length).toBe(23)
+    expect(fighters.filter((f) => f.origin === 'ttt').length).toBe(18)
+    expect(ids.size).toBe(fighters.length)
+    expect(new Set(fighters.map((f) => f.order)).size).toBe(fighters.length)
   })
 
   it('writes every command in the notation', () => {

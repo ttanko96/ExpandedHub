@@ -1,7 +1,7 @@
 import { AlertTriangle, ChevronLeft, ChevronRight, Dumbbell, Lock, Search } from 'lucide-react'
 import { useCallback, useMemo, useState, type CSSProperties } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import { MOVE_KINDS, type DojoMove, type MoveKind } from '@shared/dojo-schema'
+import type { DojoMove, MoveKind } from '@shared/dojo-schema'
 import { trainerTargets } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
 import { FIGHTERS, fighterById, movesOf, ORIGIN_LABEL, rosterNumber } from './content'
@@ -17,6 +17,8 @@ const KIND_LABEL: Record<MoveKind, string> = {
   special: 'Specials',
   stance: 'Stances'
 }
+
+const KIND_ORDER: MoveKind[] = ['string', 'poke', 'launcher', 'low', 'power', 'special', 'stance', 'throw']
 
 const HIT_STYLE: Record<string, [string, string]> = {
   h: ['H', 'bg-sky-500/20 text-sky-300'],
@@ -37,8 +39,12 @@ export function FighterPage() {
   const [heroStep, setHeroStep] = useState<number | null>(null)
   const onHeroStep = useCallback((s: number | null) => setHeroStep(s), [])
 
-  const moves = useMemo(() => (fighter ? movesOf(fighter) : []), [fighter])
-  const kinds = useMemo(() => MOVE_KINDS.filter((k) => moves.some((m) => m.kind === k)), [moves])
+  // Grouped by kind, throws last; the order inside a kind stays as written.
+  const moves = useMemo(
+    () => (fighter ? [...movesOf(fighter)].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)) : []),
+    [fighter]
+  )
+  const kinds = useMemo(() => KIND_ORDER.filter((k) => moves.some((m) => m.kind === k)), [moves])
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
     return moves.filter((m) => (kind === 'all' || m.kind === kind) && (!q || m.name.toLowerCase().includes(q) || m.input.toLowerCase().includes(q)))
@@ -73,7 +79,7 @@ export function FighterPage() {
               <ChevronLeft size={15} /> Roster
             </Link>
             <div className="mt-4 flex items-center gap-2">
-              <span className="font-display text-[15px] font-bold tracking-[0.2em] text-[var(--dojo-accent)]">#{rosterNumber(fighter)}</span>
+              <span className="font-display text-[15px] font-bold tracking-[0.2em] text-[color-mix(in_oklab,var(--dojo-accent)_65%,white)]">#{rosterNumber(fighter)}</span>
               <span className="rounded bg-ink-700 px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-300">
                 {ORIGIN_LABEL[fighter.origin]}
               </span>
@@ -113,8 +119,9 @@ export function FighterPage() {
           <div className="mb-4 flex gap-3 rounded-xl border border-amber-400/25 bg-amber-400/[0.06] px-4 py-3 text-[13px] text-amber-200">
             <AlertTriangle size={16} className="mt-0.5 shrink-0 text-amber-300" />
             <span>
-              Not checked in the game yet: a core list written from memory, and a command may be off. Try it in Practice
-              mode before you rely on it.
+              {fighter.source
+                ? 'A core list, not yet checked in Tekken 3 Expanded: a command may differ there. Try it in Practice mode before you rely on it.'
+                : 'Not checked in the game yet: a core list written from memory, and a command may be off. Try it in Practice mode before you rely on it.'}
             </span>
           </div>
         )}
@@ -172,6 +179,7 @@ export function FighterPage() {
                 />
               ))}
             </ul>
+            {fighter.source && <p className="mt-3 px-3 text-[12px] text-zinc-600">{fighter.source}. Descriptions are the hub’s own.</p>}
           </>
         )}
       </section>

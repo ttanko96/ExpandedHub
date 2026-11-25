@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "alex",
+  "name": "Alex",
+  "origin": "ttt",
+  "style": "Dinosaur wrestling",
+  "country": "Unknown",
+  "tagline": "A small, angry dinosaur with Roger’s moves.",
+  "accent": "#15803d",
+  "order": 1150,
+  "movesFrom": "roger",
+  "verified": false,
+  "moves": []
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "angel",
+  "name": "Angel",
+  "origin": "ttt",
+  "style": "Mishima-style karate, purified",
+  "country": "Unknown",
+  "tagline": "Devil’s mirror image: the same moves in white and gold.",
+  "accent": "#fde68a",
+  "order": 1130,
+  "movesFrom": "devil",
+  "verified": false,
+  "moves": []
+}

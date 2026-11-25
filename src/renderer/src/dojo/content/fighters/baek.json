@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "baek",
+  "name": "Baek Doo San",
+  "origin": "ttt",
+  "style": "Taekwondo",
+  "country": "South Korea",
+  "tagline": "Hwoarang’s teacher: long kick strings that never seem to end.",
+  "accent": "#2563eb",
+  "order": 1050,
+  "signature": "Launching Rocket",
+  "source": "Names and commands from the Tekken wiki’s Tekken Tag Tournament move lists (CC BY-SA 3.0)",
+  "verified": false,
+  "moves": [
+    {
+      "name": "Hammerhead Throw",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Blue Shark Claw",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Roll and Choke",
+      "input": "f,f+2",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Double Jab",
+      "input": "1,1",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "One Two Combo",
+      "input": "1,2",
+      "kind": "string",
+      "hits": "h,h"
+    },
+    {
+      "name": "One Two Butterfly Kicks",
+      "input": "1,2,3,3,3,4",
+      "kind": "string",
+      "hits": "h,h,h,h,m,h"
+    },
+    {
+      "name": "One Two Silver Mantis",
+      "input": "1,2,3,3,4,4,4,3",
+      "kind": "launcher",
+      "hits": "h,h,h,h,h,m,h,h"
+    },
+    {
+      "name": "Baek's Special",
+      "input": "3,3,4,4,4,3",
+      "kind": "launcher",
+      "hits": "h,h,h,m,h"
+    },
+    {
+      "name": "Launching Rocket",
+      "input": "3,4,3",
+      "kind": "launcher",
+      "hits": "h,l,m"
+    },
+    {
+      "name": "Lightning Halberd",
+      "input": "3+4",
+      "kind": "poke",
+      "hits": "h,h"
+    },
+    {
+      "name": "Back Fist",
+      "input": "f+2",
+      "kind": "poke",
+      "hits": "h"
+    }
+  ]
+}

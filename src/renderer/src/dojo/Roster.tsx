@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import type { DojoFighter } from '@shared/dojo-schema'
 import { Segmented } from '../components/ui/Segmented'
 import { cx } from '../lib/format'
-import { FIGHTERS, movesOf, rosterNumber } from './content'
+import { FIGHTERS, movesOf, ORIGIN_LABEL, rosterNumber } from './content'
 
-type Filter = 'all' | 'start' | 'hidden'
+type Filter = 'all' | 'start' | 'hidden' | 'ttt'
 
 export function Roster() {
   const [filter, setFilter] = useState<Filter>('all')
@@ -14,8 +14,9 @@ export function Roster() {
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
     return FIGHTERS.filter((f) => {
-      if (filter === 'start' && f.unlock) return false
-      if (filter === 'hidden' && !f.unlock) return false
+      if (filter === 'start' && (f.origin !== 't3' || f.unlock)) return false
+      if (filter === 'hidden' && (f.origin !== 't3' || !f.unlock)) return false
+      if (filter === 'ttt' && f.origin !== 'ttt') return false
       return !q || [f.name, f.style, f.country].some((t) => t.toLowerCase().includes(q))
     })
   }, [filter, query])
@@ -30,7 +31,8 @@ export function Roster() {
           options={[
             { id: 'all', label: <>All <span className="text-[12px] text-zinc-500">{FIGHTERS.length}</span></> },
             { id: 'start', label: 'From the start' },
-            { id: 'hidden', label: 'Hidden' }
+            { id: 'hidden', label: 'Hidden' },
+            { id: 'ttt', label: 'Tag Tournament', title: 'Added by Tekken 3 Expanded' }
           ]}
         />
         <label className="flex h-10 w-[260px] items-center gap-2 rounded-lg border border-ink-600 bg-ink-850 px-3 text-zinc-500 focus-within:border-tekken-500/60">
@@ -78,10 +80,19 @@ function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: numbe
 
       <div className="flex items-start justify-between">
         <span className="rounded bg-ink-900/70 px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-400">{f.country}</span>
-        {f.unlock && (
-          <span title={f.unlock} className="rounded-full bg-ink-900/70 p-1 text-zinc-300">
-            <Lock size={12} />
+        {f.origin !== 't3' ? (
+          <span
+            title={`${ORIGIN_LABEL[f.origin]}: added by Tekken 3 Expanded`}
+            className="rounded bg-ink-900/80 px-1.5 py-0.5 font-display text-[11px] font-bold tracking-[0.14em] text-white"
+          >
+            TTT
           </span>
+        ) : (
+          f.unlock && (
+            <span title={f.unlock} className="rounded-full bg-ink-900/70 p-1 text-zinc-300">
+              <Lock size={12} />
+            </span>
+          )
         )}
       </div>
 
@@ -94,7 +105,7 @@ function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: numbe
           ))}
         </div>
         <div className="mt-2 line-clamp-2 max-w-[68%] text-[12px] leading-snug text-zinc-400">{f.style}</div>
-        <div className="mt-2 font-display text-[12px] font-bold uppercase tracking-[0.14em] text-[var(--dojo-accent)]">
+        <div className="mt-2 font-display text-[12px] font-bold uppercase tracking-[0.14em] text-[color-mix(in_oklab,var(--dojo-accent)_65%,white)]">
           {f.movesFrom ? 'Shared moves' : moves > 0 ? `${moves} moves` : 'Random style'}
         </div>
       </div>

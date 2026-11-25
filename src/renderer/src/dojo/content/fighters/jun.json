@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "jun",
+  "name": "Jun Kazama",
+  "origin": "ttt",
+  "style": "Kazama-style self-defence",
+  "country": "Japan",
+  "tagline": "Calm and graceful, with counters that turn an attack around.",
+  "accent": "#f8fafc",
+  "order": 1020,
+  "signature": "Whiplash Double Lift Upper",
+  "source": "Names and commands from the Tekken wiki’s Tekken Tag Tournament move lists (CC BY-SA 3.0)",
+  "verified": false,
+  "moves": [
+    {
+      "name": "Arm Bar",
+      "input": "1+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Snake Toss",
+      "input": "2+4",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "White Mountain",
+      "input": "d/f+2+3",
+      "kind": "throw",
+      "hits": "t"
+    },
+    {
+      "name": "Whiplash",
+      "input": "1,1",
+      "kind": "string",
+      "hits": "h,m"
+    },
+    {
+      "name": "Whiplash to Toe Kick",
+      "input": "1,1,3",
+      "kind": "string",
+      "hits": "h,m,m"
+    },
+    {
+      "name": "Whiplash Double Lift Upper",
+      "input": "1,1,4",
+      "kind": "string",
+      "hits": "h,m,l,h"
+    },
+    {
+      "name": "Inner Strength",
+      "input": "1+2",
+      "kind": "poke",
+      "hits": "m"
+    },
+    {
+      "name": "Thunder Fall Kick",
+      "input": "3+4",
+      "kind": "poke",
+      "hits": "m,m"
+    },
+    {
+      "name": "Spinning Heel Drop",
+      "input": "f+3",
+      "kind": "power",
+      "hits": "m"
+    },
+    {
+      "name": "Back Spin Kick",
+      "input": "f+4",
+      "kind": "power",
+      "hits": "h"
+    },
+    {
+      "name": "Double Lift Kicks",
+      "input": "d+3+4",
+      "kind": "low",
+      "hits": "l,h"
+    },
+    {
+      "name": "Leg Cutter",
+      "input": "d/b+4",
+      "kind": "low",
+      "hits": "l"
+    }
+  ]
+}

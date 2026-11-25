@@ -49,6 +49,8 @@ export const DojoFighter = z.object({
   movesFrom: z.string().optional(),
   /** The move shown big on their page. */
   signature: z.string().optional(),
+  /** Where the names and commands were taken from (facts only), shown with the list. */
+  source: z.string().optional(),
   /** True once someone checked every command in the game. */
   verified: z.boolean().default(false),
   moves: z.array(DojoMove).default([])
