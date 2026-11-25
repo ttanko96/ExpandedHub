@@ -1,7 +1,6 @@
-import { FixIt } from '../dojo/FixIt'
 import { Tours } from '../dojo/Tours'
 
-/** The Mods page's other sections, under its header (ModsLayout): the projects' tours and the troubleshooter. */
-export function ModsToolsPage({ section }: { section: 'tours' | 'fix-it' }) {
-  return <div className="mt-7">{section === 'tours' ? <Tours /> : <FixIt />}</div>
+/** The Mods page's other section, under its header (ModsLayout): the projects' tours. Fix-it is on each mod's own page. */
+export function ModsToolsPage({ section }: { section: 'tours' }) {
+  return <div className="mt-7">{section === 'tours' && <Tours />}</div>
 }

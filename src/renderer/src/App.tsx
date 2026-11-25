@@ -56,7 +56,8 @@ export function App() {
             <Route index element={<ModsPage />} />
             <Route path="tours" element={<ModsToolsPage section="tours" />} />
             <Route path="tours/:projectId" element={<ModsToolsPage section="tours" />} />
-            <Route path="fix-it" element={<ModsToolsPage section="fix-it" />} />
+            {/* Fix-it is on each mod's own page now. */}
+            <Route path="fix-it" element={<Navigate to="/mods" replace />} />
           </Route>
           <Route path="/mods/:id" element={<ModDetailPage />} />
           <Route path="/dojo/*" element={<DojoPage />} />

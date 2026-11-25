@@ -31,13 +31,13 @@ const FILTERS: { id: Filter; label: string; match: (s: ProjectStatus) => boolean
 ]
 
 /**
- * The Mods page's frame: the header with its sections (Library, Mod Tours, Fix-it) stays while the
+ * The Mods page's frame: the header with its sections (Library, Mod Tours) stays while the
  * section below changes, so the tabs' highlight slides from one to the next.
  */
 export function ModsLayout() {
   const { summary, refresh } = useHub()
   const { pathname } = useLocation()
-  const title = pathname.startsWith('/mods/tours') ? 'Mod Tours' : pathname.startsWith('/mods/fix-it') ? 'Fix-it' : 'Mod Library'
+  const title = pathname.startsWith('/mods/tours') ? 'Mod Tours' : 'Mod Library'
   return (
     <div className="mx-auto max-w-[1280px] px-8 pb-16 pt-8">
       <FirstRunDialog />

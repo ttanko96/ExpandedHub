@@ -6,6 +6,7 @@ import { isActive } from '@shared/operations'
 import { ToolRow } from '../components/install/ToolRow'
 import { Trailer } from '../components/ui/Trailer'
 import { UninstallDialog } from '../components/install/UninstallDialog'
+import { FixItPanel } from '../components/mods/fixit/FixIt'
 import { ReportDialog } from '../components/mods/ReportDialog'
 import { VersionsDialog } from '../components/mods/VersionsDialog'
 import { SourceRow } from '../components/install/SourceRow'
@@ -285,6 +286,8 @@ export function ModDetailPage() {
               </div>
             </Panel>
           )}
+
+          {installable && <FixItPanel project={project} />}
 
           <Panel
             title={state?.latest ? `Latest release · ${state.latest.name}` : 'Latest release'}
