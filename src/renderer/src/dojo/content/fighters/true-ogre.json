@@ -8,8 +8,5 @@
   "tagline": "Ogre’s last form: bigger, winged, and breathing fire.",
   "unlock": "Hidden: unlocked by finishing Arcade mode.",
   "accent": "#7f1d1d",
-  "order": 150,
-  "movesFrom": "ogre",
-  "verified": false,
-  "moves": []
+  "order": 150
 }

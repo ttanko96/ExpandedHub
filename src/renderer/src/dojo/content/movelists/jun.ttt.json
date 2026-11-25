@@ -1,0 +1,393 @@
+{
+ "schemaVersion": 1,
+ "fighter": "jun",
+ "game": "ttt",
+ "source": {
+  "title": "Jun Kazama/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Arm Bar",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Snake Toss",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Cloud Taste",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Wind Wheel",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Angler Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "White Mountain",
+   "input": "d/f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Cherry Blossom",
+   "input": "b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Whiplash",
+   "input": "1,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Whiplash to Toe Kick",
+   "input": "1,1,3",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Whiplash Double Lift Upper",
+   "input": "1,1,4",
+   "kind": "string",
+   "hits": "h,m,l,h"
+  },
+  {
+   "name": "Jab Uppercut",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Jab Low Kick",
+   "input": "1,3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Jab Leg Cutter",
+   "input": "1,4",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Whiplash to Leg Cutter",
+   "input": "1,4,4,4",
+   "kind": "string",
+   "hits": "h,l,l,l"
+  },
+  {
+   "name": "Inner Strength",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Thunder Fall Kick",
+   "input": "3+4",
+   "kind": "poke",
+   "hits": "m,m"
+  },
+  {
+   "name": "Blizzard Combo",
+   "input": "1+4,2,1",
+   "kind": "string",
+   "hits": "l,h,h,h"
+  },
+  {
+   "name": "Blizzard Combo to Leg Cutter",
+   "input": "1+4,2,1,4,4,4",
+   "kind": "string",
+   "hits": "m,h,h,h,l,l,l"
+  },
+  {
+   "name": "White Heron Dance",
+   "input": "1+4,2,4",
+   "kind": "string",
+   "hits": "m,h,h,m"
+  },
+  {
+   "name": "White Heron Lower Dance",
+   "input": "1+4,2,d+4",
+   "kind": "string",
+   "hits": "m,h,h,l"
+  },
+  {
+   "name": "Wheel Kick",
+   "input": "2+3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Lunging Mist Thrust",
+   "input": "f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Heel Drop",
+   "input": "f+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Back Spin Kick",
+   "input": "f+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Double Lift Kicks",
+   "input": "d+3+4",
+   "kind": "low",
+   "hits": "l,h"
+  },
+  {
+   "name": "Funeral Palm",
+   "input": "d/b+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Leg Cutter",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Sweeps",
+   "input": "d/b+4,4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Leg Cutter Thunder Fall Kick",
+   "input": "d/b+4,4,4,3",
+   "kind": "string",
+   "hits": "l,l,l,m,m"
+  },
+  {
+   "name": "Leg Cutter White Heron Dance",
+   "input": "d/b+4,1+4,2,4",
+   "kind": "string",
+   "hits": "l,m,h,h,m"
+  },
+  {
+   "name": "Violet",
+   "input": "b+1",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Swallow Mallet",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or SS+2"
+  },
+  {
+   "name": "Swallow Mallet to Lunging Mist Thrust",
+   "input": "b+2,1",
+   "kind": "string",
+   "hits": "m,m",
+   "note": "Or SS+2,1"
+  },
+  {
+   "name": "Swallow Mallet to Sweeps",
+   "input": "b+2,4",
+   "kind": "string",
+   "hits": "m,l",
+   "note": "Or SS+2, 4"
+  },
+  {
+   "name": "Swallow Mallet Elbow",
+   "input": "b+2,1+2",
+   "kind": "string",
+   "hits": "m,m",
+   "note": "Or SS+2, 1+2"
+  },
+  {
+   "name": "Dragon Wheel Kick",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Wheel Kick Demon Slayer",
+   "input": "b+3,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon Wheel Leg Cutter",
+   "input": "b+3,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Dragon Wheel Vacuum Spin Kick",
+   "input": "b+3,4,4,4",
+   "kind": "string",
+   "hits": "m,l,l,l"
+  },
+  {
+   "name": "Mist Palm Thrust",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Violet Strength",
+   "input": "WS+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Moon Scent",
+   "input": "WS+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Tornado Kick",
+   "input": "WS+f+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Twin Cloud Kicks",
+   "input": "FC+3+4,3+4",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Grace",
+   "input": "FC+d/f+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Camellia",
+   "input": "SS+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Whiplash to Toe Kick",
+   "input": "f+1,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Whiplash Combo",
+   "input": "f+1,3,1",
+   "kind": "string",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Whiplash Double Lift Upper",
+   "input": "f+1,4",
+   "kind": "string",
+   "hits": "m,l,h"
+  },
+  {
+   "name": "Leg Cutter Thunder Fall Kick",
+   "input": "d/b+4,3",
+   "kind": "string",
+   "hits": "l,m,m"
+  },
+  {
+   "name": "Leg Cutter",
+   "input": "d/b+4,4",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Leg Cutter Thunder Fall Kick",
+   "input": "d/b+4,4,3",
+   "kind": "string",
+   "hits": "l,l,m,m"
+  },
+  {
+   "name": "Leg Cutter Blizzard Combo",
+   "input": "d/b+4,1+4,2,1",
+   "kind": "string",
+   "hits": "l,l,h,h,h"
+  },
+  {
+   "name": "Leg Cutter White Heron Lower Dance",
+   "input": "d/b+4,1+4,2,d+4",
+   "kind": "string",
+   "hits": "l,l,h,h,l"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "WS+2,1,1,1,2,1,4,3,3+4",
+   "kind": "string",
+   "hits": "m,h,m,m,m,l,m,l,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "WS+2,1,1,1,2,1+4,1,3+4",
+   "kind": "string",
+   "hits": "m,h,m,m,m,l,h,h,l,h"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "WS+2,1,1,3",
+   "kind": "string",
+   "hits": "m,h,m,m"
+  },
+  {
+   "name": "Attack Reversal",
+   "text": "Synchro with the opponent's attack b+1+3 (or b+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Spinning Heel Drop",
+   "text": "f+3 Maintain",
+   "kind": "special"
+  }
+ ]
+}

@@ -1,0 +1,369 @@
+{
+ "schemaVersion": 1,
+ "fighter": "armor-king",
+ "game": "ttt",
+ "source": {
+  "title": "Armor King/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Knee Bash",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Suplex",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jaguar Screwdriver",
+   "input": "d,d,d+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Suplex"
+  },
+  {
+   "name": "Reverse Death Valley Bomb",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Heavy Fall Reverse DDT",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Tombstone Piledriver",
+   "input": "d/b,f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse DDT",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "DDT",
+   "input": "d/b,d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Giant Swing",
+   "input": "f,hcf+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jaguar Driver",
+   "input": "qcf+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Tackle",
+   "input": "FC+d+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or d/b",
+   "when": "Front or Back"
+  },
+  {
+   "name": "Ultimate Punch",
+   "input": "2,1,2,1,2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Front or Back"
+  },
+  {
+   "name": "Armor King Driver",
+   "input": "FC+d/b+2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Front (Tag)"
+  },
+  {
+   "name": "Mount Position",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Opponent on the ground",
+   "note": "Or d/b+2+4"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Choke Sleeper",
+   "input": "f,n,d,d/f+1+2",
+   "kind": "string"
+  },
+  {
+   "name": "Half Nelson Press",
+   "input": "2+4,1+2,1+2",
+   "kind": "string",
+   "when": "During Choke Sleeper"
+  },
+  {
+   "name": "Falling Sleeper Chain Throw",
+   "input": "3+4,3+4,1+2",
+   "kind": "string",
+   "when": "During Choke Sleeper"
+  },
+  {
+   "name": "Triple Mount Punches",
+   "input": "1,1,1+2",
+   "kind": "string",
+   "when": "During Falling Sleeper Chain Throw"
+  },
+  {
+   "name": "Stretch Mutter",
+   "input": "3,4,1+2,3+4",
+   "kind": "string",
+   "when": "During Falling Sleeper Chain Throw"
+  },
+  {
+   "name": "One Two Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "One Two Uppercut",
+   "input": "1,2,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Uppercut",
+   "input": "f+2,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Neck Cutter Kick",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Capital Punishment",
+   "input": "u/f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Burning Knuckle",
+   "input": "u/f,n,1+2,D",
+   "kind": "string"
+  },
+  {
+   "name": "Shoulder Impact",
+   "input": "f+1+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Frankensteiner",
+   "input": "d/f+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Left Straight Uppercut",
+   "input": "d+1,n,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Corporate Elbow",
+   "input": "d+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Stagger Kicks",
+   "input": "FC+d/f+4,4,4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Counter Stagger Kicks",
+   "input": "d+3+4,4,4,4,4",
+   "kind": "string",
+   "hits": "l,l,l,l,l",
+   "when": "During Counterattack"
+  },
+  {
+   "name": "Low Drop Kick",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Water Parting Chop",
+   "input": "b+1",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Toll Kick",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Straight Arrow",
+   "input": "b+1+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Rising Toe Kick",
+   "input": "u/f+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Double Knee Drop",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Elbow Drop",
+   "input": "d+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Capital Punishment",
+   "input": "u/f,n,1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Burning Knuckle",
+   "input": "u/f,n,1+2,D",
+   "kind": "string"
+  },
+  {
+   "name": "Jumping Stagger Kick",
+   "input": "u/f,n,3+4,4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Jumping Moonsault",
+   "input": "u/f,n,1+4",
+   "kind": "string"
+  },
+  {
+   "name": "Stomach Smash",
+   "input": "f,f,n,2",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "K's Flicker",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Konvict Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Head First Lunge",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Exploder",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Shadow Lariat",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Palm Upper",
+   "input": "f,n,d,d/f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Knee",
+   "input": "f,n,d,d/f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Running Exploder",
+   "input": "f,f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Lifting Elbow",
+   "input": "WS+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Dynamite Uppercut",
+   "input": "FC+D/F+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Jaguar Thrust",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Blind Kick",
+   "input": "BT+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "1,2,1,1,2,4,4,4,1,3",
+   "kind": "string",
+   "hits": "h,h,m,m,h,l,l,l,m,m"
+  }
+ ]
+}

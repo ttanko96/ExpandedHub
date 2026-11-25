@@ -9,7 +9,5 @@
   "unlock": "Eddy’s alternate, once every hidden fighter is open.",
   "accent": "#c026d3",
   "order": 230,
-  "movesFrom": "eddy",
-  "verified": false,
-  "moves": []
+  "movesFrom": "eddy"
 }

@@ -8,7 +8,5 @@
   "tagline": "A training dummy of ancient wood that takes a random style every round.",
   "unlock": "Hidden: unlocked by finishing Arcade mode.",
   "accent": "#a16207",
-  "order": 190,
-  "verified": false,
-  "moves": []
+  "order": 190
 }

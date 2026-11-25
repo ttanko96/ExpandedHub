@@ -1,0 +1,267 @@
+{
+ "schemaVersion": 1,
+ "fighter": "kazuya",
+ "game": "ttt",
+ "source": {
+  "title": "Kazuya Mishima/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Double Face Kick",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Hip Throw",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Steel Pedal Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Skull Smash",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Reverse Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Stonehead",
+   "input": "f,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Tackle",
+   "input": "d+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or d/b"
+  },
+  {
+   "name": "Ultimate Punch",
+   "input": "2,1,2,1",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Flash Punch Combo",
+   "input": "1,1,2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "1,2,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Twin Fang Stature Smash",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h,l"
+  },
+  {
+   "name": "Demon Backhand Spin",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Scissors",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Soul Thrust",
+   "input": "f+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Right Splits Kick",
+   "input": "f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Glorious Demon God Fist",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Entrails Smash",
+   "input": "d/f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Abolishing Fist",
+   "input": "d/f+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Heel Drop",
+   "input": "d/f+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Stature Smash",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Lightning Uppercut",
+   "input": "b+1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Lightning Screw Uppercut",
+   "input": "B+1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Rising Sun",
+   "input": "u/f+4,4",
+   "kind": "string",
+   "hits": "m,l",
+   "note": "Or u"
+  },
+  {
+   "name": "Roundhouse to Triple Spin Kick",
+   "input": "u/f+4,4,4,4",
+   "kind": "string",
+   "hits": "m,l,l,m",
+   "note": "Or u"
+  },
+  {
+   "name": "Left Splits Kick",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Mist Step",
+   "input": "f,n",
+   "kind": "string"
+  },
+  {
+   "name": "Dragon Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Uppercut to Middle Kick",
+   "input": "f,n,d,d/f+1,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon Uppercut to Spinning Low Kick",
+   "input": "f,n,d,d/f+1,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Rising Uppercut",
+   "input": "f,n,d,d/f+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Demon",
+   "input": "f,n,d,d/f+4,4",
+   "kind": "launcher",
+   "hits": "l,l"
+  },
+  {
+   "name": "Leaping Sidekick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Pistons",
+   "input": "WS+1,2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Demon God Fist",
+   "input": "WS+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "f,f,n,2,1,2,2,3,4,4,1,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m,m,l,h,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "f,f+2,1,2,2,3,4,4,3,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m,m,l,l,m,!"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "f,f,n,2,1,4,4,2,4,3,2,1",
+   "kind": "string",
+   "hits": "h,h,m,m,m,m,l,m,!"
+  }
+ ]
+}

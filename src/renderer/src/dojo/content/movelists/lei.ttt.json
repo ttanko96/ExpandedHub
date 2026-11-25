@@ -1,0 +1,703 @@
+{
+ "schemaVersion": 1,
+ "fighter": "lei",
+ "game": "ttt",
+ "source": {
+  "title": "Lei Wulong/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Double Foot Stomp",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Sleeper Hold",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Sailboat Stretch",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Closing Fan",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Booby Trap",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Dragon Falls",
+   "input": "u/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Tripping",
+   "input": "f,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Out of Control",
+   "input": "1",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Dragon",
+   "note": "Or during Snake 1+3"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "High and Low Kicks",
+   "input": "3,3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Tornado Kick",
+   "input": "3~4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Clean Sweep",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Lift Up Cannon",
+   "input": "4~4,3,3",
+   "kind": "string",
+   "hits": "l,l,m"
+  },
+  {
+   "name": "Hook Punch to Spinning Back Blow",
+   "input": "1+2,1",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Hook Punch to Spiral Upper",
+   "input": "1+2,2",
+   "kind": "launcher",
+   "hits": "h,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Axis Shifting Tornado Kick",
+   "input": "f+3~4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Beating Kick Low Combo",
+   "input": "f+4,2,1,2,3",
+   "kind": "string",
+   "hits": "h,m,m,m,l"
+  },
+  {
+   "name": "Beating Kick Mid Combo",
+   "input": "f+4,2,1,2,4",
+   "kind": "string",
+   "hits": "h,m,m,m,m"
+  },
+  {
+   "name": "Beating Kick Mid Combo Crane",
+   "input": "f+4,2,1,2,4,u",
+   "kind": "string",
+   "hits": "h,m,m,m,m",
+   "note": "Or d"
+  },
+  {
+   "name": "Twin Snake Strikes",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "h,h"
+  },
+  {
+   "name": "Rave Spin",
+   "input": "d/b+4,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Cannonball",
+   "input": "b+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Falling Tree",
+   "input": "u/f+2",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or u/b"
+  },
+  {
+   "name": "Razor Rush Snake",
+   "input": "f,n,1,u",
+   "kind": "string",
+   "hits": "m",
+   "note": "Or d"
+  },
+  {
+   "name": "Razor Rush Dragon",
+   "input": "f,n,1,2,u",
+   "kind": "string",
+   "hits": "m,m",
+   "note": "Or d"
+  },
+  {
+   "name": "Razor Rush Panther",
+   "input": "f,n,1,2,1,u",
+   "kind": "string",
+   "hits": "m,m,m",
+   "note": "Or d"
+  },
+  {
+   "name": "Razor Rush Tiger",
+   "input": "f,n,1,2,1,2,u",
+   "kind": "string",
+   "hits": "m,m,m,m",
+   "note": "Or d"
+  },
+  {
+   "name": "Razor Rush Low Kick",
+   "input": "f,n,1,2,1,2,3",
+   "kind": "string",
+   "hits": "m,m,m,m,l"
+  },
+  {
+   "name": "Razor Rush Mid Kick",
+   "input": "f,n,1,2,1,2,4",
+   "kind": "string",
+   "hits": "m,m,m,m,m"
+  },
+  {
+   "name": "Razor Rush Mid Kick Crane",
+   "input": "f,n,1,2,1,2,4,u",
+   "kind": "string",
+   "hits": "m,m,m,m,m",
+   "note": "Or d"
+  },
+  {
+   "name": "One Two Kick Mid",
+   "input": "f,n,3,4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "One Two Kick Low",
+   "input": "f,n,3,d+4",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Rush Combo Mid Kick",
+   "input": "f,n,4,1,2,3,4",
+   "kind": "string",
+   "hits": "h,m,m,h,m"
+  },
+  {
+   "name": "Rush Combo Low Kick",
+   "input": "f,n,4,1,2,3,d+4",
+   "kind": "string",
+   "hits": "h,m,m,h,l"
+  },
+  {
+   "name": "Drunken Tiger Lash",
+   "input": "b,b+1",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Jumping Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Snake Palm Fist",
+   "input": "SS+1",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Falling Blade",
+   "input": "SS+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "f+2+3",
+   "kind": "special"
+  },
+  {
+   "name": "Drunken Master Walk",
+   "input": "f+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Phoenix Illusion",
+   "input": "b+1+4",
+   "kind": "special"
+  },
+  {
+   "name": "Back Turn",
+   "input": "b+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Sidewind",
+   "input": "d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Play Dead",
+   "input": "d+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rushing Snake",
+   "input": "1,1,1,1,1",
+   "kind": "string",
+   "hits": "h,h,h,h,h",
+   "when": "During Snake"
+  },
+  {
+   "name": "Snake Bites",
+   "input": "2,2,2",
+   "kind": "string",
+   "hits": "m,m,l",
+   "when": "During Snake"
+  },
+  {
+   "name": "Snake Bite Combo",
+   "input": "2,2,4,3,3",
+   "kind": "string",
+   "hits": "m,m,l,l,m",
+   "when": "During Snake"
+  },
+  {
+   "name": "Rattlesnake",
+   "input": "3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Snake"
+  },
+  {
+   "name": "Snake Low Kick",
+   "input": "4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Snake"
+  },
+  {
+   "name": "Five Gates Form - Dragon",
+   "input": "u",
+   "kind": "special",
+   "when": "During Snake"
+  },
+  {
+   "name": "Five Gates Form - Panther",
+   "input": "d",
+   "kind": "special",
+   "when": "During Snake"
+  },
+  {
+   "name": "Dragon Roar",
+   "input": "2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Dragon's Tail",
+   "input": "3,3",
+   "kind": "string",
+   "hits": "h,l",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Dragon's Fang Attack",
+   "input": "4,1,2,3",
+   "kind": "string",
+   "hits": "h,m,m,h",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Rush Combo Mid Kick",
+   "input": "4,1,2,3,4",
+   "kind": "string",
+   "hits": "h,m,m,h,m",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Rush Combo Low Kick",
+   "input": "4,1,2,3,d+4",
+   "kind": "string",
+   "hits": "h,m,m,h,l",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Dragon Spark",
+   "input": "1+2",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Five Gates Form - Tiger",
+   "input": "u",
+   "kind": "special",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "d",
+   "kind": "special",
+   "when": "During Dragon"
+  },
+  {
+   "name": "Panther's Paw",
+   "input": "2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Panther"
+  },
+  {
+   "name": "Panther's Tail",
+   "input": "3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Panther"
+  },
+  {
+   "name": "Beating Kick Low Combo",
+   "input": "4,2,1,2,3",
+   "kind": "string",
+   "hits": "h,m,m,m,l",
+   "when": "During Panther"
+  },
+  {
+   "name": "Beating Kick Mid Combo",
+   "input": "4,2,1,2,4",
+   "kind": "string",
+   "hits": "h,m,m,m,m",
+   "when": "During Panther"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "u",
+   "kind": "special",
+   "when": "During Panther"
+  },
+  {
+   "name": "Five Gates Form - Grue",
+   "input": "d",
+   "kind": "special",
+   "when": "During Panther"
+  },
+  {
+   "name": "Tiger's Strike",
+   "input": "1",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Tiger's Claw",
+   "input": "2",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Tiger Kick",
+   "input": "3",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Razor Rush",
+   "input": "3,1,2,1,2,4",
+   "kind": "string",
+   "hits": "h,m,m,m,m,m",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Tiger Kick to Razor Low",
+   "input": "3,1,2,1,2,3",
+   "kind": "string",
+   "hits": "h,m,m,m,m,l",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Tiger's Tail",
+   "input": "4",
+   "kind": "launcher",
+   "hits": "l",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "u",
+   "kind": "special",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Five Gates Form - Dragon",
+   "input": "d",
+   "kind": "special",
+   "when": "During Tiger"
+  },
+  {
+   "name": "Crane's Bill",
+   "input": "1",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Crane"
+  },
+  {
+   "name": "Wing of Crane",
+   "input": "2",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Crane"
+  },
+  {
+   "name": "Crane Dance",
+   "input": "3,4,2,3",
+   "kind": "launcher",
+   "hits": "m,l,m,m",
+   "when": "During Crane"
+  },
+  {
+   "name": "Crane Kick",
+   "input": "4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Crane"
+  },
+  {
+   "name": "Five Gates Form - Panther",
+   "input": "u",
+   "kind": "special",
+   "when": "During Crane"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "d",
+   "kind": "special",
+   "when": "During Crane"
+  },
+  {
+   "name": "Drunken Tiger Lash",
+   "input": "1",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Drunken Master Walk"
+  },
+  {
+   "name": "Drunken Rapid Fists",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "m,h",
+   "when": "During Drunken Master Walk",
+   "note": "Or SS+2, 2"
+  },
+  {
+   "name": "Tiger Sip",
+   "input": "1+2",
+   "kind": "special",
+   "when": "During Drunken Master Walk"
+  },
+  {
+   "name": "Staggering Slide",
+   "input": "3+4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Drunken Master Walk"
+  },
+  {
+   "name": "Hopping Phoenix",
+   "input": "3,3,3,3",
+   "kind": "string",
+   "hits": "m,m,m,m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Phoenix Strike",
+   "input": "4",
+   "kind": "power",
+   "hits": "!",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Tornado Kick",
+   "input": "b+4",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Five Gates Form - Snake",
+   "input": "u+2+3",
+   "kind": "special",
+   "when": "During Phoenix",
+   "note": "Or d"
+  },
+  {
+   "name": "Spinning Back Blow",
+   "input": "BT+1",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Reverse Uppercut",
+   "input": "BT+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Reverse Kick",
+   "input": "BT+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Flit Flip Flop",
+   "input": "BT+3+4,3+4,3+4",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Low Back Spin",
+   "input": "BT+d+1",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Reverse Double Slicer",
+   "input": "BT+d+4,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Falling Tree",
+   "input": "BT+u/f+2",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or or u/b"
+  },
+  {
+   "name": "Play Dead",
+   "input": "1",
+   "kind": "special",
+   "when": "During Sidewind",
+   "note": "Or d+1"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "b+1,2,1,3+4,2,1,4,1,2,3",
+   "kind": "string",
+   "hits": "h,h,l,m,m,m,h,m,m,h"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "b+1,2,1,3+4,2,1,4,1,4,4",
+   "kind": "string",
+   "hits": "h,h,l,m,m,m,h,m,l,h"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "b+1,2,1,3+4,3+4,3+4,1,1,2",
+   "kind": "string",
+   "hits": "h,h,l,m,m,m,l,l,m"
+  },
+  {
+   "name": "Defense Breaker",
+   "text": "f, N, 2, 1, 2, 1 (With the opponent on guard)",
+   "kind": "special"
+  },
+  {
+   "name": "Panther's Scratch",
+   "text": "During Panther [1~2]",
+   "kind": "special"
+  },
+  {
+   "name": "Sliding Kick",
+   "text": "During Sidewind (head first) [4~3]",
+   "kind": "special"
+  },
+  {
+   "name": "Clean Sweep",
+   "text": "During Sidewind (feet first) [4~3]",
+   "kind": "special"
+  },
+  {
+   "name": "Low Kick to Play Dead",
+   "text": "During Sidewind (feet first) [3~4]",
+   "kind": "special"
+  },
+  {
+   "name": "Leaping Double Slicer",
+   "text": "During Play Dead (head first) 3, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Spring Kick",
+   "text": "During Play Dead (head first) 3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Spring Up",
+   "text": "During Play Dead (feet first) 3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Roll Over to Sidewind",
+   "text": "During Play Dead (feet first) D+1",
+   "kind": "special"
+  }
+ ]
+}

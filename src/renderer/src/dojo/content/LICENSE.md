@@ -4,18 +4,20 @@ The files in this folder (`fighters/`, `tours/`) are written for ExpandedHub by 
 licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 Credit: "ExpandedHub contributors".
 
+The full move lists in `movelists/` are adapted from the Tekken Wiki and keep its licence, CC BY-SA 3.0:
+see `movelists/LICENSE.md`.
+
 ## What goes in here
 
 - **Our own words only.** Descriptions, taglines and notes are written from scratch. Do not copy text from
   manuals, strategy guides, official sites, wikis or other move lists.
-- **Facts are fine.** Fighter and move names and button commands are facts about the games; write them in the
-  hub's notation (see `src/shared/dojo-notation.ts`). When they come from a published list, name it in the
-  fighter's `source` and take only those facts, never its descriptions. The Tag Tournament fighters' names and
-  commands were picked from the Tekken wiki's Tekken Tag Tournament move lists (CC BY-SA 3.0).
+- **Move lists come with their licence.** A move list taken from a published source goes in `movelists/`
+  under that source's licence, with the page named in its `source`. Only the hub's own words go in
+  `fighters/` and `tours/`.
 - **No game assets.** No artwork, renders, sprites, screenshots, logos, sounds or fonts from the games. The Dojo's
   visuals are drawn by the hub itself. A project's own screenshots are shown only from that project's
   installed folder on the player's PC.
-- **Mark what you checked.** Set `"verified": true` on a fighter only after every command was tried in the game.
+- **Mark what you checked.** Set `"verified": true` on a move list only after its commands were tried in the game.
 
 Tekken is a trademark of Bandai Namco Entertainment. ExpandedHub is an unofficial fan project and is not affiliated
 with or endorsed by Bandai Namco. The names of the games and characters are used only to describe them.

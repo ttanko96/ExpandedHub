@@ -1,10 +1,11 @@
 import { AlertTriangle, ChevronLeft, ChevronRight, Dumbbell, Lock, Search } from 'lucide-react'
 import { useCallback, useMemo, useState, type CSSProperties } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Segmented } from '../components/ui/Segmented'
 import type { DojoMove, MoveKind } from '@shared/dojo-schema'
 import { trainerTargets } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
-import { FIGHTERS, fighterById, movesOf, ORIGIN_LABEL, rosterNumber } from './content'
+import { FIGHTERS, fighterById, movesetsOf, ORIGIN_LABEL, rosterNumber, type MovesetId } from './content'
 import { InputPad, Notation } from './InputGlyphs'
 
 const KIND_LABEL: Record<MoveKind, string> = {
@@ -40,14 +41,17 @@ export function FighterPage() {
   const onHeroStep = useCallback((s: number | null) => setHeroStep(s), [])
 
   // Grouped by kind, throws last; the order inside a kind stays as written.
+  const sets = useMemo(() => (fighter ? movesetsOf(fighter) : []), [fighter])
+  const [setId, setSetId] = useState<MovesetId | null>(null)
+  const active = sets.find((x) => x.id === setId) ?? sets[0]
   const moves = useMemo(
-    () => (fighter ? [...movesOf(fighter)].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)) : []),
-    [fighter]
+    () => (active ? [...active.moves].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)) : []),
+    [active]
   )
   const kinds = useMemo(() => KIND_ORDER.filter((k) => moves.some((m) => m.kind === k)), [moves])
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return moves.filter((m) => (kind === 'all' || m.kind === kind) && (!q || m.name.toLowerCase().includes(q) || m.input.toLowerCase().includes(q)))
+    return moves.filter((m) => (kind === 'all' || m.kind === kind) && (!q || m.name.toLowerCase().includes(q) || (m.input ?? m.text ?? '').toLowerCase().includes(q)))
   }, [moves, kind, query])
 
   if (!fighter) return <Navigate to="/dojo/roster" replace />
@@ -55,7 +59,9 @@ export function FighterPage() {
   const prev = FIGHTERS[(index - 1 + FIGHTERS.length) % FIGHTERS.length]!
   const next = FIGHTERS[(index + 1) % FIGHTERS.length]!
   const lender = fighter.movesFrom ? fighterById(fighter.movesFrom) : undefined
-  const signature = moves.find((m) => m.name === fighter.signature) ?? moves.find((m) => m.kind === 'launcher') ?? moves[0]
+  // The hero always shows the fighter's own list's signature move.
+  const heroMoves = (sets[0]?.moves ?? []).filter((m): m is DojoMove & { input: string } => !!m.input && !m.when)
+  const signature = heroMoves.find((m) => m.name === fighter.signature) ?? heroMoves.find((m) => m.kind === 'launcher') ?? heroMoves[0]
   const style = { '--dojo-accent': fighter.accent } as CSSProperties
 
   return (
@@ -115,13 +121,27 @@ export function FighterPage() {
 
       {/* Moves */}
       <section className="mt-8">
-        {!fighter.verified && moves.length > 0 && (
+        {sets.length > 1 && (
+          <div className="mb-4 flex flex-wrap items-center gap-3">
+            <Segmented
+              label="Moveset"
+              value={active!.id}
+              onChange={(id) => {
+                setSetId(id)
+                setKind('all')
+                setOpen(null)
+              }}
+              options={sets.map((x) => ({ id: x.id, label: x.label, title: x.hint }))}
+            />
+            <span className="text-[13px] text-zinc-500">{active!.hint}.</span>
+          </div>
+        )}
+        {active && !active.verified && (
           <div className="mb-4 flex gap-3 rounded-xl border border-amber-400/25 bg-amber-400/[0.06] px-4 py-3 text-[13px] text-amber-200">
             <AlertTriangle size={16} className="mt-0.5 shrink-0 text-amber-300" />
             <span>
-              {fighter.source
-                ? 'A core list, not yet checked in Tekken 3 Expanded: a command may differ there. Try it in Practice mode before you rely on it.'
-                : 'Not checked in the game yet: a core list written from memory, and a command may be off. Try it in Practice mode before you rely on it.'}
+              The full list from the Tekken Wiki, not yet checked {active.id === 't3' ? 'in Tekken 3' : 'in Tekken 3 Expanded'}: a command may
+              differ there. Try it in Practice mode before you rely on it.
             </span>
           </div>
         )}
@@ -168,18 +188,32 @@ export function FighterPage() {
               </label>
             </div>
             <ul className="mt-2 divide-y divide-line/[0.05]">
-              {visible.map((m) => (
+              {visible.map((m, i) => {
+                const key = `${m.name}|${m.when ?? ''}|${m.input ?? m.text}|${i}`
+                return (
                 <MoveRow
-                  key={m.name + m.input}
+                  key={key}
                   move={m}
                   accent={fighter.accent}
-                  open={open === m.name}
-                  onToggle={() => setOpen(open === m.name ? null : m.name)}
-                  onPractise={() => navigate(`/dojo/trainer?fighter=${fighter.id}&move=${encodeURIComponent(m.name)}`)}
+                  open={open === key}
+                  onToggle={() => setOpen(open === key ? null : key)}
+                  onPractise={() => navigate(`/dojo/trainer?fighter=${fighter.id}&set=${active!.id}&move=${encodeURIComponent(m.name)}`)}
                 />
-              ))}
+                )
+              })}
             </ul>
-            {fighter.source && <p className="mt-3 px-3 text-[12px] text-zinc-600">{fighter.source}. Descriptions are the hub’s own.</p>}
+            {active && (
+              <p className="mt-3 px-3 text-[12px] text-zinc-600">
+                Move list:{' '}
+                <button
+                  className="underline decoration-dotted hover:text-zinc-400"
+                  onClick={() => void window.hub.app.openExternal(`https://tekken.fandom.com/wiki/${encodeURIComponent(active.source.title.replace(/ /g, '_')).replace(/%2F/g, '/')}`)}
+                >
+                  {active.source.title}
+                </button>
+                , {active.source.site} contributors, {active.source.license}, turned into the hub’s notation. Descriptions are the hub’s own.
+              </p>
+            )}
           </>
         )}
       </section>
@@ -203,7 +237,7 @@ function Fact({ label, value }: { label: string; value: string }) {
 }
 
 function MoveRow({ move, accent, open, onToggle, onPractise }: { move: DojoMove; accent: string; open: boolean; onToggle: () => void; onPractise: () => void }) {
-  const trainable = trainerTargets(move.input) !== null
+  const trainable = !!move.input && !move.when && trainerTargets(move.input) !== null
   const [step, setStep] = useState<number | null>(null)
   const onStep = useCallback((s: number | null) => setStep(s), [])
   return (
@@ -220,7 +254,10 @@ function MoveRow({ move, accent, open, onToggle, onPractise }: { move: DojoMove;
           <div className="truncate text-[15px] font-semibold text-zinc-100">{move.name}</div>
           <div className="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-zinc-500">{KIND_LABEL[move.kind].replace(/s$/, '')}</div>
         </div>
-        <Notation input={move.input} activeStep={open ? step : null} />
+        <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+          {move.when && <span className="rounded-md bg-ink-700 px-1.5 py-0.5 text-[12px] text-zinc-300">{move.when}</span>}
+          {move.input ? <Notation input={move.input} activeStep={open ? step : null} /> : <span className="text-[13px] italic text-zinc-400">{move.text}</span>}
+        </div>
         <div className="flex gap-1">
           {(move.hits?.split(',') ?? []).map((h, i) => {
             const [label, cls] = HIT_STYLE[h] ?? [h, '']
@@ -247,11 +284,18 @@ function MoveRow({ move, accent, open, onToggle, onPractise }: { move: DojoMove;
       </div>
       {open && (
         <div className="flex animate-fade-up items-center gap-6 px-3 pb-4 pt-1">
-          <InputPad input={move.input} accent={accent} size={200} onStep={onStep} />
+          {move.input && <InputPad input={move.input} accent={accent} size={200} onStep={onStep} />}
           <div className="min-w-0 text-[14px] leading-relaxed text-zinc-400">
-            <code className="selectable rounded bg-ink-800 px-1.5 py-0.5 font-mono text-[13px] text-zinc-200">{move.input}</code>
+            {move.when && <p className="mb-1 text-zinc-300">{move.when}:</p>}
+            <code className="selectable rounded bg-ink-800 px-1.5 py-0.5 font-mono text-[13px] text-zinc-200">{move.input ?? move.text}</code>
             {move.note && <p className="mt-2">{move.note}</p>}
-            {!trainable && <p className="mt-2 text-zinc-500">Needs a stance only the game can put you in, so the Trainer cannot check it.</p>}
+            {!trainable && (
+              <p className="mt-2 text-zinc-500">
+                {move.input
+                  ? 'Needs a situation only the game can set up, so the Trainer cannot check it.'
+                  : 'The notation cannot draw this one: it depends on what happens in the fight.'}
+              </p>
+            )}
           </div>
         </div>
       )}

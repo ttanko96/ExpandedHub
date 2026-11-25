@@ -1,0 +1,579 @@
+{
+ "schemaVersion": 1,
+ "fighter": "dr-b",
+ "game": "t3",
+ "source": {
+  "title": "Doctor Bosconovitch/Tekken 3 Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Whippersnapper",
+   "input": "f,f+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Stonehead",
+   "input": "f,f,b+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "On the ground",
+   "note": "Or b, b"
+  },
+  {
+   "name": "Parry",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Parry"
+  },
+  {
+   "name": "Lower Dodge",
+   "input": "d+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Parry"
+  },
+  {
+   "name": "Arm Takedown",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Bad Stomach; From the left"
+  },
+  {
+   "name": "Trip Up",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Bad Stomach; From the right"
+  },
+  {
+   "name": "Atomic Drop",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Bad Stomach; From the back"
+  },
+  {
+   "name": "Doc's One-Two",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Anxiety Attack",
+   "input": "2~1",
+   "kind": "special"
+  },
+  {
+   "name": "Low Spin Kick - Shin Kick",
+   "input": "3,4",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Panik Charge",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Stagger Old Fist",
+   "input": "u/f+1",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Panik Charge"
+  },
+  {
+   "name": "Panik Old Fist Chain",
+   "input": "u/f+1,3,3,3,3",
+   "kind": "string",
+   "hits": "m,m,m,m,m",
+   "when": "During Panik Charge"
+  },
+  {
+   "name": "Overhead Crescent",
+   "input": "3",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Shadow Legs"
+  },
+  {
+   "name": "Disgrace Kick",
+   "input": "4",
+   "kind": "poke",
+   "hits": "h",
+   "when": "During Shadow Legs"
+  },
+  {
+   "name": "Bad Stomach",
+   "input": "1+4",
+   "kind": "special"
+  },
+  {
+   "name": "Elbow Drop",
+   "input": "2,2,1+2",
+   "kind": "string",
+   "when": "During Irish Whip"
+  },
+  {
+   "name": "King Step",
+   "input": "1+4",
+   "kind": "special",
+   "when": "During Elbow Drop"
+  },
+  {
+   "name": "Running Bulldog",
+   "input": "2,1,3,4",
+   "kind": "string",
+   "when": "During King Step"
+  },
+  {
+   "name": "Cartwheel",
+   "input": "1+2",
+   "kind": "special",
+   "when": "During Elbow Drop"
+  },
+  {
+   "name": "Taunt Doc - Panik Charge",
+   "input": "3+4",
+   "kind": "special",
+   "when": "During Cartwheel"
+  },
+  {
+   "name": "Shoulder Ram",
+   "input": "1+2",
+   "kind": "special",
+   "when": "During Shoulder Ram"
+  },
+  {
+   "name": "Running Head Dive",
+   "input": "3+4",
+   "kind": "special",
+   "when": "During Elbow Drop"
+  },
+  {
+   "name": "Right Kick",
+   "input": "f+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Trip Slide",
+   "input": "f+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Pistons",
+   "input": "d/f+1,2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Slicer",
+   "input": "d+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Meditation",
+   "input": "d+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Doc Mobile",
+   "input": "3",
+   "kind": "special",
+   "when": "During Meditation",
+   "note": "Or 4"
+  },
+  {
+   "name": "Dancin' Doc",
+   "input": "D/B+3,4,3,4,3,4",
+   "kind": "string",
+   "hits": "l,l,l,l,l,l"
+  },
+  {
+   "name": "Back Protoplast",
+   "input": "b+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Shadow Run",
+   "input": "B",
+   "kind": "special",
+   "when": "During Back Protoplast",
+   "note": "Or F"
+  },
+  {
+   "name": "Back Off!",
+   "input": "BT+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Shadow Run Kick L",
+   "input": "3",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Back Protoplast"
+  },
+  {
+   "name": "Shadow Run Kick R",
+   "input": "4",
+   "kind": "launcher",
+   "hits": "h",
+   "when": "During Back Protoplast"
+  },
+  {
+   "name": "Back Turned Dash",
+   "input": "BT+f,f",
+   "kind": "string"
+  },
+  {
+   "name": "Dragon Back Blow",
+   "input": "BT+f,f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Turn Over",
+   "input": "1",
+   "kind": "special",
+   "when": "While on ground",
+   "note": "Also: 2"
+  },
+  {
+   "name": "Trip Slide",
+   "input": "3+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Roll Over",
+   "input": "u",
+   "kind": "special",
+   "note": "Also: d"
+  },
+  {
+   "name": "Forward Roll",
+   "input": "f",
+   "kind": "special"
+  },
+  {
+   "name": "Head Dive",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Forward Roll"
+  },
+  {
+   "name": "Mind Warp",
+   "input": "b+1+2",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Head Dive"
+  },
+  {
+   "name": "Backward Roll",
+   "input": "b",
+   "kind": "special"
+  },
+  {
+   "name": "Head Dive",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Backward Roll"
+  },
+  {
+   "name": "Brain Drain",
+   "input": "b+1+2",
+   "kind": "poke",
+   "hits": "!"
+  },
+  {
+   "name": "Escapism Bomb",
+   "input": "b+3+4,U",
+   "kind": "string",
+   "hits": "!"
+  },
+  {
+   "name": "Guard Breaker",
+   "input": "b+1+4",
+   "kind": "special"
+  },
+  {
+   "name": "Senior Fist",
+   "input": "u/f+1",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Wisdom Fist",
+   "input": "u/f+2",
+   "kind": "launcher",
+   "hits": "h"
+  },
+  {
+   "name": "Panik Jab",
+   "input": "f,f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Panic Doctor",
+   "input": "1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Flip Flop",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Fall Back Cancel",
+   "input": "u/f",
+   "kind": "special",
+   "note": "Also: f or d/f"
+  },
+  {
+   "name": "Fast Fall Back",
+   "input": "d",
+   "kind": "special",
+   "note": "Also: 2"
+  },
+  {
+   "name": "Doctor Bounce",
+   "input": "u",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Gene Bank Combo",
+   "input": "f,f+1,4,3,2,1",
+   "kind": "string",
+   "hits": "m,l,l,m,m"
+  },
+  {
+   "name": "Panik Jam Combo",
+   "input": "f,f+1,4,3,3,3,2,1",
+   "kind": "string",
+   "hits": "m,l,l,l,l,m,m"
+  },
+  {
+   "name": "Stomach Ache",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Leaping Sidekick",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Base Stealer",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Elbow Rush",
+   "input": "f,f,n,2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Spindoctor",
+   "input": "f,f,n,3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Gut Stun Punch",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Old Fist",
+   "input": "SS+2,1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Doctor Breath",
+   "input": "1",
+   "kind": "poke",
+   "hits": "!",
+   "note": "Also: 2"
+  },
+  {
+   "name": "Knock Down Position",
+   "input": "b",
+   "kind": "stance",
+   "when": "During Hop Up"
+  },
+  {
+   "name": "Stand Up",
+   "input": "d",
+   "kind": "stance",
+   "when": "During Hop Up"
+  },
+  {
+   "name": "Trip Slide",
+   "input": "d+3+4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Hop Up"
+  },
+  {
+   "name": "Grounded Ki Charge",
+   "input": "1+2+3+4",
+   "kind": "special",
+   "when": "While on back"
+  },
+  {
+   "name": "Doctor Scoot",
+   "input": "f",
+   "kind": "special",
+   "when": "While on back",
+   "note": "Also: b"
+  },
+  {
+   "name": "Forward Doctor Roll",
+   "input": "f,f",
+   "kind": "string",
+   "when": "While on back"
+  },
+  {
+   "name": "Falling Heel",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Forward Doctor Roll"
+  },
+  {
+   "name": "Head Dive",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Forward Doctor Roll"
+  },
+  {
+   "name": "Backward Doctor Roll",
+   "input": "b,b",
+   "kind": "string",
+   "when": "While on back"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "3+4,u/f+1,3,3,3,f+3,3,3,3,3,3,4,4,4,3,3,3,3,3,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m,m,h,m,m,m,l,h,h,h,l,l,l,l,m,m"
+  },
+  {
+   "name": "Rolling Powerbomb",
+   "text": "1+2 (parry), 3+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Irish Whip",
+   "text": "1+2 (parry), 1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Shadow Run",
+   "text": "During Panik Charge, ~ B",
+   "kind": "special"
+  },
+  {
+   "name": "Low Kick Rise",
+   "text": "While on back, feet towards opponent, 3",
+   "kind": "special"
+  },
+  {
+   "name": "Mid Kick Rise",
+   "text": "While on back, feet towards opponent, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Trip Kick Rise",
+   "text": "Face down, feet to opponent, 3",
+   "kind": "special"
+  },
+  {
+   "name": "Spinning Crescent Lunge",
+   "text": "Face down, feet to opponent, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Dark Greeting Reversal",
+   "text": "f, f+2 (against Gun Jack only in counterattack), N",
+   "kind": "special"
+  },
+  {
+   "name": "Remote Control Giga Stomp",
+   "text": "f, f+2 (against Gun Jack only in counterattack), ~ u",
+   "kind": "special"
+  },
+  {
+   "name": "Fall Back",
+   "text": "f, f+2 (against Gun Jack only in counterattack), ~ d",
+   "kind": "special"
+  },
+  {
+   "name": "[[Flying Doctor|Oops",
+   "text": "!",
+   "kind": "special"
+  },
+  {
+   "name": "Elbow Warp",
+   "text": "f, f, N, 2 (Counterattack)",
+   "kind": "special"
+  },
+  {
+   "name": "Rolling Kicks",
+   "text": "While on back, feet towards opponent, 3, 3",
+   "kind": "special"
+  },
+  {
+   "name": "Roger Kicks",
+   "text": "While on back, feet towards opponent, 4, 3, 4, 3, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Trick Thrash Kicks",
+   "text": "While on back, feet towards opponent, 4, 4, 3, 4, 3, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Hop Up",
+   "text": "While on back, feet towards opponent, 3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Kangaroo Kick",
+   "text": "While on back, head towards opponent, 3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Doctor Scoot",
+   "text": "While on back, head towards opponent, f or b",
+   "kind": "special"
+  },
+  {
+   "name": "Rolling Kangaroo Kick",
+   "text": "While on back, head towards opponent, f, f+3+4",
+   "kind": "special"
+  }
+ ]
+}

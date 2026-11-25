@@ -1,0 +1,797 @@
+{
+ "schemaVersion": 1,
+ "fighter": "eddy",
+ "game": "ttt",
+ "source": {
+  "title": "Eddy Gordo/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Rio Deal",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Rio Special",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Missile Launcher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Shadow Dancer",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Air Mail",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Rodeo Spin",
+   "input": "b,d/b,d,d/f,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "One Two Elbows",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Combo Jilar",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Heran Bago",
+   "input": "3~3",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Slippery Kick",
+   "input": "3~4",
+   "kind": "launcher",
+   "hits": "l,l"
+  },
+  {
+   "name": "Slippery Kick to Handstand",
+   "input": "3~4,b",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Slippery Kick to Side Flop",
+   "input": "3~4,4,4",
+   "kind": "string",
+   "hits": "l,l,l,l"
+  },
+  {
+   "name": "Satellite Moon",
+   "input": "4~3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Satellite Moon Hot Plate Special",
+   "input": "4~3,3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Satellite Moon Roundhouse",
+   "input": "4~3,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Rewinder Away",
+   "input": "1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Back Handspring",
+   "input": "3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Shin Cutter Combo",
+   "input": "f+2,1,4",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Handstand Kick",
+   "input": "f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Samba",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Samba Handstand",
+   "input": "f+4,b",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Samba Slippery Kick",
+   "input": "f+4,3+4",
+   "kind": "string",
+   "hits": "m,l,l"
+  },
+  {
+   "name": "Handstand",
+   "input": "f+1+2",
+   "kind": "stance"
+  },
+  {
+   "name": "Elbow Uppercut",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Island Mirage",
+   "input": "d/f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Island Mirage Relaxed",
+   "input": "d/f+3,d",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Kneecap Crusher",
+   "input": "d/f+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Mirage",
+   "input": "d/f+3+4",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Rewinder Near",
+   "input": "d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Thong Bikini",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Thong Bikini to Handstand",
+   "input": "d/b+3,b",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Thong Bikini Bushwacker",
+   "input": "d/b+3,3",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Thong Bikini Hot Plate Special",
+   "input": "d/b+3,n,3",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Thong Bikini to Circle Kick",
+   "input": "d/b+3,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Thong Bikini to Low Kick 1",
+   "input": "d/b+3~4",
+   "kind": "low",
+   "hits": "l,l"
+  },
+  {
+   "name": "Thong Bikini to Low Kick 2",
+   "input": "d/b+3~4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Thong Bikini to Crying Needle",
+   "input": "d/b+3~4,1+2",
+   "kind": "string",
+   "hits": "l,l,m"
+  },
+  {
+   "name": "Barbed Wire",
+   "input": "d/b+4,4,4",
+   "kind": "string",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Barbed Wire Infinite Upside Down Kick",
+   "input": "d/b+4,b+4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Asfixiante",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Knee Thruster",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Leg Whip Mars Attack",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Leg Whip Mars Attack to Thong Bikini",
+   "input": "b+4,3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Leg Whip Thong Bikini Hot Plate Special",
+   "input": "b+4,3,3",
+   "kind": "string",
+   "hits": "h,l,m"
+  },
+  {
+   "name": "Leg Whip Mars Attack to Macaco",
+   "input": "b+4,4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Leg Whip Mars Attack to Macaco to Negativa",
+   "input": "b+4,4,d",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Leg Whip Mars Attack Flip",
+   "input": "b+4,4,3+4",
+   "kind": "string",
+   "hits": "h,m,m,m"
+  },
+  {
+   "name": "Firekick",
+   "input": "u+3+4",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or u/b or u/f"
+  },
+  {
+   "name": "Firekick to Relaxed Position",
+   "input": "u+3+4,d",
+   "kind": "string",
+   "hits": "m",
+   "note": "Or u/b or u/f"
+  },
+  {
+   "name": "Roundhouse",
+   "input": "u/f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Vasuuna",
+   "input": "u/f+1+2",
+   "kind": "poke",
+   "hits": "h",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Lunging Brush Fire",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Lunging Brush Fire to Relax",
+   "input": "f,f+3,d",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Lunging Brush Fire to Handstand",
+   "input": "f,f+3,b",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Back Summy",
+   "input": "f,f+4",
+   "kind": "string"
+  },
+  {
+   "name": "Back Summy Crouch",
+   "input": "f,f+4,D",
+   "kind": "string"
+  },
+  {
+   "name": "Back Summy to Fire Kick",
+   "input": "f,f+4,3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Back Summy to Scoot Kick",
+   "input": "f,f+4,4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Boomerang",
+   "input": "f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Face Jammer",
+   "input": "WS+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Circle Kick",
+   "input": "WS+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Crying Needle",
+   "input": "FC+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hammer Head",
+   "input": "FC+1+2,1,2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Front Stinger",
+   "input": "FC+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Front Stinger to Negativa",
+   "input": "FC+3+4,d",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Front Stinger to Relax",
+   "input": "FC+3+4,b",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Haule",
+   "input": "FC+d/b+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Cruncher",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hot Plate Special",
+   "input": "SS+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hot Plate Special Cancel to Negativa",
+   "input": "SS+3,d",
+   "kind": "string"
+  },
+  {
+   "name": "Hot Plate Special Cancel to Handstand",
+   "input": "SS+3,b",
+   "kind": "stance"
+  },
+  {
+   "name": "Hot Plate Special to Handstand",
+   "input": "SS+3,n,b",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Twister",
+   "input": "SS+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Twister to Handstand",
+   "input": "SS+4,b",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Twister Sweep",
+   "input": "SS+4,n,3",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Dos Sole",
+   "input": "SS+4~3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Dos Sole to Handstand",
+   "input": "SS+4~3,b",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Twister Front Stinger",
+   "input": "SS+4,3+4",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Twister Front Stinger to Negativa",
+   "input": "SS+4,3+4,d",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Twister Front Stinger to Handstand",
+   "input": "SS+4,3+4,b",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Handslaps",
+   "input": "SS+1+2",
+   "kind": "poke",
+   "hits": "h,h"
+  },
+  {
+   "name": "Handslaps Island Mirage",
+   "input": "SS+1+2,n,3",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Handslaps Mirage",
+   "input": "SS+1+2,3",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Wheel Kicks",
+   "input": "SS+3+4",
+   "kind": "poke",
+   "hits": "h,m"
+  },
+  {
+   "name": "Wheel Kicks to Crouch",
+   "input": "SS+3+4,D",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Wheel Kicks São Paulo Special",
+   "input": "SS+3+4,3+4,3+4,u/f+3+4",
+   "kind": "string",
+   "hits": "h,m,m,m,m"
+  },
+  {
+   "name": "Banda",
+   "input": "SS+1+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Jumping Jacks",
+   "input": "SS+u+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Jacks Relaxed",
+   "input": "SS+u+3,D",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Jacks Mirage",
+   "input": "SS+u+3,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Jumping Jacks Evil Stinger",
+   "input": "SS+u+3,d+3+4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Crouch to Handstand",
+   "input": "FC+d/f+1+2",
+   "kind": "stance"
+  },
+  {
+   "name": "Handstand Walking",
+   "input": "f",
+   "kind": "stance",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Somersault to Standing",
+   "input": "D/F",
+   "kind": "stance",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Handstand Cancel",
+   "input": "B",
+   "kind": "stance",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Flop Left",
+   "input": "1",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Calypso",
+   "input": "1,3",
+   "kind": "string",
+   "hits": "m,l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Flop Right",
+   "input": "2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Circus",
+   "input": "2,4",
+   "kind": "string",
+   "hits": "m,l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Carnival",
+   "input": "2,4,3",
+   "kind": "string",
+   "hits": "m,l,l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Super Carnival",
+   "input": "2,4,3,B",
+   "kind": "string",
+   "hits": "m,l,l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Scoot Kick",
+   "input": "3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Helicopter",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m,h",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Helicopter to Slippery Kick",
+   "input": "4,3+4",
+   "kind": "string",
+   "hits": "m,h,l,l",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Armadillo",
+   "input": "f+1+2",
+   "kind": "special",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Perch",
+   "input": "d",
+   "kind": "special",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Perch Flop Kick",
+   "input": "d+3+4",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Hot Plate Special",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Hot Plate Special to Handstand",
+   "input": "b+3,B",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Scoot Kick Feint",
+   "input": "B+3",
+   "kind": "special",
+   "when": "During Handstand"
+  },
+  {
+   "name": "Handstand Tilt",
+   "input": "u,n",
+   "kind": "stance",
+   "when": "During Handstand",
+   "note": "Or d, N"
+  },
+  {
+   "name": "Drop Kick",
+   "input": "u,n,3",
+   "kind": "string",
+   "hits": "l",
+   "when": "During Handstand",
+   "note": "Or u, N, 4"
+  },
+  {
+   "name": "Straight Flop",
+   "input": "u+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Handstand",
+   "note": "Or u+4"
+  },
+  {
+   "name": "Tilt Twist Sweep",
+   "input": "u+3,d",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Handstand",
+   "note": "Or u+4, d"
+  },
+  {
+   "name": "Rio Delight Knee Slicer",
+   "input": "3,n,4",
+   "kind": "string",
+   "hits": "l,m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Knee Slicer",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Knee Slicer Low Front Stinger",
+   "input": "4,3+4",
+   "kind": "string",
+   "hits": "m,m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Ipanema Wings to Slippery Kick",
+   "input": "3+4",
+   "kind": "low",
+   "hits": "l,l,l,l",
+   "when": "During Negativa [4~3]"
+  },
+  {
+   "name": "Low Header",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Low Front Stinger",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Low Front Stinger Cancel",
+   "input": "3+4,3",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Negativa"
+  },
+  {
+   "name": "Fruit Picker",
+   "text": "d/b+3+4 (b, b to cancel)",
+   "kind": "special"
+  },
+  {
+   "name": "Slippery Kick",
+   "text": "During Handstand [3~4]",
+   "kind": "special"
+  },
+  {
+   "name": "Mirage",
+   "text": "During Negativa [3~4]",
+   "kind": "special"
+  },
+  {
+   "name": "Ipanema Wings",
+   "text": "During Negativa [4~3]",
+   "kind": "special"
+  }
+ ]
+}

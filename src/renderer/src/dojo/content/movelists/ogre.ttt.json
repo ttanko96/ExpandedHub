@@ -1,0 +1,329 @@
+{
+ "schemaVersion": 1,
+ "fighter": "ogre",
+ "game": "ttt",
+ "source": {
+  "title": "Ogre/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Body Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Bear Hug",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ankle Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Hanging Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Swing Swung",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Spin Behind Elbow Smash",
+   "input": "d/f,d/f+2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Flash Punch Combo",
+   "input": "1,1,2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "1,2,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Cross to Backhand",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Scissors",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Power Punch",
+   "input": "f+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Right Splits Kick",
+   "input": "f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Shoulder Tackle",
+   "input": "f+1+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Double Elbow",
+   "input": "WS+1,2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Shin to Head Kick",
+   "input": "d+4,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Bloody Scissors",
+   "input": "d+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Deadly Slice",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "!"
+  },
+  {
+   "name": "Ancient Power",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Killing Blow",
+   "input": "b+2+3",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Windmill Kick",
+   "input": "u/b+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Windmill Kick Tooth Fairy",
+   "input": "u/b+3,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hunting Hawk",
+   "input": "u/f+3,4,3",
+   "kind": "string",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Double Knuckle",
+   "input": "u/f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Super Knuckle Bomb",
+   "input": "u/f+1+2,D",
+   "kind": "string"
+  },
+  {
+   "name": "Jump to Double Knuckle",
+   "input": "u/f,n,1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Burning Double Knuckle",
+   "input": "u/f,n,1+2,D",
+   "kind": "string"
+  },
+  {
+   "name": "Deadly Slash",
+   "input": "f,f,n,2",
+   "kind": "string"
+  },
+  {
+   "name": "Hammer Heel",
+   "input": "f,f,n,4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Slide Kick",
+   "input": "f,f,n,3+4",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Serpent's Venom",
+   "input": "f,f+2",
+   "kind": "string"
+  },
+  {
+   "name": "Left Splits Kick",
+   "input": "f,F+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Leg Bazooka",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Medium Power Punch",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Exploder",
+   "input": "f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Blazing Kick",
+   "input": "d,d/b+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Power Punch",
+   "input": "b,b+1+2",
+   "kind": "string",
+   "hits": "!"
+  },
+  {
+   "name": "Heavy Body Blow",
+   "input": "WS+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Infinite Kick Chain 1",
+   "input": "WS+3,3,d/f+3,3",
+   "kind": "string",
+   "hits": "m,m,m,h"
+  },
+  {
+   "name": "Infinite Kick Chain 2",
+   "input": "WS+3,3,d+3,3,3",
+   "kind": "string",
+   "hits": "m,m,l,m,h"
+  },
+  {
+   "name": "Low Variation",
+   "input": "d+3,3",
+   "kind": "string",
+   "hits": "l,m,h",
+   "when": "During Infinite Kick Chain",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "High Variation",
+   "input": "u+3,3",
+   "kind": "string",
+   "hits": "m,m,h",
+   "when": "During Infinite Kick Chain",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+3,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Rising Kick",
+   "input": "WS+3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Demented Snake",
+   "input": "FC+3,3,3",
+   "kind": "launcher",
+   "hits": "l,l,m"
+  },
+  {
+   "name": "Snake Kick",
+   "input": "FC+3,3,d+3",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Groin Punch",
+   "input": "FC+f+1",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Slap",
+   "input": "FC+f+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Crouching Jab",
+   "input": "FC+d/f+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Azteca Shoot",
+   "input": "SS+4",
+   "kind": "launcher",
+   "hits": "l"
+  }
+ ]
+}

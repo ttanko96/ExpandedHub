@@ -1,0 +1,497 @@
+{
+ "schemaVersion": 1,
+ "fighter": "anna",
+ "game": "t3",
+ "source": {
+  "title": "Anna Williams/Tekken 3 Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Arm Grab Flip",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Over The Back Toss",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Torso Splitter",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Serpentine Arm Break",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Overhead Triangle Lock",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Overhead Toss",
+   "input": "u/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Elbow Face Smash",
+   "input": "d/f,d/f+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Back Hand Slap",
+   "input": "qcf+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Arm Snap",
+   "input": "3,4,3,1+2",
+   "kind": "string",
+   "when": "During Back Hand Slap"
+  },
+  {
+   "name": "Arm Break",
+   "input": "1,3,2,1",
+   "kind": "string",
+   "when": "During Back Hand Slap"
+  },
+  {
+   "name": "Falcon Wing Squeeze",
+   "input": "3,1,4,1+2,1+2",
+   "kind": "string",
+   "when": "During Arm Break"
+  },
+  {
+   "name": "Falling Arm Break",
+   "input": "2,1,3,4,1+2",
+   "kind": "string",
+   "when": "During Arm Break"
+  },
+  {
+   "name": "Double Arm Lock",
+   "input": "2,3,1+2,3+4,1+2",
+   "kind": "string",
+   "when": "During Arm Break"
+  },
+  {
+   "name": "Arm Lock",
+   "input": "1+3,4,1+2",
+   "kind": "string",
+   "when": "During Back Hand Slap"
+  },
+  {
+   "name": "Rolling Arm Break",
+   "input": "4,3,4,3+4,1+2",
+   "kind": "string",
+   "when": "During Arm Lock"
+  },
+  {
+   "name": "Arm Break Takedown",
+   "input": "1+2,4,3,1+2,1+2,1+2",
+   "kind": "string",
+   "when": "During Arm Lock"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Left Right Left Combo",
+   "input": "1,2,1",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Left Right to Left Low Kick",
+   "input": "1,2,3",
+   "kind": "string"
+  },
+  {
+   "name": "Jab Combo Roundhouse",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Jab Combo Low Kick",
+   "input": "1,2,1,d+4",
+   "kind": "string",
+   "hits": "h,h,h,l"
+  },
+  {
+   "name": "Jab Combo High Kick Backhand High Kick",
+   "input": "1,2,1,4,2,3",
+   "kind": "string",
+   "hits": "h,h,h,h,h,h"
+  },
+  {
+   "name": "Jab Combo High Kick Backhand Sweep",
+   "input": "1,2,1,4,2,4",
+   "kind": "string",
+   "hits": "h,h,h,h,h,l"
+  },
+  {
+   "name": "Jab Combo High Kick Backhand Bonecutter",
+   "input": "1,2,1,4,2,u/f+3",
+   "kind": "string",
+   "hits": "h,h,h,h,h,m"
+  },
+  {
+   "name": "Jab Low Kick",
+   "input": "1,4",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Right Left Combo",
+   "input": "2,1",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Biting Snake (Short)",
+   "input": "2,1,4",
+   "kind": "string",
+   "hits": "h,h,l"
+  },
+  {
+   "name": "Jab Left Kick",
+   "input": "2,3",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Jab Roundhouse",
+   "input": "2,4",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Jab Sweep",
+   "input": "2,d+3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Head Ringer",
+   "input": "3,4",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Right High Low Spin Kick",
+   "input": "4,3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Guard Breaker",
+   "input": "f+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Uppercut Jab",
+   "input": "d/f+1,2",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Uppercut Jab to Jab Roundhouse",
+   "input": "d/f+1,2,4",
+   "kind": "string",
+   "hits": "m,h,h"
+  },
+  {
+   "name": "Leg Slicer Combo",
+   "input": "d/f+3,1,2",
+   "kind": "string",
+   "hits": "m,h,h"
+  },
+  {
+   "name": "Twisting Rush",
+   "input": "d/f+3,1,4,2",
+   "kind": "string",
+   "hits": "m,h,h,h"
+  },
+  {
+   "name": "Twisting Round Combo (A)",
+   "input": "d/f+3,1,4,2,3",
+   "kind": "string",
+   "hits": "m,h,h,h,h"
+  },
+  {
+   "name": "Twisting Round Combo (B)",
+   "input": "d/f+3,1,4,2,u/f+3",
+   "kind": "string",
+   "hits": "m,h,h,h,m"
+  },
+  {
+   "name": "Twisting Round Combo (C)",
+   "input": "d/f+3,1,4,2,4",
+   "kind": "string",
+   "hits": "m,h,h,h,l"
+  },
+  {
+   "name": "Creeping Snake",
+   "input": "d/f+3,2,1,4",
+   "kind": "string",
+   "hits": "m,h,h,l"
+  },
+  {
+   "name": "Creeping Snake to Roundhouse",
+   "input": "d/f+3,2,4",
+   "kind": "string",
+   "hits": "m,h,h"
+  },
+  {
+   "name": "Creeping Snake to Left Kick",
+   "input": "d/f+3,2,3",
+   "kind": "string",
+   "hits": "m,h,h"
+  },
+  {
+   "name": "Creeping Snake to Left Low Kick",
+   "input": "d/f+3,2,d+3",
+   "kind": "string",
+   "hits": "m,h,l"
+  },
+  {
+   "name": "Flash Kicks",
+   "input": "d/f+3,3,3,4",
+   "kind": "string",
+   "hits": "m,h,h,h"
+  },
+  {
+   "name": "Mid Head Ringer",
+   "input": "d/f+3,4",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Low Jab Rising Kick",
+   "input": "d+2,n,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Left Spin Low Kick to Right Uppercut",
+   "input": "d+3,2",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Sit Spin & Right High Kick",
+   "input": "d+3,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Mid Kick Spin Punch",
+   "input": "d+4,1",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Bloody Scissors",
+   "input": "d+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Heel Grind",
+   "input": "d+3+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Low Jab Rising Kick",
+   "input": "d/b+2,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Cross Cut Saw",
+   "input": "b+1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Slap",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Double Slap",
+   "input": "b+2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Chaos Judgement",
+   "input": "b+4",
+   "kind": "special"
+  },
+  {
+   "name": "Picking Heel",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Chaos Judgment"
+  },
+  {
+   "name": "Catapult Kick",
+   "input": "u+3",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or u/b"
+  },
+  {
+   "name": "Bone Cutter",
+   "input": "u/f+3",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or f, f, f+3"
+  },
+  {
+   "name": "Can Opener",
+   "input": "u/f+4,3,4",
+   "kind": "string",
+   "hits": "h,l,h"
+  },
+  {
+   "name": "Quick Somersault Kick",
+   "input": "U/F+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Executioner",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Falling Heel",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Blonde Bomb",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Palm",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Cat Thrust",
+   "input": "FC+f+1",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Right Hand Stab",
+   "input": "FC+f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Right Handed Sweep",
+   "input": "FC+d/f+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Low Somersault Kick",
+   "input": "FC+u/f+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "High Somersault Kick",
+   "input": "FC+U/F+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Chaos Tail",
+   "input": "SS+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Slice Shot",
+   "input": "SS+3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Bloody Chaos",
+   "input": "SS+1+2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Mystic Booty Taunt",
+   "input": "1+2+3",
+   "kind": "special"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "1,2,1,2,3,3,2,1,2,4",
+   "kind": "string",
+   "hits": "h,h,h,h,h,l,h,h,h,h"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "d/f+1,2,1,2,3,3,2,1,2,4",
+   "kind": "string",
+   "hits": "m,h,h,h,h,l,h,h,h,h"
+  },
+  {
+   "name": "Attack Reversal",
+   "text": "Synchro with the opponent's attack b+1+3 (or b+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Hunting Swan",
+   "text": "d/b+1+2 (u, u cancel)",
+   "kind": "special"
+  }
+ ]
+}

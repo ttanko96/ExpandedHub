@@ -1,0 +1,367 @@
+{
+ "schemaVersion": 1,
+ "fighter": "paul",
+ "game": "ttt",
+ "source": {
+  "title": "Paul Phoenix/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Over the Shoulder",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Shoulder Pop",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Dragon Screw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Fall Away",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Reverse Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Twist and Shout",
+   "input": "d/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Foot Launch",
+   "input": "b+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Push Away",
+   "input": "f,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Ultimate Tackle",
+   "input": "d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Punch to Arm Breaker",
+   "input": "2,1,2,1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Ultimate Punch",
+   "input": "2,1,2,1,2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Ultimate Punishment",
+   "input": "2,d+1,1,n,4~1~1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Arm Breaker",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Reverse PDK Combo",
+   "input": "1,4",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Jab Roundhouse",
+   "input": "2,3",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Jab Sweep",
+   "input": "2,d+3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Quick PK Combo",
+   "input": "f+2,3",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Quick PDK Combo",
+   "input": "f+2,d+3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Hammer of the Gods",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Shoulder Tackle",
+   "input": "f+1+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Body Blow",
+   "input": "d/f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hammer Punch",
+   "input": "d+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hammer Punch to Power Punch",
+   "input": "d+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hang Over",
+   "input": "d+1,4,2",
+   "kind": "string",
+   "hits": "m,l,m"
+  },
+  {
+   "name": "Bone Breaker",
+   "input": "d+4,2",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Sweep Kick",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Burning Fist",
+   "input": "b+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Shredder",
+   "input": "u/f+3,4",
+   "kind": "launcher",
+   "hits": "m,m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Flash Elbow",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hop Kick High",
+   "input": "f,f+3,4,4",
+   "kind": "launcher",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Triple Kick Combo",
+   "input": "f,f+3,4,f+4",
+   "kind": "launcher",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Double Hop Kick Low",
+   "input": "f,f+3,4,d+4",
+   "kind": "launcher",
+   "hits": "m,m,l"
+  },
+  {
+   "name": "Neutron Bomb",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Thruster",
+   "input": "qcf+1",
+   "kind": "launcher",
+   "hits": "h"
+  },
+  {
+   "name": "Phoenix Smasher",
+   "input": "qcf+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Sway",
+   "input": "qcb",
+   "kind": "special"
+  },
+  {
+   "name": "God Hammer Punch",
+   "input": "qcb,n,1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Rubber Band Attack",
+   "input": "d,d/b,n,2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Sway and Low Kick",
+   "input": "qcb,n,3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Rapid Fire",
+   "input": "qcb,n,3,2",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Rapid Fire to Phoenix Smasher",
+   "input": "qcb,n,3,2,1",
+   "kind": "string",
+   "hits": "l,m,h"
+  },
+  {
+   "name": "Rapid Fire to Stone Breaker",
+   "input": "qcb,n,3,2,2",
+   "kind": "launcher",
+   "hits": "l,m,l"
+  },
+  {
+   "name": "Thunder Palm",
+   "input": "WS+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Jaw Breaker",
+   "input": "FC+d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Gut Buster",
+   "input": "FC+d/f+2,1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Stone Breaker",
+   "input": "FC+d/f+2,2",
+   "kind": "launcher",
+   "hits": "m,l"
+  },
+  {
+   "name": "Turn Thruster",
+   "input": "SS+1",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Pump in Pedal",
+   "input": "SS+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "1,2,3,2,1,2,1,4,2,1",
+   "kind": "string",
+   "hits": "h,h,m,h,m,h,h,l,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "1,2,3,1,4,2,1,4,2,1",
+   "kind": "string",
+   "hits": "h,h,m,m,l,m,h,m,l,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "1,2,3,1,2",
+   "kind": "string",
+   "hits": "h,h,m,m,m"
+  },
+  {
+   "name": "Attack Reversal",
+   "text": "Synchro with the opponent's attack b+1+3 (or b+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Incomplete Somersault",
+   "text": "FC+d, (1 sec.) u+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rainbow Kick",
+   "text": "FC+d, (1 sec.) U/F+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Down Strike",
+   "text": "(With opponent down) d+2",
+   "kind": "special"
+  }
+ ]
+}

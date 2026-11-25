@@ -1,0 +1,461 @@
+{
+ "schemaVersion": 1,
+ "fighter": "bryan",
+ "game": "ttt",
+ "source": {
+  "title": "Bryan Fury/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Gravity Brain Buster",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Front Neck Full Swing",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Gravity Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Knee Blast",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Chains of Misery",
+   "input": "d/f,d,d/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or d; Or 2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Rush to Low Kick",
+   "input": "1,2,1,4",
+   "kind": "string",
+   "hits": "h,h,m,l"
+  },
+  {
+   "name": "One Two Low Kick",
+   "input": "1,2,3",
+   "kind": "string",
+   "hits": "h,h,l"
+  },
+  {
+   "name": "Lair's Dance",
+   "input": "1,4,2,1,2",
+   "kind": "string",
+   "hits": "h,h,h,h,h"
+  },
+  {
+   "name": "Whipping Fury",
+   "input": "1,4,2,4",
+   "kind": "string",
+   "hits": "h,h,h,m"
+  },
+  {
+   "name": "Cremation",
+   "input": "1,4,2,1,4",
+   "kind": "string",
+   "hits": "h,h,h,h,m"
+  },
+  {
+   "name": "Jab to Double Spin Kick",
+   "input": "1,4,3",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Running Blind",
+   "input": "1,4,3,3",
+   "kind": "string",
+   "hits": "h,h,m,h"
+  },
+  {
+   "name": "Mid Kick to Rush",
+   "input": "3,2,1,2",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Bruce Special",
+   "input": "3,2,1,4",
+   "kind": "string",
+   "hits": "m,m,m,l"
+  },
+  {
+   "name": "Quick Spin Kick",
+   "input": "3,3",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Hammer Driver",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Bruce Rush",
+   "input": "f+1,2,1,2",
+   "kind": "string",
+   "hits": "h,h,m,m"
+  },
+  {
+   "name": "Backspin Middle Kick",
+   "input": "f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Triple Spin Kick",
+   "input": "f+4,3,4",
+   "kind": "string",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Side Step Elbow",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Gravity Blow",
+   "input": "f+1+4",
+   "kind": "poke",
+   "hits": "!"
+  },
+  {
+   "name": "Left Body Blow",
+   "input": "d/f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "One Two Body Blow",
+   "input": "d/f+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Vulcan Cannon",
+   "input": "D/F+1,1,1,1",
+   "kind": "string",
+   "hits": "m,m,m,m,m"
+  },
+  {
+   "name": "Right Body Blow",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Snake Edge",
+   "input": "d/f+3",
+   "kind": "launcher",
+   "hits": "l"
+  },
+  {
+   "name": "Wolf's Tail",
+   "input": "d/f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Stomach Blow",
+   "input": "d+2",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or d/b"
+  },
+  {
+   "name": "Quick Left Low Kick",
+   "input": "d+3",
+   "kind": "low",
+   "hits": "l",
+   "note": "Or d/b"
+  },
+  {
+   "name": "Low Kick",
+   "input": "d+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Thin Low Kick",
+   "input": "d+3+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Chopping Elbow",
+   "input": "b+1",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Light Back Knuckle",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Double Back Knuckle",
+   "input": "b+2,1",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Hands of Doom",
+   "input": "b+2,1,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Wolf Call",
+   "input": "b+2,4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Wolf Bite",
+   "input": "b+2,1,4",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Front Kick",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Front Kick to Punch",
+   "input": "b+3,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "High Kick to Rush",
+   "input": "b+3,2,1,2",
+   "kind": "string",
+   "hits": "h,h,m,m"
+  },
+  {
+   "name": "Run for Cover",
+   "input": "b+3,2,1,4",
+   "kind": "string",
+   "hits": "h,h,m,l"
+  },
+  {
+   "name": "Front Kick to Knee",
+   "input": "b+3,4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Knee Break",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Meteor Smash",
+   "input": "b+1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Rolling Driver",
+   "input": "u/f+3",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u"
+  },
+  {
+   "name": "Orbital Heel Kick",
+   "input": "u/f+4",
+   "kind": "launcher",
+   "hits": "m",
+   "note": "Or u"
+  },
+  {
+   "name": "Mach Breaker",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Slash Kick",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Mach Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Flying Knee Kick",
+   "input": "b,b+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Sway",
+   "input": "qcb",
+   "kind": "special"
+  },
+  {
+   "name": "Sway and Smash",
+   "input": "qcb,n,2",
+   "kind": "launcher",
+   "hits": "h"
+  },
+  {
+   "name": "Snake Slash",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Left Upper",
+   "input": "WS+1",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Right Upper",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Fisherman's Slam",
+   "input": "f+2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Right Upper"
+  },
+  {
+   "name": "High Knee Kick",
+   "input": "WS+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double High Knee Kick",
+   "input": "WS+3,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Short Upper",
+   "input": "WS+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Kick",
+   "input": "WS+3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Headhunter",
+   "input": "SS+1",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Cheap Trick",
+   "input": "SS+1~2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Shell Shock",
+   "input": "SS+2",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Taunt",
+   "input": "1+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "b+3,4,1,2,1,4,2,1,4,2",
+   "kind": "string",
+   "hits": "h,m,m,m,h,h,h,h,m,h"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "b+3,4,1,2,1,4,2,4",
+   "kind": "string",
+   "hits": "h,m,m,m,h,h,h,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "b+3,4,1,2,1,4,3,3",
+   "kind": "string",
+   "hits": "h,m,m,m,h,h,m,h"
+  },
+  {
+   "name": "Parry",
+   "text": "Synchro with the opponent's punch b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  }
+ ]
+}

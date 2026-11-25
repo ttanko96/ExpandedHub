@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { InputMatcher, trainerTargets, type Button, type Dir, type MatchEvent } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
-import { FIGHTERS, fighterById, movesOf } from './content'
+import { FIGHTERS, fighterById, movesetsOf } from './content'
 import { ButtonGlyph, DirGlyph, InputPad, Notation, TargetGlyphs } from './InputGlyphs'
 
 interface Drill {
@@ -115,14 +115,16 @@ function readBest(): Record<string, number> {
 export function Trainer() {
   const [params, setParams] = useSearchParams()
   const fighter = fighterById(params.get('fighter') ?? undefined)
+  const sets = useMemo(() => (fighter ? movesetsOf(fighter) : []), [fighter])
+  const set = sets.find((x) => x.id === params.get('set')) ?? sets[0]
   const fighterDrills = useMemo<Drill[]>(
     () =>
-      fighter
-        ? movesOf(fighter)
-            .filter((m) => trainerTargets(m.input) !== null)
-            .map((m) => ({ key: `${fighter.id}:${m.name}`, name: m.name, input: m.input, hint: m.note ?? '' }))
+      fighter && set
+        ? set.moves
+            .filter((m): m is typeof m & { input: string } => !!m.input && !m.when && trainerTargets(m.input) !== null)
+            .map((m, i) => ({ key: `${fighter.id}:${set.id}:${i}:${m.name}`, name: m.name, input: m.input, hint: m.note ?? '' }))
         : [],
-    [fighter]
+    [fighter, set]
   )
   const drills = fighter ? fighterDrills : BASICS
   const wanted = params.get('move')
@@ -250,6 +252,12 @@ export function Trainer() {
     next.set('move', d.name)
     setParams(next, { replace: true })
   }
+  const pickSet = (id: string) => {
+    const next = new URLSearchParams(params)
+    next.set('set', id)
+    next.delete('move')
+    setParams(next, { replace: true })
+  }
   const pickFighter = (id: string) => {
     const next = new URLSearchParams()
     if (id) next.set('fighter', id)
@@ -270,13 +278,32 @@ export function Trainer() {
             className="mt-1.5 h-9 w-full rounded-lg border border-ink-600 bg-ink-800 px-2 text-[14px] text-zinc-200 outline-none focus:border-[var(--dojo-accent)]"
           >
             <option value="">The basics</option>
-            {FIGHTERS.filter((f) => movesOf(f).some((m) => trainerTargets(m.input))).map((f) => (
+            {FIGHTERS.filter((f) => movesetsOf(f).some((x) => x.moves.some((m) => m.input && !m.when && trainerTargets(m.input)))).map((f) => (
               <option key={f.id} value={f.id}>
                 {f.name}
               </option>
             ))}
           </select>
         </label>
+        {sets.length > 1 && (
+          <div className="flex gap-1 px-1 pb-2" role="radiogroup" aria-label="Moveset">
+            {sets.map((x) => (
+              <button
+                key={x.id}
+                role="radio"
+                aria-checked={x.id === set?.id}
+                title={x.hint}
+                onClick={() => pickSet(x.id)}
+                className={cx(
+                  'flex-1 rounded-lg px-2 py-1 font-display text-[12px] font-bold uppercase tracking-[0.1em] transition-colors',
+                  x.id === set?.id ? 'bg-[var(--dojo-accent)] text-white' : 'bg-ink-800 text-zinc-400 hover:text-fg'
+                )}
+              >
+                {x.label}
+              </button>
+            ))}
+          </div>
+        )}
         <ul className="-mx-1 min-h-0 flex-1 overflow-y-auto px-1">
           {drills.map((d) => (
             <li key={d.key}>

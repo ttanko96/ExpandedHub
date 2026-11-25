@@ -1,0 +1,400 @@
+{
+ "schemaVersion": 1,
+ "fighter": "jin",
+ "game": "t3",
+ "source": {
+  "title": "Jin Kazama/Tekken 3 Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Double High Sweep",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Over the Shoulder Reverse",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Stonehead",
+   "input": "f,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Shoulder Flip",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Over the Limit",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Chicken Butcher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Wrist Chuck Slam",
+   "input": "d/f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Complicated Wire",
+   "input": "qcb+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Tackle",
+   "input": "d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Punch",
+   "input": "2,1,2,1,2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Cross Arm Lock",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Ultimate Punch to Cross Arm Lock",
+   "input": "2,1,2,1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Attack Reversal",
+   "input": "b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: b+2+4"
+  },
+  {
+   "name": "Flash Punch Combo",
+   "input": "1,1,2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "1,2,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Shoot the Works",
+   "input": "1,2,3,4",
+   "kind": "string",
+   "hits": "h,h,m,m"
+  },
+  {
+   "name": "Shoot the Works Upper",
+   "input": "1,2,3,f+4",
+   "kind": "string",
+   "hits": "h,h,m,m"
+  },
+  {
+   "name": "One Two Knee",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Demon Backhand Spin",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Back Spin Kick",
+   "input": "4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Demon Scissors",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Three Ring Circus",
+   "input": "1+4,2,4",
+   "kind": "string",
+   "hits": "m,h,h,m"
+  },
+  {
+   "name": "3 Ring Circus Combo",
+   "input": "1+4,2,d+4",
+   "kind": "string",
+   "hits": "m,h,h,l"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "893P",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning High Kick",
+   "input": "f+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Knee Kick",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Lancer",
+   "input": "d/f+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "d/f+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Double Lift Kick",
+   "input": "d+3+4",
+   "kind": "launcher",
+   "hits": "m,h"
+  },
+  {
+   "name": "Uraken",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Hell Scraper",
+   "input": "b+2,4,2,1,2",
+   "kind": "string",
+   "hits": "h,h,m,m,m"
+  },
+  {
+   "name": "Force",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Lightning Uppercut",
+   "input": "b+1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Lightning Screw Uppercut",
+   "input": "B+1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Rising Sun",
+   "input": "u/f+4,4",
+   "kind": "string",
+   "hits": "m,l",
+   "note": "Or u"
+  },
+  {
+   "name": "Roundhouse to Triple Spin Kick",
+   "input": "u/f+4,4,4,4",
+   "kind": "string",
+   "hits": "m,l,l,m",
+   "note": "Or u"
+  },
+  {
+   "name": "High Pounce",
+   "input": "u/f+2+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Demon's Paw",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Heavy Body Blow",
+   "input": "b,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Laser Cannon",
+   "input": "b,f+2,1,2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Laser Scraper",
+   "input": "b,f+2,1,d/f+2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Dragon Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Uppercut to Middle Kick",
+   "input": "f,n,d,d/f+1,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon Uppercut to Spinning Low Kick",
+   "input": "f,n,d,d/f+1,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Rising Uppercut",
+   "input": "f,n,d,d/f+2",
+   "kind": "launcher",
+   "hits": "h"
+  },
+  {
+   "name": "Spinning Demon",
+   "input": "f,n,d,d/f+4,4",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Pistons",
+   "input": "WS+1,2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Uppercut",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Tooth Fairy",
+   "input": "SS+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "b+2,4,4,4,4,2,1+4,2,1,3",
+   "kind": "string",
+   "hits": "h,h,h,l,m,m,l,h,h,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "b+2,4,4,4,4,2,1+4,2,1,4",
+   "kind": "string",
+   "hits": "h,h,h,l,m,m,l,h,h,m,l"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "f,f,2,1,2,2,3,4,4,1,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m,m,l,h,m,m"
+  },
+  {
+   "name": "10 hit combo 4",
+   "input": "f,f+2,1,2,2,3,4,4,3,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m,m,l,l,m,!"
+  },
+  {
+   "name": "10 hit combo 5",
+   "input": "3,2,4,3,1+4,2,2,1,2",
+   "kind": "string",
+   "hits": "h,h,m,h,l,h,h,m,m,m"
+  },
+  {
+   "name": "10 hit combo 6",
+   "input": "f,f,2,1,4,4,2,4,3,2,1",
+   "kind": "string",
+   "hits": "h,h,m,m,l,m,l,m,!"
+  },
+  {
+   "name": "10 hit combo 7",
+   "input": "3,2,4,3,1+4,2,1,3",
+   "kind": "string",
+   "hits": "h,h,m,h,l,h,h,m,m"
+  },
+  {
+   "name": "10 hit combo 8",
+   "input": "3,2,4,3,1+4,2,1,4",
+   "kind": "string",
+   "hits": "h,h,m,h,l,h,h,m,l"
+  },
+  {
+   "name": "10 hit combo 9",
+   "input": "b+2,4,4,4,4,2,1+4,2,d+3+4",
+   "kind": "string",
+   "hits": "h,h,h,l,m,m,l,h,h,l,h"
+  },
+  {
+   "name": "Electric Wind Godfist",
+   "text": "f, N, d, d/f+2 (press at the same time)",
+   "kind": "special"
+  }
+ ]
+}

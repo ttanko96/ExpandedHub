@@ -1,0 +1,203 @@
+{
+ "schemaVersion": 1,
+ "fighter": "devil",
+ "game": "ttt",
+ "source": {
+  "title": "Devil Kazuya/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Double Face Kick",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Hip Throw",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Steel Pedal Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Skull Smash",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Atomic Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "Behind"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4"
+  },
+  {
+   "name": "Stonehead",
+   "input": "f,F+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "One Two Punch",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "1,2,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Demon Backhand Spin",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Flash Punch Combo",
+   "input": "1,1,2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Uraken",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Right Splits Kick",
+   "input": "f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Sun",
+   "input": "u/f+4,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Demon Scissors",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Inferno",
+   "input": "1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Devil Blaster",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Reverse Devil Blaster",
+   "input": "3+4,3+4",
+   "kind": "string"
+  },
+  {
+   "name": "Air Inferno",
+   "input": "u+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Devil Fist",
+   "input": "f,F+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Left Splits Kick",
+   "input": "f,F+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Demon",
+   "input": "f,n,d,d/f+4,4",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Dragon Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Uppercut to Middle Kick",
+   "input": "f,n,d,d/f+1,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon Uppercut to Spinning Low Kick",
+   "input": "f,n,d,d/f+1,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Heaven's Door",
+   "input": "f,n,d,d/f+1,U/F",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Twin Pistons",
+   "text": "d/f+1, 2 [~5]",
+   "kind": "special"
+  },
+  {
+   "name": "Devil Twister",
+   "text": "SS+ 2 ~5",
+   "kind": "special"
+  },
+  {
+   "name": "Rising Uppercut",
+   "text": "f, N, d, d/f+2 ~5",
+   "kind": "special"
+  }
+ ]
+}

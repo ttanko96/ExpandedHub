@@ -1,0 +1,295 @@
+{
+ "schemaVersion": 1,
+ "fighter": "ganryu",
+ "game": "ttt",
+ "source": {
+  "title": "Ganryu/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Body Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Hip Throw",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Upper Stream Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Crotch Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Reverse Choke Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Pedal Press",
+   "input": "d+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Choke Slam",
+   "input": "f,f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Sumo Hammer",
+   "input": "1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Sumo Juggle",
+   "input": "2,1,2,1,2,1,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,h,h,h,h"
+  },
+  {
+   "name": "Overhead Smash",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer",
+   "input": "1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Sit",
+   "input": "3+4",
+   "kind": "stance"
+  },
+  {
+   "name": "Sit Thrust",
+   "input": "3+4,1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Sit Sweep",
+   "input": "3+4,2",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Splits",
+   "input": "3+4,d",
+   "kind": "string"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Open Palm Combo",
+   "input": "f+1,2,1,2,1,2,1,2",
+   "kind": "string",
+   "hits": "h,h,h,h,h,h,h,h"
+  },
+  {
+   "name": "Palm Elbow",
+   "input": "f+2,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Sumo Rush",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Thrusting Uppercut",
+   "input": "d/f+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Thunder Clap",
+   "input": "d/f+2,1,1,1",
+   "kind": "string",
+   "hits": "m,h,h,h"
+  },
+  {
+   "name": "Kick & Pull",
+   "input": "d/f+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Thunder Palm",
+   "input": "d/f+2+3",
+   "kind": "launcher",
+   "hits": "l"
+  },
+  {
+   "name": "Kabuki Palm",
+   "input": "d+2,2,2",
+   "kind": "string",
+   "hits": "m,l,l",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Stomp",
+   "input": "d+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Sumo Hammer",
+   "input": "b+1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Salt Upper",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Sumo Tackle",
+   "input": "b+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Tackle Fake Upper",
+   "input": "b+1+2,2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Sumo Squash",
+   "input": "u/f+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Step in Palm",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Sumo Pop",
+   "input": "b,d/b,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Strong Open Palm",
+   "input": "b,d/b,d,d/f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Hammer",
+   "input": "WS+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Double Hammer",
+   "input": "WS+1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "Triple Uppercut",
+   "input": "FC+D/F+1,2,1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Triple Uppercut Alternate",
+   "input": "FC+D/F+2,1,2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Windmill Rush",
+   "input": "FC+d/f+1,2,1,1",
+   "kind": "string",
+   "hits": "m,h,m,h"
+  },
+  {
+   "name": "Rising Double Palm",
+   "input": "FC+1+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Falling Hammer",
+   "input": "SS+1",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Spring Hammer Punch",
+   "input": "d+1+2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "On the back"
+  },
+  {
+   "name": "Twin Wall",
+   "text": "Synchro with the opponent's punch b+1+3 (or b+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  }
+ ]
+}

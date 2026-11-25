@@ -8,37 +8,5 @@
   "tagline": "A frail scientist who spends most of the fight on the floor, by design.",
   "unlock": "Hidden: unlocked through Tekken Force mode.",
   "accent": "#0f766e",
-  "order": 220,
-  "signature": "Fall down",
-  "verified": false,
-  "moves": [
-    {
-      "name": "Wobbly punches",
-      "input": "1,2",
-      "kind": "string"
-    },
-    {
-      "name": "Fall down",
-      "input": "d+1+2",
-      "kind": "stance",
-      "note": "Falls over; most of his moves come from the ground."
-    },
-    {
-      "name": "Floor kick",
-      "input": "d+4",
-      "kind": "low",
-      "hits": "l"
-    },
-    {
-      "name": "Spin up",
-      "input": "u+3+4",
-      "kind": "special"
-    },
-    {
-      "name": "Grab",
-      "input": "1+3",
-      "kind": "throw",
-      "hits": "t"
-    }
-  ]
+  "order": 220
 }

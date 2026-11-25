@@ -1,0 +1,609 @@
+{
+ "schemaVersion": 1,
+ "fighter": "xiaoyu",
+ "game": "t3",
+ "source": {
+  "title": "Ling Xiaoyu/Tekken 3 Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Jade",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ruby",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Arm Flip",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Dump the Bucket",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Crank Up",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Dislocator",
+   "input": "d,d/b,b+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "So Shoe Me",
+   "input": "f+2~1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Cradle Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Phoenix",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Reverse Throw A",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Reverse Throw B",
+   "input": "BT+f,f+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Upper Parry",
+   "input": "b+1+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Parry"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d+1+4",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or d/b",
+   "when": "Parry"
+  },
+  {
+   "name": "Rain Dance to Parry",
+   "input": "BT+1+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Parry"
+  },
+  {
+   "name": "Rain Dance to Low Parry",
+   "input": "BT+d+1+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "Parry"
+  },
+  {
+   "name": "Bayonet",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Bayonet McTwist",
+   "input": "1,d+2",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "April Showers",
+   "input": "2,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "May Flowers",
+   "input": "2,d/f+1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Left Spinner",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Right Spinner",
+   "input": "d+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Cloud Kick",
+   "input": "f+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Cartwheel Left",
+   "input": "f+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Side Tumble",
+   "input": "f+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Belly Chop Backward",
+   "input": "d/f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Belly Chop",
+   "input": "D/F+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Butter the Bread",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Right Front Kick",
+   "input": "d/f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Sunset Fan",
+   "input": "d+1",
+   "kind": "poke",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Flapping Wings",
+   "input": "D+1",
+   "kind": "poke",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Storming Flower",
+   "input": "d/b+1",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Knee Cracker",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Nutcracker",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Great Wall-Left",
+   "input": "b+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Great Wall-Right",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hypnotist",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Spin Sticker",
+   "input": "2",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Hypnotist"
+  },
+  {
+   "name": "Thunder Strike",
+   "input": "1+2",
+   "kind": "power",
+   "hits": "!",
+   "when": "During Hypnotist"
+  },
+  {
+   "name": "Single Fan",
+   "input": "u+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Single Fan Forward",
+   "input": "U+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Fan Forward",
+   "input": "u+1+2",
+   "kind": "poke",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hydrangea",
+   "input": "u+1+2,2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Fortune Cookie",
+   "input": "u+1+2,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Ginger Snap",
+   "input": "u+1+2,3+4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Cyanide",
+   "input": "u/f+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u"
+  },
+  {
+   "name": "Raccoon Swing",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Step Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "X Marks the Spot",
+   "input": "f,f+1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Front Layout",
+   "input": "f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Sunflower",
+   "input": "WS+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Sunflower Wake Up Call",
+   "input": "WS+2,f",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Skyscraper Kick",
+   "input": "WS+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Fire Dancer",
+   "input": "FC+3,2,1,4",
+   "kind": "launcher",
+   "hits": "l,h,h,m"
+  },
+  {
+   "name": "Lotus Twist",
+   "input": "FC+d/f+2,1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Quick Shady Lotus",
+   "input": "FC+d/f+2,D/F",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Double Map Sweep",
+   "input": "FC+d/f+4,4",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Low Back Turn",
+   "input": "FC+d/b+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rain Dance",
+   "input": "b+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Art of Phoenix",
+   "input": "d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "False Salute",
+   "input": "1+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Greetings",
+   "input": "2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Phoenix",
+   "input": "d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Wave Crest Quick",
+   "input": "d+1+2~1+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Left Handful",
+   "input": "1",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Right Handful",
+   "input": "2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Knee Stabber",
+   "input": "3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Back Kick",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Back Kick to Rain Dance",
+   "input": "4,b",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Firecracker Roll",
+   "input": "u",
+   "kind": "special",
+   "when": "During Phoenix [4~3]",
+   "note": "Or d"
+  },
+  {
+   "name": "Wave Crest Power",
+   "input": "1+2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Flower Garden",
+   "input": "f+4,4",
+   "kind": "string",
+   "hits": "l,l",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Back Turn",
+   "input": "f+1+2",
+   "kind": "special",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Roll Ball",
+   "input": "f+3+4",
+   "kind": "special",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Butterfly",
+   "input": "d",
+   "kind": "special",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Wave Crest Heavy",
+   "input": "d+1+2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Phoenix"
+  },
+  {
+   "name": "Jump",
+   "input": "u/f",
+   "kind": "special",
+   "when": "During Phoenix",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Double Barrel Shotgun",
+   "input": "u/f+3,3",
+   "kind": "string",
+   "hits": "m,h",
+   "when": "During Phoenix",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Double Scissor Kick",
+   "input": "u/f+3,4",
+   "kind": "string",
+   "hits": "m,m",
+   "when": "During Phoenix",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Flower Power",
+   "input": "u/f+4,4",
+   "kind": "string",
+   "hits": "m,m",
+   "when": "During Phoenix",
+   "note": "Or u"
+  },
+  {
+   "name": "Jumping Pirouette",
+   "input": "u/f,n,3",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Phoenix",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Crane Kick",
+   "input": "u/f,n,4",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Phoenix",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Dark & Stormy",
+   "input": "BT+2,1,4",
+   "kind": "launcher",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Mistrust",
+   "input": "BT+4",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Spin Tornado Up",
+   "input": "BT+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "California Roll",
+   "input": "BT+f+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Cyclone Left",
+   "input": "BT+f+3+4,3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Back Circle Breaker",
+   "input": "BT+d+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Back Circle Breaker Forward",
+   "input": "BT+D+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Spin Tornado",
+   "input": "BT+d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Peg Leg",
+   "input": "BT+f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Back Layout",
+   "input": "BT+f,f+3+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "u+4,1,2,1+2,1,3,4,4,4,1",
+   "kind": "string",
+   "hits": "m,h,h,m,m,m,l,l,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "u+4,1,2,4,4,2,1+2,1,4,2",
+   "kind": "string",
+   "hits": "m,h,h,l,l,m,m,l,l,m,m"
+  },
+  {
+   "name": "Parry",
+   "text": "Synchro with opponent's attack 1+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Firecracker",
+   "text": "During Phoenix [4~3]",
+   "kind": "special"
+  },
+  {
+   "name": "Sky Kick",
+   "text": "During Phoenix u/f (or u or u/b) falling 3",
+   "kind": "special"
+  }
+ ]
+}

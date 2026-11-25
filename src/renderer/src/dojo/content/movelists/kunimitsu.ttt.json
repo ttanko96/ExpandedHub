@@ -1,0 +1,283 @@
+{
+ "schemaVersion": 1,
+ "fighter": "kunimitsu",
+ "game": "ttt",
+ "source": {
+  "title": "Kunimitsu/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Jumping Body Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Sickle Bash",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Avalanche",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Tornado",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Back Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Judo Throw",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Manji Rana",
+   "input": "f+1+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Jab Roundhouse",
+   "input": "2,3",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Jab Sweep",
+   "input": "2,d+3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Oni Kick",
+   "input": "3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Zig Zag",
+   "input": "3,4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "3 Kick Combo",
+   "input": "4,4,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Supreme Thrust",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Backhand Blow",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Growling Jewel",
+   "input": "f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Step in Upper",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Dust Ton",
+   "input": "d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Fairy Wax",
+   "input": "d+3+4",
+   "kind": "poke",
+   "hits": "m,m"
+  },
+  {
+   "name": "Deadly Slice",
+   "input": "d/b+2",
+   "kind": "special"
+  },
+  {
+   "name": "Crouching Spin Kicks",
+   "input": "D/B+3,3,3,3,3,3",
+   "kind": "string",
+   "hits": "l,l,l,l,l,l"
+  },
+  {
+   "name": "Tree Fall Kick",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Crouching Spin Kicks"
+  },
+  {
+   "name": "Stone Fists",
+   "input": "b+1,1,1,1,1,1",
+   "kind": "string",
+   "hits": "h,h,h,h,h,h"
+  },
+  {
+   "name": "Deadly Stab",
+   "input": "b+2",
+   "kind": "special"
+  },
+  {
+   "name": "Cycle of Rebirth",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Heaven Divide",
+   "input": "u+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Manji Urachidori",
+   "input": "u/f+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u or u / b"
+  },
+  {
+   "name": "Poison Wind",
+   "input": "u/f+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Backflip",
+   "input": "u/b+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rising Kazura",
+   "input": "f,f+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Advancing Deadly Stab",
+   "input": "f,f,n,2",
+   "kind": "string"
+  },
+  {
+   "name": "Inverted Stalker",
+   "input": "f,f+3",
+   "kind": "string"
+  },
+  {
+   "name": "Thrust Stalker",
+   "input": "f,f+3,4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Fubuki",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Reverse Solar Kick",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Solar Kick",
+   "input": "f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Shark Attack",
+   "input": "f,f+3+4,1+2,3+4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Ninja Jewel",
+   "input": "3",
+   "kind": "power",
+   "hits": "m,m",
+   "when": "During Solar Kick"
+  },
+  {
+   "name": "Ninja Flying Shadow",
+   "input": "3+4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Solar Kick"
+  },
+  {
+   "name": "Spinning Sweep",
+   "input": "FC+d/f+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Wintry Wind",
+   "input": "SS+1+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Will-O-the-Wisp",
+   "input": "SS+3+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Jewel",
+   "input": "BT+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "1,2,1,4,4,4,1,2,3,2",
+   "kind": "string"
+  }
+ ]
+}

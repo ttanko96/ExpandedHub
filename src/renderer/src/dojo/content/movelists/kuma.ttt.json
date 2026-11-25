@@ -1,0 +1,364 @@
+{
+ "schemaVersion": 1,
+ "fighter": "kuma",
+ "game": "ttt",
+ "source": {
+  "title": "Kuma II/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Bear's Bite",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Bear Hug",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Bear Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Choke Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Swing Swung",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Headbutt",
+   "input": "f,f+1+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Rock'n Roll Circus",
+   "input": "f,d/f,d,d/b,b,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Bear Toss",
+   "input": "f+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Hunting"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Bear Hammer",
+   "input": "1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Elbow Smash",
+   "input": "2,1,2",
+   "kind": "launcher",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Overhead Smash",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer",
+   "input": "1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hunting",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Double Bear Claw",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "l,l",
+   "when": "During Hunting"
+  },
+  {
+   "name": "Bear Claw",
+   "input": "2",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Hunting"
+  },
+  {
+   "name": "Bear Fling",
+   "input": "1+2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Hunting"
+  },
+  {
+   "name": "Bear Tackle",
+   "input": "3+4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Hunting"
+  },
+  {
+   "name": "Hunting to Standing",
+   "input": "u",
+   "kind": "stance",
+   "when": "During Hunting",
+   "note": "Or u/b or u/f"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "G-Clef Cannon",
+   "input": "f+1,1,1",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Double Claw",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Rushing Uppercut L",
+   "input": "D/F+1,2,1,2",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Rushing Uppercut L",
+   "input": "D/F+2,1,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Bear Headbutt",
+   "input": "d/f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Sit",
+   "input": "d+3+4",
+   "kind": "stance",
+   "note": "Or d/b or d/f"
+  },
+  {
+   "name": "Sit Punches 1",
+   "input": "1,2,1,2",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Sit Punches 2",
+   "input": "2,1,2,1",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Demon's Boar",
+   "input": "b+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Deadly Claw",
+   "input": "b+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Rolling Bear",
+   "input": "b+1+2,f,d/f,d,d/b,b,u/b,u,u/f",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Big Bear Attack",
+   "input": "u/f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Pancake Press",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Demon Uppercut",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Salmon Hunter",
+   "input": "b,f+2+3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Fatal Wind",
+   "input": "b,b+2+3+4",
+   "kind": "string",
+   "hits": "!"
+  },
+  {
+   "name": "Grizzly Claw",
+   "input": "b,d/b,d,d/f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Killing Uppercut",
+   "input": "WS+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Killing Uppercut Grizzly Claw",
+   "input": "WS+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Batter Up",
+   "input": "WS+1+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer",
+   "input": "WS+1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush 1 High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush 1 Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush 1 Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "Windmill Punch",
+   "input": "FC+d/f+1,2,1,1",
+   "kind": "string",
+   "hits": "m,h,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 High",
+   "input": "FC+D/F+1,2,f+1",
+   "kind": "string",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 Mid",
+   "input": "FC+D/F+1,2,d/f+1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Hammer Rush 2 Low",
+   "input": "FC+D/F+1,2,d+1",
+   "kind": "string",
+   "hits": "m,m,l"
+  },
+  {
+   "name": "Triple Uppercut Left",
+   "input": "FC+D/F+1,2,1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Triple Uppercut Right",
+   "input": "FC+D/F+2,1,2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Hammer Rush 3 High",
+   "input": "FC+D/F+2,f+1",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Hammer Rush 3 Mid",
+   "input": "FC+D/F+2,d/f+1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush 3 Low",
+   "input": "FC+D/F+2,d+1",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "You're Welcome",
+   "input": "1+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Get Up Punch",
+   "text": "On the ground (on the back) d+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Dance With Me",
+   "text": "(With opponent down) d+4",
+   "kind": "special"
+  }
+ ]
+}

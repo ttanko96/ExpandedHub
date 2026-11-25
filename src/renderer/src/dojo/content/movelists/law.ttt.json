@@ -1,0 +1,477 @@
+{
+ "schemaVersion": 1,
+ "fighter": "law",
+ "game": "ttt",
+ "source": {
+  "title": "Forest Law/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Dragon's Fire",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Hopping Frog",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headlock Kick",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Ball Breaker",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Dragon Bites",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Run Up to Drop",
+   "input": "f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headlock Punch",
+   "input": "d/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headlock Drop",
+   "input": "d/f+1+2,1,2,1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Knee Lift",
+   "input": "f,f+3+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Parry",
+   "input": "b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "Machine Gun Arrow",
+   "input": "1,1,1,1,1",
+   "kind": "string",
+   "hits": "h,h,h,h,h"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Quick Rave War",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Triple Head Kick",
+   "input": "3,3,3",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Mid Kick Combo",
+   "input": "F+3",
+   "kind": "poke",
+   "hits": "h,h,m",
+   "when": "During Triple Head Kick"
+  },
+  {
+   "name": "High Kick to Somersault",
+   "input": "3,4",
+   "kind": "launcher",
+   "hits": "h,m"
+  },
+  {
+   "name": "Shaolin Spin Kicks",
+   "input": "4,3,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Crescent Kick Combo",
+   "input": "4,u+3",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Backflip",
+   "input": "3+4",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Backflipper",
+   "input": "3+4,3",
+   "kind": "string",
+   "hits": "m,m",
+   "note": "Or U+4, 3"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Blackout",
+   "input": "1",
+   "kind": "poke",
+   "hits": "h",
+   "when": "After Supercharger"
+  },
+  {
+   "name": "Blackout Muggin'",
+   "input": "1,3",
+   "kind": "string",
+   "hits": "h,l",
+   "when": "After Supercharger"
+  },
+  {
+   "name": "Poison Arrow",
+   "input": "f+2~1",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Rave War Combo",
+   "input": "F+2,2,2",
+   "kind": "string",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Dragon Hammer",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Mid Kick",
+   "input": "d/f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Step in Combo",
+   "input": "D/F+3,3,3",
+   "kind": "string",
+   "hits": "m,l,h"
+  },
+  {
+   "name": "Right Middle Kick to Somersault Kick",
+   "input": "d/f+4,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Body Blow to Somersault",
+   "input": "d+2,3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon Low Kick",
+   "input": "d+3",
+   "kind": "low",
+   "hits": "l",
+   "note": "Or d/b"
+  },
+  {
+   "name": "Triple Head Kick to Somersault Variation",
+   "input": "d+3,3,3,3,4",
+   "kind": "string",
+   "hits": "l,h,h,h,m"
+  },
+  {
+   "name": "Low Kick to Somersault",
+   "input": "d+4,3",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Frogman",
+   "input": "d+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Elbow Spring Kick",
+   "input": "d/b+2,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Dragon's Tail",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Dragon Storm",
+   "input": "b+1,2,1",
+   "kind": "launcher",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Junkyard Kick",
+   "input": "b+2,3,4",
+   "kind": "launcher",
+   "hits": "m,l,m"
+  },
+  {
+   "name": "Fake Step",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Tricky Trap",
+   "input": "1",
+   "kind": "poke",
+   "hits": "h",
+   "when": "After successfully completing Fake Step"
+  },
+  {
+   "name": "Tricky Fist",
+   "input": "2",
+   "kind": "poke",
+   "hits": "h",
+   "when": "After successfully completing Fake Step"
+  },
+  {
+   "name": "Tricky Mid Kick",
+   "input": "3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "After successfully completing Fake Step"
+  },
+  {
+   "name": "Tricky Low Kick",
+   "input": "4",
+   "kind": "low",
+   "hits": "l",
+   "when": "After successfully completing Fake Step"
+  },
+  {
+   "name": "Fake Step Blow",
+   "input": "1",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Fake Step"
+  },
+  {
+   "name": "Fake Step Uppercut",
+   "input": "2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Fake Step"
+  },
+  {
+   "name": "Fake Step Low",
+   "input": "3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Fake Step"
+  },
+  {
+   "name": "Jumping Kick to Somersault",
+   "input": "u/f+3,4",
+   "kind": "launcher",
+   "hits": "m,m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Somersault Kick",
+   "input": "U/F+4",
+   "kind": "launcher",
+   "hits": "m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Backflipper",
+   "input": "U/F+4,3",
+   "kind": "string",
+   "hits": "m,m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Flash Jab",
+   "input": "d,d/f,f+1",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Running Side Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dragon Uppercut",
+   "input": "WS+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Side Kick to Somersault",
+   "input": "WS+3,4",
+   "kind": "launcher",
+   "hits": "h,m"
+  },
+  {
+   "name": "Front Kick Somersault Variation",
+   "input": "WS+4,3",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Somersault",
+   "input": "WS+U",
+   "kind": "special",
+   "note": "Or U/F or U/B"
+  },
+  {
+   "name": "Somersault Fake",
+   "input": "WS+U,n,4",
+   "kind": "string",
+   "hits": "m",
+   "note": "Or U/F or U/B"
+  },
+  {
+   "name": "Double Impact",
+   "input": "FC+3,4",
+   "kind": "launcher",
+   "hits": "l,m"
+  },
+  {
+   "name": "Low Kick to Somersault",
+   "input": "FC+4,3",
+   "kind": "launcher",
+   "hits": "l,m"
+  },
+  {
+   "name": "Catapult Kick",
+   "input": "FC+U/F+4",
+   "kind": "launcher",
+   "hits": "m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Rainbow Kick",
+   "input": "FC+U/F+3+4",
+   "kind": "power",
+   "hits": "m,m",
+   "note": "Or U or U/B"
+  },
+  {
+   "name": "Slide Kick",
+   "input": "FC+d/f,d,d/f+3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Dragon Judgement",
+   "input": "SS+2,1,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Double Dragon",
+   "input": "SS+3+4",
+   "kind": "poke",
+   "hits": "m,h"
+  },
+  {
+   "name": "Dragon Back Blow",
+   "input": "BT+1",
+   "kind": "poke",
+   "hits": "h",
+   "note": "Also: 2"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "d/f+1,2,2,1,3,3,3,4,3,4",
+   "kind": "string",
+   "hits": "m,h,m,h,h,l,h,h,h,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "d/f+1,2,2,1,3,d+3,3,n+4,4,4",
+   "kind": "string",
+   "hits": "m,h,m,h,h,l,m,l,l,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "d/f+1,2,2,1,3,d+3,3,3,4,4",
+   "kind": "string",
+   "hits": "m,h,m,h,h,l,m,l,l,m"
+  },
+  {
+   "name": "10 hit combo 4",
+   "input": "d/f+1,3,2,2,3,3,3,4,3,4",
+   "kind": "string",
+   "hits": "m,l,m,h,h,l,h,h,h,m"
+  },
+  {
+   "name": "10 hit combo 5",
+   "input": "d/f+1,3,2,2,3,d+3,3,n+4,4,4",
+   "kind": "string",
+   "hits": "m,l,m,h,h,l,m,h,l,m"
+  },
+  {
+   "name": "10 hit combo 6",
+   "input": "d/f+1,3,2,2,3,d+3,3,n+3,4,4",
+   "kind": "string",
+   "hits": "m,l,m,h,h,l,m,l,l,m"
+  },
+  {
+   "name": "Charge Power Punch",
+   "text": "d/b+1+2 (u, u to cancel)",
+   "kind": "special"
+  }
+ ]
+}

@@ -1,0 +1,669 @@
+{
+ "schemaVersion": 1,
+ "fighter": "king",
+ "game": "ttt",
+ "source": {
+  "title": "King II/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Winding Nut",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Suplex",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Argentina Backbreaker",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Knee Crusher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Cobra Twist",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Half Boston Crab",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Stretch Buster",
+   "input": "b,f+1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Knee Bash",
+   "input": "d/f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Figure Four Leg Lock",
+   "input": "d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Tombstone Piledriver",
+   "input": "d/b,f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Pile Driver",
+   "input": "d,d/f,f+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Double Arm Face Buster",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Pile Driver"
+  },
+  {
+   "name": "Boston Crab",
+   "input": "1+2,3,4,1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Pile Driver"
+  },
+  {
+   "name": "Muscle Buster",
+   "input": "d,d/b,b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Giant Swing",
+   "input": "f,b,d/b,d,d/f,f+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Falling Headlock",
+   "input": "FC+d/b,d,d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Tackle",
+   "input": "FC+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ultimate Punch",
+   "input": "2,1,2,1,2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Cross Arm Lock",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Arm Twist",
+   "input": "1+2",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Cross Arm Lock"
+  },
+  {
+   "name": "Leg Cross Hold",
+   "input": "3+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "During Tackle"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+4",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+3",
+   "when": "Parry"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Throw Away",
+   "input": "b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Throw Away Feint",
+   "input": "b+1+2,1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Throw Away Knockdown",
+   "input": "b+1+2,2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Throw and Destroy",
+   "input": "b+1+2,3+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Turn Around",
+   "input": "b+1+2,1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Standing Heel Hold",
+   "input": "f,n,d,d/f+2+3",
+   "kind": "string"
+  },
+  {
+   "name": "Indian Death Lock",
+   "input": "1+2,1,3,1+2",
+   "kind": "string",
+   "when": "During Stanfing Heel Hold"
+  },
+  {
+   "name": "King's Bridge",
+   "input": "1,3,4,1+2,3+4",
+   "kind": "string",
+   "when": "During Indian Death Lock"
+  },
+  {
+   "name": "S•T•F•",
+   "input": "1,2,3,1+2",
+   "kind": "string",
+   "when": "During Stanfing Heel Hold"
+  },
+  {
+   "name": "Scorpion Deathlock",
+   "input": "1+2,3,1,1+3",
+   "kind": "string",
+   "when": "During Stanfing Heel Hold"
+  },
+  {
+   "name": "Arm Breaker",
+   "input": "f,n,d,d/f+1+4",
+   "kind": "string"
+  },
+  {
+   "name": "Triple Arm Breaker",
+   "input": "1+2,1+2",
+   "kind": "string",
+   "when": "During Arm Breaker"
+  },
+  {
+   "name": "Head Jammer",
+   "input": "1+2,4,2+4",
+   "kind": "string",
+   "when": "During Arm Breaker"
+  },
+  {
+   "name": "Struggle Combination",
+   "input": "4,3,4,3+4,1+2",
+   "kind": "string",
+   "when": "During Head Jammer"
+  },
+  {
+   "name": "Chicken Face Wing Lock",
+   "input": "2,1,1+2+3",
+   "kind": "string",
+   "when": "During Arm Breaker"
+  },
+  {
+   "name": "Dragon Sleeper Finish",
+   "input": "2,1,3,1+2+4,1+2+4",
+   "kind": "string",
+   "when": "During Chicken Wing Face Lock"
+  },
+  {
+   "name": "Rolling Death Cradle",
+   "input": "1+3,3+4,2+4,1+2,1+2+3",
+   "kind": "string",
+   "when": "During Chicken Wing Face Lock"
+  },
+  {
+   "name": "Reverse Arm Slam",
+   "input": "f,d/f+1+3",
+   "kind": "string",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Backdrop",
+   "input": "2,1,1+2",
+   "kind": "string",
+   "when": "During Reverse Arm Slam"
+  },
+  {
+   "name": "German Suplex",
+   "input": "3+4,1+2",
+   "kind": "string",
+   "when": "During Backdrop"
+  },
+  {
+   "name": "Power Bomb",
+   "input": "1,2,3+4",
+   "kind": "string",
+   "when": "During German Suplex"
+  },
+  {
+   "name": "Giant Swing",
+   "input": "2,1,3,4",
+   "kind": "string",
+   "when": "During Powe Bomb"
+  },
+  {
+   "name": "Muscle Buster",
+   "input": "3,1,2,3+4,1+2+3+4",
+   "kind": "string",
+   "when": "During Power Bomb"
+  },
+  {
+   "name": "Reverse Special Stretch Bomb",
+   "input": "f,d/f+1+2",
+   "kind": "string"
+  },
+  {
+   "name": "Reverse Special Stretch Bomb",
+   "input": "FC+d/f,d/f+2+4",
+   "kind": "string"
+  },
+  {
+   "name": "Reverse Special Stretch Bomb",
+   "input": "SS+2+4",
+   "kind": "special"
+  },
+  {
+   "name": "Cannonball Buster",
+   "input": "2,2,1+2",
+   "kind": "string",
+   "when": "During Reverse Special Stretch Bomb"
+  },
+  {
+   "name": "Manhattan Drop",
+   "input": "3+4,1+2,1+2+4",
+   "kind": "string",
+   "when": "During Cannonball Buster"
+  },
+  {
+   "name": "Victory Bomb",
+   "input": "1,2,3+4,1+2",
+   "kind": "string",
+   "when": "During Manhattan Drop"
+  },
+  {
+   "name": "Giant Swing",
+   "input": "2,1,3,4",
+   "kind": "string",
+   "when": "During Victory Bomb"
+  },
+  {
+   "name": "Muscle Buster",
+   "input": "3,1,2,3+4,1+2+3+4",
+   "kind": "string",
+   "when": "During Victory Bomb"
+  },
+  {
+   "name": "Palm Attack",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Palm Attack to Uppercut",
+   "input": "1,2,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Uppercut",
+   "input": "2,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Head Spinner",
+   "input": "1+2,1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Exploder",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Moonsault Body Press",
+   "input": "1+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rolling Sobat",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Jaguar Lariat",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Shoulder Tackle",
+   "input": "f+2+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Elbow Sting",
+   "input": "d/f+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Low Kick",
+   "input": "d/f+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Frankensteiner",
+   "input": "d/f+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Jab Uppercut",
+   "input": "d+1,n,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Elbow Drop",
+   "input": "d+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Stagger Kick",
+   "input": "d+3+4,4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Stagger Kicks",
+   "input": "d+3+4,4,4,4",
+   "kind": "string",
+   "hits": "l,l,l,l,l",
+   "when": "During Counterattack"
+  },
+  {
+   "name": "Stagger Kick Spinning Uppercut",
+   "input": "2",
+   "kind": "low",
+   "hits": "l,l,l,m",
+   "when": "During Stagger Kick"
+  },
+  {
+   "name": "Disgraceful Kick",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Capital Punishment",
+   "input": "u/f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "High Elbow Drop",
+   "input": "u/f+2+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Stomach Smash",
+   "input": "f,f,n,2",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Hi-Jack Backbreaker",
+   "input": "1+2",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Counterattack"
+  },
+  {
+   "name": "Jaguar Driver",
+   "input": "1+2,u,d,n,3+4",
+   "kind": "string",
+   "hits": "l",
+   "when": "During Counterattack"
+  },
+  {
+   "name": "Flying Cross Chop",
+   "input": "f,f,n,1+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "K's Flicker",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Konvict Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Lay Off",
+   "input": "f,f+1+2",
+   "kind": "string"
+  },
+  {
+   "name": "Diving Body Press",
+   "input": "f,f+2+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Black Bomb",
+   "input": "f,n,d,d/f+1+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Running Exploder",
+   "input": "f,f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "K's Flicker",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Leg Breaker",
+   "input": "FC+d/f+1",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Crouching Uppercut",
+   "input": "FC+D/F+2",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Knockout Punch",
+   "input": "SS+2",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Deadly Boomerang",
+   "input": "SS+3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Blind Kick",
+   "input": "BT+3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Atomic Blaster",
+   "input": "BT+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "1,2,1,1,2,4,4,4,1,3",
+   "kind": "string",
+   "hits": "h,h,m,m,h,l,l,l,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "1,2,1,1,2,4,4,4,1,1",
+   "kind": "string",
+   "hits": "h,h,m,m,h,m,l,l,m,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "1,2,1,1,3,3,4,4,1,3",
+   "kind": "string",
+   "hits": "h,h,m,m,h,m,l,l,m,h"
+  },
+  {
+   "name": "10 hit combo 4",
+   "input": "1,2,1,1,3,3,4,4,1,1",
+   "kind": "string",
+   "hits": "h,h,m,m,h,m,l,l,m,m"
+  },
+  {
+   "name": "10 hit combo 5",
+   "input": "1,2,1,1,3,3,4,3,2,1+2",
+   "kind": "string"
+  },
+  {
+   "name": "Stretch Combo",
+   "text": "During Leg Cross Hold 1+2 Hold",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jumping Power Bomb",
+   "text": "(Crouching opponent) d+1+3 (or 2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Leg Screw or Double Heel Hold",
+   "text": "Synchro with opponent's kick b+1+3 (or 2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Swing Away",
+   "text": "(Opponent on the back) feet side d/b+1+3",
+   "kind": "special"
+  },
+  {
+   "name": "Head Bomber",
+   "text": "(Opponent on the back) feet side d/b+2+4",
+   "kind": "special"
+  },
+  {
+   "name": "Figure Four Leg Lock",
+   "text": "(Opponent on the back) feet side d/b+2+4",
+   "kind": "special"
+  },
+  {
+   "name": "Shoulder Cracker",
+   "text": "(Opponent on the back) head side d/b+1+3 (or 2+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Turn Over",
+   "text": "(Opponent on the back) on the opponent's side d/b+1+3 (or 2+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Half Boston Crab",
+   "text": "(Opponent facing the ground) side feet d/b+1+3 (or 2+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Wing Tearer",
+   "text": "(Opponent facing the ground) head side d/b+1+3 (or 2+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Camel Clutch",
+   "text": "(Opponent facing the ground) from the left d/b+1+3 (or 2+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Bow & Arrow Stretch Hold",
+   "text": "(Opponent facing down) from the right d/b+1+3 (or 2+4)",
+   "kind": "special"
+  }
+ ]
+}

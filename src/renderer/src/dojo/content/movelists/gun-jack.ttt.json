@@ -1,0 +1,434 @@
+{
+ "schemaVersion": 1,
+ "fighter": "gun-jack",
+ "game": "ttt",
+ "source": {
+  "title": "Gun Jack/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Body Slam",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Lift Up Slam",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Side Left Bomb",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Hanging Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Spinal Crush",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Throw Away",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Body Press",
+   "input": "d/f+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Body Press to Hammer",
+   "input": "d/f+1+3,1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Volcano",
+   "input": "d/f+2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Volcano Blaster",
+   "input": "d/f,d/f+2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Body Smash",
+   "input": "d/b+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Ground Zero",
+   "input": "u/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Lift Up Megaton Hit",
+   "input": "u/f+1+2,d,d/f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Face Slam",
+   "input": "f,f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Pile Driver",
+   "input": "d/b,f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Pyramid Driver",
+   "input": "qcf+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Back Breaker",
+   "input": "qcb+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jack Hammer",
+   "input": "1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Elbow Smash",
+   "input": "2,1,2",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Double Hammer",
+   "input": "1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Dark Greeting",
+   "input": "f+4~1",
+   "kind": "launcher",
+   "hits": "!"
+  },
+  {
+   "name": "Cut Saw",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Cut Saw Blast",
+   "input": "f+1+2,d/f+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "High and Low Cross Cut",
+   "input": "f+1+2,1+2",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Sliding Attack",
+   "input": "f+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rushing Uppercut Left",
+   "input": "D/F+1,2,1,2",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Rushing Uppercut Right",
+   "input": "D/F+2,1,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Thunder Slap",
+   "input": "d/f+2+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Sumo Stomp",
+   "input": "d+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Double Axe",
+   "input": "d+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Sit",
+   "input": "d+3+4",
+   "kind": "stance",
+   "note": "Or d/f or d/b"
+  },
+  {
+   "name": "Sit Pancake Press",
+   "input": "d+3+4,3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Sit Punches Left",
+   "input": "1,2,1,2",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Sit Punches Right",
+   "input": "2,1,2,1",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Machine Gun Blast",
+   "input": "d/b+1,1,1,1,1,2",
+   "kind": "string",
+   "hits": "l,l,l,l,m"
+  },
+  {
+   "name": "Cossack Dance",
+   "input": "D/B+3,4,3,4,3,4",
+   "kind": "string",
+   "hits": "l,l,l,l,l,l"
+  },
+  {
+   "name": "Piston Gun Assault",
+   "input": "b+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Piston Gun",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Pancake Press",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Debugger",
+   "input": "b,d/b,d,d/f+1",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Megaton Blast",
+   "input": "b,d/b,d,d/f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Gigaton Punch",
+   "input": "b,d/b,d,d/f,f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Windup Uppercut",
+   "input": "b,d/b,d,d/f,f,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Killing Uppercut",
+   "input": "WS+1",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer Alternate",
+   "input": "WS+1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush 1 High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush 1 Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush 1 Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "One Two Blast",
+   "input": "FC+1,2",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Take Down",
+   "input": "FC+1+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Windmill Punch",
+   "input": "FC+d/f+1,2,1,1",
+   "kind": "string",
+   "hits": "m,h,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush 2 Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "Hammer Rush 3 High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush 3 Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush 3 Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "Low Cross Cut Saw",
+   "input": "FC+d/f+1+2",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Machinegun Knuckle",
+   "input": "FC+d/b+1,1,1,2",
+   "kind": "string",
+   "hits": "l,l,l,m"
+  },
+  {
+   "name": "Piston Gun Snipe",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Get Up Punch",
+   "input": "d+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "d+2,1,1,1,2,1,2,1,1+2,1+2",
+   "kind": "string",
+   "hits": "s,l,l,m,m,m,m,m,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "d+2,1,1,1,2,1,2,1,d+1+2,1+2",
+   "kind": "string",
+   "hits": "s,l,l,m,m,m,m,m,l,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "u/f+1,1,4,3,4,1,2,1,1+2,1+2",
+   "kind": "string",
+   "hits": "h,m,l,l,l,m,m,m,m,m"
+  },
+  {
+   "name": "10 hit combo 4",
+   "input": "u/f+1,1,4,3,4,1,2,1,d+1+2,1+2",
+   "kind": "string",
+   "hits": "h,m,l,l,l,m,m,m,l,m"
+  },
+  {
+   "name": "Gun Bomb",
+   "text": "Crouching opponent d+1+3 (or d+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Giant Foot Stomp",
+   "text": "3+4(, 3+4, 3+4)",
+   "kind": "special"
+  },
+  {
+   "name": "Windup Punch",
+   "text": "b, d/b, d, d/f, f (followed by continuous rotation) 1",
+   "kind": "special"
+  },
+  {
+   "name": "Triple Uppercut",
+   "text": "FC, D/F+1, 2, f+1 (High) FC, D/F+1, 2, 1 (Middle) FC, D/F+1, 2, d+1 (Low) FC, D/F+2, f+1 (High) FC, D/F+2, 1, 2 (Middle) FC, D/F+2, d+1 (Low)",
+   "kind": "special"
+  }
+ ]
+}

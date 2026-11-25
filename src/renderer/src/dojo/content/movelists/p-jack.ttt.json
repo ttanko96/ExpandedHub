@@ -1,0 +1,336 @@
+{
+ "schemaVersion": 1,
+ "fighter": "p-jack",
+ "game": "ttt",
+ "source": {
+  "title": "Prototype Jack/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Body Press",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Body Slam",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Laundry Throw",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the left"
+  },
+  {
+   "name": "Father's Love",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the right"
+  },
+  {
+   "name": "Reverse Lift Up Slam",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "when": "From the back"
+  },
+  {
+   "name": "Megaton Punishment",
+   "input": "2+4,d/b,d,d/f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Body Smash",
+   "input": "d/b+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "P Jack Hammer",
+   "input": "1,1,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Elbow Smash",
+   "input": "2,1,2",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Hammer Knuckle",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer",
+   "input": "1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Machine Elbow",
+   "input": "f+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Dark Greeting",
+   "input": "f+4~1",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Cross Cut Saw",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Sliding Attack",
+   "input": "f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Rushing Uppercut L",
+   "input": "D/F+1,2,1,2",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Rushing Uppercut R",
+   "input": "D/F+2,1,2,1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Rushing Uppercut High",
+   "input": "D/F+2,1,2,f+1",
+   "kind": "string",
+   "hits": "m,m,m,h"
+  },
+  {
+   "name": "Rushing Uppercut Mid",
+   "input": "D/F+2,1,2,d/f+1",
+   "kind": "string",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Rushing Uppercut Low",
+   "input": "D/F+2,1,2,d+1",
+   "kind": "string",
+   "hits": "m,m,m,l"
+  },
+  {
+   "name": "Megaton Earthquake",
+   "input": "d/f+1+2",
+   "kind": "low",
+   "hits": "l,l"
+  },
+  {
+   "name": "Hammer Punch to Power Punch",
+   "input": "d+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Sit",
+   "input": "d+3+4",
+   "kind": "stance"
+  },
+  {
+   "name": "Sit Punches Left",
+   "input": "1,2,1,2",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Sit Punches Right",
+   "input": "2,1,2,1",
+   "kind": "string",
+   "hits": "l,l,l,l",
+   "when": "During Sit"
+  },
+  {
+   "name": "Machinegun Blast",
+   "input": "d/b+1,1,1,2",
+   "kind": "string",
+   "hits": "l,l,l,m"
+  },
+  {
+   "name": "Clock Up",
+   "input": "b+1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Pancake Press",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Cemaho Chop",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Megaton Uppercut",
+   "input": "b,d/b,d,d/f+1",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Megaton Blast",
+   "input": "b,d/b,d,d/f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Gigaton Punch",
+   "input": "b,d/b,d,d/f,f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Hammer",
+   "input": "WS+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Hammer Alternate",
+   "input": "WS+1+2,1+2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush 1 High",
+   "input": "FC+1,1,1,2,f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,h"
+  },
+  {
+   "name": "Hammer Rush 1 Mid",
+   "input": "FC+1,1,1,2,d/f+1",
+   "kind": "string",
+   "hits": "l,l,m,m,m"
+  },
+  {
+   "name": "Hammer Rush 1 Low",
+   "input": "FC+1,1,1,2,d+1",
+   "kind": "string",
+   "hits": "l,l,m,m,l"
+  },
+  {
+   "name": "Windmill Punches",
+   "input": "FC+d/f+1,2,1,1",
+   "kind": "string",
+   "hits": "m,h,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 High",
+   "input": "FC+D/F+1,2,f+1",
+   "kind": "string",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Hammer Rush 2 Mid",
+   "input": "FC+D/F+1,2,d/f+1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Hammer Rush 2 Low",
+   "input": "FC+D/F+1,2,d+1",
+   "kind": "string",
+   "hits": "m,m,l"
+  },
+  {
+   "name": "Swing R Knuckle",
+   "input": "FC+D/F+2,1,2",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Hammer Rush 3 High",
+   "input": "FC+D/F+2,f+1",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Hammer Rush 3 Mid",
+   "input": "FC+D/F+2,d/f+1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Rush 3 Low",
+   "input": "FC+D/F+2,d+2",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Drill Upper",
+   "input": "SS+1",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Drill Punch",
+   "input": "SS+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Tornado Cutter",
+   "input": "SS+1+2",
+   "kind": "poke",
+   "hits": "h,h"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "d+2,1,1,1,2,1,2,1,1+2,1+2",
+   "kind": "string",
+   "hits": "m,l,l,m,m,m,m,m,m,m"
+  },
+  {
+   "name": "Giant Foot Stomp",
+   "text": "3+4 (3+4, 3+4 to increase the distance)",
+   "kind": "special"
+  },
+  {
+   "name": "Gigaton Punch",
+   "text": "b, d/b, d, d/f, f (followed by continuous rotation) 1",
+   "kind": "special"
+  },
+  {
+   "name": "Get Up Punch",
+   "text": "On the ground (on the back) d+1+2",
+   "kind": "special"
+  }
+ ]
+}

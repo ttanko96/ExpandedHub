@@ -8,7 +8,5 @@
   "tagline": "Devil’s mirror image: the same moves in white and gold.",
   "accent": "#fde68a",
   "order": 1130,
-  "movesFrom": "devil",
-  "verified": false,
-  "moves": []
+  "movesFrom": "devil"
 }

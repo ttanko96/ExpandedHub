@@ -65,3 +65,12 @@ In a dev build, Settings → Advanced → Reload registry picks up changes.
 
 ExpandedHub's own code is under the [MIT License](LICENSE). Tekken is a trademark of Bandai Namco
 Entertainment; the license does not cover it, nor the mods the hub installs, which keep their own licenses.
+
+The Dojo's content is not code and has its own licenses:
+
+- `src/renderer/src/dojo/content/fighters/` and `tours/`: written for ExpandedHub, under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([details](src/renderer/src/dojo/content/LICENSE.md)).
+- `src/renderer/src/dojo/content/movelists/`: move lists adapted from the
+  [Tekken Wiki](https://tekken.fandom.com) by its contributors, under
+  [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and shared under the same license
+  ([details](src/renderer/src/dojo/content/movelists/LICENSE.md)). Each file names its wiki page.

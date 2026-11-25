@@ -1,0 +1,738 @@
+{
+ "schemaVersion": 1,
+ "fighter": "hwoarang",
+ "game": "ttt",
+ "source": {
+  "title": "Hwoarang/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Pickpocket",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Falcon Dice Kick",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Bring It On",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Dead-End",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Slaughterhouse",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Roll and Choke",
+   "input": "f,f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Human Cannonball",
+   "input": "f+2+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Leg Hook Throw",
+   "input": "d,d/b+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Door Mat",
+   "input": "d,d/b,b+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "Migraine",
+   "input": "1,1",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Double Jab to Low Kick",
+   "input": "1,1,3",
+   "kind": "stance",
+   "hits": "h,h,l"
+  },
+  {
+   "name": "Home Surgery",
+   "input": "1,1,3,3",
+   "kind": "stance",
+   "hits": "h,h,l,h"
+  },
+  {
+   "name": "One Two Punch",
+   "input": "1,2",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Rejector",
+   "input": "1,2,3",
+   "kind": "stance",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Rejection",
+   "input": "1,2,4",
+   "kind": "stance",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Right Jab Side Kick",
+   "input": "2,3",
+   "kind": "stance",
+   "hits": "h,m"
+  },
+  {
+   "name": "Right Jab to Spinning Back Kick",
+   "input": "2,4",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Machine Gun Kicks",
+   "input": "3,3,3,3",
+   "kind": "stance",
+   "hits": "h,m,m,h"
+  },
+  {
+   "name": "Left Kick Combo to Right Hook Kick",
+   "input": "3,3,3,4",
+   "kind": "stance",
+   "hits": "h,m,m,h"
+  },
+  {
+   "name": "Left Kicks to Right Hook Kick",
+   "input": "3,3,4",
+   "kind": "stance",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Left Kicks to Right Middle Kick",
+   "input": "3,3,4,4",
+   "kind": "stance",
+   "hits": "h,m,h,m"
+  },
+  {
+   "name": "Total Outrage",
+   "input": "3,3,3,4,4",
+   "kind": "stance",
+   "hits": "h,m,m,h,m"
+  },
+  {
+   "name": "Left Kick Combo Low",
+   "input": "3,3,d+3",
+   "kind": "stance",
+   "hits": "h,m,l"
+  },
+  {
+   "name": "Left Kick Combo Low to Right Hook Kick",
+   "input": "3,3,d+3,4",
+   "kind": "stance",
+   "hits": "h,m,l,h"
+  },
+  {
+   "name": "Menace to Society",
+   "input": "3,3,d+3,4,4",
+   "kind": "stance",
+   "hits": "h,m,l,h,m"
+  },
+  {
+   "name": "Flying Eagle",
+   "input": "3~4",
+   "kind": "stance",
+   "hits": "m,m"
+  },
+  {
+   "name": "Axe Murderer",
+   "input": "4,3",
+   "kind": "stance",
+   "hits": "h,m"
+  },
+  {
+   "name": "Right Kicks to Left Stance",
+   "input": "4,4",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Rude Boy",
+   "input": "4,f+3",
+   "kind": "stance",
+   "hits": "h,m"
+  },
+  {
+   "name": "Hard Rocker",
+   "input": "4,f+4",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Right Kick Combo to Right Flamingo",
+   "input": "4,4,4",
+   "kind": "stance",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Da Bomb",
+   "input": "4,4,f+4",
+   "kind": "stance",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Right Kick Combo to Left Stance",
+   "input": "4,4,b+4",
+   "kind": "stance",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Blizzard Kicks",
+   "input": "4,4,4,3",
+   "kind": "stance",
+   "hits": "h,h,h,l"
+  },
+  {
+   "name": "Hot Feet",
+   "input": "4,4,4,4",
+   "kind": "stance",
+   "hits": "h,h,h,m"
+  },
+  {
+   "name": "Disrespect",
+   "input": "1+2",
+   "kind": "stance"
+  },
+  {
+   "name": "Motion Switch",
+   "input": "3+4",
+   "kind": "stance"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "stance"
+  },
+  {
+   "name": "Rusty Knife",
+   "input": "f+2",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Middle Back Blow to Left Stance",
+   "input": "F+2",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Left Flamingo Feint",
+   "input": "f+3",
+   "kind": "stance"
+  },
+  {
+   "name": "Cheap Shot Snap Kick",
+   "input": "f+3~3",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Right Flamingo Feint",
+   "input": "f,n,4",
+   "kind": "stance"
+  },
+  {
+   "name": "Doggie Lift",
+   "input": "f+4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Grand Theft",
+   "input": "f+4,4",
+   "kind": "stance",
+   "hits": "h,m"
+  },
+  {
+   "name": "Public Enemy",
+   "input": "d/f+3,4",
+   "kind": "stance",
+   "hits": "m,m"
+  },
+  {
+   "name": "Body Blow",
+   "input": "d/f+1+2",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Smash Low Right",
+   "input": "d+3,4",
+   "kind": "stance",
+   "hits": "m,h"
+  },
+  {
+   "name": "Firecracker",
+   "input": "d+4,4",
+   "kind": "stance",
+   "hits": "l,h"
+  },
+  {
+   "name": "Crippler",
+   "input": "d/b+4",
+   "kind": "stance",
+   "hits": "l"
+  },
+  {
+   "name": "Feint Heel Drop",
+   "input": "d/b+4,4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Backhand",
+   "input": "b+2",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Nose Bleeder",
+   "input": "b+4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Jump Kick",
+   "input": "u+3",
+   "kind": "stance",
+   "hits": "h",
+   "note": "Or u/b"
+  },
+  {
+   "name": "Spinning Back Kick",
+   "input": "u+4",
+   "kind": "stance",
+   "hits": "h",
+   "note": "Or u/b or u/f"
+  },
+  {
+   "name": "Hunting Hawk",
+   "input": "u/f+3,4,3",
+   "kind": "stance",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Spinning Axe Kick to Right Stance",
+   "input": "f,f+3",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Torpedo Kick",
+   "input": "f,f+4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Sky Rocket",
+   "input": "f,n,d,d/f+4",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Iron Heel",
+   "input": "WS+3",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+4,4",
+   "kind": "stance",
+   "hits": "m,m"
+  },
+  {
+   "name": "Big Fists",
+   "input": "2,1,1",
+   "kind": "stance",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Right PK Combo",
+   "input": "2,3",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Chainsaw Kick Combo",
+   "input": "2,4,3",
+   "kind": "stance",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Right Reverse Kick Combo",
+   "input": "2,4,4",
+   "kind": "stance",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Right Jab Spin Kick",
+   "input": "2,b+4",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Teaser",
+   "input": "3,3",
+   "kind": "stance",
+   "hits": "l,h"
+  },
+  {
+   "name": "Backlash",
+   "input": "3~4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Chainsaw Kick",
+   "input": "4,3",
+   "kind": "stance",
+   "hits": "h,m"
+  },
+  {
+   "name": "Right Reverse Kick",
+   "input": "4,4",
+   "kind": "stance",
+   "hits": "h,h"
+  },
+  {
+   "name": "Right Flamingo Feint",
+   "input": "f+4",
+   "kind": "stance"
+  },
+  {
+   "name": "Grand Theft",
+   "input": "f+4~4",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Cheap Shot",
+   "input": "f+3",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Cheap Shot to Disrespect",
+   "input": "f+3,b",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Cheap Shot Low Spin",
+   "input": "f+3,4",
+   "kind": "stance",
+   "hits": "h,l"
+  },
+  {
+   "name": "Nose Bleeder",
+   "input": "b+3",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Misdemeanor",
+   "input": "b+4",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Ripoff",
+   "input": "f,f+3",
+   "kind": "stance",
+   "hits": "h"
+  },
+  {
+   "name": "Screw Kick",
+   "input": "f,f+4,3",
+   "kind": "stance",
+   "hits": "m,h"
+  },
+  {
+   "name": "Right Side Kick",
+   "input": "d/f+4",
+   "kind": "stance",
+   "hits": "m"
+  },
+  {
+   "name": "Trick Jab",
+   "input": "1",
+   "kind": "poke",
+   "hits": "h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Right Backhand",
+   "input": "2",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Flamingo Side Kick Combo",
+   "input": "3,4",
+   "kind": "string",
+   "hits": "m,m",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Rocket Launcher",
+   "input": "3,3,3",
+   "kind": "string",
+   "hits": "m,m,h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Flamingo Kick Combo to Right Hook Kick",
+   "input": "3,3,4",
+   "kind": "string",
+   "hits": "m,m,h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Cannon Kicks",
+   "input": "3,3,4,4",
+   "kind": "string",
+   "hits": "m,m,h,m",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Step Kick",
+   "input": "4",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Snap Kick",
+   "input": "f+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Cutter Left",
+   "input": "d/f+3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Cutter Right",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Snap Spin Kick",
+   "input": "b+3",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Right Heel Lance",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Left Flamingo Step-In",
+   "input": "f",
+   "kind": "special",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Left Flamingo Back Dash",
+   "input": "b",
+   "kind": "special",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "Left Flamingo Sidestep",
+   "input": "u",
+   "kind": "special",
+   "when": "During Left Flamingo",
+   "note": "Or d"
+  },
+  {
+   "name": "Left Punch",
+   "input": "1",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Right Punch",
+   "input": "2",
+   "kind": "poke",
+   "hits": "h",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Step Kick",
+   "input": "3",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Right Kick",
+   "input": "4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Snap Kick",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Cutter-Left",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Cutter-Right",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Left Heel Lance",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Snap Spin Kick",
+   "input": "b+4",
+   "kind": "power",
+   "hits": "m",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Right Flamingo Step-in",
+   "input": "f",
+   "kind": "special",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Right Flamingo Back Dash",
+   "input": "b",
+   "kind": "special",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Right Flamingo Sidestep",
+   "input": "u",
+   "kind": "special",
+   "when": "During Right Flamingo",
+   "note": "Or d"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "2,2,3,4,3,4,4,4,4,3",
+   "kind": "string",
+   "hits": "m,h,h,l,m,m,l,h,m,h",
+   "when": "During Left Flamingo"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "1,2,3,4,3,4,4,4,4,3",
+   "kind": "string",
+   "hits": "m,h,h,l,m,m,l,h,m,h",
+   "when": "During Right Flamingo"
+  },
+  {
+   "name": "Dynamite Heel",
+   "text": "d/b+3+4 (b, b to cancel)",
+   "kind": "special"
+  },
+  {
+   "name": "Plasma Blade",
+   "text": "Left Stance, back to opponent 4",
+   "kind": "special"
+  },
+  {
+   "name": "Right Stance",
+   "text": "Left Stance, back to opponent 1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Left Plasma Blade",
+   "text": "Right Stance, back to opponent 3",
+   "kind": "special"
+  },
+  {
+   "name": "Left Stance",
+   "text": "Right Stance, back to opponent 1+2",
+   "kind": "special"
+  },
+  {
+   "name": "Power Blast",
+   "text": "During Left Flamingo 1+4 (b, b to cancel)",
+   "kind": "special"
+  }
+ ]
+}

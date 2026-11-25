@@ -1,0 +1,467 @@
+{
+ "schemaVersion": 1,
+ "fighter": "julia",
+ "game": "ttt",
+ "source": {
+  "title": "Julia Chang/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Death Valley Bomb",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Knee Suplex",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headlock Back Crusher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Twisted Sister",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Calf Branding",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Arm Lock Suplex",
+   "input": "d/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Waist Suplex",
+   "input": "d,d/b+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Mad Axes",
+   "input": "d,d/b,b,f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Cross Arm Suplex",
+   "input": "d,d/b,d,d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Low Parry",
+   "input": "d/b+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or d; Or d/b+2+4",
+   "when": "Parry"
+  },
+  {
+   "name": "G-Clef Cannon",
+   "input": "1,1,1",
+   "kind": "launcher",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "G-Clef Cannon Bow & Arrow Kick",
+   "input": "1,1,4,3",
+   "kind": "string",
+   "hits": "h,m,l,m"
+  },
+  {
+   "name": "Machine Gun Punch",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Machine Gun Low Kick",
+   "input": "1,2,3",
+   "kind": "string",
+   "hits": "h,m,l"
+  },
+  {
+   "name": "Machine Gun High Kick",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Double Fist",
+   "input": "1+2",
+   "kind": "power",
+   "hits": "h",
+   "when": "During Spin Behind"
+  },
+  {
+   "name": "Tequila Sunrise",
+   "input": "3~2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Tequila Sunrise Middle Smash",
+   "input": "3~2,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Tequila Sunrise Low Kick Slash Uppercut",
+   "input": "3~2,4,1",
+   "kind": "launcher",
+   "hits": "m,l,m"
+  },
+  {
+   "name": "Tequila Sunrise Low High Kicks",
+   "input": "3~2,4,4",
+   "kind": "string",
+   "hits": "m,l,h"
+  },
+  {
+   "name": "Tequila Sunrise Low Kicks",
+   "input": "3~2,4,d+4",
+   "kind": "string",
+   "hits": "m,l,l"
+  },
+  {
+   "name": "Tequila Sunrise Combo",
+   "input": "3~2,1,1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Tequila Sunrise Arrow Kick",
+   "input": "3~2,1,4,3",
+   "kind": "string",
+   "hits": "m,m,l,m"
+  },
+  {
+   "name": "Spinning Kicks Slash Uppercut",
+   "input": "4,4,1",
+   "kind": "launcher",
+   "hits": "h,l,m"
+  },
+  {
+   "name": "Triple Spinning Kick",
+   "input": "4,4,4",
+   "kind": "string",
+   "hits": "h,l,h"
+  },
+  {
+   "name": "Triple Spinning Low Kick",
+   "input": "4,4,d+4",
+   "kind": "string",
+   "hits": "h,l,l"
+  },
+  {
+   "name": "Twin Arrow",
+   "input": "1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Wind Roll",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Spin and Kick",
+   "input": "3+4,4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Bow & Arrow Kick",
+   "input": "1+4,3",
+   "kind": "string",
+   "hits": "m,l,m"
+  },
+  {
+   "name": "Ultimate Cannon",
+   "input": "2+3,1",
+   "kind": "launcher",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Flash Uppercut",
+   "input": "f+1",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Palm Explosion",
+   "input": "f+1~2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Shove It Up",
+   "input": "f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Heavy Uppercut",
+   "input": "f+1+4",
+   "kind": "launcher",
+   "hits": "!"
+  },
+  {
+   "name": "Mini G-Clef Cannon",
+   "input": "d/f+1,1",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Slow Power Punch",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Slow Power Punch Combo",
+   "input": "d/f+2,1",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Slow Power Punch to Low Kick",
+   "input": "d/f+2,3",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Slow Power Punch to High Kick",
+   "input": "d/f+2,4",
+   "kind": "string",
+   "hits": "m,h"
+  },
+  {
+   "name": "Front Snap Kick",
+   "input": "d/f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Mountain Crusher",
+   "input": "d/f+4,2,b,f+1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Mini G-Clef Cannon to Bow & Arrow Kick",
+   "input": "d/f+1,4,3",
+   "kind": "string",
+   "hits": "m,l,h"
+  },
+  {
+   "name": "Ultimate Cannon",
+   "input": "d+2,3,1",
+   "kind": "launcher",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Sweep",
+   "input": "d+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Razor's Edge",
+   "input": "d+4,1",
+   "kind": "launcher",
+   "hits": "l,m"
+  },
+  {
+   "name": "Sweep Head Kick",
+   "input": "d+4,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Sweep Low Kick",
+   "input": "d+4,d+4",
+   "kind": "string",
+   "hits": "l,l"
+  },
+  {
+   "name": "Liquid Sweep",
+   "input": "b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Heaven Shatter Kick",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Foot Stomp",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Party Crasher",
+   "input": "f,f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Elbow Skyscraper Kick",
+   "input": "f,f+1,4",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Rapid Counter Attack",
+   "input": "d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Lightning Bolt",
+   "input": "d,d/f+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Tequila Sunrise",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Tequila Sunrise Elbow Smash",
+   "input": "WS+2,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Tequila Sunrise Low Kick Slash Uppercut",
+   "input": "WS+2,4,1",
+   "kind": "launcher",
+   "hits": "m,l,m"
+  },
+  {
+   "name": "Tequila Sunrise Low High Kicks",
+   "input": "WS+2,4,4",
+   "kind": "string",
+   "hits": "m,l,h"
+  },
+  {
+   "name": "Tequila Sunrise Low Kicks",
+   "input": "WS+2,4,d+4",
+   "kind": "string",
+   "hits": "m,l,l"
+  },
+  {
+   "name": "Tequila Sunrise Combo",
+   "input": "WS+2,1,1",
+   "kind": "string",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Tequila Sunrise Arrow Kick",
+   "input": "WS+2,1,4,3",
+   "kind": "string",
+   "hits": "m,m,l,m"
+  },
+  {
+   "name": "Skyscraper Kick",
+   "input": "WS+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Body Elbow",
+   "input": "FC+d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning Sweep",
+   "input": "FC+d/f+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Spinning Sweep Combo",
+   "input": "FC+d/f+4,3",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Parting Fist",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Welcome",
+   "input": "2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "2,1,1,2,3,3,3,4,4,1",
+   "kind": "string",
+   "hits": "h,m,m,h,l,h,m,h,l,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "2,1,1,2,3,3,2,3,2,1",
+   "kind": "string",
+   "hits": "h,m,m,h,l,h,m,l,m,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "2,1,1,2,3,3,2,1,4,3",
+   "kind": "string",
+   "hits": "h,m,m,h,l,h,m,m,l,m"
+  },
+  {
+   "name": "Machine Gun Cannon",
+   "text": "1, 2, 1 (During Counterattack)",
+   "kind": "special"
+  },
+  {
+   "name": "Spin Behind",
+   "text": "2, b (shot must hit head-on)",
+   "kind": "special"
+  }
+ ]
+}

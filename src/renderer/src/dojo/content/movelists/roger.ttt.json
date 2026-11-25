@@ -1,0 +1,278 @@
+{
+ "schemaVersion": 1,
+ "fighter": "roger",
+ "game": "ttt",
+ "source": {
+  "title": "Roger/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Headbutt",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jumping Powerbomb",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Animal Face Crusher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Animal Rolling Arm Lock",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Jumping Powerbomb",
+   "input": "d+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: d+2+4"
+  },
+  {
+   "name": "Reverse Neck Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Tombstone Pile Driver",
+   "input": "d/b,f+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Pile Driver",
+   "input": "qcf+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Giant Swing",
+   "input": "f,hcf+1",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "DDT",
+   "input": "d/b,d/b+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "One Two Uppercut",
+   "input": "1,2,1",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Jab Uppercut",
+   "input": "2,1",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Exploder",
+   "input": "3+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Also: f, f+3+4"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Windmill Punch",
+   "input": "f,n,1",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Capital Punishment",
+   "input": "u/f+1+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Headbutt",
+   "input": "d/f+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Frankensteiner",
+   "input": "d/f+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Stagger Kicks",
+   "input": "d+3+4,4,4",
+   "kind": "string",
+   "hits": "l,l,l"
+  },
+  {
+   "name": "Tail Tripper",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Rolling Animal",
+   "input": "d/b+4,1",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Animal Kick Rush",
+   "input": "d/b+4,3,4,3,4",
+   "kind": "string",
+   "hits": "m,m,m,m,m"
+  },
+  {
+   "name": "Animal Backflip",
+   "input": "b",
+   "kind": "special",
+   "when": "During Animal Kick Rush"
+  },
+  {
+   "name": "Rolling Animal Kick Rush",
+   "input": "d/b+4,1,3,4,3,4",
+   "kind": "string",
+   "hits": "m,m,m,m,m"
+  },
+  {
+   "name": "Wind Up Punch",
+   "input": "b+1",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Animal Drop Kick",
+   "input": "b+3+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Drop Kick to Animal Kick Rush",
+   "input": "b+3+4,3,4,3,4",
+   "kind": "string",
+   "hits": "m,m,m,m,m"
+  },
+  {
+   "name": "Animal Jumping Sweep",
+   "input": "u+3+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Double Knee Drop",
+   "input": "u/f+3+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Elbow Drop",
+   "input": "u/f+2+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Rush to Windmill Punch",
+   "input": "f,f+1,2,1,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m"
+  },
+  {
+   "name": "K's Flicker",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Konvict Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Head First Lunge",
+   "input": "f,f+1+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Animal Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Gigaton Punch",
+   "input": "f,f,n,1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Stomach Smash",
+   "input": "f,f,n,2",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Running Exploder",
+   "input": "f,f,f+3+4",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Crouching Uppercut",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Smash",
+   "input": "WS+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Animal Sweep",
+   "input": "SS+4",
+   "kind": "low",
+   "hits": "l"
+  }
+ ]
+}

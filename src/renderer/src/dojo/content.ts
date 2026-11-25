@@ -1,8 +1,9 @@
 import type { ZodType, ZodTypeDef } from 'zod'
-import { DojoFighter, DojoTour, type DojoMove } from '@shared/dojo-schema'
+import { DojoFighter, DojoMovelist, DojoTour, type DojoMove } from '@shared/dojo-schema'
 
 /**
- * The Dojo's bundled content (CC BY 4.0, see `content/LICENSE.md`), checked against the schema.
+ * The Dojo's bundled content, checked against the schema: fighters and tours (CC BY 4.0, see
+ * `content/LICENSE.md`) and full move lists (CC BY-SA 3.0, see `content/movelists/LICENSE.md`).
  * A file that does not fit is left out and logged; `tests/dojo-content.test.ts` keeps them all valid.
  */
 function load<T>(files: Record<string, unknown>, schema: ZodType<T, ZodTypeDef, unknown>): T[] {
@@ -26,10 +27,14 @@ export function fighterById(id: string | undefined): DojoFighter | undefined {
   return FIGHTERS.find((f) => f.id === id)
 }
 
-/** The moves a fighter fights with: their own, or those of the fighter they borrow from. */
+export const MOVELISTS: DojoMovelist[] = load(
+  import.meta.glob('./content/movelists/*.json', { eager: true, import: 'default' }),
+  DojoMovelist
+)
+
+/** The moves of a fighter's first move list (the one of the game they come from). */
 export function movesOf(f: DojoFighter): DojoMove[] {
-  if (!f.movesFrom) return f.moves
-  return fighterById(f.movesFrom)?.moves ?? []
+  return movesetsOf(f)[0]?.moves ?? []
 }
 
 export const ORIGIN_LABEL: Record<DojoFighter['origin'], string> = {
@@ -40,3 +45,40 @@ export const ORIGIN_LABEL: Record<DojoFighter['origin'], string> = {
 
 /** Two-digit roster number: `07`. */
 export const rosterNumber = (f: DojoFighter) => String(FIGHTERS.indexOf(f) + 1).padStart(2, '0')
+
+export type MovesetId = DojoMovelist['game']
+export interface Moveset {
+  id: MovesetId
+  label: string
+  /** Shown as the tab's tooltip. */
+  hint: string
+  moves: DojoMove[]
+  /** Where the list comes from, for the credit line under it. */
+  source: DojoMovelist['source']
+  verified: boolean
+}
+
+/**
+ * The move lists a fighter can be played with (or those of the fighter they borrow from): the game
+ * they come from first, then for Tekken 3's cast the Tag Tournament moveset of Tekken 3 Expanded's
+ * MOVESET card.
+ */
+export function movesetsOf(f: DojoFighter): Moveset[] {
+  const owner = f.movesFrom ?? f.id
+  const lists = MOVELISTS.filter((l) => l.fighter === owner)
+  const own = f.origin === 'ttt' ? 'ttt' : 't3'
+  lists.sort((a, b) => (a.game === own ? -1 : b.game === own ? 1 : 0))
+  return lists.map((l) => ({
+    id: l.game,
+    label: l.game === 't3' ? 'Tekken 3' : own === 'ttt' ? 'Tag Tournament' : 'TTT moveset',
+    hint:
+      l.game === 't3'
+        ? 'The moves of Tekken 3 itself'
+        : own === 'ttt'
+          ? 'Their Tag Tournament moves, as Tekken 3 Expanded plays them'
+          : 'Picked on the MOVESET card in Tekken 3 Expanded',
+    moves: l.moves,
+    source: l.source,
+    verified: l.verified
+  }))
+}

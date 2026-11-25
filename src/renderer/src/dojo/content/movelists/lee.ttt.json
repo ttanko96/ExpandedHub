@@ -1,0 +1,452 @@
+{
+ "schemaVersion": 1,
+ "fighter": "lee",
+ "game": "ttt",
+ "source": {
+  "title": "Lee Chaolan/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Forearm Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headlock Punch",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Lee Harassment",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Lee Stunner",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Face Crusher",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Knee Drive",
+   "input": "f,f+3+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Left Jab Rush",
+   "input": "1,1,1,1,1",
+   "kind": "string",
+   "hits": "h,h,h,h,h"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Lee Knuckle Combo",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Triple Head Kick",
+   "input": "3,3,3",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Mid Kick Combo",
+   "input": "f+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Triple Head Kick"
+  },
+  {
+   "name": "Feint Hammer",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m",
+   "when": "During Triple Head Kick"
+  },
+  {
+   "name": "Shaolin Spin Kicks",
+   "input": "4,3,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Machinegun Kicks",
+   "input": "4,4,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Crescent Kick",
+   "input": "4,u+3",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Hitman",
+   "input": "3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Freaker Jab",
+   "input": "1",
+   "kind": "poke",
+   "hits": "h",
+   "when": "During Hitman"
+  },
+  {
+   "name": "Freaker Jab Rush",
+   "input": "1,1,1",
+   "kind": "string",
+   "when": "During Hitman",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Scatter Blow",
+   "input": "2",
+   "kind": "launcher",
+   "hits": "m",
+   "when": "During Hitman"
+  },
+  {
+   "name": "Scatter Kick",
+   "input": "3",
+   "kind": "poke",
+   "hits": "h",
+   "when": "During Hitman"
+  },
+  {
+   "name": "Shin Slicer",
+   "input": "4",
+   "kind": "low",
+   "hits": "l",
+   "when": "During Hitman"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Rave War Combo",
+   "input": "f+2,2,2",
+   "kind": "string",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Silver Whip",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Silver Sting",
+   "input": "f+3+4",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Mist Step",
+   "input": "f,n",
+   "kind": "string"
+  },
+  {
+   "name": "Mid Kick",
+   "input": "d/f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Front Kick",
+   "input": "d/f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Silver Low",
+   "input": "d+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Shin to Head Kick",
+   "input": "d+4,n,4",
+   "kind": "string",
+   "hits": "l,h"
+  },
+  {
+   "name": "Shaolin Spin Kicks",
+   "input": "d+4,n,4,3,3",
+   "kind": "string",
+   "hits": "l,h,h,m"
+  },
+  {
+   "name": "Shaolin Spin Kicks",
+   "input": "d+4,n,4,3,4",
+   "kind": "string",
+   "hits": "l,h,h,h"
+  },
+  {
+   "name": "Laser Edge Machine Gun Kick",
+   "input": "d+4,n,4,4,4",
+   "kind": "string",
+   "hits": "l,h,h,h"
+  },
+  {
+   "name": "Laser Edge Crescent Kick",
+   "input": "d+4,n,4,u+3",
+   "kind": "string",
+   "hits": "l,h,m"
+  },
+  {
+   "name": "Laser Edge Kick Combo",
+   "input": "d+4,4,4,4",
+   "kind": "string",
+   "hits": "l,l,l,m"
+  },
+  {
+   "name": "Silver Cyclone",
+   "input": "d+3+4",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Bump Kick",
+   "input": "d/b+3",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Silver Fang",
+   "input": "d/b+1+2",
+   "kind": "power",
+   "hits": "!"
+  },
+  {
+   "name": "Triple Fang",
+   "input": "b+1,1,2",
+   "kind": "string",
+   "hits": "h,m,h"
+  },
+  {
+   "name": "Triple Fang to Hitman",
+   "input": "b+1,1,3+4",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Mist Kick",
+   "input": "b+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Mist Wolf Combination",
+   "input": "b+3,3",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Trick Kick",
+   "input": "b+3~3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Silver Heel",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Quick Silver Sting",
+   "input": "u/f+3",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Left Splits Kick",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Blazing Kick",
+   "input": "d,d/b+4",
+   "kind": "launcher",
+   "hits": "m"
+  },
+  {
+   "name": "Lee Cutter",
+   "input": "b,b+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Shredder Kick Combo High",
+   "input": "f,f,n,3,4,4",
+   "kind": "launcher",
+   "hits": "m,m,h"
+  },
+  {
+   "name": "Shredder Kick Combo Mid",
+   "input": "f,f,n,3,4,f+4",
+   "kind": "launcher",
+   "hits": "m,m,m"
+  },
+  {
+   "name": "Shredder Kick Combo Low",
+   "input": "f,f,n,3,4,d+4",
+   "kind": "launcher",
+   "hits": "m,m,l"
+  },
+  {
+   "name": "Spinning Slide Kick",
+   "input": "f,f,n,3+4",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Somersault",
+   "input": "b,b,n,3+4",
+   "kind": "string"
+  },
+  {
+   "name": "Infinite Kick Chain 1",
+   "input": "WS+3,3,d+3,n,3,3",
+   "kind": "string",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Infinite Kick Chain 2",
+   "input": "WS+3,3,d/f+3,n,3,3",
+   "kind": "string",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Low Variation",
+   "input": "d+3,3",
+   "kind": "string",
+   "when": "During Infinite Kick Chain",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "High Variation",
+   "input": "u+3,3",
+   "kind": "string",
+   "when": "During Infinite Kick Chain",
+   "note": "Keeps going while you press"
+  },
+  {
+   "name": "Silver Tail",
+   "input": "FC+d/f+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Fake",
+   "input": "FC+u,n",
+   "kind": "string"
+  },
+  {
+   "name": "Catapult Kick Low",
+   "input": "FC+u/f+4",
+   "kind": "launcher",
+   "hits": "m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Catapult Kick High",
+   "input": "FC+u/f+4",
+   "kind": "power",
+   "hits": "m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Catapult Drop",
+   "input": "FC+u/f+3+4",
+   "kind": "power",
+   "hits": "m,m",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Shin to Silver Cyclone",
+   "input": "d+4,3+4",
+   "kind": "string",
+   "hits": "l,!"
+  },
+  {
+   "name": "Silver Tail to Silver Fang",
+   "input": "FC+d/f+4,d/f+4~2~2~1",
+   "kind": "string",
+   "note": "Or: d"
+  },
+  {
+   "name": "Sliding",
+   "input": "FC+d/f,d,d/f+3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Rear Cross Punch",
+   "input": "SS+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Lee Screw Left",
+   "input": "SS+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Lee Screw Right",
+   "input": "SS+4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "d/f+1,2,2,1,3,3,3,4,3,4",
+   "kind": "string",
+   "hits": "m,h,m,h,h,l,h,h,h,m"
+  },
+  {
+   "name": "Mist Trap Throw",
+   "text": "b [3, 3] (when hit or guarded) 4",
+   "kind": "throw",
+   "hits": "t"
+  }
+ ]
+}

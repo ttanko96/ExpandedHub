@@ -1,0 +1,319 @@
+{
+ "schemaVersion": 1,
+ "fighter": "heihachi",
+ "game": "ttt",
+ "source": {
+  "title": "Heihachi Mishima/Tekken Tag Tournament Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Neck Breaker",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Jumping Powerbomb",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Guillotine Chop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Freefall",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Atomic Drop",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Also: 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Stonehead",
+   "input": "f,F+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Headbutt Carnival",
+   "input": "f,f+1+4",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Reverse Throw",
+   "input": "BT+1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4"
+  },
+  {
+   "name": "Flash Punch Combo",
+   "input": "1,1,2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Slayer",
+   "input": "1,2,2",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Demon Executioner",
+   "input": "1,2,2~1+2",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Fake Executioner",
+   "input": "1,2,2~1+2,u",
+   "kind": "string",
+   "hits": "h,h",
+   "note": "Or d"
+  },
+  {
+   "name": "Demon Kicker",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Demon Backhand Spin",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Demon Scissors",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Demon Breath",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Supercharger",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Demon Massacre",
+   "input": "f+1,b+2,1",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Demon Lair",
+   "input": "f+1,b+2,4",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Demon Shout",
+   "input": "f+2~1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Uraken",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Right Splits Kick",
+   "input": "f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Pistons",
+   "input": "WS+1,2",
+   "kind": "launcher",
+   "hits": "m,m"
+  },
+  {
+   "name": "Hammer Punch",
+   "input": "d+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Hammer Punch to Power Punch",
+   "input": "d+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Lightning Hammer",
+   "input": "d+1+4",
+   "kind": "special"
+  },
+  {
+   "name": "Altar Splitter",
+   "input": "b+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Demon's Boar",
+   "input": "b+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Hell Axle",
+   "input": "u/f+3,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Rising Sun",
+   "input": "u/f+4,4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Demon Uppercut",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Left Splits Kick",
+   "input": "f,F+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Shadow Step",
+   "input": "b,b,n,3+4",
+   "kind": "string"
+  },
+  {
+   "name": "Dragon Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Rising Uppercut",
+   "input": "f,n,d,d/f+2",
+   "kind": "launcher",
+   "hits": "h"
+  },
+  {
+   "name": "Jumping Mid Kick",
+   "input": "f,n,d,d/f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Jumping Low Kick",
+   "input": "f,n,d,D/F+3",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "Spinning Demon Uppercut",
+   "input": "f,n,d,d/f+4,n,1",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Tsunami Kick",
+   "input": "WS+4,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Heavy Power Punch",
+   "input": "qcf+2",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "f,n,d,D/F,u/f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Dark Thrust",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Auger",
+   "input": "2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "f,f,n,2,1,2,2,3,4,4,1,2,1",
+   "kind": "string",
+   "hits": "h,h,h,h,m,m,l,h,m,m"
+  },
+  {
+   "name": "10 hit combo 2",
+   "input": "d/f+3,2,2,4,4,1,4,1,2,4",
+   "kind": "string",
+   "hits": "m,h,h,l,l,m,h,h,m,m"
+  },
+  {
+   "name": "10 hit combo 3",
+   "input": "d/f+3,2,2,4,4,1,4,1,2,1",
+   "kind": "string",
+   "hits": "m,h,h,l,l,m,h,h,m,m"
+  },
+  {
+   "name": "10 hit combo 4",
+   "input": "d/f+3,2,2,4,4,1,2,1,2,1",
+   "kind": "string",
+   "hits": "m,h,h,l,l,m,h,m,m,m"
+  },
+  {
+   "name": "Charging Hard",
+   "text": "During Lightning Hammer",
+   "kind": "special"
+  },
+  {
+   "name": "Spinning Demon",
+   "text": "f, N, d, D/F (hold)+4, 4, 4",
+   "kind": "special"
+  },
+  {
+   "name": "Geta Stomping",
+   "text": "With opponent down d+4",
+   "kind": "special"
+  }
+ ]
+}

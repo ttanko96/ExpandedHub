@@ -9,7 +9,5 @@
   "unlock": "Kuma’s alternate, picked on Kuma’s place in the select screen.",
   "accent": "#e5e7eb",
   "order": 180,
-  "movesFrom": "kuma",
-  "verified": false,
-  "moves": []
+  "movesFrom": "kuma"
 }
