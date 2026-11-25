@@ -1,5 +1,5 @@
-import { AlertTriangle, ChevronLeft, ChevronRight, Dumbbell, Lock, Search } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { AlertTriangle, ChevronLeft, ChevronRight, Dumbbell, Search } from 'lucide-react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState, type CSSProperties } from 'react'
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Segmented } from '../components/ui/Segmented'
 import type { DojoFighter, DojoMove, MoveKind } from '@shared/dojo-schema'
@@ -41,6 +41,10 @@ export function FighterPage() {
   const [heroStep, setHeroStep] = useState<number | null>(null)
   const onHeroStep = useCallback((s: number | null) => setHeroStep(s), [])
   const portrait = usePortrait(fighter?.id ?? '')
+  // Opened from far down the roster (or through prev / next): start at the top, not where the roster was.
+  useLayoutEffect(() => {
+    document.querySelector('main')?.scrollTo({ top: 0 })
+  }, [id])
 
   // Grouped by kind, throws last; the order inside a kind stays as written.
   const sets = useMemo(() => (fighter ? movesetsOf(fighter) : []), [fighter])
@@ -64,6 +68,8 @@ export function FighterPage() {
   const prev = FIGHTERS[(index - 1 + FIGHTERS.length) % FIGHTERS.length]!
   const next = FIGHTERS[(index + 1) % FIGHTERS.length]!
   const lender = fighter.movesFrom ? fighterById(fighter.movesFrom) : undefined
+  // The other way round: who fights with this fighter's moves (Roger → Alex, Kuma → Panda, …).
+  const borrowers = FIGHTERS.filter((f) => f.movesFrom === fighter.id)
   // The hero always shows the fighter's own list's signature move.
   const heroMoves = (sets[0]?.moves ?? []).filter((m): m is DojoMove & { input: string } => !!m.input && !m.when)
   const signature = heroMoves.find((m) => m.name === fighter.signature) ?? heroMoves.find((m) => m.kind === 'launcher') ?? heroMoves[0]
@@ -71,6 +77,10 @@ export function FighterPage() {
 
   return (
     <div style={style} key={fighter.id}>
+      <Link to="/dojo/roster" className="-mt-3 mb-3 flex w-fit items-center gap-1 text-[13px] text-zinc-400 hover:text-fg">
+        <ChevronLeft size={15} /> Roster
+      </Link>
+
       {/* Hero */}
       <section className="relative isolate overflow-hidden rounded-3xl border border-line/[0.06] bg-ink-850">
         <span className="absolute -right-24 -top-20 -z-10 h-[180%] w-[46%] rotate-[20deg] bg-[var(--dojo-accent)] opacity-90" />
@@ -91,15 +101,16 @@ export function FighterPage() {
             src={portrait}
             alt=""
             draggable={false}
-            className="dojo-portrait pointer-events-none absolute bottom-0 right-[340px] -z-10 h-[118%] w-auto animate-fade-in object-contain drop-shadow-[0_16px_30px_rgba(0,0,0,0.6)]"
+            className={cx(
+              'dojo-portrait pointer-events-none absolute bottom-0 right-[340px] -z-10 h-[118%] w-auto animate-fade-in object-contain drop-shadow-[0_16px_30px_rgba(0,0,0,0.6)]',
+              // Lowered so the head stays inside the panel: Tag Tournament's portraits fill more of their frame.
+              fighter.origin === 'ttt' ? 'translate-y-[22%]' : 'translate-y-[15%]'
+            )}
           />
         )}
         <div className="flex min-h-[300px] items-stretch gap-8 p-8">
           <div className="flex min-w-0 flex-1 animate-fade-up flex-col">
-            <Link to="/dojo/roster" className="flex w-fit items-center gap-1 text-[13px] text-zinc-400 hover:text-fg">
-              <ChevronLeft size={15} /> Roster
-            </Link>
-            <div className="mt-4 flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <span className="font-display text-[15px] font-bold tracking-[0.2em] text-[color-mix(in_oklab,var(--dojo-accent)_65%,white)]">#{rosterNumber(fighter)}</span>
               {/* every game the fighter can be played with: their own, then the MOVESET card's */}
               {[...new Set([ORIGIN_LABEL[fighter.origin], ...sets.map((x) => GAME_LABEL[x.id])])].map((game) => (
@@ -107,11 +118,6 @@ export function FighterPage() {
                   {game}
                 </span>
               ))}
-              {fighter.unlock && (
-                <span className="flex items-center gap-1 rounded bg-ink-700 px-1.5 py-0.5 text-[11px] text-zinc-300">
-                  <Lock size={11} /> {fighter.unlock}
-                </span>
-              )}
             </div>
             <h2 className="mt-2 font-display text-[64px] font-bold uppercase italic leading-[0.9] tracking-[0.01em] text-fg">{fighter.name}</h2>
             <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-zinc-300">{fighter.tagline}</p>
@@ -172,6 +178,19 @@ export function FighterPage() {
               {lender.name}
             </Link>
             ’s moves.
+          </div>
+        )}
+        {borrowers.length > 0 && (
+          <div className="mb-4 text-[14px] text-zinc-400">
+            {borrowers.map((b, i) => (
+              <span key={b.id}>
+                {i > 0 && (i === borrowers.length - 1 ? ' and ' : ', ')}
+                <Link to={`/dojo/fighters/${b.id}`} className="font-semibold text-[var(--dojo-accent)] hover:underline">
+                  {b.name}
+                </Link>
+              </span>
+            ))}{' '}
+            {borrowers.length > 1 ? 'fight' : 'fights'} with {fighter.name}’s moves too.
           </div>
         )}
         {fighter.mimics && <Mimics fighterName={fighter.name} mimics={fighter.mimics} />}
@@ -264,17 +283,31 @@ function MoveRow({ move, accent, open, onToggle, onPractise }: { move: DojoMove;
         aria-expanded={open}
         onClick={onToggle}
         onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onToggle())}
-        className={cx('group grid cursor-pointer grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)_120px_110px] items-center gap-4 rounded-lg px-3 py-3 transition-colors', open ? 'bg-ink-850' : 'hover:bg-ink-850/60')}
+        className={cx('group grid cursor-pointer grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)_150px] items-center gap-4 rounded-lg px-3 py-3 transition-colors', open ? 'bg-ink-850' : 'hover:bg-ink-850/60')}
       >
-        <div className="min-w-0">
-          <div className="truncate text-[15px] font-semibold text-zinc-100">{move.name}</div>
-          <div className="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-zinc-500">{KIND_LABEL[move.kind].replace(/s$/, '')}</div>
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="min-w-0">
+            <div className="truncate text-[15px] font-semibold text-zinc-100">{move.name}</div>
+            <div className="font-display text-[12px] font-bold uppercase tracking-[0.12em] text-zinc-500">{KIND_LABEL[move.kind].replace(/s$/, '')}</div>
+          </div>
+          {/* beside the name, so long inputs and hit lists never run into it */}
+          {trainable && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                onPractise()
+              }}
+              className="ml-auto flex shrink-0 items-center gap-1.5 rounded-lg border border-ink-600 bg-ink-900 px-2.5 py-1 font-display text-[12px] font-bold uppercase tracking-[0.1em] text-zinc-300 opacity-0 transition-all hover:border-[var(--dojo-accent)] hover:text-fg group-hover:opacity-100 focus:opacity-100"
+            >
+              <Dumbbell size={13} /> Practise
+            </button>
+          )}
         </div>
         <div className="flex min-w-0 flex-wrap items-center gap-1.5">
           {move.when && <span className="rounded-md bg-ink-700 px-1.5 py-0.5 text-[12px] text-zinc-300">{move.when}</span>}
           {move.input ? <Notation input={move.input} activeStep={open ? step : null} /> : <span className="text-[13px] italic text-zinc-400">{move.text}</span>}
         </div>
-        <div className="flex gap-1">
+        <div className="flex flex-wrap justify-end gap-1">
           {(move.hits?.split(',') ?? []).map((h, i) => {
             const [label, cls] = HIT_STYLE[h] ?? [h, '']
             return (
@@ -283,19 +316,6 @@ function MoveRow({ move, accent, open, onToggle, onPractise }: { move: DojoMove;
               </span>
             )
           })}
-        </div>
-        <div className="flex justify-end">
-          {trainable && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                onPractise()
-              }}
-              className="flex items-center gap-1.5 rounded-lg border border-ink-600 px-2.5 py-1 font-display text-[12px] font-bold uppercase tracking-[0.1em] text-zinc-300 opacity-0 transition-all hover:border-[var(--dojo-accent)] hover:text-fg group-hover:opacity-100 focus:opacity-100"
-            >
-              <Dumbbell size={13} /> Practise
-            </button>
-          )}
         </div>
       </div>
       {open && (

@@ -46,8 +46,6 @@ export const DojoFighter = z.object({
   country: z.string().min(1),
   /** One line in our own words. */
   tagline: z.string().min(1),
-  /** How they are unlocked in Tekken 3 (PlayStation), when they are not there from the start. */
-  unlock: z.string().optional(),
   accent: hex,
   /** Order on the roster. */
   order: z.number().int(),

@@ -10,7 +10,7 @@
 /** The game's `mods` folder, relative to the installation (newest layout first). */
 export const PORTRAIT_MOD_DIRS = ['build-release/mods', 'mods']
 
-/** Dojo fighter id → the portrait file under `mods/`. Anna, Gon and Dr. B have none in Tekken 3 Expanded. */
+/** Dojo fighter id → the portrait file under `mods/`. Anna, Gon and Dr. B have none there: see `TMST_PORTRAIT_FILES`. */
 export const PORTRAIT_FILES: Record<string, string> = {
   // Tekken 3's cast: tools/arcade_stages/faces.py, face-<PS1 character ID>-portrait-hd.bin
   paul: 'arcade-stages/face-00-portrait-hd.bin',
@@ -54,6 +54,22 @@ export const PORTRAIT_FILES: Record<string, string> = {
   wang: 'ttt1/Wang-T3-portrait-hd.bin'
 }
 
+/**
+ * The TMST add-on renders its Tournament Mode portraits as PNGs when it is installed, Anna, Gon and
+ * Dr. B among them. The Dojo takes only those three from it (the rest come from the game above).
+ * The folder is relative to the add-on's installation, which sits at `addons/tmst` in Tekken 3 Expanded.
+ */
+export const TMST_PORTRAIT_DIR = 'workspace/tournament/portraits'
+export const TMST_IN_EXPANDED = 'addons/tmst'
+export const TMST_PORTRAIT_FILES: Record<string, string> = {
+  anna: 'anna.png',
+  gon: 'gon.png',
+  'dr-b': 'drb.png'
+}
+
+/** Every fighter the Dojo can show a portrait of. */
+export const PORTRAIT_FIGHTERS = new Set([...Object.keys(PORTRAIT_FILES), ...Object.keys(TMST_PORTRAIT_FILES)])
+
 export const PORTRAIT_WIDTH = 168
 export const PORTRAIT_HEIGHT = 252
 
@@ -73,6 +89,32 @@ export function decodePortrait(data: Uint8Array): Uint8Array | null {
     out[i * 4 + 1] = ((((v >> 5) & 31) * 255 + 15) / 31) | 0
     out[i * 4 + 2] = ((((v >> 10) & 31) * 255 + 15) / 31) | 0
     out[i * 4 + 3] = 255
+  }
+  return out
+}
+
+/**
+ * A TMST portrait as the Dojo shows it. TMST writes the PlayStation texture as it is: 126 x 252, RGB,
+ * see-through texels magenta (0xff00ff). The game draws it 4:3 wider, so it is stretched to
+ * PORTRAIT_WIDTH x PORTRAIT_HEIGHT (nearest texel, like the game's own portraits) and the magenta
+ * becomes transparent. Null when the picture is not PORTRAIT_HEIGHT tall.
+ */
+export function tmstPortrait(rgba: Uint8Array, width: number, height: number): Uint8Array | null {
+  if (height !== PORTRAIT_HEIGHT || width < 1 || rgba.length !== width * height * 4) return null
+  const out = new Uint8Array(PORTRAIT_WIDTH * PORTRAIT_HEIGHT * 4)
+  for (let y = 0; y < PORTRAIT_HEIGHT; y++) {
+    for (let x = 0; x < PORTRAIT_WIDTH; x++) {
+      const s = (y * width + Math.floor((x * width) / PORTRAIT_WIDTH)) * 4
+      const r = rgba[s]!
+      const g = rgba[s + 1]!
+      const b = rgba[s + 2]!
+      if ((r === 255 && g === 0 && b === 255) || rgba[s + 3] === 0) continue // transparent, already zero
+      const d = (y * PORTRAIT_WIDTH + x) * 4
+      out[d] = r
+      out[d + 1] = g
+      out[d + 2] = b
+      out[d + 3] = 255
+    }
   }
   return out
 }

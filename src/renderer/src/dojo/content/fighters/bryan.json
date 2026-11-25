@@ -6,8 +6,7 @@
   "style": "Kickboxing",
   "country": "United States",
   "tagline": "A brawler with a taunt for every hit he lands.",
-  "unlock": "Hidden: unlocked by finishing Arcade mode.",
-  "accent": "#78716c",
+  "accent": "#7386ab",
   "order": 110,
   "signature": "Snake Edge"
 }

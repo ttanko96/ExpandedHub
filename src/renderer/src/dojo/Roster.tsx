@@ -1,26 +1,47 @@
-import { Search } from 'lucide-react'
+import { ArrowDownAZ, Search } from 'lucide-react'
 import { useMemo, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import type { DojoFighter } from '@shared/dojo-schema'
 import { Segmented } from '../components/ui/Segmented'
 import { cx } from '../lib/format'
 import { FIGHTERS, movesOf, ORIGIN_LABEL, rosterNumber } from './content'
+import { PortraitHint } from './PortraitHint'
 import { usePortraits } from './portraits'
 
 type Filter = 'all' | 't3' | 'ttt'
+type Sort = 'default' | 'az'
+
+const SORT_KEY = 'expandedhub.dojoSort'
+function readSort(): Sort {
+  try {
+    return localStorage.getItem(SORT_KEY) === 'az' ? 'az' : 'default'
+  } catch {
+    return 'default'
+  }
+}
 const count = (o: DojoFighter['origin']) => FIGHTERS.filter((f) => f.origin === o).length
 
 export function Roster() {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
+  const [sort, setSortState] = useState<Sort>(readSort)
+  const setSort = (s: Sort) => {
+    setSortState(s)
+    try {
+      localStorage.setItem(SORT_KEY, s)
+    } catch {
+      /* the choice just is not remembered */
+    }
+  }
   const portraits = usePortraits()?.portraits ?? {}
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return FIGHTERS.filter((f) => {
+    const list = FIGHTERS.filter((f) => {
       if (filter !== 'all' && f.origin !== filter) return false
       return !q || [f.name, f.style, f.country].some((t) => t.toLowerCase().includes(q))
     })
-  }, [filter, query])
+    return sort === 'az' ? [...list].sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })) : list
+  }, [filter, query, sort])
 
   return (
     <div>
@@ -35,16 +56,38 @@ export function Roster() {
             { id: 'ttt', label: <>Tag Tournament <span className="text-[12px] text-zinc-500">{count('ttt')}</span></>, title: 'Added by Tekken 3 Expanded' }
           ]}
         />
-        <label className="flex h-10 w-[260px] items-center gap-2 rounded-lg border border-ink-600 bg-ink-850 px-3 text-zinc-500 focus-within:border-tekken-500/60">
-          <Search size={16} />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search fighters, styles…"
-            className="selectable w-full bg-transparent text-[14px] text-zinc-200 outline-none placeholder:text-zinc-600"
+        <div className="flex items-center gap-5">
+          <Segmented
+            label="Order"
+            value={sort}
+            onChange={setSort}
+            options={[
+              { id: 'default', label: 'Default', title: 'Roster order' },
+              {
+                id: 'az',
+                label: (
+                  <>
+                    <ArrowDownAZ size={14} className="shrink-0" />
+                    A–Z
+                  </>
+                ),
+                title: 'Alphabetical by name'
+              }
+            ]}
           />
-        </label>
+          <label className="flex h-10 w-[260px] items-center gap-2 rounded-lg border border-ink-600 bg-ink-850 px-3 text-zinc-500 focus-within:border-tekken-500/60">
+            <Search size={16} />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search fighters, styles…"
+              className="selectable w-full bg-transparent text-[14px] text-zinc-200 outline-none placeholder:text-zinc-600"
+            />
+          </label>
+        </div>
       </div>
+
+      <PortraitHint />
 
       <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {visible.map((f, i) => (

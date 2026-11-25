@@ -31,7 +31,11 @@ export function Segmented<T extends string>({
   useLayoutEffect(() => {
     const measure = () => {
       const el = buttons.current.get(value)
-      if (el) setPill({ left: el.offsetLeft, top: el.offsetTop, width: el.offsetWidth, height: el.offsetHeight })
+      if (!el) return
+      const next = { left: el.offsetLeft, top: el.offsetTop, width: el.offsetWidth, height: el.offsetHeight }
+      // Keep the same object when nothing moved: callers pass `options` inline, so a fresh
+      // object on every render would re-run this effect forever.
+      setPill((p) => (p && p.left === next.left && p.top === next.top && p.width === next.width && p.height === next.height ? p : next))
     }
     measure()
     // Labels can wrap or counts can change width: follow the button's size.

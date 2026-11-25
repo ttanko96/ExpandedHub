@@ -6,8 +6,7 @@
   "style": "Capoeira",
   "country": "Unknown",
   "tagline": "Eddy’s moves in disco clothes and a very big afro.",
-  "unlock": "Eddy’s alternate, once every hidden fighter is open.",
-  "accent": "#c026d3",
+  "accent": "#cdc83e",
   "order": 230,
   "movesFrom": "eddy"
 }

@@ -1,5 +1,6 @@
 import { FolderOpen, KeyRound, Moon, RotateCw, Sun } from 'lucide-react'
 import { useEffect, useState, type ReactNode } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import type { AppInfo, AppSettings, TokenValidation } from '@shared/types'
 import { GameFilesList } from '../components/install/GameFilesList'
 import { PageHeader } from '../components/layout/PageHeader'
@@ -23,7 +24,13 @@ type SectionId = (typeof SECTIONS)[number]['id']
 
 export function SettingsPage() {
   const { settings, updateSettings } = useHub()
-  const [section, setSection] = useState<SectionId>('general')
+  const [params] = useSearchParams()
+  const asked = SECTIONS.find((s) => s.id === params.get('section'))?.id
+  const [section, setSection] = useState<SectionId>(asked ?? 'general')
+  // A link such as /settings?section=dojo opens that section, also when Settings is already open.
+  useEffect(() => {
+    if (asked) setSection(asked)
+  }, [asked])
 
   if (!settings) return null
   const save = (patch: Parameters<typeof updateSettings>[0]) =>
@@ -291,7 +298,7 @@ function Dojo({ s, save }: SectionProps) {
     <Card title="Dojo">
       <Row
         label="Portraits from your games"
-        hint="Fighter portraits on the Dojo's cards and pages, from your own Tekken 3 Expanded installation. It cuts them from your own Tekken 3 arcade and Tag Tournament files when it is built; the hub turns them into images in its own data folder. Nothing is downloaded or uploaded, and switching this off deletes those images."
+        hint="Fighter portraits on the Dojo's cards and pages, from your own installed games. Tekken 3 Expanded cuts them from your Tekken 3 arcade and Tag Tournament files when it is built; Anna, Gon and Dr. B come from the TMST add-on's Tournament Mode. The hub copies them into its own data folder. Nothing is downloaded or uploaded, and switching this off deletes those images."
       >
         <Toggle checked={s.dojo.portraits} onChange={(v) => save({ dojo: { portraits: v } })} />
       </Row>
@@ -301,8 +308,8 @@ function Dojo({ s, save }: SectionProps) {
           : found === null
             ? 'Looking for portraits…'
             : count > 0
-              ? `${count} portraits found in Tekken 3 Expanded. Fighters without one keep the drawn card.`
-              : 'No portraits found: install Tekken 3 Expanded with your Tekken 3 arcade and Tag Tournament files to get them.'}
+              ? `${count} portraits found. Fighters without one keep the drawn card${found?.portraits.anna ? '' : ': install the TMST add-on for Anna, Gon and Dr. B'}.`
+              : 'No portraits found: install Tekken 3 Expanded with your Tekken 3 arcade and Tag Tournament files, and the TMST add-on for Anna, Gon and Dr. B.'}
       </div>
     </Card>
   )

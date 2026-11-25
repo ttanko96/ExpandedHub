@@ -6,7 +6,7 @@
   "style": "Changes style during the fight",
   "country": "Unknown",
   "tagline": "A shadow that falls back on Jun’s style and switches to others on L1.",
-  "accent": "#6d28d9",
+  "accent": "#3b34b0",
   "order": 1170,
   "mimics": {
     "fighters": [
