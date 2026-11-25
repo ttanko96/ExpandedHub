@@ -50,6 +50,9 @@ const api: HubApi = {
     extras: (projectId) => ipcRenderer.invoke(IpcChannels.installExtras, projectId),
     screenshots: (projectId) => ipcRenderer.invoke(IpcChannels.installScreenshots, projectId)
   },
+  dojo: {
+    portraits: () => ipcRenderer.invoke(IpcChannels.dojoPortraits)
+  },
   changelog: {
     pending: () => ipcRenderer.invoke(IpcChannels.changelogPending),
     dismiss: (id) => ipcRenderer.invoke(IpcChannels.changelogDismiss, id),

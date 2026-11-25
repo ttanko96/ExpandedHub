@@ -34,10 +34,16 @@ describe('dojo fighters', () => {
     expect(new Set(fighters.map((f) => f.order)).size).toBe(fighters.length)
   })
 
-  it('gives every fighter a move list, their own or a borrowed one', () => {
-    const random = ['mokujin', 'tetsujin'] // a new style every round
+  it('gives every fighter a move list, their own, a borrowed one, or the styles they copy', () => {
     for (const f of fighters) {
-      if (random.includes(f.id)) continue
+      if (f.mimics) {
+        expect(listsOf(f.id), `${f.id} copies others`).toEqual([])
+        for (const id of f.mimics.fighters) {
+          expect(ids.has(id), `${f.id} copies ${id}`).toBe(true)
+          expect(listsOf(id).some((l) => l.game === f.mimics!.moveset), `${f.id}: ${id} has a ${f.mimics.moveset} list`).toBe(true)
+        }
+        continue
+      }
       if (f.movesFrom) {
         expect(ids.has(f.movesFrom), f.id).toBe(true)
         expect(listsOf(f.id), `${f.id} borrows its lists`).toEqual([])
@@ -53,6 +59,15 @@ describe('dojo fighters', () => {
       const list = listsOf(f.movesFrom ?? f.id).find((l) => l.game === own)!
       expect(list.moves.some((m) => m.name === f.signature && m.input), `${f.id}: ${f.signature}`).toBe(true)
     }
+  })
+})
+
+describe('the copying fighters', () => {
+  it('copy as many styles as in the games', () => {
+    const count = (id: string) => fighters.find((f) => f.id === id)!.mimics!.fighters.length
+    expect(count('unknown')).toBe(23)
+    expect(count('tetsujin')).toBe(12)
+    expect(count('mokujin')).toBe(15)
   })
 })
 
@@ -74,6 +89,10 @@ describe('dojo move lists', () => {
       }
     }
     expect(drawable).toBeGreaterThan(3000)
+  })
+
+  it("give Jin his Tekken 5 DR moveset, Tekken 3 Expanded's third MOVESET choice", () => {
+    expect(lists.filter((l) => l.game === 't5dr').map((l) => l.fighter)).toEqual(['jin'])
   })
 
   it('give the TTT moveset to the 18 fighters with a MOVESET card in Tekken 3 Expanded', () => {

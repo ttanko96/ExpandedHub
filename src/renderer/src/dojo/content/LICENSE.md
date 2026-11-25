@@ -15,8 +15,8 @@ see `movelists/LICENSE.md`.
   under that source's licence, with the page named in its `source`. Only the hub's own words go in
   `fighters/` and `tours/`.
 - **No game assets.** No artwork, renders, sprites, screenshots, logos, sounds or fonts from the games. The Dojo's
-  visuals are drawn by the hub itself. A project's own screenshots are shown only from that project's
-  installed folder on the player's PC.
+  visuals are drawn by the hub itself. A project's own screenshots, and the fighter portraits Tekken 3 Expanded
+  cuts from the player's own files (Settings → Dojo), are shown only from that installation on the player's PC.
 - **Mark what you checked.** Set `"verified": true` on a move list only after its commands were tried in the game.
 
 Tekken is a trademark of Bandai Namco Entertainment. ExpandedHub is an unofficial fan project and is not affiliated

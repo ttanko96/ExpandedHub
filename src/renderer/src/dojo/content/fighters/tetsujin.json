@@ -7,5 +7,23 @@
   "country": "Japan",
   "tagline": "Mokujin’s metal cousin: a new moveset every round.",
   "accent": "#d4d4d8",
-  "order": 1180
+  "order": 1180,
+  "mimics": {
+    "fighters": [
+      "kazuya",
+      "kunimitsu",
+      "michelle",
+      "baek",
+      "armor-king",
+      "bruce",
+      "jack-2",
+      "lee",
+      "ganryu",
+      "p-jack",
+      "roger",
+      "jun"
+    ],
+    "moveset": "ttt",
+    "how": "Draws one of these 12 movesets at random at the start of every round, with their Tag Tournament moves."
+  }
 }

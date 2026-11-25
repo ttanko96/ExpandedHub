@@ -1,9 +1,11 @@
 import { AlertTriangle, RefreshCw, Search, Star } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import { hostProjectId, type ProjectDefinition } from '@shared/registry-schema'
 import type { ProjectStatus, RateLimitInfo } from '@shared/types'
 import { FirstRunDialog } from '../components/install/FirstRunDialog'
 import { ModCard } from '../components/mods/ModCard'
+import { ModsTabs } from '../components/mods/ModsTabs'
 import { Segmented } from '../components/ui/Segmented'
 import { Label, LABEL_LEGEND } from '../components/ui/Label'
 import { cx, relativeTime } from '../lib/format'
@@ -28,8 +30,48 @@ const FILTERS: { id: Filter; label: string; match: (s: ProjectStatus) => boolean
   { id: 'available', label: 'Not installed', match: (s) => s === 'install-available' || s === 'not-installed' }
 ]
 
+/**
+ * The Mods page's frame: the header with its sections (Library, Mod Tours, Fix-it) stays while the
+ * section below changes, so the tabs' highlight slides from one to the next.
+ */
+export function ModsLayout() {
+  const { summary, refresh } = useHub()
+  const { pathname } = useLocation()
+  const title = pathname.startsWith('/mods/tours') ? 'Mod Tours' : pathname.startsWith('/mods/fix-it') ? 'Fix-it' : 'Mod Library'
+  return (
+    <div className="mx-auto max-w-[1280px] px-8 pb-16 pt-8">
+      <FirstRunDialog />
+      <div className="flex items-end justify-between gap-6">
+        <div className="flex items-end gap-6">
+          <div>
+            <div className="font-display text-[13px] font-bold uppercase tracking-[0.3em] text-tekken-500">
+              Supported projects
+            </div>
+            <h1 className="mt-1 font-display text-[44px] font-bold uppercase italic leading-none tracking-[0.02em] text-fg">
+              {title}
+            </h1>
+          </div>
+          <ModsTabs />
+        </div>
+        <UpdateCheckStatus
+          running={summary?.running ?? false}
+          lastSuccessAt={summary?.lastSuccessAt ?? null}
+          lastError={summary?.lastError ?? null}
+          mock={summary?.source === 'mock'}
+          rateLimit={summary?.rateLimit ?? null}
+          onRefresh={() => void refresh()}
+        />
+      </div>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+    </div>
+  )
+}
+
+/** The library: every supported project, filtered, searched and sorted. */
 export function ModsPage() {
-  const { projects, states, summary, issues, ready, refresh, loadError } = useHub()
+  const { projects, states, issues, ready, loadError } = useHub()
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
   const [sort, setSortState] = useState<Sort>(readSort)
@@ -74,28 +116,7 @@ export function ModsPage() {
   }, [visible, sort, states])
 
   return (
-    <div className="mx-auto max-w-[1280px] px-8 pb-16 pt-8">
-      <FirstRunDialog />
-      {/* Header */}
-      <div className="flex items-end justify-between gap-6">
-        <div>
-          <div className="font-display text-[13px] font-bold uppercase tracking-[0.3em] text-tekken-500">
-            Supported projects
-          </div>
-          <h1 className="mt-1 font-display text-[44px] font-bold uppercase italic leading-none tracking-[0.02em] text-fg">
-            Mod Library
-          </h1>
-        </div>
-        <UpdateCheckStatus
-          running={summary?.running ?? false}
-          lastSuccessAt={summary?.lastSuccessAt ?? null}
-          lastError={summary?.lastError ?? null}
-          mock={summary?.source === 'mock'}
-          rateLimit={summary?.rateLimit ?? null}
-          onRefresh={() => void refresh()}
-        />
-      </div>
-
+    <div>
       {/* Toolbar */}
       <div className="mt-7 flex items-center justify-between gap-4 border-b border-line/[0.06] pb-4">
         <Segmented

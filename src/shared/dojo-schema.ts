@@ -54,19 +54,31 @@ export const DojoFighter = z.object({
   /** A fighter who fights with someone else's moves (Panda with Kuma's): their lists are shown. */
   movesFrom: z.string().optional(),
   /** The move shown big on their page, by name, from their first move list. */
-  signature: z.string().optional()
+  signature: z.string().optional(),
+  /**
+   * A fighter with no moves of their own who copies others (Mokujin, Tetsujin, Unknown): whose
+   * moves, from which of their move lists, and how, in our own words.
+   */
+  mimics: z
+    .object({
+      fighters: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1),
+      moveset: z.enum(['t3', 'ttt']),
+      how: z.string().min(1)
+    })
+    .optional()
 })
 export type DojoFighter = z.infer<typeof DojoFighter>
 
 /**
  * A fighter's full move list in one game, in `content/movelists/` (CC BY-SA 3.0, from the Tekken wiki;
  * see that folder's LICENSE.md). `t3`: Tekken 3's own moves; `ttt`: Tag Tournament's, which
- * Tekken 3 Expanded plays (for Tekken 3's cast, on the MOVESET card).
+ * Tekken 3 Expanded plays (for Tekken 3's cast, on the MOVESET card); `t5dr`: Tekken 5 DR's, from
+ * Tekken 3 Expanded's Tekken 5 DR Content add-on (Jin's third MOVESET choice).
  */
 export const DojoMovelist = z.object({
   schemaVersion: z.literal(1),
   fighter: z.string().regex(/^[a-z0-9-]+$/),
-  game: z.enum(['t3', 'ttt']),
+  game: z.enum(['t3', 'ttt', 't5dr']),
   source: z.object({ title: z.string().min(1), site: z.string().min(1), license: z.string().min(1) }),
   /** True once someone checked every command in the game. */
   verified: z.boolean().default(false),

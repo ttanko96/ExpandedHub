@@ -8,5 +8,33 @@
   "tagline": "A shadow that falls back on Jun’s style and switches to others on L1.",
   "accent": "#6d28d9",
   "order": 1170,
-  "movesFrom": "jun"
+  "mimics": {
+    "fighters": [
+      "paul",
+      "law",
+      "lei",
+      "king",
+      "yoshimitsu",
+      "nina",
+      "hwoarang",
+      "xiaoyu",
+      "eddy",
+      "jin",
+      "julia",
+      "bryan",
+      "heihachi",
+      "anna",
+      "kazuya",
+      "michelle",
+      "wang",
+      "lee",
+      "armor-king",
+      "kunimitsu",
+      "jun",
+      "bruce",
+      "baek"
+    ],
+    "moveset": "ttt",
+    "how": "Starts every round in Jun’s style and switches to another of these 23 with L1, always with their Tag Tournament moves. As the CPU she switches on her own."
+  }
 }

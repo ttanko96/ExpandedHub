@@ -1,12 +1,13 @@
 import { AlertTriangle, ChevronLeft, ChevronRight, Dumbbell, Lock, Search } from 'lucide-react'
-import { useCallback, useMemo, useState, type CSSProperties } from 'react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { Link, Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Segmented } from '../components/ui/Segmented'
-import type { DojoMove, MoveKind } from '@shared/dojo-schema'
+import type { DojoFighter, DojoMove, MoveKind } from '@shared/dojo-schema'
 import { trainerTargets } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
-import { FIGHTERS, fighterById, movesetsOf, ORIGIN_LABEL, rosterNumber, type MovesetId } from './content'
+import { FIGHTERS, fighterById, GAME_LABEL, movesetsOf, ORIGIN_LABEL, rosterNumber, type MovesetId } from './content'
 import { InputPad, Notation } from './InputGlyphs'
+import { usePortrait, usePortraits } from './portraits'
 
 const KIND_LABEL: Record<MoveKind, string> = {
   string: 'Strings',
@@ -39,10 +40,14 @@ export function FighterPage() {
   const [open, setOpen] = useState<string | null>(null)
   const [heroStep, setHeroStep] = useState<number | null>(null)
   const onHeroStep = useCallback((s: number | null) => setHeroStep(s), [])
+  const portrait = usePortrait(fighter?.id ?? '')
 
   // Grouped by kind, throws last; the order inside a kind stays as written.
   const sets = useMemo(() => (fighter ? movesetsOf(fighter) : []), [fighter])
-  const [setId, setSetId] = useState<MovesetId | null>(null)
+  // A link can open a given moveset (?set=ttt), as Unknown's and Tetsujin's do.
+  const [params] = useSearchParams()
+  const [setId, setSetId] = useState<MovesetId | null>((params.get('set') as MovesetId | null) ?? null)
+  useEffect(() => setSetId((params.get('set') as MovesetId | null) ?? null), [id, params])
   const active = sets.find((x) => x.id === setId) ?? sets[0]
   const moves = useMemo(
     () => (active ? [...active.moves].sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)) : []),
@@ -79,6 +84,16 @@ export function FighterPage() {
           {fighter.name}
         </span>
 
+        {/* the player's own portrait, from their Tekken 3 Expanded (Settings → Dojo) */}
+        {portrait && (
+          <img
+            key={portrait}
+            src={portrait}
+            alt=""
+            draggable={false}
+            className="dojo-portrait pointer-events-none absolute bottom-0 right-[340px] -z-10 h-[118%] w-auto animate-fade-in object-contain drop-shadow-[0_16px_30px_rgba(0,0,0,0.6)]"
+          />
+        )}
         <div className="flex min-h-[300px] items-stretch gap-8 p-8">
           <div className="flex min-w-0 flex-1 animate-fade-up flex-col">
             <Link to="/dojo/roster" className="flex w-fit items-center gap-1 text-[13px] text-zinc-400 hover:text-fg">
@@ -86,9 +101,12 @@ export function FighterPage() {
             </Link>
             <div className="mt-4 flex items-center gap-2">
               <span className="font-display text-[15px] font-bold tracking-[0.2em] text-[color-mix(in_oklab,var(--dojo-accent)_65%,white)]">#{rosterNumber(fighter)}</span>
-              <span className="rounded bg-ink-700 px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-300">
-                {ORIGIN_LABEL[fighter.origin]}
-              </span>
+              {/* every game the fighter can be played with: their own, then the MOVESET card's */}
+              {[...new Set([ORIGIN_LABEL[fighter.origin], ...sets.map((x) => GAME_LABEL[x.id])])].map((game) => (
+                <span key={game} className="rounded bg-ink-700 px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-300">
+                  {game}
+                </span>
+              ))}
               {fighter.unlock && (
                 <span className="flex items-center gap-1 rounded bg-ink-700 px-1.5 py-0.5 text-[11px] text-zinc-300">
                   <Lock size={11} /> {fighter.unlock}
@@ -100,7 +118,10 @@ export function FighterPage() {
             <dl className="mt-auto flex gap-10 pt-6">
               <Fact label="Style" value={fighter.style} />
               <Fact label="From" value={fighter.country} />
-              <Fact label="Moves" value={lender ? `${lender.name}'s` : moves.length > 0 ? String(moves.length) : 'Random'} />
+              <Fact
+                label="Moves"
+                value={lender ? `${lender.name}'s` : fighter.mimics ? `${fighter.mimics.fighters.length} styles` : String(moves.length)}
+              />
             </dl>
           </div>
 
@@ -133,7 +154,6 @@ export function FighterPage() {
               }}
               options={sets.map((x) => ({ id: x.id, label: x.label, title: x.hint }))}
             />
-            <span className="text-[13px] text-zinc-500">{active!.hint}.</span>
           </div>
         )}
         {active && !active.verified && (
@@ -154,11 +174,7 @@ export function FighterPage() {
             ’s moves.
           </div>
         )}
-        {moves.length === 0 && (
-          <div className="rounded-2xl border border-dashed border-ink-600 py-12 text-center text-zinc-500">
-            {fighter.name} copies a random fighter’s style each round, so there is no list of their own.
-          </div>
-        )}
+        {fighter.mimics && <Mimics fighterName={fighter.name} mimics={fighter.mimics} />}
 
         {moves.length > 0 && (
           <>
@@ -319,5 +335,51 @@ function NeighbourLink({ to, name, accent, dir }: { to: string; name: string; ac
         </span>
       </span>
     </Link>
+  )
+}
+
+/** A copying fighter's page: the fighters whose moves they take, each linking to that moveset. */
+function Mimics({ fighterName, mimics }: { fighterName: string; mimics: NonNullable<DojoFighter['mimics']> }) {
+  const portraits = usePortraits()?.portraits ?? {}
+  const fighters = mimics.fighters.map((id) => fighterById(id)).filter((f): f is DojoFighter => !!f)
+  return (
+    <div>
+      <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <h3 className="font-display text-[22px] font-bold uppercase text-fg">Fights with their moves</h3>
+        <span className="text-[14px] text-zinc-400">{mimics.how}</span>
+      </div>
+      <p className="mb-4 text-[13px] text-zinc-500">
+        {fighterName} has no move list of their own: open a fighter to see the moves {fighterName} uses with their style
+        ({mimics.moveset === 'ttt' ? 'their Tag Tournament moveset' : 'their Tekken 3 moves'}).
+      </p>
+      <div className="grid grid-cols-3 gap-3 md:grid-cols-4 xl:grid-cols-6">
+        {fighters.map((f, i) => (
+          <Link
+            key={f.id}
+            to={`/dojo/fighters/${f.id}?set=${mimics.moveset}`}
+            style={{ '--dojo-accent': f.accent, animationDelay: `${Math.min(i, 24) * 20}ms` } as CSSProperties}
+            className="group relative isolate flex h-[104px] animate-fade-up items-end overflow-hidden rounded-xl border border-line/[0.06] bg-ink-850 p-3 transition-all hover:-translate-y-0.5 hover:border-[var(--dojo-accent)]/60"
+          >
+            <span className="absolute -right-6 -top-4 -z-10 h-[150%] w-12 rotate-[20deg] bg-[var(--dojo-accent)] opacity-80 transition-all duration-300 group-hover:w-16" />
+            {portraits[f.id] && (
+              <img
+                src={portraits[f.id]}
+                alt=""
+                draggable={false}
+                className="dojo-portrait pointer-events-none absolute -right-1 bottom-0 -z-10 h-[92%] w-auto object-contain"
+              />
+            )}
+            {portraits[f.id] && <span className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-ink-850 to-transparent" />}
+            <span className="font-display text-[16px] font-bold uppercase italic leading-[0.95] text-fg">
+              {f.name.split(' ').map((w, j) => (
+                <span key={j} className="block">
+                  {w}
+                </span>
+              ))}
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
   )
 }

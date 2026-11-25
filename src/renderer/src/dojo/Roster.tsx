@@ -1,22 +1,23 @@
-import { Lock, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { useMemo, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import type { DojoFighter } from '@shared/dojo-schema'
 import { Segmented } from '../components/ui/Segmented'
 import { cx } from '../lib/format'
 import { FIGHTERS, movesOf, ORIGIN_LABEL, rosterNumber } from './content'
+import { usePortraits } from './portraits'
 
-type Filter = 'all' | 'start' | 'hidden' | 'ttt'
+type Filter = 'all' | 't3' | 'ttt'
+const count = (o: DojoFighter['origin']) => FIGHTERS.filter((f) => f.origin === o).length
 
 export function Roster() {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
+  const portraits = usePortraits()?.portraits ?? {}
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
     return FIGHTERS.filter((f) => {
-      if (filter === 'start' && (f.origin !== 't3' || f.unlock)) return false
-      if (filter === 'hidden' && (f.origin !== 't3' || !f.unlock)) return false
-      if (filter === 'ttt' && f.origin !== 'ttt') return false
+      if (filter !== 'all' && f.origin !== filter) return false
       return !q || [f.name, f.style, f.country].some((t) => t.toLowerCase().includes(q))
     })
   }, [filter, query])
@@ -30,9 +31,8 @@ export function Roster() {
           onChange={setFilter}
           options={[
             { id: 'all', label: <>All <span className="text-[12px] text-zinc-500">{FIGHTERS.length}</span></> },
-            { id: 'start', label: 'From the start' },
-            { id: 'hidden', label: 'Hidden' },
-            { id: 'ttt', label: 'Tag Tournament', title: 'Added by Tekken 3 Expanded' }
+            { id: 't3', label: <>Tekken 3 <span className="text-[12px] text-zinc-500">{count('t3')}</span></>, title: "Tekken 3's own cast" },
+            { id: 'ttt', label: <>Tag Tournament <span className="text-[12px] text-zinc-500">{count('ttt')}</span></>, title: 'Added by Tekken 3 Expanded' }
           ]}
         />
         <label className="flex h-10 w-[260px] items-center gap-2 rounded-lg border border-ink-600 bg-ink-850 px-3 text-zinc-500 focus-within:border-tekken-500/60">
@@ -48,7 +48,7 @@ export function Roster() {
 
       <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {visible.map((f, i) => (
-          <FighterCard key={f.id} fighter={f} index={i} />
+          <FighterCard key={f.id} fighter={f} index={i} portrait={portraits[f.id]} />
         ))}
       </div>
       {visible.length === 0 && (
@@ -59,7 +59,7 @@ export function Roster() {
 }
 
 /** A roster card: the hub's own typographic art (number, name, a slash of the fighter's colour). */
-function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: number }) {
+function FighterCard({ fighter: f, index, portrait }: { fighter: DojoFighter; index: number; portrait?: string }) {
   const moves = movesOf(f).length
   return (
     <Link
@@ -70,6 +70,18 @@ function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: numbe
       {/* colour slash */}
       <span className="absolute -right-10 -top-6 -z-10 h-[140%] w-24 rotate-[20deg] bg-[var(--dojo-accent)] opacity-80 transition-all duration-500 ease-out group-hover:-right-4 group-hover:w-40 group-hover:opacity-100" />
       <span className="absolute -right-16 top-0 -z-10 h-[140%] w-6 rotate-[20deg] bg-[var(--dojo-accent)] opacity-30 transition-all duration-500 ease-out group-hover:-right-1" />
+      {/* the player's own portrait, from their Tekken 3 Expanded (Settings → Dojo) */}
+      {portrait && (
+        <>
+          <img
+            src={portrait}
+            alt=""
+            draggable={false}
+            className="dojo-portrait pointer-events-none absolute -right-2 bottom-0 -z-10 h-[84%] w-auto origin-bottom object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+          />
+          <span className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[55%] bg-gradient-to-t from-ink-850 via-ink-850/75 to-transparent" />
+        </>
+      )}
       {/* big outlined number */}
       <span
         className="pointer-events-none absolute -left-1 -top-3 -z-10 font-display text-[96px] font-bold italic leading-none text-transparent opacity-40 transition-opacity group-hover:opacity-70"
@@ -80,20 +92,12 @@ function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: numbe
 
       <div className="flex items-start justify-between">
         <span className="rounded bg-ink-900/70 px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-400">{f.country}</span>
-        {f.origin !== 't3' ? (
-          <span
-            title={`${ORIGIN_LABEL[f.origin]}: added by Tekken 3 Expanded`}
-            className="rounded bg-ink-900/80 px-1.5 py-0.5 font-display text-[11px] font-bold tracking-[0.14em] text-white"
-          >
-            TTT
-          </span>
-        ) : (
-          f.unlock && (
-            <span title={f.unlock} className="rounded-full bg-ink-900/70 p-1 text-zinc-300">
-              <Lock size={12} />
-            </span>
-          )
-        )}
+        <span
+          title={f.origin === 't3' ? "Tekken 3's own cast" : `${ORIGIN_LABEL[f.origin]}: added by Tekken 3 Expanded`}
+          className="rounded bg-ink-900/80 px-1.5 py-0.5 font-display text-[11px] font-bold tracking-[0.14em] text-white"
+        >
+          {f.origin === 't3' ? 'T3' : 'TTT'}
+        </span>
       </div>
 
       <div className="mt-auto">
@@ -106,7 +110,7 @@ function FighterCard({ fighter: f, index }: { fighter: DojoFighter; index: numbe
         </div>
         <div className="mt-2 line-clamp-2 max-w-[68%] text-[12px] leading-snug text-zinc-400">{f.style}</div>
         <div className="mt-2 font-display text-[12px] font-bold uppercase tracking-[0.14em] text-[color-mix(in_oklab,var(--dojo-accent)_65%,white)]">
-          {f.movesFrom ? 'Shared moves' : moves > 0 ? `${moves} moves` : 'Random style'}
+          {f.movesFrom ? 'Shared moves' : f.mimics ? `Copies ${f.mimics.fighters.length} styles` : `${moves} moves`}
         </div>
       </div>
     </Link>

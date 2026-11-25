@@ -1,14 +1,16 @@
 import { Download, LayoutGrid, Settings, Swords } from 'lucide-react'
+import { TONES, type Tone } from '../../lib/tones'
 import { NavLink } from 'react-router-dom'
 import { cx } from '../../lib/format'
 import { useHub } from '../../store/hub-store'
 import { HubUpdateBadge } from './HubUpdateBadge'
 
-const NAV = [
-  { to: '/mods', label: 'Mods', icon: LayoutGrid },
-  { to: '/dojo', label: 'Dojo', icon: Swords },
-  { to: '/downloads', label: 'Downloads', icon: Download },
-  { to: '/settings', label: 'Settings', icon: Settings }
+/** Each tab wears its page's colour (the backdrop's) when it is the one open. */
+const NAV: { to: string; label: string; icon: typeof LayoutGrid; tone: Tone }[] = [
+  { to: '/mods', label: 'Mods', icon: LayoutGrid, tone: 'mods' },
+  { to: '/dojo', label: 'Dojo', icon: Swords, tone: 'dojo' },
+  { to: '/downloads', label: 'Downloads', icon: Download, tone: 'downloads' },
+  { to: '/settings', label: 'Settings', icon: Settings, tone: 'settings' }
 ]
 
 const isMac = navigator.userAgent.includes('Mac')
@@ -25,7 +27,7 @@ export function TopNav() {
     >
       <Logo />
       <nav className="no-drag flex h-full items-stretch gap-1">
-        {NAV.map(({ to, label, icon: Icon }) => (
+        {NAV.map(({ to, label, icon: Icon, tone }) => (
           <NavLink
             key={to}
             to={to}
@@ -38,7 +40,7 @@ export function TopNav() {
           >
             {({ isActive }) => (
               <>
-                <Icon size={16} className={isActive ? 'text-tekken-500' : ''} />
+                <Icon size={16} className="transition-colors duration-300" style={isActive ? { color: `rgb(${TONES[tone]})` } : undefined} />
                 {label}
                 {to === '/mods' && updates > 0 && (
                   <span className="ml-0.5 rounded-full bg-emerald-500 px-1.5 text-[11px] leading-[17px] text-ink-950">
@@ -47,9 +49,10 @@ export function TopNav() {
                 )}
                 <span
                   className={cx(
-                    'absolute inset-x-3 bottom-0 h-[3px] rounded-t-full bg-tekken-500 transition-transform duration-200',
-                    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-50 group-hover:bg-ink-500'
+                    'absolute inset-x-3 bottom-0 h-[3px] rounded-t-full transition-[transform,background-color] duration-200',
+                    isActive ? 'scale-x-100' : 'scale-x-0 bg-ink-500 group-hover:scale-x-50'
                   )}
+                  style={isActive ? { backgroundColor: `rgb(${TONES[tone]})` } : undefined}
                 />
               </>
             )}

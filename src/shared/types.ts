@@ -203,6 +203,20 @@ export interface AppSettings {
     /** The first-start window for choosing game files was shown (and closed). */
     gameFilesPrompted: boolean
   }
+  dojo: {
+    /** Show fighter portraits from the player's own Tekken 3 Expanded installation. */
+    portraits: boolean
+  }
+}
+
+/** The Dojo's fighter portraits available now (see `@shared/dojo-portraits`). */
+export interface DojoPortraits {
+  /** The switch in Settings → Dojo. */
+  enabled: boolean
+  /** The installation they come from; null when none has them. */
+  source: 'tekken3-expanded' | null
+  /** Fighter id → `expandedhub-media://portrait/...` URL. */
+  portraits: Record<string, string>
 }
 
 export type DeepPartial<T> = { [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K] }

@@ -20,7 +20,8 @@ function defaults(): AppSettings {
       buildEnv: join(root, 'build-env')
     },
     advanced: { debug: false, demoMode: false },
-    onboarding: { gameFilesPrompted: false }
+    onboarding: { gameFilesPrompted: false },
+    dojo: { portraits: true }
   }
 }
 

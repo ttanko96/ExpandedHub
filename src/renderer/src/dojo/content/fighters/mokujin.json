@@ -8,5 +8,26 @@
   "tagline": "A training dummy of ancient wood that takes a random style every round.",
   "unlock": "Hidden: unlocked by finishing Arcade mode.",
   "accent": "#a16207",
-  "order": 190
+  "order": 190,
+  "mimics": {
+    "fighters": [
+      "paul",
+      "law",
+      "lei",
+      "king",
+      "yoshimitsu",
+      "nina",
+      "hwoarang",
+      "xiaoyu",
+      "eddy",
+      "jin",
+      "julia",
+      "kuma",
+      "bryan",
+      "heihachi",
+      "gun-jack"
+    ],
+    "moveset": "t3",
+    "how": "Copies one of these fighters at random every round, with their Tekken 3 moves. It cannot copy Ogre, True Ogre, Gon, Dr. B or Anna."
+  }
 }

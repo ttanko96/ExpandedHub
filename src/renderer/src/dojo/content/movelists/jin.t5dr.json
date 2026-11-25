@@ -1,0 +1,472 @@
+{
+ "schemaVersion": 1,
+ "fighter": "jin",
+ "game": "t5dr",
+ "source": {
+  "title": "Jin Kazama/Tekken 5 : Dark Resurrection Movelist",
+  "site": "Tekken Wiki (tekken.fandom.com)",
+  "license": "CC BY-SA 3.0"
+ },
+ "moves": [
+  {
+   "name": "Double Face Kick",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or f+1+3"
+  },
+  {
+   "name": "Over the Shoulder Reverse",
+   "input": "2+4",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or f+2+4"
+  },
+  {
+   "name": "Shoulder Flip",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the left"
+  },
+  {
+   "name": "Over the Limit",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the right"
+  },
+  {
+   "name": "Pivoting Hip Throw",
+   "input": "1+3",
+   "kind": "throw",
+   "hits": "t",
+   "note": "Or 2+4",
+   "when": "From the back"
+  },
+  {
+   "name": "Tidal Wave",
+   "input": "u/f+1+2",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Complicated Wire",
+   "input": "d,d/b,b+1+3",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Left Right Combo",
+   "input": "1,2",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "Left Right Axe Kick",
+   "input": "1,2,3",
+   "kind": "string",
+   "hits": "h,h,m"
+  },
+  {
+   "name": "Left Right to Spinning Hook Kick",
+   "input": "1,2,4",
+   "kind": "string",
+   "hits": "h,h,h"
+  },
+  {
+   "name": "Kazama Style 5 Hit Combo",
+   "input": "1,3,2,1,4",
+   "kind": "string",
+   "hits": "h,h,m,m,l"
+  },
+  {
+   "name": "Feint Kick Combo",
+   "input": "1,3~3,d/f+3",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Left Jab to Left Low Kick",
+   "input": "1,d+3",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Double Thrust Roundhouse",
+   "input": "2,1,4",
+   "kind": "string",
+   "hits": "h,m,m"
+  },
+  {
+   "name": "Double Thrust Low Trick Kick",
+   "input": "2,1,4~4",
+   "kind": "string",
+   "hits": "h,m,l"
+  },
+  {
+   "name": "Switch Blade",
+   "input": "2,4",
+   "kind": "string",
+   "hits": "h,h"
+  },
+  {
+   "name": "High Right Roundhouse",
+   "input": "4",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Spinning Flare Kick",
+   "input": "4~3",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Median Line Destruction",
+   "input": "1+2",
+   "kind": "poke",
+   "hits": "m,m,m,m"
+  },
+  {
+   "name": "Ki Charge",
+   "input": "1+2+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "Right Elbow",
+   "input": "f+2",
+   "kind": "poke",
+   "hits": "h"
+  },
+  {
+   "name": "Left Roundhouse",
+   "input": "f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Stinger",
+   "input": "f+3~3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Heat Seeker",
+   "input": "f+3~3,d/f+3",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Front Thrust Kick",
+   "input": "f+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Double Chamber Punch",
+   "input": "f+1+2",
+   "kind": "poke",
+   "hits": "h,h"
+  },
+  {
+   "name": "Thrust to Roundhouse",
+   "input": "d/f+1,4",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Thrust to Low Trick Kick",
+   "input": "d/f+1,4~4",
+   "kind": "string",
+   "hits": "m,l"
+  },
+  {
+   "name": "Uppercut",
+   "input": "d/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Left Sidekick",
+   "input": "d/f+3",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Blade Kick",
+   "input": "d/f+4",
+   "kind": "power",
+   "hits": "m"
+  },
+  {
+   "name": "Corpse Thrust",
+   "input": "d+1",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Knee Popper to Sidekick",
+   "input": "d+3,3",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Right Sweep",
+   "input": "d+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Double Lift Kick",
+   "input": "d+3+4",
+   "kind": "poke",
+   "hits": "m,h"
+  },
+  {
+   "name": "Savage Sword",
+   "input": "d/b+2,2,3",
+   "kind": "string",
+   "hits": "m,h,m"
+  },
+  {
+   "name": "Left Spinning Back Kick 2",
+   "input": "d/b+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Right Low Roundhouse",
+   "input": "d/b+4",
+   "kind": "low",
+   "hits": "l"
+  },
+  {
+   "name": "Mental Alertness 2",
+   "input": "b+1",
+   "kind": "special"
+  },
+  {
+   "name": "Left Drill Punch",
+   "input": "2,1",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Mental Alertness"
+  },
+  {
+   "name": "Spine Cracker",
+   "input": "2,1,2",
+   "kind": "string",
+   "hits": "m,m",
+   "when": "During Mental Alertness"
+  },
+  {
+   "name": "Suigetsu Strike",
+   "input": "2,2",
+   "kind": "string",
+   "hits": "m",
+   "when": "During Mental Alertness"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "2,3",
+   "kind": "string",
+   "hits": "h",
+   "when": "During Mental Alertness"
+  },
+  {
+   "name": "Right Sweep 2",
+   "input": "2,4",
+   "kind": "string",
+   "hits": "l",
+   "when": "During Mental Alertness"
+  },
+  {
+   "name": "Right Backfist to Left Roundhouse",
+   "input": "b+2,3",
+   "kind": "string",
+   "hits": "h,m"
+  },
+  {
+   "name": "Left Crescent to Low Roundhouse",
+   "input": "b+3,4",
+   "kind": "string",
+   "hits": "h,l"
+  },
+  {
+   "name": "Spinning Sidekick",
+   "input": "b+4",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Power Stance",
+   "input": "b+1+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Lingering Soul Omen",
+   "input": "b+1+2,d,u,b,f",
+   "kind": "string"
+  },
+  {
+   "name": "Soul Rage Wind Hook Fist",
+   "input": "f,n,d,d/f+2",
+   "kind": "string",
+   "hits": "h",
+   "when": "During Soul Omen"
+  },
+  {
+   "name": "Soul Rage Lunging Low Roundhouse",
+   "input": "f,n,d,D/F+4",
+   "kind": "string",
+   "hits": "l",
+   "when": "During Soul Omen"
+  },
+  {
+   "name": "Soul Rage 8 Hit Combo",
+   "input": "1,2,3,1,3,2,1,4",
+   "kind": "string",
+   "hits": "h,h,m,h,h,m,m",
+   "when": "During Soul Omen"
+  },
+  {
+   "name": "Evading Middle Strike",
+   "input": "u/f+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Spinning High Kick",
+   "input": "u/f+3",
+   "kind": "power",
+   "hits": "h",
+   "note": "Or u or u/b"
+  },
+  {
+   "name": "Front Jump Kick",
+   "input": "u/f+4",
+   "kind": "poke",
+   "hits": "m",
+   "note": "Or u"
+  },
+  {
+   "name": "Demon's Paw",
+   "input": "f,f+2",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Left Axe Kick",
+   "input": "f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Kazama Style 6 Hit Combo",
+   "input": "f,f+3,1,3,2,1,4",
+   "kind": "string",
+   "hits": "m,h,h,m,m,l"
+  },
+  {
+   "name": "Right Axe Kick",
+   "input": "f,f+4",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Evil Intent",
+   "input": "b,f+2,1,2",
+   "kind": "string",
+   "hits": "m,h,m"
+  },
+  {
+   "name": "Thrusting Uppercut",
+   "input": "f,n,d,d/f+1",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Right Roundhouse Punch",
+   "input": "f,n,d,d/f+2",
+   "kind": "string",
+   "hits": "h"
+  },
+  {
+   "name": "Lunging Low Roundhouse Kick (L.L.R.K)",
+   "input": "f,n,d,d/f+4",
+   "kind": "string",
+   "hits": "l"
+  },
+  {
+   "name": "L.L.R.K to Spinning Flare Kick",
+   "input": "f,n,d,d/f+4,3+4",
+   "kind": "string",
+   "hits": "l,m"
+  },
+  {
+   "name": "Leaping Side Kick",
+   "input": "f,f,f+3",
+   "kind": "string",
+   "hits": "m"
+  },
+  {
+   "name": "Twin Lancer",
+   "input": "WS+1,2",
+   "kind": "string",
+   "hits": "m,m"
+  },
+  {
+   "name": "Crouching Uppercut",
+   "input": "WS+2",
+   "kind": "poke",
+   "hits": "m"
+  },
+  {
+   "name": "Left Spinning Back Kick",
+   "input": "WS+3",
+   "kind": "power",
+   "hits": "h"
+  },
+  {
+   "name": "Mental Alertness 1",
+   "input": "1+3+4",
+   "kind": "special"
+  },
+  {
+   "name": "10 hit combo 1",
+   "input": "f+2,3,3,3,2,1,2,3,4,2",
+   "kind": "string",
+   "hits": "h,l,m,h,m,m,m,h,l,h"
+  },
+  {
+   "name": "Parry",
+   "text": "Synchro with the opponent's attack, b+1+3 (or b+2+4)",
+   "kind": "throw",
+   "hits": "t"
+  },
+  {
+   "name": "Avenger",
+   "text": "u/b+1+2 (b, b to cancel)",
+   "kind": "special"
+  },
+  {
+   "name": "Thrusting Uppercut",
+   "text": "f, N, d, d/f+1 (press at the same time)",
+   "kind": "special"
+  },
+  {
+   "name": "Electric Wind Hook Fist",
+   "text": "f, N, d, d/f+2 (press at the same time)",
+   "kind": "special"
+  },
+  {
+   "name": "Black Out",
+   "text": "(With opponent down) d+2",
+   "kind": "special"
+  }
+ ]
+}

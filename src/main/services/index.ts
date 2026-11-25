@@ -4,6 +4,7 @@ import { OperationsService } from './downloads/operations-service'
 import { LifecycleService } from './install/lifecycle'
 import { AdoptService } from './install/adopt-service'
 import { GalleryService } from './install/gallery-service'
+import { PortraitService } from './dojo/portrait-service'
 import { InstallPlanner } from './install/planner'
 import { SourcesService } from './install/sources-service'
 import { ToolsService } from './install/tools-service'
@@ -34,6 +35,15 @@ export function createServices() {
   const lifecycle = new LifecycleService(registry, settings, installed, tools)
   const adopt = new AdoptService(registry, installed, updates)
   const gallery = new GalleryService(registry, installed)
+  const portraits = new PortraitService({
+    installed: () => installed.all(),
+    enabled: async () => (await settings.get()).dojo.portraits,
+    cacheDir: () => join(paths.userData(), 'dojo-portraits')
+  })
+  // Switched off: the converted copies go too.
+  settings.onChange((s) => {
+    if (!s.dojo.portraits) void portraits.clear()
+  })
   const hubUpdater = new HubUpdater(tokens)
   const changelog = new ChangelogService({
     userData: paths.userData(),
@@ -55,7 +65,7 @@ export function createServices() {
     hubVersion: app.getVersion(),
     logsDir: join(paths.userData(), 'logs')
   })
-  return { hubUpdater, reports, changelog, settings, registry, tokens, installed, updates, sources, tools, planner, operations, lifecycle, adopt, gallery }
+  return { hubUpdater, reports, changelog, settings, registry, tokens, installed, updates, sources, tools, planner, operations, lifecycle, adopt, gallery, portraits }
 }
 
 export type Services = ReturnType<typeof createServices>

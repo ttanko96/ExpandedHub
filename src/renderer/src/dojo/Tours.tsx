@@ -93,8 +93,8 @@ export function Tours() {
   }, [current, count])
 
   if (tours.length === 0) return <div className="rounded-2xl border border-dashed border-ink-600 py-16 text-center text-zinc-500">No tours yet.</div>
-  if (!projectId) return <Navigate to={`/dojo/tours/${tours[0]!.tour.projectId}`} replace />
-  if (!current) return <Navigate to="/dojo/tours" replace />
+  if (!projectId) return <Navigate to={`/mods/tours/${tours[0]!.tour.projectId}`} replace />
+  if (!current) return <Navigate to="/mods/tours" replace />
 
   const { tour, project } = current
   const accent = project!.artwork.accent
@@ -111,7 +111,7 @@ export function Tours() {
           return (
             <button
               key={t.projectId}
-              onClick={() => navigate(`/dojo/tours/${t.projectId}`)}
+              onClick={() => navigate(`/mods/tours/${t.projectId}`)}
               style={{ '--tile': p!.artwork.accent } as CSSProperties}
               className={cx(
                 'group flex items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-all',

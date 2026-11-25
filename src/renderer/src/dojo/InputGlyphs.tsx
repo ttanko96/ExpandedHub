@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { tryParse, type Button, type Dir, type DirMatch, type Link, type Prefix, type Step, type Target } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
 
@@ -40,13 +40,21 @@ const DIR_TITLE: Record<Dir, string> = {
   'd/b': 'Down-back'
 }
 
+/**
+ * True on the P2 side: the fighter faces left, so forward is drawn pointing left. The commands
+ * stay the same (f is always towards the opponent); only the drawing turns round.
+ */
+export const MirrorContext = createContext(false)
+
 type Size = 'sm' | 'md' | 'lg'
 const PX: Record<Size, number> = { sm: 22, md: 28, lg: 44 }
 
 export function DirGlyph({ dir, hold, size = 'md', state }: { dir: DirMatch; hold?: boolean; size?: Size; state?: GlyphState }) {
   const px = PX[size]
   const title = dir === null ? 'Any direction' : dir === 'down' ? 'Down (any down)' : dir === 'ss' ? 'Up or down (sidestep)' : `${DIR_TITLE[dir]}${hold ? ', held' : ''}`
-  const angle = dir === null || dir === 'n' ? null : dir === 'down' ? 90 : dir === 'ss' ? null : ANGLE[dir]
+  const mirror = useContext(MirrorContext)
+  const base = dir === null || dir === 'n' ? null : dir === 'down' ? 90 : dir === 'ss' ? null : ANGLE[dir]
+  const angle = base === null ? null : mirror ? (540 - base) % 360 : base
   return (
     <span
       title={title}
@@ -273,7 +281,9 @@ export function InputPad({
   // The last frame's step is one past the command: the pause before the loop starts again.
   useEffect(() => onStep?.(step), [step, onStep])
 
-  const [ox, oy] = OFFSET[current.dir]
+  const sx = useContext(MirrorContext) ? -1 : 1
+  const [ox0, oy] = OFFSET[current.dir]
+  const ox = ox0 * sx
   const cx0 = 62
   const cy0 = 60
   const bx = cx0 + ox * 26
@@ -292,7 +302,8 @@ export function InputPad({
       {/* gate */}
       <circle cx={cx0} cy={cy0} r={44} className="fill-ink-850 stroke-line/10" strokeWidth={2} />
       {(Object.keys(ANGLE) as Exclude<Dir, 'n'>[]).map((d) => {
-        const [dx, dy] = OFFSET[d]
+        const [dx0, dy] = OFFSET[d]
+        const dx = dx0 * sx
         const on = current.dir === d
         return <circle key={d} cx={cx0 + dx * 36} cy={cy0 + dy * 36} r={on ? 4 : 2.5} fill={on ? accent : 'currentColor'} className={on ? '' : 'text-zinc-600'} />
       })}

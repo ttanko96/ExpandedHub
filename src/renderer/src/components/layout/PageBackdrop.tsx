@@ -1,19 +1,5 @@
 import { useLocation } from 'react-router-dom'
-
-type Tone = 'mods' | 'downloads' | 'settings'
-
-/** Each page's glow colour: the mods red, downloads green, settings violet. */
-const TONES: Record<Tone, string> = {
-  mods: '216, 30, 52',
-  downloads: '16, 185, 129',
-  settings: '139, 92, 246'
-}
-
-function toneFor(path: string): Tone {
-  if (path.startsWith('/downloads')) return 'downloads'
-  if (path.startsWith('/settings')) return 'settings'
-  return 'mods'
-}
+import { TONES, toneFor, type Tone } from '../../lib/tones'
 
 /**
  * A soft glow whose brightness falls off along a bell curve and reaches

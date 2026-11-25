@@ -8,11 +8,12 @@ import { Toaster } from './components/layout/Toaster'
 import { TopNav } from './components/layout/TopNav'
 import { WhatsNewDialog } from './components/layout/WhatsNewDialog'
 import { ModDetailPage } from './pages/ModDetailPage'
-import { ModsPage } from './pages/ModsPage'
+import { ModsLayout, ModsPage } from './pages/ModsPage'
 import { useHub } from './store/hub-store'
 
 // The landing page loads eagerly; everything else on first visit, for a faster start.
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage').then((m) => ({ default: m.DownloadsPage })))
+const ModsToolsPage = lazy(() => import('./pages/ModsToolsPage').then((m) => ({ default: m.ModsToolsPage })))
 const DojoPage = lazy(() => import('./pages/DojoPage').then((m) => ({ default: m.DojoPage })))
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then((m) => ({ default: m.SettingsPage })))
 
@@ -51,7 +52,12 @@ export function App() {
         <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/mods" replace />} />
-          <Route path="/mods" element={<ModsPage />} />
+          <Route path="/mods" element={<ModsLayout />}>
+            <Route index element={<ModsPage />} />
+            <Route path="tours" element={<ModsToolsPage section="tours" />} />
+            <Route path="tours/:projectId" element={<ModsToolsPage section="tours" />} />
+            <Route path="fix-it" element={<ModsToolsPage section="fix-it" />} />
+          </Route>
           <Route path="/mods/:id" element={<ModDetailPage />} />
           <Route path="/dojo/*" element={<DojoPage />} />
           <Route path="/downloads" element={<DownloadsPage />} />

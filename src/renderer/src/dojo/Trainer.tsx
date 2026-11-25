@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { InputMatcher, trainerTargets, type Button, type Dir, type MatchEvent } from '@shared/dojo-notation'
 import { cx } from '../lib/format'
 import { FIGHTERS, fighterById, movesetsOf } from './content'
-import { ButtonGlyph, DirGlyph, InputPad, Notation, TargetGlyphs } from './InputGlyphs'
+import { ButtonGlyph, DirGlyph, InputPad, MirrorContext, Notation, TargetGlyphs } from './InputGlyphs'
 
 interface Drill {
   key: string
@@ -267,6 +267,7 @@ export function Trainer() {
   const accuracy = stats.tries > 0 ? Math.round((stats.clean / stats.tries) * 100) : null
 
   return (
+    <MirrorContext.Provider value={!facingRight}>
     <div className="grid grid-cols-[300px_minmax(0,1fr)] gap-6" style={{ '--dojo-accent': accent } as CSSProperties}>
       {/* Drill list */}
       <aside className="flex max-h-[680px] flex-col rounded-2xl border border-line/[0.06] bg-ink-850 p-3">
@@ -403,6 +404,7 @@ export function Trainer() {
         </div>
       </section>
     </div>
+    </MirrorContext.Provider>
   )
 }
 

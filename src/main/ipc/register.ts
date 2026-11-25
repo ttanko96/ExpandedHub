@@ -28,7 +28,7 @@ export function isAllowedExternalUrl(url: string): boolean {
 }
 
 export function registerIpc(services: Services): void {
-  const { hubUpdater, reports, changelog, registry, settings, updates, operations, planner, sources, lifecycle, tools, adopt, gallery } = services
+  const { hubUpdater, reports, changelog, registry, settings, updates, operations, planner, sources, lifecycle, tools, adopt, gallery, portraits } = services
 
   ipcMain.handle(IpcChannels.registryGet, () => registry.get())
   ipcMain.handle(IpcChannels.registryReload, async () => {
@@ -145,6 +145,7 @@ export function registerIpc(services: Services): void {
   ipcMain.handle(IpcChannels.installVersions, (_e, id: unknown) => planner.versions(str(id)))
   ipcMain.handle(IpcChannels.installExtras, (_e, id: unknown) => planner.extras(str(id)))
   ipcMain.handle(IpcChannels.installScreenshots, (_e, id: unknown) => gallery.list(str(id)))
+  ipcMain.handle(IpcChannels.dojoPortraits, () => portraits.list())
   ipcMain.handle(IpcChannels.projectLaunch, (_e, id: unknown) => lifecycle.launch(str(id)))
   ipcMain.handle(IpcChannels.projectStop, (_e, id: unknown) => lifecycle.stop(str(id)))
   ipcMain.handle(IpcChannels.projectRunning, () => lifecycle.running())

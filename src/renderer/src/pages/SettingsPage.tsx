@@ -5,6 +5,7 @@ import { GameFilesList } from '../components/install/GameFilesList'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Button } from '../components/ui/Button'
 import { Segmented } from '../components/ui/Segmented'
+import { usePortraits } from '../dojo/portraits'
 import { cx, relativeTime } from '../lib/format'
 import { useHub } from '../store/hub-store'
 import { toast } from '../store/toast-store'
@@ -14,6 +15,7 @@ const SECTIONS = [
   { id: 'directories', label: 'Directories' },
   { id: 'iso', label: 'ISO Management' },
   { id: 'github', label: 'GitHub' },
+  { id: 'dojo', label: 'Dojo' },
   { id: 'advanced', label: 'Advanced' }
 ] as const
 
@@ -50,6 +52,7 @@ export function SettingsPage() {
           {section === 'directories' && <Directories s={settings} save={save} />}
           {section === 'iso' && <Iso />}
           {section === 'github' && <GitHub />}
+          {section === 'dojo' && <Dojo s={settings} save={save} />}
           {section === 'advanced' && <Advanced s={settings} save={save} />}
         </div>
       </div>
@@ -278,6 +281,30 @@ function Card({ title, note, children }: { title: string; note?: string; childre
       </div>
       <div className="divide-y divide-line/[0.04] px-6">{children}</div>
     </section>
+  )
+}
+
+function Dojo({ s, save }: SectionProps) {
+  const found = usePortraits()
+  const count = Object.keys(found?.portraits ?? {}).length
+  return (
+    <Card title="Dojo">
+      <Row
+        label="Portraits from your games"
+        hint="Fighter portraits on the Dojo's cards and pages, from your own Tekken 3 Expanded installation. It cuts them from your own Tekken 3 arcade and Tag Tournament files when it is built; the hub turns them into images in its own data folder. Nothing is downloaded or uploaded, and switching this off deletes those images."
+      >
+        <Toggle checked={s.dojo.portraits} onChange={(v) => save({ dojo: { portraits: v } })} />
+      </Row>
+      <div className="px-1 pb-2 pt-1 text-[13px] text-zinc-500">
+        {!s.dojo.portraits
+          ? 'Off: the Dojo shows its own drawn cards.'
+          : found === null
+            ? 'Looking for portraits…'
+            : count > 0
+              ? `${count} portraits found in Tekken 3 Expanded. Fighters without one keep the drawn card.`
+              : 'No portraits found: install Tekken 3 Expanded with your Tekken 3 arcade and Tag Tournament files to get them.'}
+      </div>
+    </Card>
   )
 }
 

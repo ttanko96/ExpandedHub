@@ -7,6 +7,7 @@ import type {
   AppInfo,
   AppSettings,
   DeepPartial,
+  DojoPortraits,
   AdoptResult,
   ChangelogEntry,
   IssueReport,
@@ -43,6 +44,7 @@ export const IpcChannels = {
   installVersions: 'install:versions',
   installExtras: 'install:extras',
   installScreenshots: 'install:screenshots',
+  dojoPortraits: 'dojo:portraits',
   projectLaunch: 'project:launch',
   projectStop: 'project:stop',
   projectRunning: 'project:running',
@@ -138,6 +140,10 @@ export interface HubApi {
     extras(projectId: string): Promise<ExtraStatus[]>
     /** The screenshots an installed project ships (`install.screenshots`); empty when none. */
     screenshots(projectId: string): Promise<Screenshot[]>
+  }
+  dojo: {
+    /** Fighter portraits from the player's own Tekken 3 Expanded (converted on first use); none when switched off. */
+    portraits(): Promise<DojoPortraits>
   }
   changelog: {
     /** What's new entries not seen yet: updated projects, and the hub itself after it updated. Oldest first. */

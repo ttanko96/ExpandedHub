@@ -47,6 +47,9 @@ export const ORIGIN_LABEL: Record<DojoFighter['origin'], string> = {
 export const rosterNumber = (f: DojoFighter) => String(FIGHTERS.indexOf(f) + 1).padStart(2, '0')
 
 export type MovesetId = DojoMovelist['game']
+
+/** A game's short name: the moveset tabs and the badges on a fighter's page. */
+export const GAME_LABEL: Record<MovesetId, string> = { t3: 'Tekken 3', ttt: 'Tag Tournament', t5dr: 'Tekken 5 DR' }
 export interface Moveset {
   id: MovesetId
   label: string
@@ -67,16 +70,20 @@ export function movesetsOf(f: DojoFighter): Moveset[] {
   const owner = f.movesFrom ?? f.id
   const lists = MOVELISTS.filter((l) => l.fighter === owner)
   const own = f.origin === 'ttt' ? 'ttt' : 't3'
-  lists.sort((a, b) => (a.game === own ? -1 : b.game === own ? 1 : 0))
+  // Their own game's list first, then the MOVESET card's choices in its order.
+  const rank = (g: MovesetId) => (g === own ? 0 : g === 'ttt' ? 1 : 2)
+  lists.sort((a, b) => rank(a.game) - rank(b.game))
   return lists.map((l) => ({
     id: l.game,
-    label: l.game === 't3' ? 'Tekken 3' : own === 'ttt' ? 'Tag Tournament' : 'TTT moveset',
+    label: GAME_LABEL[l.game],
     hint:
       l.game === 't3'
         ? 'The moves of Tekken 3 itself'
-        : own === 'ttt'
-          ? 'Their Tag Tournament moves, as Tekken 3 Expanded plays them'
-          : 'Picked on the MOVESET card in Tekken 3 Expanded',
+        : l.game === 't5dr'
+          ? 'The third choice on the MOVESET card, with Tekken 3 Expanded’s Tekken 5 DR Content add-on'
+          : own === 'ttt'
+            ? 'Their Tag Tournament moves, as Tekken 3 Expanded plays them'
+            : 'Picked on the MOVESET card in Tekken 3 Expanded',
     moves: l.moves,
     source: l.source,
     verified: l.verified

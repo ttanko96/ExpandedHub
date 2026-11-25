@@ -125,6 +125,16 @@ if (!app.requestSingleInstanceLock()) {
         const shot = project && name ? await services.gallery.path(project, name) : null
         return shot ? net.fetch(pathToFileURL(shot).toString()) : new Response('Not found', { status: 404 })
       }
+      if (u.hostname === 'portrait') {
+        let name = ''
+        try {
+          name = decodeURIComponent(u.pathname.replace(/^\//, ''))
+        } catch {
+          /* a malformed name is not found */
+        }
+        const file = name ? await services.portraits.path(name) : null
+        return file ? net.fetch(pathToFileURL(file).toString()) : new Response('Not found', { status: 404 })
+      }
       return new Response('Not found', { status: 404 })
     })
     await applySystemSettings()
